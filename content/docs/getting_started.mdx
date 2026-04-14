@@ -1,0 +1,176 @@
+
+import { Card, Cards, FileTree, Callout } from 'nextra/components'
+
+# Getting Started
+
+## Installation 
+
+### NPM 
+```sh copy
+npm install --save-dev aliascss
+```
+
+### CDN 
+```html copy
+<script defer src="https://cdn.jsdelivr.net/npm/aliascss@latest/dist/aliascss.js"></script>
+```
+
+## Recommended way of using AliasCSS
+
+First install aliascss via npm,
+
+```sh copy
+npm install --save-dev aliascss
+```
+
+Then, create a `aliascss.config.js` file in your project root directory.
+
+### `aliascss.config.js`
+ The config file must have at least input and output property.
+
+ Basic structure of config file
+```js copy  showLineNumbers filename="aliascss.config.js"
+ const config= {
+    input:['app/**/*.(jsx|tsx)', 'components/**/*.(jsx|tsx)'],
+    output:{
+      location:'public/css/master.css',
+      '--file':true,
+    },
+}
+export default config;
+```
+Here, the `aliascss.config.js` file must export config object as default with at least input and output properties, input property accept glob pattern or array of glob pattern .
+`--file`(optional) set to true  will generate [filename].css for each and every file in their same file location.
+<Callout type="info">
+You are recommended to create output css file manually.
+</Callout>
+Now, you can use easily create and compile the aliascss.
+
+```sh copy
+ npx aliascss --config
+  ```
+
+  #### Watch for changes
+
+  ###### To watch and automatically compile , you can use  ` --watch ` flag.
+
+  ```sh copy
+  npx aliascss --config --watch
+  ```
+
+### when `--file` is set to `true`  
+    It will creates css file for each and every file having valid aliascss class names at the same location of 
+    current working/processing file with the same filename added with .css extension.
+    ###### For example if you have the following structure:
+
+        <FileTree>
+        <FileTree.Folder name="app" defaultOpen>
+            <FileTree.File name="page.jsx" />
+            <FileTree.File name="article.jsx" />
+            <FileTree.Folder name="about" defaultOpen>
+            <FileTree.File name="page.jsx" />
+            </FileTree.Folder>
+        </FileTree.Folder>
+        </FileTree>
+
+        And aliascss.config.js 
+
+  ```js  copy
+    const config={
+        input:'app/**/*.jsx',
+        output:{
+          location:'public/css/app.css',
+          '--file':true
+      },
+    }
+    export default config;
+     ```
+        Then, after running following command with `--file` set to true
+
+        ```sh copy
+            npx aliascss --config --watch
+        ```
+        ###### Folder structure becomes
+             <FileTree>
+            <FileTree.Folder name="app" defaultOpen>
+                <FileTree.File name="page.jsx" />
+                <FileTree.File name="page.jsx.css" />
+                <FileTree.File name="article.jsx" />
+                <FileTree.File name="article.jsx.css" />
+                <FileTree.Folder name="about" defaultOpen>
+                <FileTree.File name="page.jsx" />
+                <FileTree.File name="page.jsx.css" />
+                </FileTree.Folder>
+                </FileTree.Folder>
+            </FileTree>
+
+  Now you can simply import the corresponding css file in your application which support components based css import like next.js / sveltekit 
+###### Example , in Next.js app we can simply import the compile file
+
+  ` @ app/page.jsx`
+  ```jsx
+  import './page.jsx.css'
+
+    export default function Home() {
+        return (
+             <h1 className="fs-12px color-gray500" >Hello, World</h1>
+        )
+    }
+  
+  ```
+
+  #### Using `package.json`
+  ```json
+    ....
+ "scripts": {
+    ...
+    "aliascss-build": "aliascss --config",
+    "aliascss-watch": "aliascss-build --watch",
+  }
+  ...
+  ```
+  Now you can run npm script,
+    ###### build
+    ```shell
+    npm run aliascss-build
+    ```
+    ###### build and watch
+    ```shell
+    npm run aliascss-watch
+    ```
+   
+    {/* #### Module import conflict FIX
+    If you get module import error , then you need to change `aliascss.config.js` to `aliascss.config.mjs`
+    and tou need to add `--module flag`.
+
+    ###### Fix module import error
+     add `mjs` extension to aliascss.config file i.e `aliascss.config.mjs`.
+     Use `--module` flag.
+
+     ```shell
+        npx aliascss-ts --config --module 
+
+        ```
+        ```shell
+        npx aliascss-ts --config --watch --module 
+
+        ```
+
+        ```shell
+        npx aliascss-ts --config --watch --file --module 
+
+        ``` 
+
+        #### Using `package.json` incase of `aliascss.config.mjs` 
+  ```json
+    ....
+ "scripts": {
+    ...
+    "aliascss-build": "aliascss-ts --config --module",
+    "aliascss-file": "aliascss-build --file --module",
+    "aliascss-watch": "aliascss-build --watch --module",
+    "aliascss-watch-file": "aliascss-build --watch --file --module"
+  }
+  ...
+  ```
+  */}

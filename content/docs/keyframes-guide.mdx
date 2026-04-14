@@ -1,0 +1,69 @@
+## Keyframes 
+AliasCSS provides custom attribute  'keyframes-[name]' which can be used to define CSS keyframes declaration.
+
+```html copy
+      <div  class="bgc-ecf0f1 oh w-100p h-100px pa t-0 l-0 df aic acc jcc" 
+        keyframes-loading="@100-transform-scale-2 @100-border-color-gray600">
+            <span class="dot" class-dot="br-100p b-5px-solid-555 m-10px an-loading adu-0d6s atf-eio ada aici "></span>
+            <span class="dot adl-0d2s"></span>
+            <span class="dot adl-0d4s  "></span>
+        </div>
+```
+import './keyframes-guide.mdx.css'
+ 
+export function Animation() {
+ 
+  return (
+    <div className="mt-32px df p32px pr">
+        <div  class="bgc-ecf0f1 oh w-100p h-100p pa t-0 l-0 df aic acc jcc " 
+        keyframes-loading="@100-transform-scale-2 @100-border-color-gray600">
+            <span class="dot" class-dot="br-100p b-5px-solid-555 m-10px an-loading adu-0d6s atf-eio ada aici "></span>
+            <span class="dot adl-0d2s"></span>
+            <span class="dot adl-0d4s  "></span>
+        </div>
+    </div>
+  )
+}
+
+<Animation></Animation>
+
+# Usage
+
+With using`keyframes-[name]`  we can define simple animation very easily
+```html copy
+<!-- Flash -->
+ <h1 keyframes-flash='@[0,50,100]-o-1 @[25,75]-o-0'  class="an-flash adu2s">Flash!</h1>
+
+ <!-- Flash using full semantic className -->
+ <h1 keyframes-flash='@[0,50,100]-opacity-1 @[25,75]-opacity-0'  class="animation-name-flash animation-duration-2s">Flash!</h1>
+
+```
+``
+Syntax: keyframes-[animation-name]="@[percentage]-aliascss @[percentage]-aliascss @[percentage]-aliascss"
+E.g
+``
+
+```html
+<div keyframes-fadeOut="@0-opacity-1 @100-opacity-0" class="an-fadeOut adu-1s">Fade Out</div>
+```
+
+#### Using acss group
+we can also group properties and value for given time using `[]` for example `keyframes-name=@0-[left-20px,tf-r-45deg,color-gray500] @[10,35,57]-[left-40px,tf-r--45deg,color-blue]`
+<div className='df aic jcc p-64px-32px'>
+<div class="bg-rg-gray300-gray600 aici w-64px h-64px br-50p  an-pop-up adu-1d5s ada atf--timing-func afmbo " 
+   keyframes-pop-up="@0-[tf-ty-0,tfo-50p-50p,bxs--shadow-down] @100-[tf-ty--50px,tfo-50p-50p,bxs--shadow-up]"
+   style={{
+    "--shadow-up": "0 50px 3px -20px rgba(0,0,0,0.3)",
+    "--shadow-down": "0 50px 3px -5px rgba(0,0,0,0.3)",
+   "--timing-func":"cubic-bezier(0.250, 0.460, 0.450, 0.940)"
+   }}
+   >
+   </div>
+</div>
+```html copy
+<div class=" bg-rg-gray300-gray600   w-64px h-64px br-50p an-pop-up adu-1d5s ada atf--timing-func aici afmbo " 
+   keyframes-pop-up="@0-[tf-ty-0,tfo-50p-50p,bxs--shadow-down] @100-[tf-ty--50px,tfo-50p-50p,bxs--shadow-up]"
+   style="--shadow-up: 0 50px 3px -20px rgba(0,0,0,0.3);--shadow-down: 0 50px 3px -5px rgba(0,0,0,0.3);
+   --timing-func:cubic-bezier(0.250, 0.460, 0.450, 0.940)"
+   ></div>
+```

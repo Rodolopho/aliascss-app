@@ -1,0 +1,429 @@
+import { Callout } from 'nextra/components'
+
+# Advanced Customization
+Using `aliascss.config.js` we can fully customize how aliascss work, in fact you can create whole different version of aliascss.
+
+### `extend` : create your own compiler
+You can create your own compiler for each and every css properties or add new properties by extending the current 
+configuration file.Using extend you can create your version of AliasCSS which can be completely different design system.
+```js filename="aliascss.config.js" 
+const config={
+    
+    extend:{
+        background-color:{
+            alias:'bgc',
+            values:['transparent:t:no-color']
+            compiler:(value)=>value.replace(/^-/,''),
+        },
+        shadow:{
+            property:'box-shadow',
+            compiler:(value)=>{
+                value=value.slice(1);// remove '-' form value;
+                const values={
+                    '3xl': ' 0px 32px 64px -12px var(--shadow-color,rgba(16, 24, 40, 0.14))',
+                    '2xl': ' 0px 24px 48px -12px var(--shadow-color,rgba(16, 24, 40, 0.14))',
+                    'xl': ' 0px 20px 24px -4px var(--shadow-color,rgba(16, 24, 40, 0.14))',
+                    'lg': ' 0px 12px 16px -4px var(--shadow-color,rgba(16, 24, 40, 0.14))',
+                    'md': ' 0px 4px 8px -2px var(--shadow-color,rgba(16, 24, 40, 0.14))',
+                    'sm': ' 0px 1px 3px var(--shadow-color,rgba(16, 24, 40, 0.14))',
+                    'xs': ' 0px 1px 2px var(--shadow-color,rgba(16, 24, 40, 0.14))',
+                };
+                if(values.hasOwnProperty(value)) return values[value];
+            }
+         
+        }
+    },
+}
+export default config;
+
+```
+In above we create two compiler , `background` and `shadow`, `background` will overwrite default compiler
+ as it is valid css property. In the case of `shadow` , It will be  added as new compiler, since `shadow` is custom property i.e 
+not a valid css property, we need to provide property  to tell which css property this compiler is for.
+
+#### Group compiler
+
+Normally, aliascss classNames holds single property and  value for it, when we want to have classNames that holds  
+for multiple css properties declaration, we can use compiler with type='group', as given below.
+```js filename="aliascss.config.js" 
+import {getCompiler} from 'aliascss';
+
+const config={
+    
+    extend:{
+        background:{
+            alias:'bg',
+            values:['transparent:t:no-color']
+            compiler:(value)=>value,
+        },
+
+        'import-var':{
+            type:'group',
+            groups:{
+                    'spacing':`
+                    --space-1:4px;
+                    --space-2:8px;
+                    --space-3:12px;
+                    --space-4:16px;
+                    --space-5:24px;
+                    --space-6:32px;
+                    --space-7:40px;
+                    --space-8:48px;
+                    --space-9:64px;
+                    `,
+                    theme:`
+                    
+                    `
+            },
+
+    },
+    'text':{
+            type:'group',
+            compiler:(value)=>{
+                let result='';
+                const match=/-([-]?[\w\.]+)/;
+                const property=['font-size','line-height','letter-spacing','font-weight'];
+                value.match(new RegExp(match,'g')).forEach((e,i)=>{
+                    if(i<property.length){
+                        result+=`${property[i]}:${e.replace(match,'$1').replace(/(\d)d(\d)/,'$1.$2').replace(/([\d])p([\s]|$)/,'$1%$2')};`;
+                    }
+                    
+                })
+                return result;
+                
+            },
+            groups:{
+                '1':'font-size:12px;letter-spacing:0.0025em;line-height:16px;',
+                '2':'font-size:14px;letter-spacing:0em;line-height:20px;',
+                '3':'font-size:16px;letter-spacing:0em;line-height:24px;',
+                '4':'font-size:18px;letter-spacing:-0.0025em;line-height:26px;',
+                '5':'font-size:20px;letter-spacing:-0.005em;line-height:28px;',
+                '6':'font-size:24px;letter-spacing:-0.00625em;line-height:30px;',
+                '7':'font-size:28px;letter-spacing:-0.0075em;line-height:36px;',
+                '8':'font-size:35px;letter-spacing:-0.01em;line-height:40px;',
+                '9':'font-size:60px;letter-spacing:-0.025em;line-height:60px;',
+                'xs':'font-size:12px;letter-spacing:0.0025em;line-height:16px;',
+                'sm':'font-size:14px;letter-spacing:0em;line-height:20px;',
+                'md':'font-size:16px;letter-spacing:0em;line-height:24px;',
+                'lg':'font-size:18px;letter-spacing:-0.0025em;line-height:26px;',
+                'xl':'font-size:20px;letter-spacing:-0.005em;line-height:28px;',
+                '2xl':'font-size:24px;letter-spacing:-0.00625em;line-height:30px;',
+                '3xl':'font-size:28px;letter-spacing:-0.0075em;line-height:36px;',
+                '4xl':'font-size:35px;letter-spacing:-0.01em;line-height:40px;',
+                '5xl':'font-size:60px;letter-spacing:-0.025em;line-height:60px;',
+            },
+            
+            
+    },
+    box:{
+        compiler:(value)=>{
+                let result='';
+                const match=/-([-]?[\w\.]+)/;
+                const property=['width','height','padding'];
+                value.match(new RegExp(match,'g')).forEach((e,i)=>{
+                    if(i<property.length){
+                        result+=`${property[i]}:${e.replace(match,'$1').replace(/(\d)d(\d)/,'$1.$2').replace(/([\d])p([\s]|$)/,'$1%$2')};`;
+                    }else{
+            
+                        result=result.replace(/;$/,` ${e.replace(match,'$1').replace(/(\d)d(\d)/,'$1.$2').replace(/([\d])p([\s]|$)/,'$1%$2')};`)
+                    }
+                    
+                })
+                return result;
+                
+            },
+        type:'group',
+    },
+    placement:{
+        type:'group',
+        compiler:(value)=>{
+                let result='';
+                const match=/-([-]?[\w\.]+)/;
+                const property=['position','top','right','bottom','left'];
+                value.match(new RegExp(match,'g')).forEach((e,i)=>{
+                    if(i<property.length){
+                        result+=`${property[i]}:${e.replace(match,'$1').replace(/(\d)d(\d)/,'$1.$2').replace(/([\d])p([\s]|$)/,'$1%$2')};`;
+                    }
+                    
+                })
+                return result;
+                
+            },
+
+    }, 
+    colorize:{
+         type:'group',
+        compiler:(value,custom)=>{
+                let result='';
+                const match=/-([-]?[\w\.]+)/;
+                const property=['background-color','border-color','color',];
+                value.match(new RegExp(match,'g')).forEach((e,i)=>{
+                    
+                    if(i<property.length){
+                        if(e.match(/^--[a-zA-Z]/)){
+                            result+=`${property[i]}:var(${e});`
+                        }else{
+                            result+=`${property[i]}:${getCompiler('color').compiler(e,custom)};`;
+                        }          
+                    }  
+                })
+                return result;
+                
+            },
+       
+    },  
+    container:{
+        type:"group",
+        compiler:(value)=>value,
+        groups:{
+            '1':'display:block;margin:auto;width:var(--container-1,448px)',
+            '2':'display:block;margin:auto;width:var(--container-2,688px)',
+            '3':'display:block;margin:auto;width:var(--container-3,880px)',
+            '4':'display:block;margin:auto;width:var(--container-4,1136px)',
+            'xs':'display:block;margin:auto;width:var(--container-xs,448px)',
+            'sm':'display:block;margin:auto;width:var(--container-sm,688px)',
+            'md':'display:block;margin:auto;width:var(--container-md,880px)',
+            'lg':'display:block;margin:auto;width:var(--container-lg,1136px)',
+        }
+    },
+    section:{
+        type:"group",
+        compiler:(value)=>value,
+        groups:{
+            '1':'display:block;padding:var(--section-padding-1,24px) auto',
+            '2':'display:block;padding:var(--section-padding-2,40px) auto',
+            '3':'display:block;padding:var(--section-padding-3,64px) auto',
+            '4':'display:block;padding:var(--section-padding-4,80px) auto',
+            'xs':'display:block;padding:var(--section-padding-xs,24px) auto',
+            'sm':'display:block;padding:var(--section-padding-sm,40px) auto',
+            'md':'display:block;padding:var(--section-padding-md,64px) auto',
+            'lg':'display:block;padding:var(--section-padding-lg,80px) auto',
+
+        }
+    },                 
+}
+        
+        
+    },
+    // Note:- Above classNames are influenced from radix-ui.com
+}
+export default config;
+
+```
+Similarly, using type of `group`, we can use it to group css properties and value and/or used as groupCSSPropertiesCompiler.
+
+
+
+##### Compiler properties
+| Property|Type|Description|
+| -------|----|------|
+|`values`|`[Array]`|default or predefine values|
+|`alias`|`string`|create a alias for given property|
+|`compiler`|`function`|function that accept value portion as first and custom object as second arguments and returns value replacement|
+|`property`|`string`|css-property  to be used incase compiler name is not css property |
+|`groups`|`{}`|used to define static group of multiple properties  |
+|`type`|`string`|when value is `group` it will treated as group compiler  |
+
+<Callout type="info" emoji="ℹ️">
+  Compiler Names cannot have number and uppercase letter other that first character. 
+</Callout>
+### `media` Customize media selector
+
+```js filename="aliascss.config.js"
+const config={
+    ...
+    media:{
+        prefix:{
+            'xs':'@media (max-width : 600px)',
+        }
+    }
+    ...
+}
+export default config;
+```
+
+You can overwrite default media prefix selector to your own selector declaration. To customize simply add media property
+on your `aliascss.config.js` file and add prefix object with prefix and media selector as per your need.
+
+### `extractorFunction` 
+
+Aliascss compiler will look for classNames either in  `class` or `className` attribute. But sometimes you need want to use
+classnames in other places as well, for example for conditional uses of classNames. For that we can use extractorFunction, to tell aliascss compiler 
+to compile the given classNames.
+
+```js filename="aliascss.config.js"
+const config={
+    ...
+   extractorFunction:'x',// you can use x('aliascss-classNames')
+    ...
+}
+export default config;
+```
+
+Now in your project you can create a extractorFunction and use it.
+```jsx filename="Button.tsx" showLineNumbers
+import { useState } from "react";
+
+// just  create a simple extractorFunction which return the input
+const x=(y:string)=>y;
+export default function Button() {
+    let [isActive,setActive]=useState(false)
+    return (
+        <div>
+            <button 
+            onClick={()=>setActive(!isActive)}
+             className={
+                isActive?
+                x('bgc-primary100 border-1px-s-primary700 c-primary700')
+                // or x`bgc-primary100 border-1px-s-primary700 c-primary700`
+                :
+                x('bgc-gray200 c-gray700 b1px-s-gray700')}>Button</button>
+        </div>
+    );
+}
+
+```
+
+### `importModuleAs` : Use Aliascss for CSS module
+
+CSS Module will be vey helpful to avoid className conflicts and avoid css declaration order  or scope issues. Many frontend frameworks
+support importing css module which will be scoped to given component or page. 
+ By using simple trick we can make aliascss to work as a module and make css scoped.
+
+```js filename="aliascss.config.js"
+const config={
+    ...
+    '--module':true,
+   importModuleAs:'x',// you can use x['aliascss-classNames']
+    ...
+}
+export default config;
+```
+
+Now in your project you can create a extractorFunction and use it.
+```jsx filename="Button.tsx" showLineNumbers
+import { useState } from "react";
+import x from './Button.tsx.module.css' // note when module is used aliascss will create a css file with module.css to current filename 
+
+export default function Button() {
+    let [isActive,SetActive]=useState(false)
+    return (
+        <div>
+            <button 
+            onClick={()=>SetActive(!isActive)}
+             className={
+                isActive?
+                x['bgc-primary100 border-1-s-primary700 c-primary700']
+                :
+                x['bgc-gray200 c-gray700 b-1px-s-gray700']}>Button</button>
+        </div>
+    );
+}
+```
+
+### Custom Colors
+To add custom colors you can add custom property in `aliascss.config.js` file
+
+```js file="aliascss.config.js"
+const config={
+    ...
+   custom:{
+        colors:{
+            "themeTextColor":'var(--theme-text-color,#c3c3c3),
+            "themeBgcolor":'var(--theme-bg-color,#0e0e0e),
+            "primary":'rgba(124,143,234,1)'
+        }
+   
+   }
+    ...
+}
+export default config;
+```
+It is recommended to use camelCase for the name of custom color. Using '-' or '_' in the custom color name might cause error.
+
+### `prebuild` Predefine classnames
+
+It is very easy to export predefine className in the application using `prebuild` property in `aliascss.config.js`
+
+```js file="aliascss.config.js"
+const config={
+    ...
+   prebuild:{
+ 
+        'text-xl': 'font-size:20px;line-height:30px',
+        'text-lg': 'font-size:18px;line-height:28px',
+        'text-md': 'font-size:16px;line-height:24px',
+        'text-sm': 'font-size:14px;line-height:20px',
+        'text-xs': 'font-size:12px;line-height:18px',
+ 
+        'radius-xs':'border-radius:4px',
+ 
+        'flex-center':'display:flex;align-items:center;justify-content:center',
+    },
+    ...
+}
+export default config;
+```
+
+`prebuild className` can be easily used along with `selector`
+```html
+<h1 class="text-sm lg-text-xl --hover-text-md" >Hello World</h1>
+
+
+```
+
+### `group` : Group AliasCSS classNames
+ You can group valid aliascss classNames in a group which will be available globally in your project.
+  `Note:- group cannot be used with selector.`
+
+ ```js file="aliascss.config.js"
+const config={
+    ...
+   group:{
+		'container':' df fdc bsbb aic flex-shrink-1 flex-grow-1 ',
+		'section':'flex-shrink0 bsbb',
+     'button-base':'bgc-gray300 oln --hover-bgc-gray400 bn --focus-outline-none'
+	},
+    ...
+}
+export default config;
+```
+
+### `ignore` : Tell AliasCSS to ignore className
+Some classNames can collide with other classNames if you are working with other css frameworks or 
+you own custom css. you can tell aliascss to ignore those classNames which can  collide with other.
+
+ ```js file="aliascss.config.js"
+export config={
+    ...
+   ignore:['color-primary fs-xl']
+    ...
+}
+export default config;
+```
+
+### `statement` : Add global css statement :
+`statement` property will allow you to inject css statement in every css file compile by aliascss. 
+It has global scope and available in every css file compile by aliascss.
+ ```js file="aliascss.config.js"
+const config={
+    ...
+   statement:`
+        :root{
+            --bg-dark-color:rgba(111,111,111,1) ;
+            --bg-light-color:rgba(21,21,21,1) ;
+            --outline-color:blue;
+    
+        }
+ 
+        body{
+            font-family:BlinkMacSystemFont , -apple-system ;
+        }
+ 
+	`,
+    ...
+}
+export default config;
+```
+Note:- Try to avoid using `statement` property when you are compiling file by file i.e using '--file'. Instead inject 
+separate css file in your root layout or master css file.

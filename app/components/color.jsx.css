@@ -1,0 +1,63 @@
+.p-0px-32px{padding: 0px 32px}
+.mt-32px{margin-top: 32px}
+.bgc-2552552550d8{background-color:rgba(255,255,255,0.8)}
+.w-150px{width: 150px}
+.pf{position: fixed}
+@media (min-width : 768px){ .md-dn{display: none}}
+.zi-1234{z-index:1234}
+.btm-0px{bottom: 0px}
+.r-32px{right: 32px}
+.x-shadow-xl{box-shadow:var(--x-shadow-xl, 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03))}
+.mb-32px{margin-bottom: 32px}
+.br-16px{border-radius: 16px}
+.p-8px-16px{padding: 8px 16px}
+.b-1px-s-blue400{border:1px solid var(--blue400,#53B1FD)}
+.x-text-xl{font-size: 1.25rem; line-height: 1.875rem}
+.--fo-bn:focus{border:none}
+.--fo-oln:focus{outline:none}
+.c-gray600{color:var(--gray600,#475467)}
+.bgc-transparent{background-color:transparent}
+.df{display: flex}
+.g-32px{gap: 32px}
+.xw-1280px{max-width: 1280px}
+.mla{margin-left: auto}
+.mra{margin-right: auto}
+._all-bsbb *{box-sizing: border-box}
+.pr{position: relative}
+.dn{display: none}
+@media (min-width : 768px){ .md-df-i{display: flex !important}}
+.fb--var--aside-width{flex-basis: var(--aside-width)}
+.flex-shrink-0{flex-shrink: 0}
+.t--var--aside-top{top: var(--aside-top)}
+.--sb-w5px::-webkit-scrollbar{width:5px}
+.--st-bgc-blue50::-webkit-scrollbar-track{background-color:var(--blue50,#EFF8FF)}
+.--stm-bgc-blue100::-webkit-scrollbar-thumb{background-color:var(--blue100,#D1E9FF)}
+.g8px{gap:8px}
+.pst{position: sticky}
+.pr-16px{padding-right: 16px}
+.h--var--height{height: var(--height)}
+.oxh{overflow-x: hidden}
+.oya{overflow-y: auto}
+.dif{display: inline-flex}
+.fdc{flex-direction: column}
+.x-display-sm{font-size: 1.875rem; line-height: 2.375rem}
+.w-100p{width: 100%}
+.fwn{flex-wrap: nowrap}
+.pl-10px{padding-left: 10px}
+.fww{flex-wrap: wrap}
+.p0px{padding:0px}
+.fs-10px{font-size: 10px}
+.cc{cursor: copy}
+.aic{align-items: center}
+.jcc{justify-content: center}
+.br-8px{border-radius: 8px}
+.p-10px{padding: 10px}
+@media (min-width : 768px){ .md-m-10px{margin: 10px}}
+@media (min-width : 768px){ .md-g-8px{gap: 8px}}
+.w-72px{width: 72px}
+.h-72px{height: 72px}
+.br9px{border-radius:9px}
+@media (min-width : 768px){ .md-w-100px{width: 100px}}
+@media (min-width : 768px){ .md-h-100px{height: 100px}}
+.x-text-xs{font-size: 0.75rem; line-height: 1.125rem}
+.fw5{font-weight: 500}

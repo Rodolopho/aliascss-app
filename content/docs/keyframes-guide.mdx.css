@@ -1,0 +1,67 @@
+.dot{border-radius: 100%} 
+.dot{border:5px solid #555} 
+.dot{margin: 10px} 
+.dot{animation-name:loading} 
+.dot{animation-duration: 0.6s} 
+.dot{animation-timing-function:ease-in-out} 
+.dot{animation-direction: alternate} 
+.dot{animation-iteration-count: infinite} 
+.dot{border-radius: 100%} 
+.dot{border:5px solid #555} 
+.dot{margin: 10px} 
+.dot{animation-name:loading} 
+.dot{animation-duration: 0.6s} 
+.dot{animation-timing-function:ease-in-out} 
+.dot{animation-direction: alternate} 
+.dot{animation-iteration-count: infinite} 
+
+.bgc-ecf0f1{background-color:#ecf0f1}
+.oh{overflow: hidden}
+.w-100p{width: 100%}
+.h-100px{height: 100px}
+.pa{position: absolute}
+.t-0{top: 0}
+.l-0{left: 0}
+.df{display: flex}
+.aic{align-items: center}
+.acc{align-content: center}
+.jcc{justify-content: center}
+.adl-0d2s{animation-delay: 0.2s}
+.adl-0d4s{animation-delay: 0.4s}
+.mt-32px{margin-top: 32px}
+.p32px{padding:32px}
+.pr{position: relative}
+.h-100p{height: 100%}
+.an-flash{animation-name:flash}
+.adu2s{animation-duration:2s}
+.animation-name-flash{animation-name:flash}
+.animation-duration-2s{animation-duration: 2s}
+.an-fadeOut{animation-name:fadeOut}
+.adu-1s{animation-duration: 1s}
+.p-64px-32px{padding: 64px 32px}
+.bg-rg-gray300-gray600{background:radial-gradient( var(--gray300,#D0D5DD), var(--gray600,#475467) )}
+.aici{animation-iteration-count: infinite}
+.w-64px{width: 64px}
+.h-64px{height: 64px}
+.br-50p{border-radius: 50%}
+.an-pop-up{animation-name:pop-up}
+.adu-1d5s{animation-duration: 1.5s}
+.ada{animation-direction: alternate}
+.atf--timing-func{animation-timing-function: var(--timing-func)}
+.afmbo{animation-fill-mode: both}
+@keyframes loading{
+ 100% {transform:scale(2)} 100% {border-color:var(--gray600,#475467)} 100% {transform:scale(2)} 100% {border-color:var(--gray600,#475467)}
+}
+
+@keyframes flash{
+ 0%,50%,100% {opacity: 1} 25%,75% {opacity: 0} 0%,50%,100% {opacity: 1} 25%,75% {opacity: 0}
+}
+
+@keyframes fadeOut{
+ 0% {opacity: 1} 100% {opacity: 0}
+}
+
+@keyframes pop-up{
+ 0% {transform:translateY(0);transform-origin: 50% 50%;box-shadow: var(--shadow-down)} 100% {transform:translateY(-50px);transform-origin: 50% 50%;box-shadow: var(--shadow-up)} 0% {transform:translateY(0);transform-origin: 50% 50%;box-shadow: var(--shadow-down)} 100% {transform:translateY(-50px);transform-origin: 50% 50%;box-shadow: var(--shadow-up)}
+}
+

@@ -1,0 +1,527 @@
+
+/* Start :-----------ACSS app/components/codify.jsx------------------------*/
+.df{display: flex}
+.jcsb{justify-content: space-between}
+.w18px{width:18px}
+.h18px{height:18px}
+.stroke-gray700{stroke:var(--gray700,#344054)}
+.color-red{color:red}
+.stroke-width1px{stroke-width:1px}
+.stroke-linecap-round{stroke-linecap:round}
+.stroke-linejoin-round{stroke-linejoin:round}
+
+            
+/* End :-----------ACSS app/components/codify.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS app/components/color.jsx------------------------*/
+.p-0px-32px{padding: 0px 32px}
+.mt-32px{margin-top: 32px}
+.bgc-2552552550d8{background-color:rgba(255,255,255,0.8)}
+.w-150px{width: 150px}
+.pf{position: fixed}
+@media (min-width : 768px){ .md-dn{display: none}}
+.zi-1234{z-index:1234}
+.btm-0px{bottom: 0px}
+.r-32px{right: 32px}
+.x-shadow-xl{box-shadow:var(--x-shadow-xl, 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03))}
+.mb-32px{margin-bottom: 32px}
+.br-16px{border-radius: 16px}
+.p-8px-16px{padding: 8px 16px}
+.b-1px-s-blue400{border:1px solid var(--blue400,#53B1FD)}
+.x-text-xl{font-size: 1.25rem; line-height: 1.875rem}
+.--fo-bn:focus{border:none}
+.--fo-oln:focus{outline:none}
+.c-gray600{color:var(--gray600,#475467)}
+.bgc-transparent{background-color:transparent}
+.g-32px{gap: 32px}
+.xw-1280px{max-width: 1280px}
+.mla{margin-left: auto}
+.mra{margin-right: auto}
+._all-bsbb *{box-sizing: border-box}
+.pr{position: relative}
+.dn{display: none}
+@media (min-width : 768px){ .md-df-i{display: flex !important}}
+.fb--var--aside-width{flex-basis: var(--aside-width)}
+.flex-shrink-0{flex-shrink: 0}
+.t--var--aside-top{top: var(--aside-top)}
+.--sb-w5px::-webkit-scrollbar{width:5px}
+.--st-bgc-blue50::-webkit-scrollbar-track{background-color:var(--blue50,#EFF8FF)}
+.--stm-bgc-blue100::-webkit-scrollbar-thumb{background-color:var(--blue100,#D1E9FF)}
+.g8px{gap:8px}
+.pst{position: sticky}
+.pr-16px{padding-right: 16px}
+.h--var--height{height: var(--height)}
+.oxh{overflow-x: hidden}
+.oya{overflow-y: auto}
+.dif{display: inline-flex}
+.fdc{flex-direction: column}
+.x-display-sm{font-size: 1.875rem; line-height: 2.375rem}
+.w-100p{width: 100%}
+.fwn{flex-wrap: nowrap}
+.pl-10px{padding-left: 10px}
+.fww{flex-wrap: wrap}
+.p0px{padding:0px}
+.fs-10px{font-size: 10px}
+.cc{cursor: copy}
+.aic{align-items: center}
+.jcc{justify-content: center}
+.br-8px{border-radius: 8px}
+.p-10px{padding: 10px}
+@media (min-width : 768px){ .md-m-10px{margin: 10px}}
+@media (min-width : 768px){ .md-g-8px{gap: 8px}}
+.w-72px{width: 72px}
+.h-72px{height: 72px}
+.br9px{border-radius:9px}
+@media (min-width : 768px){ .md-w-100px{width: 100px}}
+@media (min-width : 768px){ .md-h-100px{height: 100px}}
+.x-text-xs{font-size: 0.75rem; line-height: 1.125rem}
+.fw5{font-weight: 500}
+
+            
+/* End :-----------ACSS app/components/color.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS app/components/custom-editor.jsx------------------------*/
+
+            
+/* End :-----------ACSS app/components/custom-editor.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS app/components/editor.jsx------------------------*/
+.h100vh{height:100vh}
+._all-\[class\~\=sp-editor\]-height-50vh-i *[class~="sp-editor"]{height: 50vh !important}
+._all-\[class\~\=sp-preview\]-height-50vh-i *[class~="sp-preview"]{height: 50vh !important}
+.zi-2000000{z-index:2000000}
+.l0{left:0}
+.t0{top:0}
+.w100vw{width:100vw}
+.pa{position: absolute}
+.r32px{right:32px}
+.t32px{top:32px}
+.zi2{z-index:2}
+.b1px-s-gray600{border:1px solid var(--gray600,#475467)}
+.--hover-bgc-error200:hover{background-color:var(--error200,#FECDCA)}
+.p12px-14px{padding:12px 14px}
+
+            
+/* End :-----------ACSS app/components/editor.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS app/components/inputClassName.jsx------------------------*/
+.d-f{display:flex}
+.jc-sb{justify-content:space-between}
+.--has\(--focus\)-bxs-0px-0px-1px-1px-blue-200:has(:focus){box-shadow:0px 0px 1px 1px var(--blue200,#B2DDFF)}
+.p-8px-12px{padding: 8px 12px}
+.br8px{border-radius:8px}
+.b-1px-s-gray300{border:1px solid var(--gray300,#D0D5DD)}
+.ol-n{outline:none}
+.b-n{border:none}
+.--fv-bn:focus-visible{border:none}
+.w100p{width:100%}
+.x-text-sm{font-size: 0.875rem; line-height: 1.25rem}
+.fw-4{font-weight:400}
+.c-gray500{color:var(--gray500,#667085)}
+.flex-center{display:flex;align-items:center;justify-content:center}
+.p-8px-10px{padding: 8px 10px}
+.g-4px{gap: 4px}
+.b-1px-s-blue200{border:1px solid var(--blue200,#B2DDFF)}
+.bgc-blue100{background-color:var(--blue100,#D1E9FF)}
+.c-gray700{color:var(--gray700,#344054)}
+:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc-gray700{background-color:var(--gray700,#344054)}
+:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-c-gray100{color:var(--gray100,#F2F4F7)}
+.cp{cursor: pointer}
+.--h-bgc-blue300:hover{background-color:var(--blue300,#84CAFF)}
+:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-stroke-gray100{stroke:var(--gray100,#F2F4F7)}
+.fill-none{fill:none}
+
+            
+/* End :-----------ACSS app/components/inputClassName.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS app/components/logo.jsx------------------------*/
+
+            
+/* End :-----------ACSS app/components/logo.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS app/components/modalSearch.jsx------------------------*/
+.cursor-pointer{cursor:pointer}
+.stroke-blue500{stroke:var(--blue500,#2E90FA)}
+.stroke-width2px{stroke-width:2px}
+.bgc-red{background-color:red}
+.bgc-0000000000d6{background-color:rgba(000,000,000,0.6)}
+.w-100vw{width: 100vw}
+.zi-99{z-index:99}
+.t-0px{top: 0px}
+.l-0px{left: 0px}
+.m-32px{margin: 32px}
+:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-border-1px-s-error500{border:1px solid var(--error500,#F04438)}
+:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-filter-invert-100{filter:invert(100)}
+.bgc-gray100{background-color:var(--gray100,#F2F4F7)}
+.hxc{height:max-content}
+.p-32px{padding: 32px}
+.pr-62px{padding-right: 62px}
+.w-80p{width: 80%}
+.t-16px{top: 16px}
+.r-16px{right: 16px}
+.w-18px{width: 18px}
+.h-18px{height: 18px}
+.stroke-error500{stroke:var(--error500,#F04438)}
+
+            
+/* End :-----------ACSS app/components/modalSearch.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS app/components/playGround.jsx------------------------*/
+.mb-12px{margin-bottom: 12px}
+.g-12px{gap: 12px}
+._button\[data-selected\=true\]-bgc-blue600 button[data-selected="true"]{background-color:var(--blue600,#1570EF)}
+._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button{border-radius: 4px} 
+._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button{background-color:var(--blue300,#84CAFF)} 
+._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button:hover{background-color:var(--blue800,#1849A9)} 
+._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button{color:#fff} 
+._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button{font-weight:600} 
+._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button{padding: 6px 10px} 
+._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button{font-size: 0.875rem; line-height: 1.25rem} 
+
+.bgc-primary600{background-color:var(--primary600,#7F56D9)}
+.c-fff{color:#fff}
+.p-30px-18px{padding: 30px 18px}
+.br-12px{border-radius: 12px}
+.x-display-xl{font-size: 3.75rem; line-height: 4.5rem; letter-spacing: -0.02em}
+
+            
+/* End :-----------ACSS app/components/playGround.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS app/components/quickCompiler.jsx------------------------*/
+.g-16px{gap: 16px}
+.fd-c{flex-direction:column}
+.p-4px-10px-4px-4px{padding: 4px 10px 4px 4px}
+.bgc-blue50{background-color:var(--blue50,#EFF8FF)}
+:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-c-blue100{color:var(--blue100,#D1E9FF)}
+.w-xc{width:max-content}
+.g12px{gap:12px}
+.bgc-fff{background-color:#fff}
+.p-2px-10px{padding: 2px 10px}
+.br16px{border-radius:16px}
+.g4px{gap:4px}
+:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc-blue700{background-color:var(--blue700,#175CD3)}
+.gap-4px{gap: 4px}
+.h-30rem{height: 30rem}
+.b-1px-s-ccc{border:1px solid #ccc}
+.oa{overflow: auto}
+.br-5px{border-radius: 5px}
+.p24px{padding:24px}
+.bl15px-s-blueLight600{border-left:15px solid var(--blueLight600,#0086C9)}
+.ff-courier{font-family:courier}
+.o-a{opacity:-a}
+.c-green700{color:var(--green700,#087443)}
+.fw6{font-weight: 600}
+:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-c-gray400{color:var(--gray400,#98A2B3)}
+.c-blue700{color:var(--blue700,#175CD3)}
+.c-error400{color:var(--error400,#F97066)}
+.fwb{font-weight: bold}
+.c-error500{color:var(--error500,#F04438)}
+.c-blue{color:blue}
+.c-warning{color:warning}
+
+            
+/* End :-----------ACSS app/components/quickCompiler.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS app/components/staticClassNames.jsx------------------------*/
+.w100fr{width:100fr}
+.g16px{gap:16px}
+.p8px-12px{padding:8px 12px}
+:is( html.dark) .--is\(_html\.dark\)\&-bgc-gray900{background-color:var(--gray900,#101828)}
+:is( html.dark) .--is\(_html\.dark\)\&-b-1px-s-gray50{border:1px solid var(--gray50,#F9FAFB)}
+.b1px-s-gray300{border:1px solid var(--gray300,#D0D5DD)}
+.stroke-gray400{stroke:var(--gray400,#98A2B3)}
+.oln{outline:none}
+.bn{border:none}
+.--fv-bxsn:focus-visible{box-shadow: none}
+.c-gray{color:gray}
+:is( html.dark) .--is\(_html\.dark\)\&-c-gray-25{color:var(--gray25,#FCFCFD)}
+.zi12345{z-index:12345}
+.l0px{left:0px}
+.t100p{top:100%}
+.bgc-gray200{background-color:var(--gray200,#EAECF0)}
+:is( html.dark) .--is\(_html\.dark\)\&-bgc-gray-900{background-color:var(--gray900,#101828)}
+.xh60vh{max-height:60vh}
+.mw320px{min-width:320px}
+.mt2px{margin-top:2px}
+.m0px{margin:0px}
+.lsn{list-style: none}
+:is( html.dark) .--is\(_html\.dark\)\&-c-gray-50{color:var(--gray50,#F9FAFB)}
+:is( html.dark) .--is\(_html\.dark\)\&-c-gray-50-i{color:var(--gray50,#F9FAFB) !important}
+.asfe{align-self: flex-end}
+
+            
+/* End :-----------ACSS app/components/staticClassNames.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS app/components/partials/aside.jsx------------------------*/
+.is-active span{color:var(--blue600,#1570EF)} 
+.is-active span{background-color:var(--blue50,#EFF8FF)} 
+
+.ccc{color:currentColor}
+.br6px{border-radius:6px}
+.p-4px-8px{padding: 4px 8px}
+.tdn{text-decoration: none}
+.--h-bgc-blue50:hover{background-color:var(--blue50,#EFF8FF)}
+
+            
+/* End :-----------ACSS app/components/partials/aside.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS content/index.mdx------------------------*/
+.mt-16px{margin-top: 16px}
+@media (min-width : 768px){ .md-fdr{flex-direction: row}}
+.__div\[flex-basis-50\%\] > div{flex-basis: 50%} 
+
+.mw-50p{min-width: 50%}
+@media (min-width : 768px){ .md-mt-80px{margin-top: 80px}}
+.xw-200px{max-width: 200px}
+@media (min-width : 992px){ .lg-db{display: block}}
+@media (min-width : 992px){ .lg-mla{margin-left: auto}}
+@media (min-width : 992px){ .lg-mra{margin-right: auto}}
+.font-size-12px{font-size: 12px}
+.display-inline-block{display:inline-block}
+.c-red{color:red}
+.fs-12px{font-size: 12px}
+.dib{display: inline-block}
+
+            
+/* End :-----------ACSS content/index.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/color/index.mdx------------------------*/
+
+            
+/* End :-----------ACSS content/color/index.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/AttributeSelector.mdx------------------------*/
+.\[data-state\=close\]-display-none[data-state="close"]{display:none}
+.\[class\~\=code\]-font-mono[class~="code"]{font:mono}
+
+            
+/* End :-----------ACSS content/docs/AttributeSelector.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/StaticClassNames.mdx------------------------*/
+
+            
+/* End :-----------ACSS content/docs/StaticClassNames.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/advance-customization.mdx------------------------*/
+
+            
+/* End :-----------ACSS content/docs/advance-customization.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/andIndentifier.mdx------------------------*/
+ div ._div\&-bgc-red{background-color:red}
+:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc--dark-bg-color{background-color: var(--dark-bg-color)}
+
+            
+/* End :-----------ACSS content/docs/andIndentifier.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/basic.mdx------------------------*/
+.color-blue{color:blue}
+.font-size-3rem{font-size: 3rem}
+.fs-3rem{font-size: 3rem}
+
+            
+/* End :-----------ACSS content/docs/basic.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/class-group.mdx------------------------*/ 
+.container{background-color: var(--main-color)} 
+.container{overflow: hidden} 
+.container{width: 100%} 
+.container{height: 100%} 
+.container{position: absolute} 
+.container{top: 0} 
+.container{left: 0} 
+.container{display: flex} 
+.container{align-items: center} 
+.container{align-content: center} 
+.container{justify-content: center} 
+.container{z-index:100000} 
+
+.error{color:var(--error500,#F04438)} 
+.error::after{background-color:var(--error100,#FEE4E2)} 
+.error::after{color:var(--error700,#B42318)} 
+.error::after{border:1px solid var(--error700,#B42318)} 
+
+.color-fff{color:#fff}
+.bgc-blue{background-color:blue}
+.--hover-c-gray:hover{color:gray}
+.--hover-border-radius-4px:hover{border-radius: 4px}
+.--hover-bgc-skyBlue:hover{background-color:skyBlue}
+.--hover-\[c-gray\,border-radius-4px\,bgc-skyBlue\]:hover{color:gray} 
+.--hover-\[c-gray\,border-radius-4px\,bgc-skyBlue\]:hover{border-radius: 4px} 
+.--hover-\[c-gray\,border-radius-4px\,bgc-skyBlue\]:hover{background-color:skyBlue} 
+
+.\[data-state\=open\]\[display-flex\,left-0\][data-state="open"]{display:flex} 
+.\[data-state\=open\]\[display-flex\,left-0\][data-state="open"]{left: 0} 
+
+.btn{color:#fff} 
+.btn{background-color:blue} 
+ 
+
+.btn:hover{color:gray} 
+.btn:hover{border-radius: 4px} 
+.btn:hover{background-color:skyBlue} 
+ 
+
+.active[data-state="open"]{display:flex} 
+.active[data-state="open"]{left: 0} 
+ 
+
+
+            
+/* End :-----------ACSS content/docs/class-group.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/getting_started.mdx------------------------*/
+.color-gray500{color:var(--gray500,#667085)}
+
+            
+/* End :-----------ACSS content/docs/getting_started.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/keyframes-guide.mdx------------------------*/ 
+.dot{border-radius: 100%} 
+.dot{border:5px solid #555} 
+.dot{margin: 10px} 
+.dot{animation-name:loading} 
+.dot{animation-duration: 0.6s} 
+.dot{animation-timing-function:ease-in-out} 
+.dot{animation-direction: alternate} 
+.dot{animation-iteration-count: infinite} 
+
+.bgc-ecf0f1{background-color:#ecf0f1}
+.oh{overflow: hidden}
+.h-100px{height: 100px}
+.t-0{top: 0}
+.l-0{left: 0}
+.acc{align-content: center}
+.adl-0d2s{animation-delay: 0.2s}
+.adl-0d4s{animation-delay: 0.4s}
+.p32px{padding:32px}
+.h-100p{height: 100%}
+.an-flash{animation-name:flash}
+.adu2s{animation-duration:2s}
+.animation-name-flash{animation-name:flash}
+.animation-duration-2s{animation-duration: 2s}
+.an-fadeOut{animation-name:fadeOut}
+.adu-1s{animation-duration: 1s}
+.p-64px-32px{padding: 64px 32px}
+.bg-rg-gray300-gray600{background:radial-gradient( var(--gray300,#D0D5DD), var(--gray600,#475467) )}
+.aici{animation-iteration-count: infinite}
+.w-64px{width: 64px}
+.h-64px{height: 64px}
+.br-50p{border-radius: 50%}
+.an-pop-up{animation-name:pop-up}
+.adu-1d5s{animation-duration: 1.5s}
+.ada{animation-direction: alternate}
+.atf--timing-func{animation-timing-function: var(--timing-func)}
+.afmbo{animation-fill-mode: both}
+@keyframes loading{ 100% {transform:scale(2)} 100% {border-color:var(--gray600,#475467)}
+}
+
+@keyframes flash{ 0%,50%,100% {opacity: 1} 25%,75% {opacity: 0}
+}
+
+@keyframes fadeOut{
+ 0% {opacity: 1} 100% {opacity: 0}
+}
+
+@keyframes pop-up{ 0% {transform:translateY(0);transform-origin: 50% 50%;box-shadow: var(--shadow-down)} 100% {transform:translateY(-50px);transform-origin: 50% 50%;box-shadow: var(--shadow-up)}
+}
+
+
+            
+/* End :-----------ACSS content/docs/keyframes-guide.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/layer.mdx------------------------*/
+@layer base{ .\@base-all-unset{all:unset}}
+@layer theme{ .\@theme-\[c-gray\,border-radius-4px\,bgc-skyBlue\]{color:gray}} 
+@layer theme{ .\@theme-\[c-gray\,border-radius-4px\,bgc-skyBlue\]{border-radius: 4px}} 
+@layer theme{ .\@theme-\[c-gray\,border-radius-4px\,bgc-skyBlue\]{background-color:skyBlue}} 
+
+@layer base{ .\@base-\[data-state\=open\]\[display-flex\,left-0\][data-state="open"]{display:flex}} 
+@layer base{ .\@base-\[data-state\=open\]\[display-flex\,left-0\][data-state="open"]{left: 0}} 
+
+@layer base{ @media (max-width : 576px){ .btn{color:#fff}}} 
+@layer base{ @media (max-width : 576px){ .btn{background-color:blue}}} 
+ 
+
+@media (max-width : 576px){ @layer base{ .active[data-state="open"]{display:flex}}} 
+@media (max-width : 576px){ @layer base{ .active[data-state="open"]{left: 0}}} 
+ 
+
+
+            
+/* End :-----------ACSS content/docs/layer.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/npm-guide.mdx------------------------*/
+
+            
+/* End :-----------ACSS content/docs/npm-guide.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/screens.mdx------------------------*/
+@media (max-width : 576px){ .xs-dn{display: none}}
+@media (max-width : 576px){ .xs-display-none{display:none}}
+@media (max-width : 576px){ .xs-flex-direction-column{flex-direction:column}}
+@media (max-width : 576px){ .xs-fdc{flex-direction: column}}
+@media (max-width : 576px){ .xs_p-flex-direction-column p{flex-direction:column}}
+@media (max-width : 576px){ .xs_p-fdc p{flex-direction: column}}
+@media (min-width : 768px){ .md-width-500px{width: 500px}}
+@media (min-width : 768px){ .md-w-500p{width: 500%}}
+
+            
+/* End :-----------ACSS content/docs/screens.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/stateAndSelector.mdx------------------------*/
+.bgc-cccccc{background-color:#cccccc}
+.--hover-bgc-yellow:hover{background-color:yellow}
+.--h-bgc-yellow:hover{background-color:yellow}
+._h3-c-white h3{color:white}
+._p-fs-14px p{font-size: 14px}
+
+            
+/* End :-----------ACSS content/docs/stateAndSelector.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/variables.mdx------------------------*/
+.--header-color\:skyBlue{--header-color:skyBlue}
+.color--header-color{color: var(--header-color)}
+.--hover--header-color\:blue:hover{--header-color:blue}
+.color--header-color\:skyBlue{color: var(--header-color,skyBlue)}
+.color--grey-alt{color: var(--grey-alt)}
+.--grey\:--grey-default{--grey: var(--grey-default)}
+.color--grey{color: var(--grey)}
+.--hover-color--grey-hover:hover{color: var(--grey-hover)}
+.--grey-hover\:black{--grey-hover:black}
+
+            
+/* End :-----------ACSS content/docs/variables.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/playground/index.mdx------------------------*/
+
+            
+/* End :-----------ACSS content/playground/index.mdx----------------------------*/
+
+            
