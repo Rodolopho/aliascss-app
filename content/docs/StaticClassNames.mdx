@@ -1,5 +1,5 @@
-import { Callout } from 'nextra/components'
-import SearchStaticClassNames from '../../app/components/staticClassNames';
+import {  Table } from 'nextra/components'
+import SearchStaticClassNames,{classNames} from '../../app/components/staticClassNames';
 import { staticClassNames } from '../../node_modules/aliascss/lib/index';
 
 
@@ -7,20 +7,28 @@ import { staticClassNames } from '../../node_modules/aliascss/lib/index';
 ## Static ClassNames
 <SearchStaticClassNames/>
 <br/>
-{/* Give Below is the List of Static ClassNames that you can use to style your webpage.
-<table style={{'height':'700px','overflow-y':'scroll','overflow':'hidden'}}>
-  <tr>
-    <th>ClassName</th>
-    <th>Statement</th>  
-  </tr>
-  {Object.keys(staticClassNames).map((item, index) => (
-    <tr key={index}>
-      <td>{item}</td>
-      <td>{staticClassNames[item]}</td>
-    </tr>
-  ))}
- 
-</table> */}
+### Popular static ClassNames (Shorthand)
+# 
 
+
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>className</Table.Th>
+      <Table.Th>Style</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    {['dn','aic','jcc','jcsb','aifs','df','dif','fw-5','fw-6'].map((item,index)=>(
+      <Table.Tr>
+        <Table.Td><code>{item}</code></Table.Td>
+        <Table.Td><code>{staticClassNames[item]}</code></Table.Td>
+      </Table.Tr>
+     ))
+    }
+  </tbody>
+</Table>
+
+``` $${{'red'}}```
   
 

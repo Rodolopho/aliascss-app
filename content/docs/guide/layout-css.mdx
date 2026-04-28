@@ -1,0 +1,167 @@
+import { Callout } from 'nextra/components'
+
+# Layout
+---------
+#### Basic length based property to work with layout.
+
+Almost all property which accept length value work in similar fashion.You can use both full semantic or shorthand.
+
+``` 
+padding(p),margin(m),gap(g),width(w),height(h),border-width(bw),
+line-height(lh),letter-spacing(les),border-radius(br),text-intent(ti),
+text-shadow(txs),box-shadow(bxs),top(t),bottom(btm),right(r),left(l),outline-width(olw)
+background-size(bgs),background-position(bgp),inline-size(is),block-size(no shorthand),
+margin-block(no shorthand),padding-block(no shorthand) 
+```
+
+
+| Classname | Shorthand | Compiled Style |
+| :------------ | :---------: | ----------: |
+| `width-200px` | `w-200px` | `width:200px` |
+| `max-width-960px` | `xw-960px` | `max-width:960px` |
+| `min-width-600px` | `mw-600px` | `min-width:600px` |
+| `margin-2rem` | `m-2rem` | `margin:2rem` |
+| `margin-2rem-12px` | `m-2rem-12px` | `margin:2rem 12px` |
+| `margin--2rem-12px` | `m--2rem-12px` | `margin:-2rem 12px` |
+| `margin--2rem--12px` | `m--2rem--12px` | `margin:-2rem -12px` |
+| `margin-12px-0px-12px--8px` | `m-12px-0px-12px--8px` | `margin:12px 0px 12px -8px` |
+| `margin-x-12px` | `mx-12px` | `margin-right:12px; margin-left:12px` |
+| `margin-x-4` | `mx-4` | `margin-right:1rem; margin-left:1rem` |
+| `border-radius-10px` | `br-10px` | `border-radius:10px` |
+| `box-shadow--1px-0px-2px-4px-black/7` | `bxs--1px-0px-2px-4px-black/7` | `box-shadow:-1px 0px 2px 4px oklch(from black l c h/0.7 )` |
+| `text-shadow-1px-1px-4px-black` | `txs-1px-1px-4px-black` | `text-shadow:1px 1px 4px black )` |
+
+Numeric VALUE [1-10] used  for padding, gap, margin will be compiled to corresponding relative unit in the
+multiple of `0.25rem * n` , eg `4 =>0.25*4=1rem`
+
+
+Usage Eg:- 
+```html copy  showLineNumbers
+    <h1 
+    class="mx-4 p-32px-24px w-100% mh-200px bgc-primary600/7 c--text-color:gray"
+    >
+    Hello, World
+    </h1>
+``` 
+-----------------------------------
+#### Non Numeric length Value
+
+| Classname | Shorthand | Compiled Style |
+| :------------ | :---------: | ----------: |
+| `width-max-content` | `w-xc` | `width:max-content` |
+| `width-min-content` | `w-mc` | `width:min-content` |
+| `width-fit-content` | `w-fc` | `width:fit-content` |
+| `width-min(40%,400px)` | `w-min(40%,400px)` | `width:min(40%, 400px)` |
+| `width-max(40%,400px)` | `w-max(40%,400px)` | `width:max(40%, 400px)` |
+| `width-clamp(20rem,30vw,70rem)` | `w-clamp(20rem,30vw,70rem)` | `width:clamp(20rem, 30vw, 70rem)` |
+
+Note:Try to use css-variable as much possible for complex values. for Example
+```html copy  showLineNumbers
+    <h1 
+    class=" w--header-width mx-4 p-32px-24px w-100% mh-200px bgc-primary600/7 c--text-color:gray"
+    style="--header-width:clamp(min(10vw, 20rem), 300px, max(90vw, 55rem))"
+    >
+    Hello, World
+    </h1>
+```
+### Flex and Grid and Box Model
+
+###### Most common Class names
+| Classname | Shorthand | Compiled Style |
+| :------------ | :---------: | ----------: |
+| `display-flex` | `df` or `d-f` | `display:flex` |
+| `gap-16px` | `g-16px` | `gap:16px` |
+| `display-inline-flex` | `dif` or `d-if` | `display:inline-flex` |
+| `display-grid` | `dg` or `d-g` | `display:grid` |
+| `display-inline-grid` | `dig` or `d-ig` | `display:inline-grid` |
+| `display-block` | `db` or `d-b` | `display:block` |
+| `display-inline-block` | `dib` or `d-ib` | `display:inline-block` |
+| `display-none` | `dn` or `d-n` | `display:none` |
+| `align-content-start` | `acs` or `ac-s` | `align-content:start` |
+| `align-items-center` | `aic` or `ai-c` | `align-items:center` |
+| `align-self-stretch` | `ass` or `as-s` | `align-self:stretch` |
+| `justify-content-space-between` | `jcsb` or `jc-sb` | `justify-content:space-between` |
+| `flex-shrink-0` | no shorthand | `flex-shrink:0` |
+| `flex-basis-200px` | `fb-200px` | `flex-basis:200px` |
+| `flex-grow-0` | `fg-0` | `flex-grow:0` |
+| `flex-direction-row` | `fdr` or `fd-r` | `flex-direction:row` |
+| `flex-direction-row-reverse` | `fdrr` or `fd-rr` | `flex-direction:row-reverse` |
+| `flex-direction-column` | `fdc` or `fd-c` | `flex-direction:column` |
+| `flex-direction-column-reverse` | `fdcr` or `fd-cr` | `flex-direction:column-reverse` |
+| `grid-template-columns-repeat-3-1fr` | `gtc-repeat-3-1fr` | `grid-template-columns:repeat(3, 1fr)` |
+| `grid-template-rows-repeat-3-1fr` | `gtr-repeat-3-1fr` | `grid-template-rows:repeat(3, 1fr)` |
+| `grid-template-rows-200px-1fr` | `gtr-200px-1fr` | `grid-template-rows:200px 1fr` |
+| `grid-template-columns-repeat-auto-fill-200px` | `gtc-repeat-auto-fill-200px` | `grid-template-columns:repeat(auto-fill, 200px)` |
+| `grid-auto-rows-200px` | `gar-200px` | `grid-auto-rows:200px` |
+| `grid-auto-rows-minmax-100px-auto` | `gar-minmax-100px-auto` | `grid-auto-rows:minmax(100px, auto)` |
+| `grid-column-start-2` | `gcs-2` | `grid-column-start:2` |
+| `grid-column-end-4` | `gce-4` | `grid-column-end:4` |
+| `grid-row-start-1` | `grs-1` | `grid-row-start:1` |
+| `grid-row-end--3` | `gre--3` | `grid-row-end:-3` |
+| `grid-row-end-span-3` | `gre-span-3` | `grid-row-end:span 3` |
+| `grid-column-1/2` | `gc-1/2` | `grid-column:1 / 2` |
+| `grid-column-1/--2` | `gc-1/--2` | `grid-column:1 / -2` |
+| `grid-row-1/4` | `gr-1/4` | `grid-row:1 / 4` |
+| `grid-area-1/1/4/2` | `ga-1/1/4/2` | `grid-area:1 / 1 / 4 / 2` |
+
+```html copy  showLineNumbers
+ <!-- Layout -->
+  <div class="d-g gtc-repeat-3-1fr gap-16px">
+
+    <!-- Card -->
+    <div class="bg-white p-20px border-radius-10px shadow-sm d-f fd-c gap-8px">
+      <h3 class="fs-16px fw-600 color-gray-800">Card Title</h3>
+      <p class="fs-14px color-gray-500">Some description text goes here.</p>
+      <button class="mt-auto bg-blue-500 color-white p-8px-16px border-radius-6px">
+        Read More
+      </button>
+    </div>
+
+    .....
+
+  </div>
+
+  ```
+
+  ### Positioning
+
+  | Classname | Shorthand | Compiled Style |
+| :------------ | :---------: | ----------: |
+| `position-absolute` | `pa`  | `position: absolute` |
+| `position-relative` | `pr`  | `position: relative` |
+| `position-fixed` | `pf`| `position: fixed` |
+| `position-static` | `ps`| `position: static` |
+| `position-sticky` | `pst`| `position: sticky` |
+| `top-20px` | `t-20px`| `top: 20px` |
+| `right-20px` | `r-20px`| `right: 20px` |
+| `bottom-20px` | `btm-20px`| `bottom: 20px` |
+| `left--20px` | `l--20px`| `left: -20px` |
+| `inset-0` | `i-0`| `inset: 0` |
+| `overflow-hidden` | `oh`| `overflow: hidden` |
+| `overflow-y-auto` | `oya`| `overflow-y: auto` |
+| `overflow-x-scroll` | `oxs`| `overflow-x: scroll` |
+| `float-right` | `fr`| `float: right` |
+| `float-left` | `fl`| `float: left` |
+| `clear-left` | `cl`| `clear: left` |
+| `clear-right` | `cr`| `clear: right` |
+| `clear-both` | `cb`| `clear: both` |
+
+
+
+
+------------------
+***Note***
+<Callout type="info" emoji="💡">
+***TIPS***
+You can always use css-variables to handle complex  values. for Example
+</Callout >
+```html copy  showLineNumbers
+    <section 
+    class="gtc--panel-grid-area  gta--named-grid-areas " 
+    style='
+    --panel-grid-area:repeat(3, [col-start] 1fr [col-end]);
+    --name-grid-areas:"header header header" "sidebar main main" "footer footer footer" '
+    >
+        Hello, World
+    </section>
+``` 

@@ -1,0 +1,181 @@
+import { Callout } from 'nextra/components'
+
+# Color
+---------
+#### Color By Name
+You can just write any CSS valid color name after property, or in place of Color Value.
+
+**Here are other example  class name definition.**
+| Classname          | shorthand  | Compiled Style|
+| :------------ | :---------: | ----------: |
+|color-red|c-red|color:red|
+|background-color-skyBlue|bgc-skyBlue|background-color:skyBlue|
+|border-color-blue|bc-blue|border-color:blue|
+|background-linear-gradient-135deg-blue-skyBlue|bg-lg-135deg-blue-skyBlue|background:linear-gradient(135deg,blue,skyBlue)|
+|border-1px-solid-black|b-1px-s-black|border:1px solid black|
+|box-shadow-0px--2px-2px-orange|bxs-0px-0px-2px-orange|box-shadow:0px -2px 2px orange|
+|accent-color-pink|Not Applicable|accent-color:pink|
+
+
+
+Usage Eg:- 
+```html copy  showLineNumbers
+    <h1 class="color-blue font-size-3rem">Hello, World</h1>
+``` 
+
+---------
+
+#### Color By Hexadecimal
+You can just write any CSS valid hexadecimal value omitting "#". AliasCSS is smart enough to know the hexadecimal-value without '#'
+hexadecimal value must be either 3,6 or 8 digit.
+
+**Here are other example  class name definition.**
+| Classname          | shorthand  | Compiled Style|
+| :------------ | :---------: | ----------: |
+|color-ff0000|c-ff0000|color:#ff0000|
+|background-color-ff0000|bgc-ff0000|background-color:#ff0000|
+|border-color-ff0000|bc-ff0000|border-color:#ff0000|
+|background-linear-gradient-135deg-ff0000-skyBlue|bg-lg-135deg-ff0000-skyBlue|background:linear-gradient(135deg,#ff0000,skyBlue)|
+|border-1px-solid-ff0000|b-1px-s-ff0000|border:1px solid #ff0000|
+|box-shadow-0px--2px-2px-ff0000|bxs-0px-0px-2px-ff0000|box-shadow:0px -2px 2px #ff0000|
+|accent-color-ff0000|Not Applicable|accent-color:#ff0000|
+
+
+
+
+Usage Eg:- 
+```html copy  showLineNumbers
+    <h1 class="color-e3e3e3 bgc-01010e55 font-size-3rem">Hello, World</h1>
+``` 
+
+---------
+
+#### Color by function rgb/rgba/hsl/hsla/hwb/hwba
+
+Similarly you can use rgb/rgba/hsl/hsla/hwb/hwba,they all follow same syntax :
+
+**Here are other example  class name definition.**
+| Classname          | shorthand  | Compiled Style|
+| :------------ | :---------: | ----------: |
+|color-rgb-255-0-0|c-rgb-255-0-0|color:rgb(255 0 0)|
+|color-rgba-255-0-0-0.4|c-rgba-255-0-0-0.4|color:rgba(255 0 0 / 0.4)|
+|background-color-hsl-0-100%-50%|bgc-hsl-0-100%-50%|background-color:hsl(0 100% 50%)|
+|border-color-hwb-0-0%-0%|bc-hwb-0-0%-0%|border-color:hwb(0 0% 0%)|
+|border-1px-solid-hsl-0-100%-50%-0.5|b-1px-s-hsl-0-100%-50%-0.5|border:1px solid hsl(0 100% 50% / 0.5)|
+|box-shadow-0px--2px-2px-rgba-255-0-0-0.8|bxs-0px-0px-2px-rgba-255-0-0-0.8|box-shadow:0px -2px 2px rgba(255 0 0 /0.8)|
+|accent-color-rgb-255-0-0|Not Applicable|accent-color:rgb(255 0 0)|
+|background-color-rgb--primary-color|bgc-rgb--primary-color|background-color:rgb(var(--primary-color))|
+
+
+
+
+Usage Eg:- 
+```html copy  showLineNumbers
+    <h1 class="color-rgb-255-0-0 bgc-hsl-0-100%-0-0.8 font-size-3rem">
+        Hello, World
+    </h1>
+``` 
+---------
+
+#### Color by function lab,oklab,lch, oklch
+
+Similarly you can use rgb/rgba/hsl/hsla/hwb/hwba,they all follow same syntax :
+
+**Here are other example  class name definition.**
+| Classname          | shorthand  | Compiled Style|
+| :------------ | :---------: | ----------: |
+|color-lab-54.3-106.83-40.85|c-lab-54.3-106.83-40.85|color:lch(54.3 106.83 40.85)|
+|color-oklab-0.63-0.22-0.13|c-oklab-0.63-0.22-0.13|color:oklab(0.63 0.22 0.13)|
+|background-color-lch-54.3-106.83-40.85|bgc-lch-54.3-106.83-40.85|background-color:lch(54.3 106.83 40.85)|
+|border-color-oklch-0.628-0.2577-29.23|bc-oklch-0.628-0.2577-29.23|border-color:oklch(0.628 0.2577 29.23)|
+|background-color-oklch--primary-color|bgc-oklch--primary-color|background-color:oklch(var(--primary-color))|
+
+
+
+Usage Eg:- 
+```html copy  showLineNumbers
+    <h1 class="color-rgb-255-255-225 background-color-lch-54.3-106.83-40.85 font-size-3rem">
+        Hello, World
+    </h1>
+``` 
+
+------------
+### Custom Colors
+You can extend your color library using `aliascss.config.js` configuration file . [Custom Colors](/docs/advance-customization#custom-colors)
+.You can also use custom color provide by default with AliasCSS compiler, please visit  [Color Reference ](/color) to know more.
+AliasCSS  also provide some collection of  custom color System , which can be used in place of color value  out of the box.
+you can use Radix UI and React Aria Color System which come with auto theming system.
+
+**Radix UI Colors**
+
+Radix UI use 1-12 token system. We have added Theme token support in radix color system, so you can use both light and dark theme color using same class name.
+
+[Visit Radix UI Colors](https://www.radix-ui.com/colors)
+| Classname          | shorthand  | Compiled Style|Remarks|
+| :------------ | :--------- | :--------- | :---------- | 
+|`color-slate1`|`c-slate1`|`color:#111113`||
+|`color-slateA11`|`c-slateA11`|`color:#F1F7FEB5`||
+|`color-slateThemeA11`|`c-slateThemeA11`|`color:light-dark(#0007149f,#f1f7feb5)`||
+
+**React Aria Colors**
+
+React Aria use  a color system  which 0s used their vanilla CSS examples, which is based on 100-1600 token system, we have added Theme token to support in React Aria  Example color system, so you can use both light and dark theme.
+
+[Visit React Aria Colors](https://react-aria.adobe.com)
+
+| Classname          | shorthand  | Compiled Style|Remarks|
+| :------------ | :--------- | :--------- | :---------- |
+|`color-indigoRA100`|`c-indigoRA100`|`color:oklch(from var(--indigoColor,oklch(1 .25049 284.23)) 98.1187% calc(l * c * 0.5) h)`| uses `RA` to indicate React Aria colors |
+|`color-indigoRATheme100`|`c-indigoRTheme100`|`color:light-dark(oklch(from var(--indigoColor,oklch(1 .25049 284.23)) 98.1187% calc(l * c * 0.5) h),oklch(from var(--indigoColor,oklch(1 .25049 284.23)) 29.6725% calc(l * c * 0.5) h))`| use `--nameColor to change base color` |
+
+Usage Eg:- 
+```html copy  showLineNumbers
+    <h1 class="color-primary200 background-color-primary800 font-size-3rem">
+        Hello, World
+    </h1>
+``` 
+
+------------
+### Alpha Value: 
+ You can also modify alpha value providing alpha value after the color separating by '/'. Use can only use this method in
+ color by name , color by hexadecimal, css-variables and custom colors . you cannot use it in color function like rgb/hwb/hsl etc.
+ The color will be processed in oklch color space build the color from given color and modifying alpha alpha channel. you can provide value from
+ 0-9 representing to 0-0.9 
+ | Classname          | shorthand  | Compiled Style|
+| :------------ | :---------: | ----------: |
+|color-red/9|c-red/9|color:oklch(from red l c h/0.9)|
+|color-red/8|c-red/8|color:oklch(from red l c h/0.8)|
+|color-red/7|c-red/7|color:oklch(from red l c h/0.7)|
+|color-red/6|c-red/6|color:oklch(from red l c h/0.6)|
+|color-red/5|c-red/5|color:oklch(from red l c h/0.5)|
+|color-red/4|c-red/4|color:oklch(from red l c h/0.4)|
+|color-red/3|c-red/3|color:oklch(from red l c h/0.3)|
+|color-red/2|c-red/2|color:oklch(from red l c h/0.2)|
+|color-red/1|c-red/1|color:oklch(from red l c h/0.1)|
+|color-ffffff/1|c-ffffff/1|color:oklch(from #ffffff l c h/0.1)|
+|color-primary600/5|c-primary600/5|color:oklch(from var(--primary600,#7F56D9) l c h/0.5)|
+|color--bg-color/7|c--bg-color/7|color:oklch(from var(---bg-color) l c h/0.7)|
+
+Usage Eg:- 
+```html copy  showLineNumbers
+    <h1 class="color-primary200/6 background-color-blue/3 font-size-3rem">
+        Hello, World
+    </h1>
+``` 
+------------------
+***Note***
+<Callout type="info" emoji="💡">
+***TIPS***
+You can always use css-variables to handle complex color values. for Example
+</Callout >
+```html copy  showLineNumbers
+    <h1 
+    class="color--fg1-custom-color background--bg1-custom-color font-size-3rem" 
+    style="
+    --fg1-custom-color:color-mix(in srgb, red, white 20%);
+    --bg1-custom-color:hsl(from var(--primary) h s calc(l - 20%));
+    "
+    >
+        Hello, World
+    </h1>
+``` 

@@ -1,0 +1,124 @@
+import React from "react";
+import {
+  Save ,
+  Trash2 ,
+  ArrowRight,
+ } from "lucide-react";
+
+import "./demo-button.jsx.css";
+import Button from "./components/button";
+
+export const yButton = () => {
+  return (
+    <div className="bg-0f0f1a w100p p-24px flex-center">
+      <div className="dg gtc-repeat-auto-fit-minmax-280px-1fr g-24px w-100% xw-600px">
+        <div className="card [bg-1a1a2e,b-1px-s-2d2d4e,br-16px,df,fdc,aic,gap-18px,py-16px]--as-card">
+          <span className="card-label [c-94a3b8,fs-13px,fw-600,tt-uppercase,letter-spacing-2px]--as-card-label">
+            1. Solid Primary
+          </span>
+          {/* Solid Button */}
+          <button
+            className="bgc-4f46e5 c-white py-12px px-28px bn br-8px fs-16px fw6 cp usn tn-background-color-0.2s-ease
+     --h-bgc-4338ca"
+          >
+            Click Me
+          </button>
+        </div>
+
+        <div className="card">
+          <span className="card-label">2. Outline / Ghost</span>
+          {/* Outline Button */}
+          <button
+            className="bgc-transparent c-4f46e5 py-12px px-28px b-2px-s-4f46e5 br-8px fs-16px fw6 cp transition-all-0.2s-ease  --h[bgc-4f46e5,c-white]
+"
+          >
+            Learn More
+          </button>
+        </div>
+
+        <div className="card">
+          <span className="card-label">3. Pill / Rounded</span>
+          {/* Pills or Rounded Button */}
+          <button className="bgc-10b981 c-white py-12px px-32px bn br-9999px fs-16px fw6 cp transition-background-color-0.2s-ease  --h-bgc-059669">
+            Get Started
+          </button>
+        </div>
+
+        <div className="card">
+          <span className="card-label">4. 3D / Raised</span>
+          {/* 3D Raised/ Pressed */}
+
+          <button
+            className="bgc-f59e0b c-white py-12px px-28px bn br-8px fs-16px fw7 cp  bxs-0-6px-0-b45309 
+         tn-all-0.1s-ease  --a[bxs-0px-2px-0px-b45309,tf-translateY-4px]"
+          >
+            Press Me
+          </button>
+        </div>
+
+        <div className="card">
+          <span className="card-label">5. Neon Glow</span>
+
+          {/* Neon Glow */}
+          <button
+            className="bgc-transparent c-00f5ff py-12px px-28px b-2px-s-00f5ff br-8px fs-16px fw6 cp usn 
+    tn-all-0.3s-ease les-2px ttu --h[bgc-00f5ff,c-000,bxs-0px-0px-20px-00f5ff__0px-0px-40px-00f5ff55]"
+          >
+            Neon
+          </button>
+        </div>
+
+        <div className="card">
+          <span className="card-label">6. Slide Fill</span>
+          {/* CSS Side Button Effect */}
+          <button
+            className="pr bgc-transparent c-4f46e5 py-12px px-28px b-2px-s-4f46e5 br-8px fs-16px fw6 cp usn oh
+    tn-color-0.3s-ease zi-0  --before[cont,pa,inset-0,bgc-4f46e5,tf-scaleX-0,transform-origin-0,tn-transform-0.3s-ease,zi--1] 
+    --h[c-white,--bf-transform-scaleX-1]"
+          >
+            Explore
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+
+export  function XButton() {
+  return (
+    <div className="d-f fd-c gap-16px p-32px">
+      {/* Variants */}
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="ghost">Ghost</Button>
+      <Button variant="danger">Danger</Button>
+
+      {/* Sizes */}
+      <Button size="sm">Small</Button>
+      <Button size="md">Medium</Button>
+      <Button size="lg">Large</Button>
+
+      {/* With Icons */}
+      <Button leftIcon={<Save />}>Save Changes</Button>
+      <Button rightIcon={<ArrowRight />}>Continue</Button>
+
+      {/* Loading */}
+      <Button loading>Saving...</Button>
+
+      {/* Danger + Icon */}
+      <Button variant="danger" leftIcon={<Trash2 />}>
+        Delete Account
+      </Button>
+
+      {/* Full Width */}
+      <Button fullWidth variant="primary">
+        Full Width Button
+      </Button>
+
+      {/* Disabled */}
+      <Button disabled>Disabled</Button>
+    </div>
+  );
+}

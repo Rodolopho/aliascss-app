@@ -1,0 +1,55 @@
+.w-260px{width: 260px}
+._all-bsbb *{box-sizing: border-box}
+.d-grid{display:grid}
+.mb-10px{margin-bottom: 10px}
+.df{display: flex}
+.aib{align-items: baseline}
+.jcsb{justify-content: space-between}
+.fs-15px{font-size: 15px}
+.fw-500{font-weight:500}
+.lh-35px{line-height: 35px}
+.c-fff{color:#fff}
+.fs-13px{font-size: 13px}
+.c-gray-800{color:var(--gray800,#1D2939)}
+.opacity-0d8{opacity: 0.8}
+@layer base{ .\@base-all-unset{all:unset}}
+.input{background-color:transparent} 
+.input{width: 100%} 
+.input{display:inline-flex; justify-content:center;align-items:center} 
+.input{border-radius: 4px} 
+.input{font-size: 15px} 
+.input{color:var(--gray800,#1D2939)} 
+.input{background-color:#fff} 
+.input{box-shadow:0px 0px 0px 1px rgba(000,000,000,0.6)} 
+.input:hover{box-shadow:0px 0px 0px 1px black} 
+.input:focus{box-shadow:0px 0px 0px 2px black} 
+.input::selection{color:white} 
+.input::selection{background-color:rgba(000,000,000,0.6)} 
+ 
+
+.p-0-10px{padding: 0 10px}
+.h-35px{height: 35px}
+.lh-1{line-height: 1}
+.c-error-600{color:var(--error600,#D92D20)}
+.resize-none{resize:none}
+.p-10px{padding: 10px}
+@layer base{ .x-button{all:unset}} 
+@layer base{ .x-button[class]{display:inline-flex;align-items:center;justify-content:center}} 
+@layer base{ .x-button[class]{padding: 12px 28px}} 
+@layer base{ .x-button[class]{font-size: 15px}} 
+@layer base{ .x-button[class]{font-weight: 500}} 
+@layer base{ .x-button[class]{user-select: none}} 
+@layer base{ .x-button[class]{cursor: pointer}} 
+@layer base{ .x-button[class]{border-radius: 6px}} 
+@layer base{ .x-button[class]{gap: 8px}} 
+@layer base{ .x-button[class]{white-space: nowrap}} 
+@layer base{ .x-button[class]{color:light-dark(white,black)}} 
+@layer base{ .x-button[class]{background:light-dark(var(--gray800,#1D2939),var(--gray200,#EAECF0))}} 
+ 
+
+.bgc-gray-800{background-color:var(--gray800,#1D2939)}
+.w-100p{width: 100%}
+.c-gray-100{color:var(--gray100,#F2F4F7)}
+.bxs-0px-2px-10px-2252252250d4{box-shadow:0px 2px 10px rgba(225,225,225,0.4)}
+.--h-bgc-gray-700:hover{background-color:var(--gray700,#344054)}
+.--fo-bxs-0px-0px-0px-2px-black:focus{box-shadow:0px 0px 0px 2px black}

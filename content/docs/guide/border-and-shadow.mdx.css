@@ -1,0 +1,10 @@
+.p-32px{padding: 32px}
+.br-8px{border-radius: 8px}
+.b-1px-s-e3e3e3{border:1px solid #e3e3e3}
+.d-f{display:flex}
+.w-100px{width: 100px}
+.mh-64px{min-height: 64px}
+.bxs-1px--1px-2px-2px--black\/7{box-shadow:1px -1px 2px 2px oklch(from var(--black) l c h/0.7 )}
+.display-inline-flex{display:inline-flex}
+.b-1px-s-primary600{border:1px solid var(--primary600,#7F56D9)}
+.bxs--shadow-sm{box-shadow: var(--shadow-sm)}

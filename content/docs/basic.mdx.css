@@ -1,4 +1,78 @@
-.color-blue{color:blue}
+.card{padding: 20px} 
+.card{background-color:blue} 
+
+.----------\:{----------:}
+.height\,{height:,}
+.padding\,{padding:,}
+.margin\,{margin:,}
+.color--fg1-custom-color{color: var(--fg1-custom-color)}
+.background--bg1-custom-color{background: var(--bg1-custom-color)}
 .font-size-3rem{font-size: 3rem}
+.color-blue{color:blue}
 .c-blue{color:blue}
 .fs-3rem{font-size: 3rem}
+.d-flex{display:flex}
+.p-20px{padding: 20px}
+.bgc-blue{background-color:blue}
+.m-1rem{margin: 1rem}
+.w-100p{width: 100%}
+.mt--20px{margin-top: -20px}
+.bg--gradient{background: var(--gradient)}
+.c-fff{color:#fff}
+.bgc-0f172a{background-color:#0f172a}
+.c-rgba-255-0-0-0\.5{color:rgba(255 0 0 / 0.5)}
+.b-1px-solid-e3e3e3{border:1px solid #e3e3e3}
+.fs-16px{font-size: 16px}
+.bgc-red{background-color:red}
+.padding-20px{padding: 20px}
+.font-size-16px{font-size: 16px}
+.background-color-red{background-color:red}
+._div-c-red div{color:red}
+._div_h4-fs-20px div h4{font-size: 20px}
+._div__h4-c-red div > h4{color:red}
+._div___h4-c-blue div + h4{color:blue}
+._div____h4-c-green div ~ h4{color:green}
+.\[data-state\=open\]-d-flex[data-state="open"]{display:flex}
+ .card ._\.card\&-c-blue{color:blue}
+.--hover-bg-blue:hover{background:blue}
+.--hover--focus-c-red:hover:focus{color:red}
+.\[p-20px\,c-red\]{padding: 20px} 
+.\[p-20px\,c-red\]{color:red} 
+
+.--hover\[c-red\,bgc-blue\]:hover{color:red} 
+.--hover\[c-red\,bgc-blue\]:hover{background-color:blue} 
+
+.card div{padding: 20px} 
+ 
+
+.card{padding: 20px} 
+ 
+ 
+.box{padding: 20px} 
+ 
+ 
+
+._\.someClass_div\,_\.ban_em\[c-red\] .someClass div, .ban em{color:red} 
+
+.--is\(_div\,_ul\)\[c-red\] :is( div, ul){color:red} 
+
+.menu-a div, .ban ul{color:red} 
+ 
+ 
+.item-a div, .ban ul{color:red} 
+ 
+ 
+
+.an-fade{animation-name:fade}
+.adu-1s{animation-duration: 1s}
+@layer base{ .\@base-d-flex{display:flex}}
+@layer base{ @media (max-width : 576px){ .\@\[base\,xs\]-d-flex{display:flex}}}
+@media (min-width : 768px){ .md-d-flex{display:flex}}
+@keyframes fade{
+ 0% {opacity: 1} 100% {opacity: 0}
+}
+
+@keyframes move{
+ 0%,50% {left: 0;top: 0} 100% {left: 100px;top: 100px}
+}
+

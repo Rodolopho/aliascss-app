@@ -1,0 +1,70 @@
+@layer base{ .\@base-all-unset{all:unset}}
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-gray-800\,bxs-0px-2px-10px-0000000000d5\]{display: inline-flex} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-gray-800\,bxs-0px-2px-10px-0000000000d5\]{align-items: center} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-gray-800\,bxs-0px-2px-10px-0000000000d5\]{justify-content: center} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-gray-800\,bxs-0px-2px-10px-0000000000d5\]{width:calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-gray-800\,bxs-0px-2px-10px-0000000000d5\]{font-family:inherit} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-gray-800\,bxs-0px-2px-10px-0000000000d5\]{border-radius: 100%} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-gray-800\,bxs-0px-2px-10px-0000000000d5\]{color:var(--gray800,#1D2939)} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-gray-800\,bxs-0px-2px-10px-0000000000d5\]{box-shadow:0px 2px 10px rgba(000,000,000,0.5)} 
+
+.--fo-bxs-0px-0px-0px-2px-black:focus{box-shadow:0px 0px 0px 2px black}
+.--hover-bgc-gray-100:hover{background-color:var(--gray100,#F2F4F7)}
+.br-4px{border-radius: 4px}
+.p-20px{padding: 20px}
+.w-260px{width: 260px}
+.bgc-white{background-color:white}
+.bxs-0px-10px-38px--10px-hsl-206-22p-7p-35p__0px-10px-20px--15px-hsl-206-22p-7p-20p{box-shadow:0px 10px 38px -10px hsl(206 22% 7% / 35%) , 0px 10px 20px -15px hsl(206 22% 7% / 20%)}
+.adu-400ms{animation-duration: 400ms}
+.atf--atf\:cubic-bezier\(0\.16\,1\,0\.3\,1\){animation-timing-function: var(--atf,cubic-bezier(0.16,1,0.3,1))}
+.will-change-transform__opacity{will-change:transform, opacity}
+.--fo-bxs-0px-10px-38px--10px-hsl-206-22p-7p-35p__0px-10px-20px--15px-hsl-206-22p-7p-20p__0px-0px-0px-2px-gray800:focus{box-shadow:0px 10px 38px -10px hsl(206 22% 7% / 35%) , 0px 10px 20px -15px hsl(206 22% 7% / 20%) , 0px 0px 0px 2px var(--gray800,#1D2939)}
+.\[data-state\=open\]\[data-side\=top\]-an-slideDownAndFade[data-state="open"][data-side="top"]{animation-name:slideDownAndFade}
+.\[data-state\=open\]\[data-side\=right\]-an-slideLeftAndFade[data-state="open"][data-side="right"]{animation-name:slideLeftAndFade}
+.\[data-state\=open\]\[data-side\=bottom\]-an-slideUpAndFade[data-state="open"][data-side="bottom"]{animation-name:slideUpAndFade}
+.\[data-state\=open\]\[data-side\=left\]-an-slideRightAndFade[data-state="open"][data-side="left"]{animation-name:slideRightAndFade}
+.m-0{margin: 0}
+.c-gray-900{color:var(--gray900,#101828)}
+.fs-15px{font-size: 15px}
+.lh-19px{line-height: 19px}
+.fw5{font-weight: 500}
+.df{display: flex}
+.aic{align-items: center}
+.g-20px{gap: 20px}
+.fs-13px{font-size: 13px}
+.c-gray-800{color:var(--gray800,#1D2939)}
+.w-75px{width: 75px}
+.w-100p{width: 100%}
+.dif{display: inline-flex}
+.jcc{justify-content: center}
+.flex-1{flex: 1}
+.p-0-10px{padding: 0 10px}
+.lh-1{line-height: 1}
+.c-gray700{color:var(--gray700,#344054)}
+.bxs-0px-0px-0px-1px-gray500{box-shadow:0px 0px 0px 1px var(--gray500,#667085)}
+.h-25px{height: 25px}
+.--fo-bxs-0px-0px-0px-2px-gray600:focus{box-shadow:0px 0px 0px 2px var(--gray600,#475467)}
+.br-100p{border-radius: 100%}
+.ff-inherit{font-family:inherit}
+.w-25px{width: 25px}
+.pa{position: absolute}
+.t-5px{top: 5px}
+.r-5px{right: 5px}
+.--h-bgc-gray-200:hover{background-color:var(--gray200,#EAECF0)}
+.fill-white{fill:white}
+@keyframes slideUpAndFade{
+ 0% {opacity: 0;transform:translateY(2px)} 100% {opacity: 1;transform:translateY(0)}
+}
+
+@keyframes slideRightAndFade{
+ 0% {opacity: 0;transform:translateX(-2px)} 100% {opacity: 1;transform:translateX(0)}
+}
+
+@keyframes slideDownAndFade{
+ 0% {opacity: 0;transform:translateY(-2px)} 100% {opacity: 1;transform:translateY(0)}
+}
+
+@keyframes slideLeftAndFade{
+ 0% {opacity: 0;transform:translateX(2px)} 100% {opacity: 1;transform:translateX(0)}
+}
+

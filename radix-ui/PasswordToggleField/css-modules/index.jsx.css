@@ -1,0 +1,27 @@
+.df{display: flex}
+.fwn{flex-wrap: nowrap}
+.flex-center{display:flex;align-items:center;justify-content:center}
+.br-4px{border-radius: 4px}
+.c-gray-600{color:var(--gray600,#475467)}
+.bgc-fff{background-color:#fff}
+.bxs-0px-0px-0px-1px-0000000000d3{box-shadow:0px 0px 0px 1px rgba(000,000,000,0.3)}
+.p-0-0d75rem{padding: 0 0.75rem}
+.pr-9px{padding-right: 9px}
+.h-36px{height: 36px}
+.gap-8px{gap: 8px}
+.--ho-bxs-0px-0px-0px-1px-black:hover{box-shadow:0px 0px 0px 1px black}
+.--fw-bxs-0px-0px-0px-2px-black:focus-within{box-shadow:0px 0px 0px 2px black}
+@layer base{ .\@base-all-unset{all:unset}}
+.bsbb{box-sizing: border-box}
+.h-18px{height: 18px}
+.fs-15px{font-size: 15px}
+.c-inherit{color:inherit}
+.lh-1{line-height: 1}
+.--selection\[c-fff\,bgc-0000000000d6\]::selection{color:#fff} 
+.--selection\[c-fff\,bgc-0000000000d6\]::selection{background-color:rgba(000,000,000,0.6)} 
+
+.aspect-ratio-1{aspect-ratio:1}
+.br-0d5px{border-radius: 0.5px}
+.--fv\[ol-2px-solid-gray-200\,outline-offset-2px\]:focus-visible{outline:2px solid var(--gray200,#EAECF0)} 
+.--fv\[ol-2px-solid-gray-200\,outline-offset-2px\]:focus-visible{outline-offset: 2px} 
+

@@ -1,0 +1,13 @@
+@layer base{ .\@base-all-unset{all:unset}}
+.bgc-white{background-color:white}
+.x-square-25px{width:calc(25px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(25px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(25px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
+.br-4px{border-radius: 4px}
+.flex-center{display:flex;align-items:center;justify-content:center}
+.bxs-0px-2px-10px-blackA7{box-shadow:0px 2px 10px rgba(0, 0, 0, 0.5)}
+.--h-bgc-violet3:hover{background-color:#f4f0fe}
+.--fo-bxs-0px-0px-0px-2px-000:focus{box-shadow:0px 0px 0px 2px #000}
+.c-violet11{color:#6550b9}
+.c-gray-600{color:var(--gray600,#475467)}
+.pl-15px{padding-left: 15px}
+.fs-15px{font-size: 15px}
+.lh-1{line-height: 1}

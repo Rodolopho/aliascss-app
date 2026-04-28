@@ -1,0 +1,14 @@
+.color-blue{color:blue}
+.font-size-3rem{font-size: 3rem}
+.color-e3e3e3{color:#e3e3e3}
+.bgc-01010e55{background-color:#01010e55}
+.color-rgb-255-0-0{color:rgb(255 0 0)}
+.bgc-hsl-0-100\%-0-0\.8{background-color:hsl(0 100% 0 / 0.8)}
+.color-rgb-255-255-225{color:rgb(255 255 225)}
+.background-color-lch-54\.3-106\.83-40\.85{background-color:lch(54.3 106.83 40.85)}
+.color-primary200{color:var(--primary200,#E9D7FE)}
+.background-color-primary800{background-color:var(--primary800,#53389E)}
+.color-primary200\/6{color:oklch(from var(--primary200,#E9D7FE) l c h/0.6 )}
+.background-color-blue\/3{background-color:oklch(from blue l c h/0.3 )}
+.color--fg1-custom-color{color: var(--fg1-custom-color)}
+.background--bg1-custom-color{background: var(--bg1-custom-color)}

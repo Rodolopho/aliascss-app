@@ -18,6 +18,13 @@ export default {
     type:'page'
     // ... and provide extra configurations
   },
+  components: {
+    // Alternatively, you can set title with `title` property
+    title: 'Components',
+    type:'page',
+    display:'hidden'
+    // ... and provide extra configurations
+  },
   playground: {
     // Alternatively, you can set title with `title` property
     title: 'Playground',

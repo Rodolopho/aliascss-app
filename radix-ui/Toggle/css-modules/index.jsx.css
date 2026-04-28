@@ -1,0 +1,16 @@
+@layer base{ .\@base-all-unset{all:unset}}
+.bgc-fff{background-color:#fff}
+.c-gray-500{color:var(--gray500,#667085)}
+.x-square-35px{width:calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
+.br-4px{border-radius: 4px}
+.df{display: flex}
+.fs-15px{font-size: 15px}
+.lh-1{line-height: 1}
+.flex-center{display:flex;align-items:center;justify-content:center}
+.bxs-0px-2px-10px-00000000000d7{box-shadow:0px 2px 10px rgba(000,000,000,00.7)}
+.usn{user-select: none}
+.--h-bgc-primary-300:hover{background-color:var(--primary300,#D6BBFB)}
+.--fo-bxs-0px-0px-0px-2px-black:focus{box-shadow:0px 0px 0px 2px black}
+.\[data-state\=on\]\[bgc-primary-600\,c--violet-900\][data-state="on"]{background-color:var(--primary600,#7F56D9)} 
+.\[data-state\=on\]\[bgc-primary-600\,c--violet-900\][data-state="on"]{color: var(--violet-900)} 
+

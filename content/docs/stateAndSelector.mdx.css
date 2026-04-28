@@ -3,3 +3,5 @@
 .--h-bgc-yellow:hover{background-color:yellow}
 ._h3-c-white h3{color:white}
 ._p-fs-14px p{font-size: 14px}
+.--is\(_h3\,_p\)-c-black\/8 :is( h3, p){color:oklch(from black l c h/0.8 )}
+.--Is\(--hover\)-bgc-black\/2:is(:hover){background-color:oklch(from black l c h/0.2 )}

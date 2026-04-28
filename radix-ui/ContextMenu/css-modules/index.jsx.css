@@ -1,0 +1,59 @@
+.fs-13px{font-size: 13px}
+.lh-1{line-height: 1}
+.c-violet-800{color:var(--violet800,#5720B7)}
+.br-3px{border-radius: 3px}
+.df{display: flex}
+.aic{align-items: center}
+.h-25px{height: 25px}
+.p-0px-5px{padding: 0px 5px}
+.pr{position: relative}
+.pl-25px{padding-left: 25px}
+.usn{user-select: none}
+.oln{outline:none}
+.\[data-disabled\]\[pen\,c-gray-300\][data-disabled]{pointer-events: none} 
+.\[data-disabled\]\[pen\,c-gray-300\][data-disabled]{color:var(--gray300,#D0D5DD)} 
+
+.\[data-highlighted\]\[background-color-violet-600\,color-violet-100\][data-highlighted]{background-color:var(--violet600,#7839EE)} 
+.\[data-highlighted\]\[background-color-violet-600\,color-violet-100\][data-highlighted]{color:var(--violet100,#ECE9FE)} 
+
+.\[data-state\=open\]--not\(\[data-highlighted\]\,\[data-disabled\]\)-\[bgc-violet-300\,c-violet-800\][data-state="open"]:not([data-highlighted],[data-disabled]){background-color:var(--violet300,#C3B5FD)} 
+.\[data-state\=open\]--not\(\[data-highlighted\]\,\[data-disabled\]\)-\[bgc-violet-300\,c-violet-800\][data-state="open"]:not([data-highlighted],[data-disabled]){color:var(--violet800,#5720B7)} 
+
+.db{display: block}
+.b-2px-dashed-gray-800{border:2px dashed var(--gray800,#1D2939)}
+.c-gray-800{color:var(--gray800,#1D2939)}
+.br-4px{border-radius: 4px}
+.fs-15px{font-size: 15px}
+.py-45px{padding-top:45px;padding-bottom:45px}
+.w-300px{width: 300px}
+.tac{text-align: center}
+.mw-220px{min-width: 220px}
+.bgc-white{background-color:white}
+.br-6px{border-radius: 6px}
+.p-5px{padding: 5px}
+.bxs-0px-10px-38px--10px-0220230240d35__0px-10px-20px--15px-0220230240d2{box-shadow:0px 10px 38px -10px rgba(022,023,024,0.35) , 0px 10px 20px -15px rgba(022,023,024,0.2)}
+.cm-right-slot{margin-left:auto} 
+.cm-right-slot{padding-left: 20px} 
+.cm-right-slot{color:var(--gray600,#475467)} 
+ 
+
+[data-highlighted]  > .cm-right-slot{color:white} 
+
+[data-disabled] .cm-right-slot{color:var(--gray600,#475467)} 
+
+.cm-seperator{margin: 5px} 
+.cm-seperator{height: 1px} 
+.cm-seperator{background-color:var(--violet300,#C3B5FD)} 
+ 
+
+.cm-item-indicator{position: absolute} 
+.cm-item-indicator{left: 0px} 
+.cm-item-indicator{width: 25px} 
+.cm-item-indicator{display: inline-flex} 
+.cm-item-indicator{align-items: center} 
+.cm-item-indicator{justify-content: center} 
+ 
+
+.fs-12px{font-size: 12px}
+.lh-25px{line-height: 25px}
+.c-gray-500{color:var(--gray500,#667085)}

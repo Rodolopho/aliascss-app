@@ -5,9 +5,9 @@
 .p-4px-10px-4px-4px{padding: 4px 10px 4px 4px}
 .br-16px{border-radius: 16px}
 .bgc-blue50{background-color:var(--blue50,#EFF8FF)}
-:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc-gray700{background-color:var(--gray700,#344054)}
-:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-c-blue100{color:var(--blue100,#D1E9FF)}
-.x-text-xs{font-size: 0.75rem; line-height: 1.125rem}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc-gray700{background-color:var(--gray700,#344054)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-c-blue100{color:var(--blue100,#D1E9FF)}
+.x-text-xs{font-size: var(--text-xs,0.75rem); line-height: 1.125rem}
 .fw5{font-weight: 500}
 .c-gray500{color:var(--gray500,#667085)}
 .w-xc{width:max-content}
@@ -18,7 +18,7 @@
 .p-2px-10px{padding: 2px 10px}
 .br16px{border-radius:16px}
 .g4px{gap:4px}
-:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc-blue700{background-color:var(--blue700,#175CD3)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc-blue700{background-color:var(--blue700,#175CD3)}
 .gap-4px{gap: 4px}
 .h-30rem{height: 30rem}
 .b-1px-s-ccc{border:1px solid #ccc}
@@ -27,14 +27,14 @@
 .p24px{padding:24px}
 .bl15px-s-blueLight600{border-left:15px solid var(--blueLight600,#0086C9)}
 .ff-courier{font-family:courier}
-.x-text-sm{font-size: 0.875rem; line-height: 1.25rem}
+.x-text-sm{font-size: var(--text-sm,0.875rem); line-height: 1.25rem}
 .o-a{opacity:-a}
 .w100p{width:100%}
 .fdc{flex-direction: column}
 .c-green700{color:var(--green700,#087443)}
 .fw6{font-weight: 600}
 .c-gray700{color:var(--gray700,#344054)}
-:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-c-gray400{color:var(--gray400,#98A2B3)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-c-gray400{color:var(--gray400,#98A2B3)}
 .c-blue700{color:var(--blue700,#175CD3)}
 .c-error400{color:var(--error400,#F97066)}
 .fwb{font-weight: bold}

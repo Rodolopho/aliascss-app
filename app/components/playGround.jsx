@@ -84,7 +84,7 @@ export const ReactPlayGround = () => {
              showNavigator: true,
              copyContent:true,
              allowScripts:true,
-                externalResources: ["https://cdn.jsdelivr.net/npm/aliascss@1.3.4/dist/aliascss.js"]
+                externalResources: ["https://cdn.jsdelivr.net/npm/aliascss@latest/dist/aliascss.js"]
                 }}
       files={{
         "/App.js": `export default function HelloACSS() {

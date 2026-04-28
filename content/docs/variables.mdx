@@ -9,12 +9,36 @@ with '--'.
     <h3 class="color--header-color --hover--header-color:blue">Hello World</h3>
 </div>
 ```
-### Defining Default value for css variable
+```
+Please note that , if we give variable names that end with valid css property then the value will be processed as by the AliasCSS property compiler .
+For example "--header-bg:e3e3e3", will have value `#e3e3e3`, because the variable name is end with `bg` which is valid alias for css property and aliasCSS
+will smartly first treat as a value for `background` as `bg` is alias for background property. Similarly, in example `--text-color:red/7` the value will be
+applied as `oklch(from red l c h/0.7 )` cause its variable name end with valid css-property i.e color.
+like wise any variable name end with 'text' will get value converted in quoted string.
+```
+**Some Examples**
+
+`--country-text:united_kingdom`  => `--country-text:"united kingdom"` // css value type hinting
+`--country-content:united_kingdom`  => `--country-content:"united kingdom"`// css value type hinting
+`--country-name:united_kingdom`  => `--country-content:united_kingdom` // No value type hinting
+`--panel-color:rgb-225-225-0`  => `--panel-color:rgb(225 225 0)` // css value type hinting
+`--panel-col:rgb-225-225-0`  => `--panel-col:rgb-225-225-0` // No value type hinting
+`--color-panel:rgb-225-225-0`  => `--color-panel:rgb-225-225-0` // No value type hinting
+`--transform-rotate-half:rotate--180deg`=> `--transform-rotate-half:rotate--180deg`//  No value type hinting
+`--rotate-half-transform:rotate-180deg`=> `--rotate-half-transform:rotate(-180deg)` // css value type hinting 
+`--rotate-half-tf:rotate-90deg`=> `--rotate-half-tf:rotate(90deg)` // css value type hinting
+
+**Rule**: if has css-variable name  ends with  valid css-property or property alias, try to treat value accordingly to 
+property, else leave it as it is.
+
+
+### Defining optional Default value for css variable
 We can give default value for css variable adding `:value` when using css variables. The default value will be used if the variable is not defined in the style attribute or in the className.
 ```html
-<h1 class="color--header-color:skyBlue">Hello World</h1>
+<h1 class="color--header-color:skyBlue bg--display-bg">Hello World</h1>
 
 ```
+
 ### Few Examples of using css variables
 
 |classname|shorthand|css|Remarks|
@@ -30,17 +54,3 @@ We can give default value for css variable adding `:value` when using css variab
 
 
 
-## Declaring css variable using aliascss className.
-
-To define css variables using classnames  use this format, `--var-name:value`, value passed is just a plain string and 
-it is not compiler to any value format as there is no way for aliascss to know the type of value you want to use. However ,length based are good to go in this case.
-optionally you can end your variable name with '-text' to treat value as string. Similarly, variable names that ends with '-color', AliasCSS will try to treat its value as color identifier
-**Example**
-```html
-<div class="color--grey-alt --grey:--grey-default" 
-    style="--grey-default:rgba(210, 213, 217, 1);--grey-alt:rgba(186, 189, 194, 1)">
-    <h3 class="color--grey --hover-color--grey-hover --grey-hover:black">
-        Hello World
-    </h3>
-</div>
-```

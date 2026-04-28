@@ -1,0 +1,17 @@
+.fs-15px{font-size: 15px}
+.fw-5{font-weight:500}
+.lh-35px{line-height: 35px}
+.c-gray-800{color:var(--gray800,#1D2939)}
+@layer base{ .\@base-all-unset{all:unset}}
+.w-200px{width: 200px}
+.x-inline-flex-center{display:inline-flex; justify-content:center;align-items:center}
+.br-4px{border-radius: 4px}
+.p-0-10px{padding: 0 10px}
+.h-35px{height: 35px}
+.lh-1{line-height: 1}
+.bgc-fff{background-color:#fff}
+.bxs-0px-0px-0px-1px-0000000000d6{box-shadow:0px 0px 0px 1px rgba(000,000,000,0.6)}
+.--fo-bxs-0px-0px-0px-2px-black:focus{box-shadow:0px 0px 0px 2px black}
+.--selection\[bgc-0000000000d6\,c-white\]::selection{background-color:rgba(000,000,000,0.6)} 
+.--selection\[bgc-0000000000d6\,c-white\]::selection{color:white} 
+

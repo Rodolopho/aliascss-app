@@ -121,3 +121,43 @@
 |` _child_div-df`|`._child_div-df > div{..}`|
 |`_next_div-df`|`._next_div-df + div{..}`|
 |`_siblings_div-df`|`._siblings_div-df ~ div{..}`|
+
+### :has(), :is(), :where() and :not()
+
+Each of these selector function accepts valid aliasCSS selector not, general css selector, this is done to make 
+coding less confusion and maintain the same rule across every feature of the design or style system.
+
+Selection Prefix
+|prefix|alias prefix| selection|Remarks|
+|---|---|---|----|
+|`--is()`|`--is()`|` :is()`|by default space is added before selector |
+|`--has()`|`--hs()`|`:has()`||
+|`--not()`|`--n()`|`:not()`||
+|`--where()`|`--w()`|` :where()`|by default space is added before selector|
+|`--Is()`|`--Is()`|`:is()`|Removes space before selector|
+|`--Has()`|``|` :has()`|Adds space before selector|
+|`--Where()`|`--W()`|`:Where()`|removes space before selector|
+
+
+
+
+ 
+ ```html
+ <div class="--is(_h3,_p)-c-black/8 --Is(--hover)-bgc-black/2" >
+    <h3>Hello World</h3>
+    <p> Welcome to AliasCSS </p>
+ </div>
+ ```
+ AliasCSS will compile above classnames as below:-
+ ```css
+ ....
+ 
+ .--is\(_h3\,_p\)-c-black\/8 :is( h3, p){
+    color:oklch(from black l c h/0.8 )
+}
+.--Is\(--hover\)-bgc-black\/2:is(:hover){
+    background-color:oklch(from black l c h/0.2 )
+}
+/* Note the difference between --Is and --is */
+```
+

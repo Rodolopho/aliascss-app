@@ -1,0 +1,59 @@
+@layer base{ .x-button{all:unset}} 
+@layer base{ .x-button[class]{display:inline-flex;align-items:center;justify-content:center}} 
+@layer base{ .x-button[class]{padding: 12px 28px}} 
+@layer base{ .x-button[class]{font-size: 15px}} 
+@layer base{ .x-button[class]{font-weight: 500}} 
+@layer base{ .x-button[class]{user-select: none}} 
+@layer base{ .x-button[class]{cursor: pointer}} 
+@layer base{ .x-button[class]{border-radius: 6px}} 
+@layer base{ .x-button[class]{gap: 8px}} 
+@layer base{ .x-button[class]{white-space: nowrap}} 
+@layer base{ .x-button[class]{color:light-dark(white,black)}} 
+@layer base{ .x-button[class]{background:light-dark(var(--gray800,#1D2939),var(--gray200,#EAECF0))}} 
+ 
+
+.Color\(white\,red-10\){color:white;background-color:#dc3e42;}
+.--hover-bgc-red-9:hover{background-color:#e5484d}
+.ff-inter{font-family:inter}
+.bgc-0000000000d7{background-color:rgba(000,000,000,0.7)}
+.pf{position: fixed}
+.inset-0{inset: 0}
+.an-overlayShow{animation-name:overlayShow}
+.adu-150ms{animation-duration: 150ms}
+.atf--atf\:cubic\(0\.16\,1\,0\.3\,1\){animation-timing-function: var(--atf,cubic(0.16,1,0.3,1))}
+.bgc-gray-100{background-color:var(--gray100,#F2F4F7)}
+.br-6px{border-radius: 6px}
+.x-shadow{x:-shadow}
+.t-50p{top: 50%}
+.l-50p{left: 50%}
+.tf-t--50p--50p{transform:translate(-50%, -50%)}
+.w-90vw{width: 90vw}
+.xw-500px{max-width: 500px}
+.xh-85vh{max-height: 85vh}
+.p-25px{padding: 25px}
+.an-contentShow{animation-name:contentShow}
+.--fo-oln:focus{outline:none}
+.m-0{margin: 0}
+.fs-17px{font-size: 17px}
+.fw5{font-weight: 500}
+.mb-20px{margin-bottom: 20px}
+.c-gray-600{color:var(--gray600,#475467)}
+.fs-15px{font-size: 15px}
+.lh-1d5{line-height: 1.5}
+.df{display: flex}
+.g-25px{gap: 25px}
+.justify-content-flex-end{justify-content:flex-end}
+.--ho-bgc-mauve5:hover{background-color:#e3dfe6}
+.bgc-mauve4{background-color:#eae7ec}
+.c-mauve11{color:#65636d}
+.--ho-bgc-red5:hover{background-color:#ffcdce}
+.bgc-red4{background-color:#ffdbdc}
+.c-red11{color:#ce2c31}
+@keyframes overlayShow{
+ 0% {opacity: 0} 100% {opacity: 1}
+}
+
+@keyframes contentShow{
+ 0% {opacity: 0;transform:translate(-50%, -48%) scale(0.96)} 100% {opacity: 1;transform:translate(-50%, -50%) scale(1)}
+}
+

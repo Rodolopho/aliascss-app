@@ -1,0 +1,23 @@
+.avatar-root{display:inline-flex;align-items:center;justify-content:center} 
+.avatar-root{vertical-align: middle} 
+.avatar-root{overflow: hidden} 
+.avatar-root{user-select: none} 
+.avatar-root{width:calc(45px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(45px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(45px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))} 
+.avatar-root{border-radius: 100%} 
+.avatar-root{background-color:rgba(0, 0, 0, 0.15)} 
+ 
+
+.avatar-image{width:calc(100% - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(100% - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(100% - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))} 
+.avatar-image{object-fit:cover} 
+.avatar-image{border-radius:inherit} 
+ 
+
+.avatar-fallback{width:calc(100% - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(100% - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(100% - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))} 
+.avatar-fallback{display:flex;align-items:center;justify-content:center} 
+.avatar-fallback{background-color:var(--gray200,#EAECF0)} 
+.avatar-fallback{color:#6550b9} 
+.avatar-fallback{font-size: 15px} 
+.avatar-fallback{line-height: 1} 
+.avatar-fallback{font-weight: 500} 
+ 
+

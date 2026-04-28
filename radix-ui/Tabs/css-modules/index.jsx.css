@@ -1,0 +1,53 @@
+@layer base{ .\@base-all-unset{all:unset}}
+.x-inline-flex-center{display:inline-flex; justify-content:center;align-items:center}
+.br-4px{border-radius: 4px}
+.p-0px-15px{padding: 0px 15px}
+.fs-15px{font-size: 15px}
+.lh-1{line-height: 1}
+.fw-5{font-weight:500}
+.h-35px{height: 35px}
+.bgc-success-200{background-color:var(--success200,#ABEFC6)}
+.c-success-700{color:var(--success700,#067647)}
+.--ho-bgc-success-300:hover{background-color:var(--success300,#75E0A7)}
+.--fo-bxs-0px-0px-0px-2px-success-900:focus{box-shadow:0px 0px 0px 2px var(--success900,#074D31)}
+.df{display: flex}
+.fdc{flex-direction: column}
+.w-300px{width: 300px}
+.bxs-0px-2px-10px-0000000000d4{box-shadow:0px 2px 10px rgba(000,000,000,0.4)}
+.flex-shrink-0{flex-shrink: 0}
+.bb-1px-s-gray-300{border-bottom:1px solid var(--gray300,#D0D5DD)}
+.ff-inherit{font-family:inherit}
+.bgc-fff{background-color:#fff}
+.p-0-20px{padding: 0 20px}
+.h-45px{height: 45px}
+.flex-1{flex: 1}
+.flex-center{display:flex;align-items:center;justify-content:center}
+.c-gray-700{color:var(--gray700,#344054)}
+.usn{user-select: none}
+.--fc-btlr-6px:first-child{border-top-left-radius: 6px}
+.--lc-btrr-6px:last-child{border-top-right-radius: 6px}
+.--h-c-primary-600:hover{color:var(--primary600,#7F56D9)}
+.\[data-state\=active\]\[c-primary600\,bxs-inset-0px--1px-0px-0px-currentColor__0px-1px-0px-0px-currentColor\][data-state="active"]{color:var(--primary600,#7F56D9)} 
+.\[data-state\=active\]\[c-primary600\,bxs-inset-0px--1px-0px-0px-currentColor__0px-1px-0px-0px-currentColor\][data-state="active"]{box-shadow:inset 0px -1px 0px 0px currentColor , 0px 1px 0px 0px currentColor} 
+
+.--fo\[pr\,bxs-0px-0px-0px-2px-black\]:focus{position: relative} 
+.--fo\[pr\,bxs-0px-0px-0px-2px-black\]:focus{box-shadow:0px 0px 0px 2px black} 
+
+.flex-grow-1{flex-grow: 1}
+.p-20px{padding: 20px}
+.bblr-6px{border-bottom-left-radius: 6px}
+.bbrr-6px{border-bottom-right-radius: 6px}
+.--fo-bxs-0px-0px-0px-2px-black:focus{box-shadow:0px 0px 0px 2px black}
+.mt-0{margin-top: 0}
+.mb-20px{margin-bottom: 20px}
+.c-gray700{color:var(--gray700,#344054)}
+.lh-1d5{line-height: 1.5}
+.mb-15px{margin-bottom: 15px}
+.w-100p{width: 100%}
+.jcfs{justify-content: flex-start}
+.fs-13px{font-size: 13px}
+.mb-10px{margin-bottom: 10px}
+.flex-1-0-auto{flex: 1 0 auto}
+.p-0-10px{padding: 0 10px}
+.bxs-0px-0px-0px-1px-primary700{box-shadow:0px 0px 0px 1px var(--primary700,#6941C6)}
+.--fo-bxs-0px-0px-0px-2px-primary800:focus{box-shadow:0px 0px 0px 2px var(--primary800,#53389E)}

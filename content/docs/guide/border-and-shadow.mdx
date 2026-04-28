@@ -1,0 +1,80 @@
+import { Callout } from 'nextra/components'
+
+# Border and Shadow
+---------
+
+Border and Shadow are very common styles used in almost every website and application
+
+### Border
+| Classname | Shorthand | Compiled Style |
+| :------------ | :---------: | ----------: |
+| `border-none` | `bn` | `border:none` |
+| `border-radius-12px` | `br-12px` | `border-radius:1px` |
+| `border-width-1px` | `bw-1px` | `border-width:1px` |
+| `border-width-1px-2px` | `bw-1px-2px` | `border-width:1px 2px` |
+| `border-1px-solid-red` | `b-1px-s-red` | `border:1px solid red` |
+| `border-1px-solid-red` | `b-1px-s-red` | `border:1px solid red` |
+| `border-1px-dashed--border-color` | `b-1px-d--border-color`| `border:1px dashed var(--border-color)` |
+| `border-right-1px-solid-red` | `brt-1px-s-red` | `border-right:1px solid red` |
+| `border-top-1px-solid-red` | `bt-1px-s-red` | `border-top:1px solid red` |
+| `border-left-1px-solid-red` | `bl-1px-s-red` | `border-left:1px solid red` |
+| `border-bottom-1px-solid-red` | `bb-1px-s-red` | `border-bottom:1px solid red` |
+| `border-color-red` | `bc-red` | `border-color:red` |
+| `border-bottom-color-red` | `bbc-red` | `border-bottom-color:red` |
+| `border-style-solid` | `bss` | `border-style:solid` |
+| `border-style-dashed` | `bsd` | `border-style:dashed` |
+| `border-style-dotted` | `bsdt` | `border-style:dotted` |
+| `border-style-double` | `bsdb` | `border-style:double` |
+| `border-style-groove` | `bsg` | `border-style:groove` |
+| `border-style-inset` | `bsi` | `border-style:inset` |
+| `border-style-none` | `bsn` | `border-style:none` |
+
+Usage Eg:- 
+```html copy  showLineNumbers
+    <h1 
+    class="p-32px br-8px b-1px-s-e3e3e3 d-f w-100px mh-64px"
+    >
+    Hello, World
+    </h1>
+``` 
+
+
+
+### Box Shadow
+
+| Classname | Shorthand | Compiled Style |
+| :------------ | :---------: | ----------: |
+| `box-shadow-1px-1px-1px-red` | `box-shadow-1px-1px-1px-red` | `box-shadow:1px 1px 1px red` |
+| `box-shadow-inset-5em-1em-blue200` | `bxs-i-5em-1em-blue200` | `box-shadow:inset 5em 1em var(--blue200,#B2DDFF)` |
+| `box-shadow-2px-2px-2px-2px-rgb-231-0-0-0.4` | `box-shadow-2px-2px-2px-1px-rgb-231-0-0-0.4` | `box-shadow:2px 2px 2px 1px rgb(231 0 0 / 0.4)` |
+| `box-shadow-2px-2px-2px-2px-red__1px-1px-4px-skyBlue` | `box-shadow-2px-2px-2px-1px-red__1px-1px-4px-skyBlue` | `box-shadow:2px 2px 2px 1px red, 1px 1px 4px skyBlue` |
+
+
+Usage Eg:- 
+```html copy  showLineNumbers
+    <h1 
+    class="p-32px br-8px bxs-1px--1px-2px-2px--black/7 d-f w-100px mh-64px"
+    >
+    Hello, World
+    </h1>
+``` 
+
+
+
+
+------------------
+***Note***
+<Callout type="info" emoji="💡">
+***TIPS***
+You can always use css-variables to handle complex  values. for Example
+</Callout >
+```html copy  showLineNumbers
+    <button 
+    class="display-inline-flex b-1px-s-primary600 bxs--shadow-sm" 
+    style='
+    --shadow-sm:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)
+    '
+    >
+        Hello, World
+    </button>
+``` 

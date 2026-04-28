@@ -1,0 +1,34 @@
+.bn{border:none}
+@layer base{ .x-button{all:unset}} 
+@layer base{ .x-button[class]{display:inline-flex;align-items:center;justify-content:center}} 
+@layer base{ .x-button[class]{padding: 12px 28px}} 
+@layer base{ .x-button[class]{font-size: 15px}} 
+@layer base{ .x-button[class]{font-weight: 500}} 
+@layer base{ .x-button[class]{user-select: none}} 
+@layer base{ .x-button[class]{cursor: pointer}} 
+@layer base{ .x-button[class]{border-radius: 6px}} 
+@layer base{ .x-button[class]{gap: 8px}} 
+@layer base{ .x-button[class]{white-space: nowrap}} 
+@layer base{ .x-button[class]{color:light-dark(white,black)}} 
+@layer base{ .x-button[class]{background:light-dark(var(--gray800,#1D2939),var(--gray200,#EAECF0))}} 
+ 
+
+.br-8px{border-radius: 8px}
+.appearance-none{appearance:none}
+.fs-16px{font-size: 16px}
+.ff-system-ui{font-family:system-ui}
+.fw5{font-weight: 500}
+.m-0{margin: 0}
+.tdn{text-decoration: none}
+.inline-flex-center{display:inline-flex;align-items:center;justify-content:center}
+.gap-1{gap:var(--space-1,0.25rem)}
+.-webkit-tap-highlight-color-transparent{-webkit-tap-highlight-color:transparent}
+.__svg\[width\(calc\(--spacing\,\*\,4\.5\)\)\,height\(calc\(--spacing\,\*\,4\.5\)\)\] > svg{width:calc(var(--spacing) * 4.5)} 
+.__svg\[width\(calc\(--spacing\,\*\,4\.5\)\)\,height\(calc\(--spacing\,\*\,4\.5\)\)\] > svg{height:calc(var(--spacing) * 4.5)} 
+
+.__svg--has\(--oc\)\[p-0px\,br-9999px\,flex-shrink-0\,w-2rem\] > svg:has(:only-child){padding: 0px} 
+.__svg--has\(--oc\)\[p-0px\,br-9999px\,flex-shrink-0\,w-2rem\] > svg:has(:only-child){border-radius: 9999px} 
+.__svg--has\(--oc\)\[p-0px\,br-9999px\,flex-shrink-0\,w-2rem\] > svg:has(:only-child){flex-shrink: 0} 
+.__svg--has\(--oc\)\[p-0px\,br-9999px\,flex-shrink-0\,w-2rem\] > svg:has(:only-child){width: 2rem} 
+
+.\[data-pressed\]-scale-0\.9[data-pressed]{scale: 0.9}

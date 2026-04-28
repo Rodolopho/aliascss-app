@@ -1,0 +1,82 @@
+import { Callout } from 'nextra/components'
+
+# Font and Text
+---------
+
+
+
+### Font and text related classNames examples
+| Classname | Shorthand | Compiled Style |
+| :------------ | :---------: | ----------: |
+| `font-size-1.2em` | `fs-1,2em` | `font-size:1.2rem` |
+| `font-family-inter` | `ff-inter` | `font-family:inter` |
+| `font-family-Inter__Segoe_UI__Arial__sans-serif` | `ff-Inter__Segoe_UI__Arial__sans-serif` | `font-family:Inter, "Segoe UI", Arial, sans-serif` |
+| `font-family_-apple-system__BlinkMacSystemFont__Arial,__sans-serif` | `ff-system-ui__-apple-system__sans-serif` | `font-family:-apple-system, BlinkMacSystemFont, Arial, sans-serif` |
+| `font-family-Georgia__Times_New_Roman__serif` | `ff-Georgia__Times_New_Roman__serif` | `font-family: Georgia, "Times New Roman", serif;` |
+
+| `font-style-italic` | `fsi` | `font-style: italic` |
+| `font-style-oblique` | `fso` | `font-style: oblique` |
+| `font-style-normal` | `fsnl` | `font-style: normal` |
+| `font-weight-900` | `fw9` | `font-weight: ` |
+| `font-weight-800` | `fw8` | `font-weight: 800` |
+| `font-weight-700` | `fw7` | `font-weight: 700` |
+| `font-weight-600` | `fw6 or fw-600` | `font-weight: 600` |
+
+| `font-weight-thin` | `fw-thin` | `font-weight: 100` |
+| `font-weight-bold` | `fwb` | `font-weight: bold` |
+| `font-weight-lighter` | `fwl` | `font-weight: lighter` |
+| `text-align-center` | `tac` | `text-align: center` |
+| `text-align-right` | `tar` | `text-align: right` |
+| `text-align-justify` | `taj` | `text-align: justify` |
+| `text-align-left` | `tal` | `text-align: left` |
+| `text-align-last-left` | `tall` | `text-align-last: left` |
+| `text-decoration-underline` | `tdu` | `text-decoration: underline` |
+| `text-decoration-none` | `tdn` | `text-decoration: none` |
+| `text-transform-uppercase` | `ttu` | `text-transform: uppercase` |
+| `text-transform-capitalize` | `ttc` | `text-transform: capitalize` |
+| `text-transform-lowercase` | `ttl` | `text-transform: lowercase` |
+| `text-wrap-balance` | `no Alias` | `text-wrap: balance` |
+| `text-wrap-wrap` | `no Alias` | `text-wrap: wrap` |
+| `text-wrap-nowrap` | `no Alias` | `text-wrap: nowrap` |
+| `text-wrap-pretty` | `no Alias` | `text-wrap: pretty` |
+| `text-wrap-stable` | `no Alias` | `text-wrap: stable` |
+
+
+
+### Text Shadow
+
+| Classname | Shorthand | Compiled Style |
+| :------------ | :---------: | ----------: |
+| `text-shadow-1px-1px-1px-red` | `txs-1px-1px-1px-red` | `text-shadow:1px 1px 1px red` |
+| `text-shadow-2px-2px-rgb-231-0-0-0.4` | `txs-2px-2px-rgb-231-0-0-0.4` | `text-shadow:2px 2px rgb(231 0 0 / 0.4)` |
+| `text-shadow-2px-2px-1px-red__1px-1px-4px-skyBlue` | `txs-2px-2px-1px-red__1px-1px-4px-skyBlue` | `text-shadow:2px 2px  1px red, 1px 1px 4px skyBlue` |
+
+
+Usage Eg:- 
+```html copy  showLineNumbers
+    <h1 
+    class="p-32px br-8px txs-1px-1px-2px--black/7 d-f w-100px mh-64px"
+    >
+    Hello, World
+    </h1>
+``` 
+
+
+
+
+------------------
+***Note***
+<Callout type="info" emoji="💡">
+***TIPS***
+You can always use css-variables to handle complex  values. for Example
+</Callout >
+```html copy  showLineNumbers
+    <button 
+    class="display-inline-flex b-1px-s-primary600 bxs--text-shadow-sm" 
+    style='
+    --text-shadow-sm:0 1px 3px rgb(0 0 0 / 0.2), 0 1px 2px  rgb(24 0 0 / 0.1)
+    '
+    >
+        Hello, World
+    </button>
+``` 

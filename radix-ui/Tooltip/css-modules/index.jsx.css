@@ -1,0 +1,41 @@
+@layer base{ .\@base-all-unset{all:unset}}
+.ff-inherit{font-family:inherit}
+.br-100p{border-radius: 100%}
+.x-square-35px{width:calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
+.x-inline-flex-center{display:inline-flex; justify-content:center;align-items:center}
+.c-primary-800{color:var(--primary800,#53389E)}
+.bxs-0px-2px-10px-0000000000d7{box-shadow:0px 2px 10px rgba(000,000,000,0.7)}
+.usn{user-select: none}
+.--ho-bgc-primary-300:hover{background-color:var(--primary300,#D6BBFB)}
+.--fo-bxs-0px-0px-0px-2px-black:focus{box-shadow:0px 0px 0px 2px black}
+.br-4px{border-radius: 4px}
+.p-10px-15px{padding: 10px 15px}
+.fs-12px{font-size: 12px}
+.lh-1{line-height: 1}
+.c-primary-700{color:var(--primary700,#6941C6)}
+.bgc-fff{background-color:#fff}
+.bxs-0px-10px-38px--10px-gray700{box-shadow:0px 10px 38px -10px var(--gray700,#344054)}
+.adu-400ms{animation-duration: 400ms}
+.atf--atf\:cubic-bezier\(0\.16\,1\,0\.3\,1\){animation-timing-function: var(--atf,cubic-bezier(0.16,1,0.3,1))}
+.will-change-transform__opacity{will-change:transform, opacity}
+.\[data-state\=open\]\[data-side\=top\]-an-slideDownAndFade[data-state="open"][data-side="top"]{animation-name:slideDownAndFade}
+.\[data-state\=open\]\[data-side\=right\]-an-slideLeftAndFade[data-state="open"][data-side="right"]{animation-name:slideLeftAndFade}
+.\[data-state\=open\]\[data-side\=bottom\]-an-slideUpAndFade[data-state="open"][data-side="bottom"]{animation-name:slideUpAndFade}
+.\[data-state\=open\]\[data-side\=left\]-an-slideRightAndFade[data-state="open"][data-side="left"]{animation-name:slideRightAndFade}
+.fill-white{fill:white}
+@keyframes slideUpAndFade{
+ 0% {opacity: 0;transform:translateY(2px)} 100% {opacity: 1;transform:translateY(0)}
+}
+
+@keyframes slideRightAndFade{
+ 0% {opacity: 0;transform:translateX(-2px)} 100% {opacity: 1;transform:translateX(0)}
+}
+
+@keyframes slideDownAndFade{
+ 0% {opacity: 0;transform:translateY(-2px)} 100% {opacity: 1;transform:translateY(0)}
+}
+
+@keyframes slideLeftAndFade{
+ 0% {opacity: 0;transform:translateX(2px)} 100% {opacity: 1;transform:translateX(0)}
+}
+

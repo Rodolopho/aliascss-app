@@ -1,0 +1,25 @@
+.dif{display: inline-flex}
+.bgc-gray-300{background-color:var(--gray300,#D0D5DD)}
+.br-4px{border-radius: 4px}
+.bxs-0px-2px-10px-0000000000d7{box-shadow:0px 2px 10px rgba(000,000,000,0.7)}
+@layer base{ .\@base-all-unset{all:unset}}
+.bgc-fff{background-color:#fff}
+.x-square-35px{width:calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
+.flex-center{display:flex;align-items:center;justify-content:center}
+.fs-15px{font-size: 15px}
+.ml-1px{margin-left: 1px}
+.usn{user-select: none}
+.--fc\[ml-0\,btlr-4px\,bblr-4px\]:first-child{margin-left: 0} 
+.--fc\[ml-0\,btlr-4px\,bblr-4px\]:first-child{border-top-left-radius: 4px} 
+.--fc\[ml-0\,btlr-4px\,bblr-4px\]:first-child{border-bottom-left-radius: 4px} 
+
+.--lc\[btrr-4px\,bbrr-4px\]:last-child{border-top-right-radius: 4px} 
+.--lc\[btrr-4px\,bbrr-4px\]:last-child{border-bottom-right-radius: 4px} 
+
+.--h-bgc-primary-300:hover{background-color:var(--primary300,#D6BBFB)}
+.\[data-state\=on\]\[c-primary-700\,bgc-primary-300\][data-state="on"]{color:var(--primary700,#6941C6)} 
+.\[data-state\=on\]\[c-primary-700\,bgc-primary-300\][data-state="on"]{background-color:var(--primary300,#D6BBFB)} 
+
+.--fo\[pr\,bxs-0px-0px-0px-2px-black\]:focus{position: relative} 
+.--fo\[pr\,bxs-0px-0px-0px-2px-black\]:focus{box-shadow:0px 0px 0px 2px black} 
+

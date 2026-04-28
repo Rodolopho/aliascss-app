@@ -1,0 +1,38 @@
+# Input
+import {DemoInput} from '../../../acss/demo-input';
+import content from '!!raw-loader!../../../acss/demo-input';
+import component from '!!raw-loader!../../../acss/components/input'
+import { compileMdx } from 'nextra/compile'
+import { MDXRemote } from 'nextra/mdx-remote'
+import { Tabs } from 'nextra/components'
+import './input.mdx.css';
+
+export const filenames=['Demo.tsx','components/input.tsx'];
+
+export const Wrapper=()=>{
+    
+return(
+    <div className="w-100p mt-32px flex-center mh-200px b1px-s-grayA6">
+        <DemoInput/>
+    </div>
+)
+}
+
+<Wrapper/>
+<Tabs items={[filenames[0], filenames[1]]}>
+  <Tabs.Tab>
+        <MDXRemote className="_pre-white-space-pre-wrap"
+            compiledSource={await compileMdx('```jsx  showLineNumbers copy filename="'+filenames[0]+'" '+ '\n'+content+'\n'+'```')}
+            components={{ MyComponent: () => <div>My Component</div> }}
+            scope={{ myVariable: content }}
+        />
+  </Tabs.Tab>
+  <Tabs.Tab>
+        <MDXRemote className="_pre-white-space-pre-wrap"
+            compiledSource={await compileMdx('```jsx  showLineNumbers copy filename="'+filenames[1]+'" '+ '\n'+component+'\n'+'```')}
+            components={{ MyComponent: () => <div>My Component</div> }}
+            scope={{ myVariable: component }}
+        />
+  </Tabs.Tab>
+  {/* <Tabs.Tab></Tabs.Tab> */}
+</Tabs>

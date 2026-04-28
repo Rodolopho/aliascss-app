@@ -7,7 +7,9 @@ export default {
     //   sidebar: false // Hide navbar on this page
     // }
   },
+  "quick-dev-handbook":'Summarized Cheat-sheet Doc',
   "basic": "Basic",
+  "guide":'Guide:AliasCSS Style ',
   "StaticClassNames": "Static ClassNames",
   "stateAndSelector":"CSS State & Element Selector",
   "AttributeSelector":"Attribute Selector",

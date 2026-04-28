@@ -1,0 +1,27 @@
+.df{display: flex}
+.fdc{flex-direction: column}
+.g-10px{gap: 10px}
+@layer base{ .\@base-all-unset{all:unset}}
+.bgc-primary700{background-color:var(--primary700,#6941C6)}
+.x-square-25px{width:calc(25px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(25px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(25px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
+.br-100p{border-radius: 100%}
+.x-shadow-sm{box-shadow:var(--shadow-sm, 0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06))}
+.--ho-bgc-primary700:hover{background-color:var(--primary700,#6941C6)}
+.--fo-bxs-shadow-0px-0px-0px-2px-primary900:focus{box-shadow:0px 0px 0px 2px}
+.flex-center{display:flex;align-items:center;justify-content:center}
+.w-100p{width: 100%}
+.h-100p{height: 100%}
+.pr{position: relative}
+.--af\[cont\,db\,w-11px\,h-11px\,br-50p\,bgc-gray-25\]::after{content:""} 
+.--af\[cont\,db\,w-11px\,h-11px\,br-50p\,bgc-gray-25\]::after{display: block} 
+.--af\[cont\,db\,w-11px\,h-11px\,br-50p\,bgc-gray-25\]::after{width: 11px} 
+.--af\[cont\,db\,w-11px\,h-11px\,br-50p\,bgc-gray-25\]::after{height: 11px} 
+.--af\[cont\,db\,w-11px\,h-11px\,br-50p\,bgc-gray-25\]::after{border-radius: 50%} 
+.--af\[cont\,db\,w-11px\,h-11px\,br-50p\,bgc-gray-25\]::after{background-color:var(--gray25,#FCFCFD)} 
+
+.c-gray-800{color:var(--gray800,#1D2939)}
+.fs-15px{font-size: 15px}
+.lh-1{line-height: 1}
+.pl-15px{padding-left: 15px}
+.--ho-bgc-primary300:hover{background-color:var(--primary300,#D6BBFB)}
+.--fo-bxs-shadow-0px-0px-0px-2px-black:focus{box-shadow:0px 0px 0px 2px}

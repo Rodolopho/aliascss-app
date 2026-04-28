@@ -1,0 +1,6 @@
+.bgc-primary100{background-color:var(--primary100,#F4EBFF)}
+.border-1px-s-primary700{border:1px solid var(--primary700,#6941C6)}
+.c-primary700{color:var(--primary700,#6941C6)}
+.bgc-gray200{background-color:var(--gray200,#EAECF0)}
+.c-gray700{color:var(--gray700,#344054)}
+.b1px-s-gray700{border:1px solid var(--gray700,#344054)}

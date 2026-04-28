@@ -24,12 +24,12 @@
 .zi-1234{z-index:1234}
 .btm-0px{bottom: 0px}
 .r-32px{right: 32px}
-.x-shadow-xl{box-shadow:var(--x-shadow-xl, 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03))}
+.x-shadow-xl{x:-shadow-xl}
 .mb-32px{margin-bottom: 32px}
 .br-16px{border-radius: 16px}
 .p-8px-16px{padding: 8px 16px}
 .b-1px-s-blue400{border:1px solid var(--blue400,#53B1FD)}
-.x-text-xl{font-size: 1.25rem; line-height: 1.875rem}
+.x-text-xl{font-size: var(--text-xl,1.25rem); line-height: 1.875rem}
 .--fo-bn:focus{border:none}
 .--fo-oln:focus{outline:none}
 .c-gray600{color:var(--gray600,#475467)}
@@ -56,7 +56,7 @@
 .oya{overflow-y: auto}
 .dif{display: inline-flex}
 .fdc{flex-direction: column}
-.x-display-sm{font-size: 1.875rem; line-height: 2.375rem}
+.x-display-sm{font-size: var(--display-sm,1.875rem); line-height: 1.26}
 .w-100p{width: 100%}
 .fwn{flex-wrap: nowrap}
 .pl-10px{padding-left: 10px}
@@ -75,7 +75,7 @@
 .br9px{border-radius:9px}
 @media (min-width : 768px){ .md-w-100px{width: 100px}}
 @media (min-width : 768px){ .md-h-100px{height: 100px}}
-.x-text-xs{font-size: 0.75rem; line-height: 1.125rem}
+.x-text-xs{font-size: var(--text-xs,0.75rem); line-height: 1.125rem}
 .fw5{font-weight: 500}
 
             
@@ -108,6 +108,18 @@
 /* End :-----------ACSS app/components/editor.jsx----------------------------*/
 
             
+/* Start :-----------ACSS app/components/extactor.demo.tsx------------------------*/
+.bgc-primary100{background-color:var(--primary100,#F4EBFF)}
+.border1-s-primary700{border:solid}
+.c-primary700{color:var(--primary700,#6941C6)}
+.bgc-gray200{background-color:var(--gray200,#EAECF0)}
+.c-gray700{color:var(--gray700,#344054)}
+.b1px-s-gray700{border:1px solid var(--gray700,#344054)}
+
+            
+/* End :-----------ACSS app/components/extactor.demo.tsx----------------------------*/
+
+            
 /* Start :-----------ACSS app/components/inputClassName.jsx------------------------*/
 .d-f{display:flex}
 .jc-sb{justify-content:space-between}
@@ -119,7 +131,7 @@
 .b-n{border:none}
 .--fv-bn:focus-visible{border:none}
 .w100p{width:100%}
-.x-text-sm{font-size: 0.875rem; line-height: 1.25rem}
+.x-text-sm{font-size: var(--text-sm,0.875rem); line-height: 1.25rem}
 .fw-4{font-weight:400}
 .c-gray500{color:var(--gray500,#667085)}
 .flex-center{display:flex;align-items:center;justify-content:center}
@@ -127,12 +139,11 @@
 .g-4px{gap: 4px}
 .b-1px-s-blue200{border:1px solid var(--blue200,#B2DDFF)}
 .bgc-blue100{background-color:var(--blue100,#D1E9FF)}
-.c-gray700{color:var(--gray700,#344054)}
-:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc-gray700{background-color:var(--gray700,#344054)}
-:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-c-gray100{color:var(--gray100,#F2F4F7)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc-gray700{background-color:var(--gray700,#344054)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-c-gray100{color:var(--gray100,#F2F4F7)}
 .cp{cursor: pointer}
 .--h-bgc-blue300:hover{background-color:var(--blue300,#84CAFF)}
-:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-stroke-gray100{stroke:var(--gray100,#F2F4F7)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-stroke-gray100{stroke:var(--gray100,#F2F4F7)}
 .fill-none{fill:none}
 
             
@@ -156,8 +167,8 @@
 .t-0px{top: 0px}
 .l-0px{left: 0px}
 .m-32px{margin: 32px}
-:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-border-1px-s-error500{border:1px solid var(--error500,#F04438)}
-:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-filter-invert-100{filter:invert(100)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-border-1px-s-error500{border:1px solid var(--error500,#F04438)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-filter-invert-100{filter:invert(100)}
 .bgc-gray100{background-color:var(--gray100,#F2F4F7)}
 .hxc{height:max-content}
 .p-32px{padding: 32px}
@@ -183,13 +194,13 @@
 ._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button{color:#fff} 
 ._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button{font-weight:600} 
 ._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button{padding: 6px 10px} 
-._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button{font-size: 0.875rem; line-height: 1.25rem} 
+._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button{font-size: var(--text-sm,0.875rem); line-height: 1.25rem} 
 
 .bgc-primary600{background-color:var(--primary600,#7F56D9)}
 .c-fff{color:#fff}
 .p-30px-18px{padding: 30px 18px}
 .br-12px{border-radius: 12px}
-.x-display-xl{font-size: 3.75rem; line-height: 4.5rem; letter-spacing: -0.02em}
+.x-display-xl{font-size: var(--display-xl,3.75rem); line-height: 1.2; letter-spacing: -0.02em}
 
             
 /* End :-----------ACSS app/components/playGround.jsx----------------------------*/
@@ -200,14 +211,14 @@
 .fd-c{flex-direction:column}
 .p-4px-10px-4px-4px{padding: 4px 10px 4px 4px}
 .bgc-blue50{background-color:var(--blue50,#EFF8FF)}
-:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-c-blue100{color:var(--blue100,#D1E9FF)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-c-blue100{color:var(--blue100,#D1E9FF)}
 .w-xc{width:max-content}
 .g12px{gap:12px}
 .bgc-fff{background-color:#fff}
 .p-2px-10px{padding: 2px 10px}
 .br16px{border-radius:16px}
 .g4px{gap:4px}
-:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc-blue700{background-color:var(--blue700,#175CD3)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc-blue700{background-color:var(--blue700,#175CD3)}
 .gap-4px{gap: 4px}
 .h-30rem{height: 30rem}
 .b-1px-s-ccc{border:1px solid #ccc}
@@ -219,7 +230,7 @@
 .o-a{opacity:-a}
 .c-green700{color:var(--green700,#087443)}
 .fw6{font-weight: 600}
-:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-c-gray400{color:var(--gray400,#98A2B3)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-c-gray400{color:var(--gray400,#98A2B3)}
 .c-blue700{color:var(--blue700,#175CD3)}
 .c-error400{color:var(--error400,#F97066)}
 .fwb{font-weight: bold}
@@ -231,32 +242,37 @@
 /* End :-----------ACSS app/components/quickCompiler.jsx----------------------------*/
 
             
+/* Start :-----------ACSS app/components/showCodeBox.jsx------------------------*/
+
+            
+/* End :-----------ACSS app/components/showCodeBox.jsx----------------------------*/
+
+            
 /* Start :-----------ACSS app/components/staticClassNames.jsx------------------------*/
 .w100fr{width:100fr}
 .g16px{gap:16px}
 .p8px-12px{padding:8px 12px}
-:is( html.dark) .--is\(_html\.dark\)\&-bgc-gray900{background-color:var(--gray900,#101828)}
-:is( html.dark) .--is\(_html\.dark\)\&-b-1px-s-gray50{border:1px solid var(--gray50,#F9FAFB)}
+ :is( html.dark) .--is\(_html\.dark\)\&-bgc-gray900{background-color:var(--gray900,#101828)}
+ :is( html.dark) .--is\(_html\.dark\)\&-b-1px-s-gray50{border:1px solid var(--gray50,#F9FAFB)}
 .b1px-s-gray300{border:1px solid var(--gray300,#D0D5DD)}
 .stroke-gray400{stroke:var(--gray400,#98A2B3)}
 .oln{outline:none}
 .bn{border:none}
 .--fv-bxsn:focus-visible{box-shadow: none}
 .c-gray{color:gray}
-:is( html.dark) .--is\(_html\.dark\)\&-c-gray-25{color:var(--gray25,#FCFCFD)}
+ :is( html.dark) .--is\(_html\.dark\)\&-c-gray-25{color:var(--gray25,#FCFCFD)}
 .zi12345{z-index:12345}
 .l0px{left:0px}
 .t100p{top:100%}
-.bgc-gray200{background-color:var(--gray200,#EAECF0)}
-:is( html.dark) .--is\(_html\.dark\)\&-bgc-gray-900{background-color:var(--gray900,#101828)}
+ :is( html.dark) .--is\(_html\.dark\)\&-bgc-gray-900{background-color:var(--gray900,#101828)}
 .xh60vh{max-height:60vh}
 .mw320px{min-width:320px}
 .mt2px{margin-top:2px}
 .m0px{margin:0px}
 .lsn{list-style: none}
-:is( html.dark) .--is\(_html\.dark\)\&-c-gray-50{color:var(--gray50,#F9FAFB)}
-:is( html.dark) .--is\(_html\.dark\)\&-c-gray-50-i{color:var(--gray50,#F9FAFB) !important}
+ :is( html.dark) .--is\(_html\.dark\)\&-c-gray-50-i{color:var(--gray50,#F9FAFB) !important}
 .asfe{align-self: flex-end}
+ :is( html.dark) .--is\(_html\.dark\)\&-c-gray-50{color:var(--gray50,#F9FAFB)}
 
             
 /* End :-----------ACSS app/components/staticClassNames.jsx----------------------------*/
@@ -278,7 +294,7 @@
             
 /* Start :-----------ACSS content/index.mdx------------------------*/
 .mt-16px{margin-top: 16px}
-@media (min-width : 768px){ .md-fdr{flex-direction: row}}
+@media (min-width : 768px){ .md-fdr-i{flex-direction: row !important}}
 .__div\[flex-basis-50\%\] > div{flex-basis: 50%} 
 
 .mw-50p{min-width: 50%}
@@ -318,6 +334,7 @@
 
             
 /* Start :-----------ACSS content/docs/advance-customization.mdx------------------------*/
+.border-1px-s-primary700{border:1px solid var(--primary700,#6941C6)}
 
             
 /* End :-----------ACSS content/docs/advance-customization.mdx----------------------------*/
@@ -325,42 +342,90 @@
             
 /* Start :-----------ACSS content/docs/andIndentifier.mdx------------------------*/
  div ._div\&-bgc-red{background-color:red}
-:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc--dark-bg-color{background-color: var(--dark-bg-color)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc--dark-bg-color{background-color: var(--dark-bg-color)}
 
             
 /* End :-----------ACSS content/docs/andIndentifier.mdx----------------------------*/
 
             
-/* Start :-----------ACSS content/docs/basic.mdx------------------------*/
-.color-blue{color:blue}
+/* Start :-----------ACSS content/docs/basic.mdx------------------------*/ 
+.card{background-color:blue} 
+
+.----------\:{----------:}
+.height\,{height:,}
+.padding\,{padding:,}
+.margin\,{margin:,}
+.color--fg1-custom-color{color: var(--fg1-custom-color)}
+.background--bg1-custom-color{background: var(--bg1-custom-color)}
 .font-size-3rem{font-size: 3rem}
+.color-blue{color:blue}
 .fs-3rem{font-size: 3rem}
+.d-flex{display:flex}
+.p-20px{padding: 20px}
+.bgc-blue{background-color:blue}
+.m-1rem{margin: 1rem}
+.mt--20px{margin-top: -20px}
+.bg--gradient{background: var(--gradient)}
+.bgc-0f172a{background-color:#0f172a}
+.c-rgba-255-0-0-0\.5{color:rgba(255 0 0 / 0.5)}
+.b-1px-solid-e3e3e3{border:1px solid #e3e3e3}
+.fs-16px{font-size: 16px}
+.padding-20px{padding: 20px}
+.font-size-16px{font-size: 16px}
+.background-color-red{background-color:red}
+._div-c-red div{color:red}
+._div_h4-fs-20px div h4{font-size: 20px}
+._div__h4-c-red div > h4{color:red}
+._div___h4-c-blue div + h4{color:blue}
+._div____h4-c-green div ~ h4{color:green}
+.\[data-state\=open\]-d-flex[data-state="open"]{display:flex}
+ .card ._\.card\&-c-blue{color:blue}
+.--hover-bg-blue:hover{background:blue}
+.--hover--focus-c-red:hover:focus{color:red}
+.\[p-20px\,c-red\]{padding: 20px} 
+.\[p-20px\,c-red\]{color:red} 
+
+.--hover\[c-red\,bgc-blue\]:hover{color:red} 
+.--hover\[c-red\,bgc-blue\]:hover{background-color:blue} 
+
+.card div{padding: 20px} 
+ 
+ 
+
+._\.someClass_div\,_\.ban_em\[c-red\] .someClass div, .ban em{color:red} 
+
+.--is\(_div\,_ul\)\[c-red\] :is( div, ul){color:red} 
+
+.menu-a div, .ban ul{color:red} 
+ 
+ 
+.item-a div, .ban ul{color:red} 
+ 
+ 
+
+.an-fade{animation-name:fade}
+.adu-1s{animation-duration: 1s}
+@layer base{ .\@base-d-flex{display:flex}}
+@layer base{ @media (max-width : 576px){ .\@\[base\,xs\]-d-flex{display:flex}}}
+@media (min-width : 768px){ .md-d-flex{display:flex}}
+@keyframes fade{
+ 0% {opacity: 1} 100% {opacity: 0}
+}
+
+@keyframes move{
+ 0%,50% {left: 0;top: 0} 100% {left: 100px;top: 100px}
+}
+
 
             
 /* End :-----------ACSS content/docs/basic.mdx----------------------------*/
 
             
 /* Start :-----------ACSS content/docs/class-group.mdx------------------------*/ 
-.container{background-color: var(--main-color)} 
-.container{overflow: hidden} 
-.container{width: 100%} 
-.container{height: 100%} 
-.container{position: absolute} 
-.container{top: 0} 
-.container{left: 0} 
-.container{display: flex} 
-.container{align-items: center} 
 .container{align-content: center} 
-.container{justify-content: center} 
 .container{z-index:100000} 
 
-.error{color:var(--error500,#F04438)} 
-.error::after{background-color:var(--error100,#FEE4E2)} 
-.error::after{color:var(--error700,#B42318)} 
-.error::after{border:1px solid var(--error700,#B42318)} 
-
 .color-fff{color:#fff}
-.bgc-blue{background-color:blue}
 .--hover-c-gray:hover{color:gray}
 .--hover-border-radius-4px:hover{border-radius: 4px}
 .--hover-bgc-skyBlue:hover{background-color:skyBlue}
@@ -370,18 +435,11 @@
 
 .\[data-state\=open\]\[display-flex\,left-0\][data-state="open"]{display:flex} 
 .\[data-state\=open\]\[display-flex\,left-0\][data-state="open"]{left: 0} 
-
-.btn{color:#fff} 
-.btn{background-color:blue} 
  
 
 .btn:hover{color:gray} 
 .btn:hover{border-radius: 4px} 
 .btn:hover{background-color:skyBlue} 
- 
-
-.active[data-state="open"]{display:flex} 
-.active[data-state="open"]{left: 0} 
  
 
 
@@ -397,14 +455,6 @@
 
             
 /* Start :-----------ACSS content/docs/keyframes-guide.mdx------------------------*/ 
-.dot{border-radius: 100%} 
-.dot{border:5px solid #555} 
-.dot{margin: 10px} 
-.dot{animation-name:loading} 
-.dot{animation-duration: 0.6s} 
-.dot{animation-timing-function:ease-in-out} 
-.dot{animation-direction: alternate} 
-.dot{animation-iteration-count: infinite} 
 
 .bgc-ecf0f1{background-color:#ecf0f1}
 .oh{overflow: hidden}
@@ -421,7 +471,6 @@
 .animation-name-flash{animation-name:flash}
 .animation-duration-2s{animation-duration: 2s}
 .an-fadeOut{animation-name:fadeOut}
-.adu-1s{animation-duration: 1s}
 .p-64px-32px{padding: 64px 32px}
 .bg-rg-gray300-gray600{background:radial-gradient( var(--gray300,#D0D5DD), var(--gray600,#475467) )}
 .aici{animation-iteration-count: infinite}
@@ -437,10 +486,6 @@
 }
 
 @keyframes flash{ 0%,50%,100% {opacity: 1} 25%,75% {opacity: 0}
-}
-
-@keyframes fadeOut{
- 0% {opacity: 1} 100% {opacity: 0}
 }
 
 @keyframes pop-up{ 0% {transform:translateY(0);transform-origin: 50% 50%;box-shadow: var(--shadow-down)} 100% {transform:translateY(-50px);transform-origin: 50% 50%;box-shadow: var(--shadow-up)}
@@ -464,10 +509,6 @@
 @layer base{ @media (max-width : 576px){ .btn{background-color:blue}}} 
  
 
-@media (max-width : 576px){ @layer base{ .active[data-state="open"]{display:flex}}} 
-@media (max-width : 576px){ @layer base{ .active[data-state="open"]{left: 0}}} 
- 
-
 
             
 /* End :-----------ACSS content/docs/layer.mdx----------------------------*/
@@ -479,11 +520,344 @@
 /* End :-----------ACSS content/docs/npm-guide.mdx----------------------------*/
 
             
-/* Start :-----------ACSS content/docs/screens.mdx------------------------*/
+/* Start :-----------ACSS content/docs/quick-dev-handbook.mdx------------------------*/
+.container{display: flex} 
+.container{background-color: var(--main-color)} 
+.container{overflow: hidden} 
+.container{width: 100%} 
+.container{height: 100%} 
+.container{position: absolute} 
+.container{top: 0} 
+.container{left: 0} 
+.container{align-items: center} 
+.container{justify-content: center} 
+.container{z-index:100} 
+
+.error{color:var(--error500,#F04438)} 
+.error{border:1px solid var(--error500,#F04438)} 
+.error::after{background-color:var(--error100,#FEE4E2)} 
+.error::after{color:var(--error700,#B42318)} 
+.error::after{border:1px solid var(--error700,#B42318)} 
+.error:hover{background-color:var(--error50,#FEF3F2)} 
+.error:focus{outline:none} 
+.error:focus{border:2px solid var(--error600,#D92D20)} 
+
+.dot{border-radius: 100%} 
+.dot{border:5px solid #555} 
+.dot{margin: 10px} 
+.dot{animation-name:loading} 
+.dot{animation-duration: 0.6s} 
+.dot{animation-timing-function:ease-in-out} 
+.dot{animation-direction: alternate} 
+.dot{animation-iteration-count: infinite} 
+
+.b-1px-s-primary700{border:1px solid var(--primary700,#6941C6)}
+.b-1px-s-gray700{border:1px solid var(--gray700,#344054)}
+@layer base{ @media (min-width : 768px){ .\@\[base\,md\]-d-flex{display:flex}}}
+@media (min-width : 768px){ .md--hover-bgc-blue:hover{background-color:blue}}
+.--hover_h3-c-red:hover h3{color:red}
+@media (max-width : 576px){ .xs-fdc{flex-direction: column}}
+@media (prefers-color-scheme: dark){ .dark-bgc-0e0e0e{background-color:#0e0e0e}}
+.bgc-skyBlue{background-color:skyBlue}
+.bc-blue{border-color:blue}
+.c--fg-color{color: var(--fg-color)}
+.bg--bg-color{background: var(--bg-color)}
+.w--header-width{width: var(--header-width)}
+.mx-auto{margin-left:auto;margin-right:auto}
+.gtc--panel-layout{grid-template-columns: var(--panel-layout)}
+.gta--named-areas{grid-template-areas: var(--named-areas)}
+.d-if{display:inline-flex}
+.b-1px-s-primary600{border:1px solid var(--primary600,#7F56D9)}
+.bxs--shadow-sm{box-shadow: var(--shadow-sm)}
+.mh-50vh{min-height: 50vh}
+.ai-center{align-items:center}
+.jc-center{justify-content:center}
+.bgc-0f0c29{background-color:#0f0c29}
+.w-200px{width: 200px}
+.h-200px{height: 200px}
+.perspective-600px{perspective: 600px}
+.w-120px{width: 120px}
+.h-120px{height: 120px}
+.transform-style-preserve-3d{transform-style:preserve-3d}
+.an-spin{animation-name:spin}
+.adu-8s{animation-duration: 8s}
+.atf-linear{animation-timing-function:linear}
+.cube-face{position: absolute} 
+.cube-face{width: 120px} 
+.cube-face{height: 120px} 
+.cube-face{background-color:rgb(255 255 255 / 0.15)} 
+.cube-face{border:1px solid rgba(255 255 255 / 0.35)} 
+.cube-face{border-radius: 6px} 
+.cube-face{backdrop-filter:blur(6px)} 
+ 
+
+.tf-translateZ-60px{transform:translateZ(60px)}
+.tf-rotateY-180deg__translateZ-60px{transform:rotateY(180deg) translateZ(60px)}
+.tf-rotateY--90deg__translateZ-60px{transform:rotateY(-90deg) translateZ(60px)}
+.tf-rotateY-90deg__translateZ-60px{transform:rotateY(90deg) translateZ(60px)}
+.tf-rx-90deg__tz-60px{transform:rotateX(90deg) translateZ(60px)}
+.tf-rotateX--90deg__translateZ-60px{transform:rotateX(-90deg) translateZ(60px)}
+.bgc-ccc{background-color:#ccc}
+.--hover-bgc-yellow:hover{background-color:yellow}
+.--h-bgc-yellow:hover{background-color:yellow}
+.--focus-outline-none:focus{outline:none}
+.--disabled-o-0\.5:disabled{opacity: 0.5}
+.b-1px-s-gray{border:1px solid gray}
+.--focus-b-1px-s-blue:focus{border:1px solid blue}
+.--invalid-b-1px-s-red:invalid{border:1px solid red}
+._h3-c-white h3{color:white}
+._p-fs-14px p{font-size: 14px}
+._span-fw-600 span{font-weight:600}
+._ul_li-c-red ul li{color:red}
+._nav_ul_li-d-f nav ul li{display:flex}
+.\[data-state\=close\]-d-n[data-state="close"]{display:none}
+.\[aria-hidden\=true\]-v-hidden[aria-hidden="true"]{visibility:hidden}
+.\[disabled\]-o-0\.5[disabled]{opacity: 0.5}
+.\[class\~\=code\]-ff-mono[class~="code"]{font-family:mono}
+.\[type\=checkbox\]-cur-pointer[type="checkbox"]{cursor:pointer}
+.--is\(_h3\,_p\)-c-black\/8 :is( h3, p){color:oklch(from black l c h/0.8 )}
+.--Is\(--hover\)-bgc-black\/2:is(:hover){background-color:oklch(from black l c h/0.2 )}
+._div-bgc-red div{background-color:red}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc--dark-bg{background-color: var(--dark-bg)}
+.c--grey-alt{color: var(--grey-alt)}
+.--grey\:--grey-default{--grey: var(--grey-default)}
+.c--grey{color: var(--grey)}
+.--hover-c--grey-hover:hover{color: var(--grey-hover)}
+.--grey-hover\:black{--grey-hover:black}
+.gtc--panel-grid{grid-template-columns: var(--panel-grid)}
+@media (min-width : 768px){ .md-w-500px{width: 500px}}
+@media (min-width : 992px){ .lg-d-g{display:grid}}
+@media (max-width : 576px){ .xs_p-fs-14px p{font-size: 14px}}
+@media (min-width : 768px){ .md_h3-fs-24px h3{font-size: 24px}}
 @media (max-width : 576px){ .xs-dn{display: none}}
+@media (min-width : 768px){ .md-df{display: flex}}
+@media (min-width : 992px){ .lg-dg{display: grid}}
+@layer theme{ .\@theme-bgc-primary500{background-color:var(--primary500,#9E77ED)}}
+@layer theme{ .\@theme-\[c-gray\,br-4px\,bgc-skyBlue\]{color:gray}} 
+@layer theme{ .\@theme-\[c-gray\,br-4px\,bgc-skyBlue\]{border-radius: 4px}} 
+@layer theme{ .\@theme-\[c-gray\,br-4px\,bgc-skyBlue\]{background-color:skyBlue}} 
+
+@layer base{ .\@base-\[data-state\=open\]\[d-flex\,l-0\][data-state="open"]{display:flex}} 
+@layer base{ .\@base-\[data-state\=open\]\[d-flex\,l-0\][data-state="open"]{left: 0}} 
+
+@layer base{ @media (max-width : 576px){ .btn{color:#fff}}} 
+@layer base{ @media (max-width : 576px){ .btn{background-color:blue}}} 
+ 
+
+@media (max-width : 576px){ @layer base{ .active[data-state="open"]{display:flex}}} 
+@media (max-width : 576px){ @layer base{ .active[data-state="open"]{left: 0}}} 
+ 
+
+.\[data-state\=open\]-\[d-flex\,l-0\,t-0\][data-state="open"]{display:flex} 
+.\[data-state\=open\]-\[d-flex\,l-0\,t-0\][data-state="open"]{left: 0} 
+.\[data-state\=open\]-\[d-flex\,l-0\,t-0\][data-state="open"]{top: 0} 
+
+@media (max-width : 576px){ .xs-\[fdc\,p-16px\,fs-14px\]{flex-direction: column}} 
+@media (max-width : 576px){ .xs-\[fdc\,p-16px\,fs-14px\]{padding: 16px}} 
+@media (max-width : 576px){ .xs-\[fdc\,p-16px\,fs-14px\]{font-size: 14px}} 
+
+@layer theme{ .\@theme-\[bgc-primary500\,c-white\,br-8px\]{background-color:var(--primary500,#9E77ED)}} 
+@layer theme{ .\@theme-\[bgc-primary500\,c-white\,br-8px\]{color:white}} 
+@layer theme{ .\@theme-\[bgc-primary500\,c-white\,br-8px\]{border-radius: 8px}} 
+
+.--focus-\[b-1px-s-blue\,outline-none\]:focus{border:1px solid blue} 
+.--focus-\[b-1px-s-blue\,outline-none\]:focus{outline:none} 
+
+.--invalid-\[b-1px-s-red\,bgc-red\/1\]:invalid{border:1px solid red} 
+.--invalid-\[b-1px-s-red\,bgc-red\/1\]:invalid{background-color:oklch(from red l c h/0.1 )} 
+
+.bgc-white{background-color:white}
+@media (prefers-color-scheme: dark){ .dark-\[bgc-gray900\,c-white\,b-1px-s-gray700\]{background-color:var(--gray900,#101828)}} 
+@media (prefers-color-scheme: dark){ .dark-\[bgc-gray900\,c-white\,b-1px-s-gray700\]{color:white}} 
+@media (prefers-color-scheme: dark){ .dark-\[bgc-gray900\,c-white\,b-1px-s-gray700\]{border:1px solid var(--gray700,#344054)}} 
+.btn{padding: 8px 16px} 
+.btn{border-radius: 6px} 
+ 
+
+.btn{color:#fff} 
+.btn{background-color:blue} 
+ 
+
+.btn:hover{background-color:oklch(from blue l c h/0.8 )} 
+.btn:hover{color:white} 
+ 
+
+.card{padding: 20px} 
+.card{background-color:white} 
+.card{border-radius: 8px} 
+ 
+ 
+.box{padding: 20px} 
+.box{background-color:white} 
+.box{border-radius: 8px} 
+ 
+ 
+
+.active[data-state="open"]{display:flex} 
+.active[data-state="open"]{left: 0} 
+ 
+
+@layer base{ @media (max-width : 576px){ .btn{color:#fff}}} 
+@layer base{ @media (max-width : 576px){ .btn{background-color:blue}}} 
+ 
+
+.an-fadeIn{animation-name:fadeIn}
+.adu-2s{animation-duration: 2s}
+.an-slideIn{animation-name:slideIn}
+.adu-0\.5s{animation-duration: 0.5s}
+.atf-eio{animation-timing-function:ease-in-out}
+.an-bounce{animation-name:bounce}
+.an-pulse{animation-name:pulse}
+.an-blink{animation-name:blink}
+.an-wave{animation-name:wave}
+.adu-1\.5s{animation-duration: 1.5s}
+.gap-8px{gap: 8px}
+.adl-0\.2s{animation-delay: 0.2s}
+.adl-0\.4s{animation-delay: 0.4s}
+.fs-24px{font-size: 24px}
+.fw-600{font-weight:600}
+.c-gray900{color:var(--gray900,#101828)}
+.px-24px{padding-left:24px;padding-right:24px}
+.bb-1px-s-gray200{border-bottom:1px solid var(--gray200,#EAECF0)}
+.zi-100{z-index:100}
+.fs-20px{font-size: 20px}
+.fw-700{font-weight:700}
+.td-none{text-decoration:none}
+.ls-none{list-style:none}
+.m-0{margin: 0}
+.p-0{padding: 0}
+.br-6px{border-radius: 6px}
+.fs-14px{font-size: 14px}
+.fw-500{font-weight:500}
+.--hover-bgc-gray100:hover{background-color:var(--gray100,#F2F4F7)}
+.--hover-c-gray900:hover{color:var(--gray900,#101828)}
+.tdu-0\.15s{transition-duration: 0.15s}
+.cur-pointer{cursor:pointer}
+.--hover-bgc-gray50:hover{background-color:var(--gray50,#F9FAFB)}
+.c-white{color:white}
+.--hover-bgc-primary700:hover{background-color:var(--primary700,#6941C6)}
+.py-96px{padding-top:96px;padding-bottom:96px}
+.ta-center{text-align:center}
+.gap-6px{gap: 6px}
+.p-4px-12px{padding: 4px 12px}
+.br-full{border-radius:var(--radius-full,9999px)}
+.bgc-primary50{background-color:var(--primary50,#F9F5FF)}
+.mb-24px{margin-bottom: 24px}
+.fs-clamp\(36px\,5vw\,72px\){font-size:clamp(36px , 5vw , 72px)}
+.lh-1\.1{line-height: 1.1}
+.les--0\.02em{letter-spacing: -0.02em}
+.mw-800px{min-width: 800px}
+.fs-18px{font-size: 18px}
+.lh-1\.6{line-height: 1.6}
+.fw-400{font-weight:400}
+.mw-600px{min-width: 600px}
+.mb-40px{margin-bottom: 40px}
+.gap-12px{gap: 12px}
+.p-12px-24px{padding: 12px 24px}
+.--hover-bxs--shadow-md:hover{box-shadow: var(--shadow-md)}
+.tdu-0\.2s{transition-duration: 0.2s}
+.py-64px{padding-top:64px;padding-bottom:64px}
+.d-g{display:grid}
+.gtc-repeat-3-1fr{grid-template-columns: repeat(3, 1fr)}
+@media (max-width : 576px){ .xs-gtc-repeat-1-1fr{grid-template-columns: repeat(1, 1fr)}}
+@media (min-width : 768px){ .md-gtc-repeat-2-1fr{grid-template-columns: repeat(2, 1fr)}}
+@media (min-width : 992px){ .lg-gtc-repeat-3-1fr{grid-template-columns: repeat(3, 1fr)}}
+.gap-24px{gap: 24px}
+.mw-1200px{min-width: 1200px}
+.b-1px-s-gray200{border:1px solid var(--gray200,#EAECF0)}
+.p-24px{padding: 24px}
+.gap-16px{gap: 16px}
+.--hover-tf-ty--2px:hover{transform:translateY(-2px)}
+.w-48px{width: 48px}
+.h-48px{height: 48px}
+.br-10px{border-radius: 10px}
+.c-primary600{color:var(--primary600,#7F56D9)}
+.mt-auto{margin-top:auto}
+.--hover-c-primary700:hover{color:var(--primary700,#6941C6)}
+.mw-480px{min-width: 480px}
+.gap-20px{gap: 20px}
+.p-10px-14px{padding: 10px 14px}
+.--focus-b-1px-s-primary500:focus{border:1px solid var(--primary500,#9E77ED)}
+.--placeholder-c-gray400::placeholder{color:var(--gray400,#98A2B3)}
+.p-12px{padding: 12px}
+.--focus-bxs-0px-0px-0px-3px-primary500\/3:focus{box-shadow:0px 0px 0px 3px oklch(from var(--primary500,#9E77ED) l c h/0.3 )}
+@media (prefers-color-scheme: dark){ .dark-\[bgc-gray900\,c-white\]{background-color:var(--gray900,#101828)}} 
+@media (prefers-color-scheme: dark){ .dark-\[bgc-gray900\,c-white\]{color:white}} 
+
+.tdu-0\.3s{transition-duration: 0.3s}
+@media (prefers-color-scheme: dark){ .dark-c-white{color:white}}
+.fs-32px{font-size: 32px}
+@media (prefers-color-scheme: dark){ .dark-c-gray400{color:var(--gray400,#98A2B3)}}
+@media (prefers-color-scheme: dark){ .dark-\[bgc-gray800\,c-white\,b-1px-s-gray700\]{background-color:var(--gray800,#1D2939)}} 
+@media (prefers-color-scheme: dark){ .dark-\[bgc-gray800\,c-white\,b-1px-s-gray700\]{color:white}} 
+@media (prefers-color-scheme: dark){ .dark-\[bgc-gray800\,c-white\,b-1px-s-gray700\]{border:1px solid var(--gray700,#344054)}} 
+
+.--hover-bgc-gray200:hover{background-color:var(--gray200,#EAECF0)}
+.bgc--bg{background-color: var(--bg)}
+.c--fg{color: var(--fg)}
+.b-1px-s--border{border:1px solid var(--border)}
+.c--fg\/7{color: var(--fg/7)}
+.bgc--primary{background-color: var(--primary)}
+.p-10px-20px{padding: 10px 20px}
+.w-40px{width: 40px}
+.h-40px{height: 40px}
+.br-50\%{border-radius: 50%}
+.b-4px-s-gray200{border:4px solid var(--gray200,#EAECF0)}
+.bt-4px-s-primary500{border-top:4px solid var(--primary500,#9E77ED)}
+.adu-0\.8s{animation-duration: 0.8s}
+.h-20px{height: 20px}
+.br-4px{border-radius: 4px}
+.bg-linear-gradient-90deg-gray200-gray100-gray200{background:linear-gradient( 90deg,  var(--gray200,#EAECF0), var(--gray100,#F2F4F7), var(--gray200,#EAECF0) )}
+.bgs-200\%-100\%{background-size: 200% 100%}
+.an-shimmer{animation-name:shimmer}
+@keyframes spin{
+ 0% {transform:rotateX(20deg) rotateY(0deg)} 100% {transform:rotateX(20deg) rotateY(360deg)} 0% {transform:rotate(0deg)} 100% {transform:rotate(360deg)}
+}
+
+@keyframes flash{
+ 0%,50%,100% {opacity: 1} 25%,75% {opacity: 0}
+}
+
+@keyframes slideIn{
+ 0% {opacity: 0;transform:translateX(-100%)} 100% {opacity: 1;transform:translateX(0)}
+}
+
+@keyframes bounce{
+ 0%,100% {transform:translateY(0)} 50% {transform:translateY(-20px)}
+}
+
+@keyframes pulse{
+ 0% {opacity: 1} 50% {opacity: 0.5} 100% {opacity: 1}
+}
+
+@keyframes blink{
+ 0%,100% {opacity: 1} 50% {opacity: 0}
+}
+
+@keyframes wave{
+ 0%,100% {transform:rotate(0deg)} 25% {transform:rotate(20deg)} 75% {transform:rotate(-20deg)}
+}
+
+@keyframes pop-up{
+ 0% {transform:translateY(0);transform-origin: 50% 50%;box-shadow: var(--shadow-down)} 100% {transform:translateY(-50px);transform-origin: 50% 50%;box-shadow: var(--shadow-up)}
+}
+
+@keyframes loading{
+ 0%,100% {transform:scale(1)} 50% {transform:scale(1.5)}
+}
+
+@keyframes shimmer{
+ 0% {background-position:  100% 0} 100% {background-position: 100% 0}
+}
+
+
+            
+/* End :-----------ACSS content/docs/quick-dev-handbook.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/screens.mdx------------------------*/
 @media (max-width : 576px){ .xs-display-none{display:none}}
 @media (max-width : 576px){ .xs-flex-direction-column{flex-direction:column}}
-@media (max-width : 576px){ .xs-fdc{flex-direction: column}}
 @media (max-width : 576px){ .xs_p-flex-direction-column p{flex-direction:column}}
 @media (max-width : 576px){ .xs_p-fdc p{flex-direction: column}}
 @media (min-width : 768px){ .md-width-500px{width: 500px}}
@@ -495,10 +869,6 @@
             
 /* Start :-----------ACSS content/docs/stateAndSelector.mdx------------------------*/
 .bgc-cccccc{background-color:#cccccc}
-.--hover-bgc-yellow:hover{background-color:yellow}
-.--h-bgc-yellow:hover{background-color:yellow}
-._h3-c-white h3{color:white}
-._p-fs-14px p{font-size: 14px}
 
             
 /* End :-----------ACSS content/docs/stateAndSelector.mdx----------------------------*/
@@ -509,11 +879,7 @@
 .color--header-color{color: var(--header-color)}
 .--hover--header-color\:blue:hover{--header-color:blue}
 .color--header-color\:skyBlue{color: var(--header-color,skyBlue)}
-.color--grey-alt{color: var(--grey-alt)}
-.--grey\:--grey-default{--grey: var(--grey-default)}
-.color--grey{color: var(--grey)}
-.--hover-color--grey-hover:hover{color: var(--grey-hover)}
-.--grey-hover\:black{--grey-hover:black}
+.bg--display-bg{background: var(--display-bg)}
 
             
 /* End :-----------ACSS content/docs/variables.mdx----------------------------*/
@@ -523,5 +889,1257 @@
 
             
 /* End :-----------ACSS content/playground/index.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/components/Base/button.mdx------------------------*/
+.mh-200px{min-height: 200px}
+.b1px-s-grayA6{border:1px solid #00000026}
+._pre-white-space-pre-wrap pre{white-space:pre-wrap}
+
+            
+/* End :-----------ACSS content/components/Base/button.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/components/Base/input.mdx------------------------*/
+
+            
+/* End :-----------ACSS content/components/Base/input.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/components/radix-ui/accordion.mdx------------------------*/
+.p-100px{padding: 100px}
+
+            
+/* End :-----------ACSS content/components/radix-ui/accordion.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/components/radix-ui/alert-dialog.mdx------------------------*/
+
+            
+/* End :-----------ACSS content/components/radix-ui/alert-dialog.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/components/react-aria/react-aria-button.mdx------------------------*/
+.g-24px{gap: 24px}
+
+            
+/* End :-----------ACSS content/components/react-aria/react-aria-button.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/guide/border-and-shadow.mdx------------------------*/
+.b-1px-s-e3e3e3{border:1px solid #e3e3e3}
+.w-100px{width: 100px}
+.mh-64px{min-height: 64px}
+.bxs-1px--1px-2px-2px--black\/7{box-shadow:1px -1px 2px 2px oklch(from var(--black) l c h/0.7 )}
+.display-inline-flex{display:inline-flex}
+
+            
+/* End :-----------ACSS content/docs/guide/border-and-shadow.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/guide/color.mdx------------------------*/
+.color-e3e3e3{color:#e3e3e3}
+.bgc-01010e55{background-color:#01010e55}
+.color-rgb-255-0-0{color:rgb(255 0 0)}
+.bgc-hsl-0-100\%-0-0\.8{background-color:hsl(0 100% 0 / 0.8)}
+.color-rgb-255-255-225{color:rgb(255 255 225)}
+.background-color-lch-54\.3-106\.83-40\.85{background-color:lch(54.3 106.83 40.85)}
+.color-primary200{color:var(--primary200,#E9D7FE)}
+.background-color-primary800{background-color:var(--primary800,#53389E)}
+.color-primary200\/6{color:oklch(from var(--primary200,#E9D7FE) l c h/0.6 )}
+.background-color-blue\/3{background-color:oklch(from blue l c h/0.3 )}
+
+            
+/* End :-----------ACSS content/docs/guide/color.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/guide/font-and-text.mdx------------------------*/
+.txs-1px-1px-2px--black\/7{text-shadow:1px 1px 2px oklch(from var(--black) l c h/0.7 )}
+.bxs--text-shadow-sm{box-shadow: var(--text-shadow-sm)}
+
+            
+/* End :-----------ACSS content/docs/guide/font-and-text.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/guide/layout-css.mdx------------------------*/
+.mx-4{margin-right:var(--space-4,1rem);margin-left:var(--space-4,1rem)}
+.p-32px-24px{padding: 32px 24px}
+.w-100\%{width: 100%}
+.bgc-primary600\/7{background-color:oklch(from var(--primary600,#7F56D9) l c h/0.7 )}
+.c--text-color\:gray{color: var(--text-color,gray)}
+.bg-white{background:white}
+.border-radius-10px{border-radius: 10px}
+.color-gray-800{color:var(--gray800,#1D2939)}
+.color-gray-500{color:var(--gray500,#667085)}
+.bg-blue-500{background:var(--blue500,#2E90FA)}
+.color-white{color:white}
+.border-radius-6px{border-radius: 6px}
+.gtc--panel-grid-area{grid-template-columns: var(--panel-grid-area)}
+.gta--named-grid-areas{grid-template-areas: var(--named-grid-areas)}
+
+            
+/* End :-----------ACSS content/docs/guide/layout-css.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/guide/property-alias.mdx------------------------*/
+
+            
+/* End :-----------ACSS content/docs/guide/property-alias.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS content/docs/guide/transform.mdx------------------------*/
+.an-spins{animation-name:spins}
+.cube-faced{position: absolute} 
+.cube-faced{width: 120px} 
+.cube-faced{height: 120px} 
+.cube-faced{background-color:rgb(255 255 255 / 0.15)} 
+.cube-faced{border:1px solid rgba(255 255 255 / 0.35)} 
+.cube-faced{border-radius: 6px} 
+.cube-faced{backdrop-filter:blur(6px)} 
+ 
+
+@keyframes spin{
+ 0% {transform:rotateX(20deg) rotateY(0deg)} 100% {transform:rotateX(20deg) rotateY(360deg)}
+}
+
+@keyframes spins{
+ 0% {transform:rotateX(20deg) rotateY(0deg)} 100% {transform:rotateX(20deg) rotateY(360deg)}
+}
+
+
+            
+/* End :-----------ACSS content/docs/guide/transform.mdx----------------------------*/
+
+            
+/* Start :-----------ACSS acss/demo-button.jsx------------------------*/
+
+            
+/* End :-----------ACSS acss/demo-button.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS acss/demo-input.jsx------------------------*/
+
+            
+/* End :-----------ACSS acss/demo-input.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS acss/screen.jsx------------------------*/
+.--has\(__\[data-state\=open\]\[class\~\=screen-push\]\[class\~\=screen-up\]\)__\[class\~\=screen-main\]-mt--push-down:has( >[data-state="open"][class~="screen-push"][class~="screen-up"]) >[class~="screen-main"]{margin-top: var(--push-down)}
+.--has\(__\[data-state\=open\]\[class\~\=screen-push\]\[class\~\=screen-down\]\)__\[class\~\=screen-main\]-mt--push-up:has( >[data-state="open"][class~="screen-push"][class~="screen-down"]) >[class~="screen-main"]{margin-top: var(--push-up)}
+.--has\(__\[data-state\=open\]\[class\~\=screen-push\]\[class\~\=screen-right\]\)__\[class\~\=screen-main\]-ml--push-left:has( >[data-state="open"][class~="screen-push"][class~="screen-right"]) >[class~="screen-main"]{margin-left: var(--push-left)}
+.--has\(__\[data-state\=open\]\[class\~\=screen-push\]\[class\~\=screen-left\]\)__\[class\~\=screen-main\]-ml--push-right:has( >[data-state="open"][class~="screen-push"][class~="screen-left"]) >[class~="screen-main"]{margin-left: var(--push-right)}
+.--has\(__\[class\~\=is-active\]\[class\~\=screen-push\]\[class\~\=screen-up\]\)__\[class\~\=screen-main\]-mt--push-down:has( >[class~="is-active"][class~="screen-push"][class~="screen-up"]) >[class~="screen-main"]{margin-top: var(--push-down)}
+.--has\(__\[class\~\=is-active\]\[class\~\=screen-push\]\[class\~\=screen-down\]\)__\[class\~\=screen-main\]-mt--push-up:has( >[class~="is-active"][class~="screen-push"][class~="screen-down"]) >[class~="screen-main"]{margin-top: var(--push-up)}
+.--has\(__\[class\~\=is-active\]\[class\~\=screen-push\]\[class\~\=screen-right\]\)__\[class\~\=screen-main\]-ml--push-left:has( >[class~="is-active"][class~="screen-push"][class~="screen-right"]) >[class~="screen-main"]{margin-left: var(--push-left)}
+.--has\(__\[class\~\=is-active\]\[class\~\=screen-push\]\[class\~\=screen-left\]\)__\[class\~\=screen-main\]-ml--push-right:has( >[class~="is-active"][class~="screen-push"][class~="screen-left"]) >[class~="screen-main"]{margin-left: var(--push-right)}
+
+            
+/* End :-----------ACSS acss/screen.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS acss/components/button.tsx------------------------*/
+.bgc-indigoTheme9{background-color:light-dark(#3e63dd,#3e63dd)}
+.c-whiteThemeA10{color:light-dark(rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.8))}
+.--hover\[bgc-indigoTheme10\,bxs-0px-0px-0px-3px-rgba-79-70-229-0\.4\]:hover{background-color:light-dark(#3358d4,#5472e4)} 
+.--hover\[bgc-indigoTheme10\,bxs-0px-0px-0px-3px-rgba-79-70-229-0\.4\]:hover{box-shadow:0px 0px 0px 3px rgba(79 70 229 / 0.4)} 
+
+.--active\[bgc-indigoTheme11\]:active{background-color:light-dark(#3a5bc7,#9eb1ff)} 
+
+.bgc-grayTheme6{background-color:light-dark(#d9d9d9,#3a3a3a)}
+.c-blackThemeA9{color:light-dark(rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0.7))}
+.b-1px-solid-grayTheme7{border:1px solid light-dark(#cecece,#484848)}
+.--hover\[bgc-grayTheme7\,b-1px-solid-grayTheme9\]:hover{background-color:light-dark(#cecece,#484848)} 
+.--hover\[bgc-grayTheme7\,b-1px-solid-grayTheme9\]:hover{border:1px solid light-dark(#8d8d8d,#6e6e6e)} 
+
+.--active\[bgc-grayTheme9\]:active{background-color:light-dark(#8d8d8d,#6e6e6e)} 
+
+.c-indigoTheme9{color:light-dark(#3e63dd,#3e63dd)}
+.b-1px-solid-transparent{border:1px solid transparent}
+.--hover\[bgc-indigoTheme4\,b-1px-solid-indigoTheme5\]:hover{background-color:light-dark(#e1e9ff,#1d2e62)} 
+.--hover\[bgc-indigoTheme4\,b-1px-solid-indigoTheme5\]:hover{border:1px solid light-dark(#d2deff,#253974)} 
+
+.--active\[bgc-indigoTheme5\]:active{background-color:light-dark(#d2deff,#253974)} 
+
+.bgc-redTheme9{background-color:light-dark(#e5484d,#e5484d)}
+.--hover\[bgc-redTheme11\,bxs-0px-0px-0px-3px-redTheme6\]:hover{background-color:light-dark(#ce2c31,#ff9592)} 
+.--hover\[bgc-redTheme11\,bxs-0px-0px-0px-3px-redTheme6\]:hover{box-shadow:0px 0px 0px 3px light-dark(#fdbdbe,#72232d)} 
+
+.--active\[bgc-redTheme10\]:active{background-color:light-dark(#dc3e42,#ec5d5e)} 
+
+.px-12px{padding-left:12px;padding-right:12px}
+.py-6px{padding-top:6px;padding-bottom:6px}
+.fs-13px{font-size: 13px}
+.px-18px{padding-left:18px;padding-right:18px}
+.py-10px{padding-top:10px;padding-bottom:10px}
+.py-14px{padding-top:14px;padding-bottom:14px}
+.gap-10px{gap: 10px}
+.ai-c{align-items:center}
+.jc-c{justify-content:center}
+.tn-all-0\.2s{transition:all 0.2s}
+.ol-none{outline:none}
+.pos-r{position:relative}
+.ff-inherit{font-family:inherit}
+.o-0\.5{opacity: 0.5}
+.cur-not-allowed{cursor:not-allowed}
+.pe-none{pointer-events:none}
+.lh-1{line-height: 1}
+.fs-1em{font-size: 1em}
+.w-1em{width: 1em}
+.h-1em{height: 1em}
+.b-2px-solid-rgba-255-255-255-0\.3{border:2px solid rgba(255 255 255 / 0.3)}
+.bt-2px-solid-currentColor{border-top:2px solid currentColor}
+.adu-0\.7s{animation-duration: 0.7s}
+.aic-infinite{animation-iteration-count:infinite}
+@keyframes spin{
+ 0% {transform:rotate(0deg)} 100% {transform:rotate(360deg)}
+}
+
+
+            
+/* End :-----------ACSS acss/components/button.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS acss/components/input.tsx------------------------*/
+.b-1px-s-indigoTheme9{border:1px solid light-dark(#3e63dd,#3e63dd)}
+.--hover\[b-1px-s-indigoTheme10\]:hover{border:1px solid light-dark(#3358d4,#5472e4)} 
+
+.--has--focus\[b-1px-s-indigoTheme10\,bxs-0px-0px-0px-3px-rgba-79-70-229-0\.4\]:has(:focus){border:1px solid light-dark(#3358d4,#5472e4)} 
+.--has--focus\[b-1px-s-indigoTheme10\,bxs-0px-0px-0px-3px-rgba-79-70-229-0\.4\]:has(:focus){box-shadow:0px 0px 0px 3px rgba(79 70 229 / 0.4)} 
+
+.--active\[b-1px-s-indigoTheme11\]:active{border:1px solid light-dark(#3a5bc7,#9eb1ff)} 
+
+.bgc-grayTheme4{background-color:light-dark(#e8e8e8,#2a2a2a)}
+.b-1px-solid-grayTheme5{border:1px solid light-dark(#e0e0e0,#313131)}
+.--hover\[bgc-grayTheme5\]:hover{background-color:light-dark(#e0e0e0,#313131)} 
+
+.--has--focus\[bgc-grayTheme5\,b-1px-solid-grayTheme7\]:has(:focus){background-color:light-dark(#e0e0e0,#313131)} 
+.--has--focus\[bgc-grayTheme5\,b-1px-solid-grayTheme7\]:has(:focus){border:1px solid light-dark(#cecece,#484848)} 
+
+.--active\[bgc-grayTheme6\]:active{background-color:light-dark(#d9d9d9,#3a3a3a)} 
+
+.__input-mb--6px > input{margin-bottom: -6px}
+.c-grayTheme-12{color:light-dark(#202020,#eeeeee)}
+.br-0-i{border-radius: 0 !important}
+.bb-1px-solid-indigoTheme9{border-bottom:1px solid light-dark(#3e63dd,#3e63dd)}
+.--hover\[bb-1px-solid-indigoTheme10\]:hover{border-bottom:1px solid light-dark(#3358d4,#5472e4)} 
+
+.--has--focus\[bb-2px-solid-indigoTheme11\]:has(:focus){border-bottom:2px solid light-dark(#3a5bc7,#9eb1ff)} 
+
+.--has--active\[bb-1\.5-s-indigoTheme12\]:has(:active){border-bottom:solid} 
+
+.b-1px-s-redTheme9{border:1px solid light-dark(#e5484d,#e5484d)}
+.c-redThemeA9{color:light-dark(#db0007b7,#fe4e54e4)}
+.__span-c-redTheme9 > span{color:light-dark(#e5484d,#e5484d)}
+.--hover\[b-1px-s-redTheme10\]:hover{border:1px solid light-dark(#dc3e42,#ec5d5e)} 
+
+.--has--focus\[b-1px-s-redTheme10\,bxs-0px-0px-0px-3px-rgba-239-68-68-0\.4\]:has(:focus){border:1px solid light-dark(#dc3e42,#ec5d5e)} 
+.--has--focus\[b-1px-s-redTheme10\,bxs-0px-0px-0px-3px-rgba-239-68-68-0\.4\]:has(:focus){box-shadow:0px 0px 0px 3px rgba(239 68 68 / 0.4)} 
+
+.--active\[b-1px-s-redTheme11\]:active{border:1px solid light-dark(#ce2c31,#ff9592)} 
+
+.px-6px{padding-left:6px;padding-right:6px}
+.py-4px{padding-top:4px;padding-bottom:4px}
+.px-8px{padding-left:8px;padding-right:8px}
+.px-10px{padding-left:10px;padding-right:10px}
+.py-8px{padding-top:8px;padding-bottom:8px}
+.--has\(--disabled\)\[cna\,pen\,bgc-grayTheme9\,usn\,bn\]:has(:disabled){cursor: not-allowed} 
+.--has\(--disabled\)\[cna\,pen\,bgc-grayTheme9\,usn\,bn\]:has(:disabled){pointer-events: none} 
+.--has\(--disabled\)\[cna\,pen\,bgc-grayTheme9\,usn\,bn\]:has(:disabled){background-color:light-dark(#8d8d8d,#6e6e6e)} 
+.--has\(--disabled\)\[cna\,pen\,bgc-grayTheme9\,usn\,bn\]:has(:disabled){user-select: none} 
+.--has\(--disabled\)\[cna\,pen\,bgc-grayTheme9\,usn\,bn\]:has(:disabled){border:none} 
+
+.cna{cursor: not-allowed}
+.pen{pointer-events: none}
+@layer base{ .\@base-au{all: unset}}
+.cursor-text{cursor:text}
+.\[disabled\]\[cna\,pen\,usn\][disabled]{cursor: not-allowed} 
+.\[disabled\]\[cna\,pen\,usn\][disabled]{pointer-events: none} 
+.\[disabled\]\[cna\,pen\,usn\][disabled]{user-select: none} 
+
+.font-medium{font:medium}
+.mt-1{margin-top:var(--space-1,0.25rem)}
+
+            
+/* End :-----------ACSS acss/components/input.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/index.jsx------------------------*/
+
+            
+/* End :-----------ACSS radix-ui/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Accordion/index.jsx------------------------*/
+.background-whiteThemeA12{background:light-dark(rgba(255, 255, 255, 0.95), rgba(0, 0, 0, 0.95))}
+.border-radius-8px{border-radius: 8px}
+.box-shadow-0px-0px-0px-1px-grayThemeA3{box-shadow:0px 0px 0px 1px light-dark(#0000000f,#ffffff12)}
+.width-80p{width: 80%}
+.mt-1px{margin-top: 1px}
+.bxs-0px-1px-0px-grayTheme6{box-shadow:0px 1px 0px light-dark(#d9d9d9,#3a3a3a)}
+.--fw\[pr\,zi-1\,bxs-0px-0px-0px-2px-blueTheme8\]:focus-within{position: relative} 
+.--fw\[pr\,zi-1\,bxs-0px-0px-0px-2px-blueTheme8\]:focus-within{z-index:1} 
+.--fw\[pr\,zi-1\,bxs-0px-0px-0px-2px-blueTheme8\]:focus-within{box-shadow:0px 0px 0px 2px light-dark(#5eb1ef,#2870bd)} 
+
+.--fc\[mt-0\,btlr-8px\,btrr-8px\]:first-child{margin-top: 0} 
+.--fc\[mt-0\,btlr-8px\,btrr-8px\]:first-child{border-top-left-radius: 8px} 
+.--fc\[mt-0\,btlr-8px\,btrr-8px\]:first-child{border-top-right-radius: 8px} 
+
+.--lc\[bblr-8px\,bbrr-8px\]:last-child{border-bottom-left-radius: 8px} 
+.--lc\[bblr-8px\,bbrr-8px\]:last-child{border-bottom-right-radius: 8px} 
+
+.py-0{padding-top:0;padding-bottom:0}
+.px-16px{padding-left:16px;padding-right:16px}
+.flex-1{flex: 1}
+.ff--font-sans{font-family: var(--font-sans)}
+.c-grayTheme12{color:light-dark(#202020,#eeeeee)}
+.tn-box-shadow-300ms{transition:box-shadow 300ms}
+.\[data-open\]-bxs-0px-1px-0px-grayTheme6[data-open]{box-shadow:0px 1px 0px light-dark(#d9d9d9,#3a3a3a)}
+.c-grayThemeA9{color:light-dark(#00000072,#ffffff64)}
+.tn-transform-300ms{transition:transform 300ms}
+.ttf--ttf\:cubic-bezier\(0\.87\,0\,0\,1\){transition-timing-function: var(--ttf,cubic-bezier(0.87,0,0,1))}
+[data-state="open"] .\[data-state\=open\]\&-transform-r-180deg{transform:rotate(180deg)}
+.c-grayThemeA11{color:light-dark(#0000009b,#ffffffaf)}
+.bgc-grayThemeA2{background-color:light-dark(#00000006,#ffffff09)}
+.lh-1d5{line-height: 1.5}
+.m-1px{margin: 1px}
+.\[data-state\=open\]\[an-slide-down\,adu-300ms\,atf--atf\:cubic-bezier\(0\.87\,0\,0\.13\,1\)\,afm-forwards\][data-state="open"]{animation-name:slide-down} 
+.\[data-state\=open\]\[an-slide-down\,adu-300ms\,atf--atf\:cubic-bezier\(0\.87\,0\,0\.13\,1\)\,afm-forwards\][data-state="open"]{animation-duration: 300ms} 
+.\[data-state\=open\]\[an-slide-down\,adu-300ms\,atf--atf\:cubic-bezier\(0\.87\,0\,0\.13\,1\)\,afm-forwards\][data-state="open"]{animation-timing-function: var(--atf,cubic-bezier(0.87,0,0.13,1))} 
+.\[data-state\=open\]\[an-slide-down\,adu-300ms\,atf--atf\:cubic-bezier\(0\.87\,0\,0\.13\,1\)\,afm-forwards\][data-state="open"]{animation-fill-mode:forwards} 
+
+.\[data-state\=closed\]\[an-slide-up\,adu-300ms\,atf--atf\:cubic-bezier\(0\.87\,0\,0\.13\,1\)\,afm-forwards\][data-state="closed"]{animation-name:slide-up} 
+.\[data-state\=closed\]\[an-slide-up\,adu-300ms\,atf--atf\:cubic-bezier\(0\.87\,0\,0\.13\,1\)\,afm-forwards\][data-state="closed"]{animation-duration: 300ms} 
+.\[data-state\=closed\]\[an-slide-up\,adu-300ms\,atf--atf\:cubic-bezier\(0\.87\,0\,0\.13\,1\)\,afm-forwards\][data-state="closed"]{animation-timing-function: var(--atf,cubic-bezier(0.87,0,0.13,1))} 
+.\[data-state\=closed\]\[an-slide-up\,adu-300ms\,atf--atf\:cubic-bezier\(0\.87\,0\,0\.13\,1\)\,afm-forwards\][data-state="closed"]{animation-fill-mode:forwards} 
+
+.padding-15px-20px{padding: 15px 20px}
+@keyframes slide-down{
+ 0% {height: 0} 100% {height: var(--radix-accordion-content-height)}
+}
+
+@keyframes slide-up{
+ 100% {height: 0} 0% {height: var(--radix-accordion-content-height)}
+}
+
+
+            
+/* End :-----------ACSS radix-ui/Accordion/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/AlertDialog/index.jsx------------------------*/
+@layer base{ .x-button{all:unset}} 
+@layer base{ .x-button[class]{display:inline-flex;align-items:center;justify-content:center}} 
+@layer base{ .x-button[class]{padding: 12px 28px}} 
+@layer base{ .x-button[class]{font-size: 15px}} 
+@layer base{ .x-button[class]{font-weight: 500}} 
+@layer base{ .x-button[class]{user-select: none}} 
+@layer base{ .x-button[class]{cursor: pointer}} 
+@layer base{ .x-button[class]{border-radius: 6px}} 
+@layer base{ .x-button[class]{gap: 8px}} 
+@layer base{ .x-button[class]{white-space: nowrap}} 
+@layer base{ .x-button[class]{color:light-dark(white,black)}} 
+@layer base{ .x-button[class]{background:light-dark(var(--gray800,#1D2939),var(--gray200,#EAECF0))}} 
+ 
+
+.Color\(white\,red-10\){color:white;background-color:#dc3e42;}
+.--hover-bgc-red-9:hover{background-color:#e5484d}
+.ff-inter{font-family:inter}
+.bgc-0000000000d7{background-color:rgba(000,000,000,0.7)}
+.inset-0{inset: 0}
+.an-overlayShow{animation-name:overlayShow}
+.adu-150ms{animation-duration: 150ms}
+.atf--atf\:cubic\(0\.16\,1\,0\.3\,1\){animation-timing-function: var(--atf,cubic(0.16,1,0.3,1))}
+.bgc-gray-100{background-color:var(--gray100,#F2F4F7)}
+.x-shadow{x:-shadow}
+.t-50p{top: 50%}
+.l-50p{left: 50%}
+.tf-t--50p--50p{transform:translate(-50%, -50%)}
+.w-90vw{width: 90vw}
+.xw-500px{max-width: 500px}
+.xh-85vh{max-height: 85vh}
+.p-25px{padding: 25px}
+.an-contentShow{animation-name:contentShow}
+.fs-17px{font-size: 17px}
+.mb-20px{margin-bottom: 20px}
+.c-gray-600{color:var(--gray600,#475467)}
+.fs-15px{font-size: 15px}
+.g-25px{gap: 25px}
+.justify-content-flex-end{justify-content:flex-end}
+.--ho-bgc-mauve5:hover{background-color:#e3dfe6}
+.bgc-mauve4{background-color:#eae7ec}
+.c-mauve11{color:#65636d}
+.--ho-bgc-red5:hover{background-color:#ffcdce}
+.bgc-red4{background-color:#ffdbdc}
+.c-red11{color:#ce2c31}
+@keyframes overlayShow{
+ 0% {opacity: 0} 100% {opacity: 1}
+}
+
+@keyframes contentShow{
+ 0% {opacity: 0;transform:translate(-50%, -48%) scale(0.96)} 100% {opacity: 1;transform:translate(-50%, -50%) scale(1)}
+}
+
+
+            
+/* End :-----------ACSS radix-ui/AlertDialog/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/AspectRatio/index.jsx------------------------*/
+.w-300px{width: 300px}
+.bxs-0px-2px-10px-blackA7{box-shadow:0px 2px 10px rgba(0, 0, 0, 0.5)}
+.object-fit-cover{object-fit:cover}
+
+            
+/* End :-----------ACSS radix-ui/AspectRatio/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Avatar/index.jsx------------------------*/
+.avatar-root{display:inline-flex;align-items:center;justify-content:center} 
+.avatar-root{vertical-align: middle} 
+.avatar-root{overflow: hidden} 
+.avatar-root{user-select: none} 
+.avatar-root{width:calc(45px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(45px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(45px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))} 
+.avatar-root{border-radius: 100%} 
+.avatar-root{background-color:rgba(0, 0, 0, 0.15)} 
+ 
+
+.avatar-image{width:calc(100% - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(100% - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(100% - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))} 
+.avatar-image{object-fit:cover} 
+.avatar-image{border-radius:inherit} 
+ 
+
+.avatar-fallback{width:calc(100% - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(100% - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(100% - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))} 
+.avatar-fallback{display:flex;align-items:center;justify-content:center} 
+.avatar-fallback{background-color:var(--gray200,#EAECF0)} 
+.avatar-fallback{color:#6550b9} 
+.avatar-fallback{font-size: 15px} 
+.avatar-fallback{line-height: 1} 
+.avatar-fallback{font-weight: 500} 
+ 
+
+
+            
+/* End :-----------ACSS radix-ui/Avatar/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Checkbox/css-modules/index.jsx------------------------*/
+.x-square-25px{width:calc(25px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(25px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(25px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
+.--h-bgc-violet3:hover{background-color:#f4f0fe}
+.--fo-bxs-0px-0px-0px-2px-000:focus{box-shadow:0px 0px 0px 2px #000}
+.c-violet11{color:#6550b9}
+.pl-15px{padding-left: 15px}
+
+            
+/* End :-----------ACSS radix-ui/Checkbox/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Collapsible/css-modules/index.jsx------------------------*/
+.repo-text{color:var(--violet800,#5720B7)} 
+.repo-text{font-size: 15px} 
+.repo-text{line-height: 25px} 
+ 
+
+.c-gray-700-i{color:var(--gray700,#344054) !important}
+.\[dif\,aic\,jcc\,x-square-25px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-000000\]{display: inline-flex} 
+.\[dif\,aic\,jcc\,x-square-25px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-000000\]{align-items: center} 
+.\[dif\,aic\,jcc\,x-square-25px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-000000\]{justify-content: center} 
+.\[dif\,aic\,jcc\,x-square-25px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-000000\]{width:calc(25px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(25px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(25px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))} 
+.\[dif\,aic\,jcc\,x-square-25px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-000000\]{font-family:inherit} 
+.\[dif\,aic\,jcc\,x-square-25px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-000000\]{border-radius: 100%} 
+.\[dif\,aic\,jcc\,x-square-25px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-000000\]{color:var(--violet800,#5720B7)} 
+.\[dif\,aic\,jcc\,x-square-25px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-000000\]{box-shadow:0px 2px 10px #000000} 
+
+.--fo-bxs-0px-0px-0px-2px-black:focus{box-shadow:0px 0px 0px 2px black}
+.--hover-bgc-violet-200:hover{background-color:var(--violet200,#DDD6FE)}
+.\[data-state\=open\]-bgc-violet-200[data-state="open"]{background-color:var(--violet200,#DDD6FE)}
+.\[data-state\=closed\]-bgc-white[data-state="closed"]{background-color:white}
+.repository{background-color:#fff} 
+.repository{border-radius: 4px} 
+.repository{margin: 10px 0px} 
+.repository{padding: 10px} 
+.repository{box-shadow:0px 2px 10px rgba(000,000,000,0.6)} 
+ 
+
+
+            
+/* End :-----------ACSS radix-ui/Collapsible/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/ContextMenu/css-modules/index.jsx------------------------*/
+.c-violet-800{color:var(--violet800,#5720B7)}
+.br-3px{border-radius: 3px}
+.h-25px{height: 25px}
+.p-0px-5px{padding: 0px 5px}
+.pl-25px{padding-left: 25px}
+.usn{user-select: none}
+.\[data-disabled\]\[pen\,c-gray-300\][data-disabled]{pointer-events: none} 
+.\[data-disabled\]\[pen\,c-gray-300\][data-disabled]{color:var(--gray300,#D0D5DD)} 
+
+.\[data-highlighted\]\[background-color-violet-600\,color-violet-100\][data-highlighted]{background-color:var(--violet600,#7839EE)} 
+.\[data-highlighted\]\[background-color-violet-600\,color-violet-100\][data-highlighted]{color:var(--violet100,#ECE9FE)} 
+
+.\[data-state\=open\]--not\(\[data-highlighted\]\,\[data-disabled\]\)-\[bgc-violet-300\,c-violet-800\][data-state="open"]:not([data-highlighted],[data-disabled]){background-color:var(--violet300,#C3B5FD)} 
+.\[data-state\=open\]--not\(\[data-highlighted\]\,\[data-disabled\]\)-\[bgc-violet-300\,c-violet-800\][data-state="open"]:not([data-highlighted],[data-disabled]){color:var(--violet800,#5720B7)} 
+
+.db{display: block}
+.b-2px-dashed-gray-800{border:2px dashed var(--gray800,#1D2939)}
+.c-gray-800{color:var(--gray800,#1D2939)}
+.py-45px{padding-top:45px;padding-bottom:45px}
+.tac{text-align: center}
+.mw-220px{min-width: 220px}
+.p-5px{padding: 5px}
+.bxs-0px-10px-38px--10px-0220230240d35__0px-10px-20px--15px-0220230240d2{box-shadow:0px 10px 38px -10px rgba(022,023,024,0.35) , 0px 10px 20px -15px rgba(022,023,024,0.2)}
+.cm-right-slot{margin-left:auto} 
+.cm-right-slot{padding-left: 20px} 
+.cm-right-slot{color:var(--gray600,#475467)} 
+ 
+
+[data-highlighted]  > .cm-right-slot{color:white} 
+
+[data-disabled] .cm-right-slot{color:var(--gray600,#475467)} 
+
+.cm-seperator{margin: 5px} 
+.cm-seperator{height: 1px} 
+.cm-seperator{background-color:var(--violet300,#C3B5FD)} 
+ 
+
+.cm-item-indicator{position: absolute} 
+.cm-item-indicator{left: 0px} 
+.cm-item-indicator{width: 25px} 
+.cm-item-indicator{display: inline-flex} 
+.cm-item-indicator{align-items: center} 
+.cm-item-indicator{justify-content: center} 
+ 
+
+.lh-25px{line-height: 25px}
+.c-gray-500{color:var(--gray500,#667085)}
+
+            
+/* End :-----------ACSS radix-ui/ContextMenu/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Dialog/css-modules/index.jsx------------------------*/
+.bgc-violet-200{background-color:var(--violet200,#DDD6FE)}
+.--fo--not\(--fv\)-oln:focus:not(:focus-visible){outline:none}
+.--fv-ol-2px-solid-violet700:focus-visible{outline:2px solid var(--violet700,#6927DA)}
+.bgc-gray-50{background-color:var(--gray50,#F9FAFB)}
+.x-shadow-md{box-shadow:var(--shadow-md, 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06))}
+.m-10px-0px-20px{margin: 10px 0px 20px}
+.g-20px{gap: 20px}
+.mb-8px{margin-bottom: 8px}
+.w-90px{width: 90px}
+.tar{text-align: right}
+.x-inline-flex-center{display:inline-flex; justify-content:center;align-items:center}
+.p-0px-10px{padding: 0px 10px}
+.bxs-0px-0px-0px-1px-violet-500{box-shadow:0px 0px 0px 1px var(--violet500,#875BF7)}
+.h-35px{height: 35px}
+.--fo-bxs-0px-0px-0px-2px-violet-600:focus{box-shadow:0px 0px 0px 2px var(--violet600,#7839EE)}
+.--h-bgc-success-200:hover{background-color:var(--success200,#ABEFC6)}
+.bgc-success-100{background-color:var(--success100,#DCFAE6)}
+.c-success-700{color:var(--success700,#067647)}
+.br-100p{border-radius: 100%}
+.t-10px{top: 10px}
+.r-10px{right: 10px}
+.bgc-gray-300{background-color:var(--gray300,#D0D5DD)}
+.--h-bgc-violet-100:hover{background-color:var(--violet100,#ECE9FE)}
+.--fo-bxs-0-0-2px-violet-500:focus{box-shadow:0px 0px 2px var(--violet500,#875BF7)}
+
+            
+/* End :-----------ACSS radix-ui/Dialog/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/DropdownMenu/css-modules/index.jsx------------------------*/
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-0000000000d7\]{display: inline-flex} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-0000000000d7\]{align-items: center} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-0000000000d7\]{justify-content: center} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-0000000000d7\]{width:calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-0000000000d7\]{font-family:inherit} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-0000000000d7\]{border-radius: 100%} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-0000000000d7\]{color:var(--violet800,#5720B7)} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-0000000000d7\]{box-shadow:0px 2px 10px rgba(000,000,000,0.7)} 
+
+.adu-400ms{animation-duration: 400ms}
+.atf--atf\:cubic-bezier\(0\.16\,1\,0\.3\,1\)will-change-transform__opacity{animation-timing-function: var(--atf,cubic-bezier(0.16,1,0.3,1)will-change-transform__opacity)}
+.\[data-side\=top\]-an-slideDownAndFade[data-side="top"]{animation-name:slideDownAndFade}
+.\[data-side\=right\]-an-slideLeftAndFade[data-side="right"]{animation-name:slideLeftAndFade}
+.\[data-side\=bottom\]-an-slideUpAndFade[data-side="bottom"]{animation-name:slideUpAndFade}
+.\[data-side\=left\]-an-slideRightAndFade[data-side="left"]{animation-name:slideRightAndFade}
+.dm-right-slot{margin-left:auto} 
+.dm-right-slot{padding-left: 20px} 
+.dm-right-slot{color:var(--gray600,#475467)} 
+ 
+
+[data-highlighted]  > .dm-right-slot{color:white} 
+
+[data-disabled] .dm-right-slot{color:var(--gray600,#475467)} 
+
+.dm-seperator{margin: 5px} 
+.dm-seperator{height: 1px} 
+.dm-seperator{background-color:var(--violet300,#C3B5FD)} 
+ 
+
+.dm-item-indicator{position: absolute} 
+.dm-item-indicator{left: 0px} 
+.dm-item-indicator{width: 25px} 
+.dm-item-indicator{display: inline-flex} 
+.dm-item-indicator{align-items: center} 
+.dm-item-indicator{justify-content: center} 
+ 
+
+.fill-white{fill:white}
+
+
+            
+/* End :-----------ACSS radix-ui/DropdownMenu/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Form/css-modules/index.jsx------------------------*/
+.w-260px{width: 260px}
+.d-grid{display:grid}
+.mb-10px{margin-bottom: 10px}
+.aib{align-items: baseline}
+.lh-35px{line-height: 35px}
+.opacity-0d8{opacity: 0.8}
+.input{background-color:transparent} 
+.input{width: 100%} 
+.input{display:inline-flex; justify-content:center;align-items:center} 
+.input{border-radius: 4px} 
+.input{font-size: 15px} 
+.input{color:var(--gray800,#1D2939)} 
+.input{background-color:#fff} 
+.input{box-shadow:0px 0px 0px 1px rgba(000,000,000,0.6)} 
+.input:hover{box-shadow:0px 0px 0px 1px black} 
+.input:focus{box-shadow:0px 0px 0px 2px black} 
+.input::selection{color:white} 
+.input::selection{background-color:rgba(000,000,000,0.6)} 
+ 
+
+.p-0-10px{padding: 0 10px}
+.c-error-600{color:var(--error600,#D92D20)}
+.resize-none{resize:none}
+.bgc-gray-800{background-color:var(--gray800,#1D2939)}
+.c-gray-100{color:var(--gray100,#F2F4F7)}
+.bxs-0px-2px-10px-2252252250d4{box-shadow:0px 2px 10px rgba(225,225,225,0.4)}
+.--h-bgc-gray-700:hover{background-color:var(--gray700,#344054)}
+
+            
+/* End :-----------ACSS radix-ui/Form/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/GettingStarted/css-modules/index.jsx------------------------*/
+
+            
+/* End :-----------ACSS radix-ui/GettingStarted/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/HoverCard/css-modules/index.jsx------------------------*/
+.--fo-bxs-0px-0px-0px-2px-white:focus{box-shadow:0px 0px 0px 2px white}
+.x-square-45px{width:calc(45px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(45px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(45px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
+.x-square-60px{width:calc(60px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(60px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(60px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
+.c-gray-700{color:var(--gray700,#344054)}
+.c-gray-400{color:var(--gray400,#98A2B3)}
+
+
+            
+/* End :-----------ACSS radix-ui/HoverCard/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Label/css-modules/index.jsx------------------------*/
+.fw-5{font-weight:500}
+.bxs-0px-0px-0px-1px-0000000000d6{box-shadow:0px 0px 0px 1px rgba(000,000,000,0.6)}
+.--selection\[bgc-0000000000d6\,c-white\]::selection{background-color:rgba(000,000,000,0.6)} 
+.--selection\[bgc-0000000000d6\,c-white\]::selection{color:white} 
+
+
+            
+/* End :-----------ACSS radix-ui/Label/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Menubar/css-modules/index.jsx------------------------*/
+.\[class\~\=inset\]-pl-20px[class~="inset"]{padding-left: 20px}
+.\[data-highlighted\]\[background-color-gray-600\,color-gray-100\][data-highlighted]{background-color:var(--gray600,#475467)} 
+.\[data-highlighted\]\[background-color-gray-600\,color-gray-100\][data-highlighted]{color:var(--gray100,#F2F4F7)} 
+
+.atf--atf\:cubic-bezier\(0\.16\,1\,0\.3\,1\){animation-timing-function: var(--atf,cubic-bezier(0.16,1,0.3,1))}
+.will-change-transform__opacity{will-change:transform, opacity}
+.\[data-state\=open\]-\[bgc-gray-200\,c-gray-800\][data-state="open"]{background-color:var(--gray200,#EAECF0)} 
+.\[data-state\=open\]-\[bgc-gray-200\,c-gray-800\][data-state="open"]{color:var(--gray800,#1D2939)} 
+
+.p-3px{padding: 3px}
+.bxs-0px-2px-10px-0000000000d7{box-shadow:0px 2px 10px rgba(000,000,000,0.7)}
+.mb-trigger{padding: 8px 12px} 
+.mb-trigger{outline:none} 
+.mb-trigger{user-select: none} 
+.mb-trigger{font-weight: 500} 
+.mb-trigger{line-height: 1} 
+.mb-trigger{border-radius: 4px} 
+.mb-trigger{color:var(--gray800,#1D2939)} 
+.mb-trigger{font-size: 13px} 
+.mb-trigger{display: flex} 
+.mb-trigger{align-items: center} 
+.mb-trigger{justify-content: space-between} 
+.mb-trigger{gap: 2px} 
+ 
+
+.mb-trigger[data-highlighted]{background-color:var(--gray200,#EAECF0)} 
+
+.mb-trigger[data-state="open"]{background-color:var(--gray200,#EAECF0)} 
+
+.mb-trigger{margin-bottom:-trigger}
+.mb-right-slot{margin-left:auto} 
+.mb-right-slot{padding-left: 20px} 
+.mb-right-slot{color:var(--gray600,#475467)} 
+ 
+
+[data-highlighted]  > .mb-right-slot{color:var(--gray800,#1D2939)} 
+
+[data-disabled] .mb-right-slot{color:var(--gray600,#475467)} 
+
+.mb-right-slot{margin-bottom:-right-slot}
+.\[m-5px\,h-1px\,bgc-gray-300\]{margin: 5px} 
+.\[m-5px\,h-1px\,bgc-gray-300\]{height: 1px} 
+.\[m-5px\,h-1px\,bgc-gray-300\]{background-color:var(--gray300,#D0D5DD)} 
+
+.\[pa\,l-0px\,w-25px\,dif\,aic\,jcc\]{position: absolute} 
+.\[pa\,l-0px\,w-25px\,dif\,aic\,jcc\]{left: 0px} 
+.\[pa\,l-0px\,w-25px\,dif\,aic\,jcc\]{width: 25px} 
+.\[pa\,l-0px\,w-25px\,dif\,aic\,jcc\]{display: inline-flex} 
+.\[pa\,l-0px\,w-25px\,dif\,aic\,jcc\]{align-items: center} 
+.\[pa\,l-0px\,w-25px\,dif\,aic\,jcc\]{justify-content: center} 
+
+
+            
+/* End :-----------ACSS radix-ui/Menubar/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/NavigationMenu/css-modules/index.jsx------------------------*/
+.--fo-bxs-0px-0px-0px-2px-violet600:focus{box-shadow:0px 0px 0px 2px var(--violet600,#7839EE)}
+.--h-bgc-gray-200:hover{background-color:var(--gray200,#EAECF0)}
+.zi-1{z-index:1}
+.p-4px{padding: 4px}
+.g-2px{gap: 2px}
+.--fo-bxs-0px-0px-0px-2px-0000000000d7:focus{box-shadow:0px 0px 0px 2px rgba(000,000,000,0.7)}
+.t-1px{top: 1px}
+.tn-transform-250ms-ease{transition:transform 250ms ease}
+[data-state="open"]  > .__\[data-state\=open\]\&-tf-r--180deg{transform:rotate(-180deg)}
+.\[pa\,t-0\,l-0\,w-100p\,adu-250ms\,sm-w-auto\]{position: absolute} 
+.\[pa\,t-0\,l-0\,w-100p\,adu-250ms\,sm-w-auto\]{top: 0} 
+.\[pa\,t-0\,l-0\,w-100p\,adu-250ms\,sm-w-auto\]{left: 0} 
+.\[pa\,t-0\,l-0\,w-100p\,adu-250ms\,sm-w-auto\]{width: 100%} 
+.\[pa\,t-0\,l-0\,w-100p\,adu-250ms\,sm-w-auto\]{animation-duration: 250ms} 
+@media (max-width : 576px){ .\[pa\,t-0\,l-0\,w-100p\,adu-250ms\,sm-w-auto\]{width:auto}} 
+
+.\[data-motion\=from-start\]-an-enterFromLeft[data-motion="from-start"]{animation-name:enterFromLeft}
+.\[data-motion\=from-end\]-an-enterFromRight[data-motion="from-end"]{animation-name:enterFromRight}
+.\[data-motion\=to-start\]-an-exitToLeft[data-motion="to-start"]{animation-name:exitToLeft}
+.\[data-motion\=to-end\]-an-exitToRight[data-motion="to-end"]{animation-name:exitToRight}
+.dg{display: grid}
+.p-22px{padding: 22px}
+.cg-10px{column-gap: 10px}
+@media (min-width : 576px){ .sm-w-500px{width: 500px}}
+@media (min-width : 576px){ .sm-gtc-0d7fr-1fr{grid-template-columns: 0.7fr 1fr}}
+.jcfe{justify-content: flex-end}
+.bg-lg-135deg-purple800_0p-indigo800_100p{background:linear-gradient( 135deg,  var(--purple800,#4A1FB8) 0%, var(--indigo800,#2D31A6) 100% )}
+.lh-1d2{line-height: 1.2}
+.mb-7px{margin-bottom: 7px}
+.c-gray-200{color:var(--gray200,#EAECF0)}
+.lh-1d3{line-height: 1.3}
+@media (min-width : 576px){ .sm-w-600px{width: 600px}}
+@media (min-width : 576px){ .sm-grid-auto-flow-column{grid-auto-flow:column}}
+@media (min-width : 576px){ .sm-gtr-repeat-3-1fr{grid-template-rows: repeat(3, 1fr)}}
+.aife{align-items: flex-end}
+.h-10px{height: 10px}
+.t-100p{top: 100%}
+.tdu-250ms{transition-duration: 250ms}
+.ttf-ease{transition-timing-function:ease}
+.transition-property-width__transform{transition-property:width , transform}
+.t-70p{top: 70%}
+.w-10px{width: 10px}
+.tf-r-45deg{transform:rotate(45deg)}
+.btlr-2px{border-top-left-radius: 2px}
+.perspective-2000px{perspective: 2000px}
+.totc{transform-origin: top center  }
+.mt-10px{margin-top: 10px}
+.bxs-0px-10px-38px--10px-0000000000d35__0px-10px-20px--15px-0000000000d2{box-shadow:0px 10px 38px -10px rgba(000,000,000,0.35) , 0px 10px 20px -15px rgba(000,000,000,0.2)}
+.h--radix-navigation-menu-viewport-height{height: var(--radix-navigation-menu-viewport-height)}
+.transition-property-width__height{transition-property:width , height}
+.tdu-300ms{transition-duration: 300ms}
+.\[data-state\=open\]-\[an-scaleIn\,adu-200ms\,atf-ease\][data-state="open"]{animation-name:scaleIn} 
+.\[data-state\=open\]-\[an-scaleIn\,adu-200ms\,atf-ease\][data-state="open"]{animation-duration: 200ms} 
+.\[data-state\=open\]-\[an-scaleIn\,adu-200ms\,atf-ease\][data-state="open"]{animation-timing-function:ease} 
+
+.\[data-state\=closed\]-\[an-scaleOut\,adu-200ms\,atf-ease\][data-state="closed"]{animation-name:scaleOut} 
+.\[data-state\=closed\]-\[an-scaleOut\,adu-200ms\,atf-ease\][data-state="closed"]{animation-duration: 200ms} 
+.\[data-state\=closed\]-\[an-scaleOut\,adu-200ms\,atf-ease\][data-state="closed"]{animation-timing-function:ease} 
+
+@media (min-width : 576px){ .sm-w--radix-navigation-menu-viewport-width\:100p{width: var(--radix-navigation-menu-viewport-width,100%)}}
+.mb-5px{margin-bottom: 5px}
+.fw-initial{font-weight:initial}
+.lh-1d4{line-height: 1.4}
+@keyframes enterFromRight{
+ 0% {opacity: 0;transform:translateX(200px)} 100% {opacity: 1;transform:translateX(0)}
+}
+
+@keyframes enterFromLeft{
+ 0% {opacity: 0;transform:translateX(-200px)} 100% {opacity: 1;transform:translateX(0)}
+}
+
+@keyframes exitToRight{
+ 0% {opacity: 1;transform:translateX(0)} 100% {opacity: 0;transform:translateX(200px)}
+}
+
+@keyframes exitToLeft{
+ 0% {opacity: 1;transform:translateX(0)} 100% {opacity: 0;transform:translateX(-200px)}
+}
+
+@keyframes scaleIn{
+ 0% {opacity: 0;transform:rotateX(-30deg) scale(0.9)} 100% {opacity: 1;transform:rotateX(0deg) scale(1)}
+}
+
+@keyframes scaleOut{
+ 0% {opacity: 1;transform:rotateX(0deg) scale(1)} 100% {opacity: 0;transform:rotateX(-10deg) scale(0.95)}
+}
+
+@keyframes fadeIn{
+ 0% {opacity: 0} 100% {opacity: 1}
+}
+
+@keyframes fadeOut{
+ 0% {opacity: 1} 100% {opacity: 0}
+}
+
+
+            
+/* End :-----------ACSS radix-ui/NavigationMenu/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/OneTimePasswordField/css-modules/index.jsx------------------------*/
+.g-0d5rem{gap: 0.5rem}
+.flex-wrap-nowrap{flex-wrap:nowrap}
+.one-time-password-field-input{box-sizing: border-box} 
+.one-time-password-field-input{display:inline-flex; justify-content:center;align-items:center} 
+.one-time-password-field-input{text-align: center} 
+.one-time-password-field-input{border-radius: 4px} 
+.one-time-password-field-input{font-size: 15px} 
+.one-time-password-field-input{color:var(--gray800,#1D2939)} 
+.one-time-password-field-input{background-color:#fff} 
+.one-time-password-field-input{box-shadow:0px 0px 0px 1px rgba(000,000,000,0.4)} 
+.one-time-password-field-input{padding: 0} 
+.one-time-password-field-input{height: 35px} 
+.one-time-password-field-input{width: 24px} 
+.one-time-password-field-input{line-height: 1} 
+.one-time-password-field-input:hover{box-shadow:0px 0px 0px 1px black} 
+.one-time-password-field-input:focus{box-shadow:0px 0px 0px 2px black} 
+.one-time-password-field-input::selection{color:#fff} 
+ 
+ 
+
+
+            
+/* End :-----------ACSS radix-ui/OneTimePasswordField/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/PasswordToggleField/css-modules/index.jsx------------------------*/
+.bxs-0px-0px-0px-1px-0000000000d3{box-shadow:0px 0px 0px 1px rgba(000,000,000,0.3)}
+.p-0-0d75rem{padding: 0 0.75rem}
+.pr-9px{padding-right: 9px}
+.h-36px{height: 36px}
+.--ho-bxs-0px-0px-0px-1px-black:hover{box-shadow:0px 0px 0px 1px black}
+.--fw-bxs-0px-0px-0px-2px-black:focus-within{box-shadow:0px 0px 0px 2px black}
+.bsbb{box-sizing: border-box}
+.c-inherit{color:inherit}
+.--selection\[c-fff\,bgc-0000000000d6\]::selection{color:#fff} 
+.--selection\[c-fff\,bgc-0000000000d6\]::selection{background-color:rgba(000,000,000,0.6)} 
+
+.aspect-ratio-1{aspect-ratio:1}
+.br-0d5px{border-radius: 0.5px}
+.--fv\[ol-2px-solid-gray-200\,outline-offset-2px\]:focus-visible{outline:2px solid var(--gray200,#EAECF0)} 
+.--fv\[ol-2px-solid-gray-200\,outline-offset-2px\]:focus-visible{outline-offset: 2px} 
+
+
+            
+/* End :-----------ACSS radix-ui/PasswordToggleField/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Popover/css-modules/index.jsx------------------------*/
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-gray-800\,bxs-0px-2px-10px-0000000000d5\]{display: inline-flex} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-gray-800\,bxs-0px-2px-10px-0000000000d5\]{align-items: center} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-gray-800\,bxs-0px-2px-10px-0000000000d5\]{justify-content: center} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-gray-800\,bxs-0px-2px-10px-0000000000d5\]{width:calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-gray-800\,bxs-0px-2px-10px-0000000000d5\]{font-family:inherit} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-gray-800\,bxs-0px-2px-10px-0000000000d5\]{border-radius: 100%} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-gray-800\,bxs-0px-2px-10px-0000000000d5\]{color:var(--gray800,#1D2939)} 
+.\[dif\,aic\,jcc\,x-square-35px\,ff-inherit\,br-100p\,c-gray-800\,bxs-0px-2px-10px-0000000000d5\]{box-shadow:0px 2px 10px rgba(000,000,000,0.5)} 
+
+.--hover-bgc-gray-100:hover{background-color:var(--gray100,#F2F4F7)}
+.bxs-0px-10px-38px--10px-hsl-206-22p-7p-35p__0px-10px-20px--15px-hsl-206-22p-7p-20p{box-shadow:0px 10px 38px -10px hsl(206 22% 7% / 35%) , 0px 10px 20px -15px hsl(206 22% 7% / 20%)}
+.--fo-bxs-0px-10px-38px--10px-hsl-206-22p-7p-35p__0px-10px-20px--15px-hsl-206-22p-7p-20p__0px-0px-0px-2px-gray800:focus{box-shadow:0px 10px 38px -10px hsl(206 22% 7% / 35%) , 0px 10px 20px -15px hsl(206 22% 7% / 20%) , 0px 0px 0px 2px var(--gray800,#1D2939)}
+.\[data-state\=open\]\[data-side\=top\]-an-slideDownAndFade[data-state="open"][data-side="top"]{animation-name:slideDownAndFade}
+.\[data-state\=open\]\[data-side\=right\]-an-slideLeftAndFade[data-state="open"][data-side="right"]{animation-name:slideLeftAndFade}
+.\[data-state\=open\]\[data-side\=bottom\]-an-slideUpAndFade[data-state="open"][data-side="bottom"]{animation-name:slideUpAndFade}
+.\[data-state\=open\]\[data-side\=left\]-an-slideRightAndFade[data-state="open"][data-side="left"]{animation-name:slideRightAndFade}
+.c-gray-900{color:var(--gray900,#101828)}
+.lh-19px{line-height: 19px}
+.w-75px{width: 75px}
+.bxs-0px-0px-0px-1px-gray500{box-shadow:0px 0px 0px 1px var(--gray500,#667085)}
+.--fo-bxs-0px-0px-0px-2px-gray600:focus{box-shadow:0px 0px 0px 2px var(--gray600,#475467)}
+.w-25px{width: 25px}
+.t-5px{top: 5px}
+.r-5px{right: 5px}
+
+
+            
+/* End :-----------ACSS radix-ui/Popover/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Progress/css-modules/index.jsx------------------------*/
+.br-99999px{border-radius: 99999px}
+.tf-tz-0{transform:translateZ(0)}
+.bgc-gray-600{background-color:var(--gray600,#475467)}
+.tn-transform-660ms{transition:transform 660ms}
+.ttf--ttf\:cubic-bezier\(0\.65\,0\,0\.35\,1\){transition-timing-function: var(--ttf,cubic-bezier(0.65,0,0.35,1))}
+
+            
+/* End :-----------ACSS radix-ui/Progress/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/RadioGroup/css-modules/index.jsx------------------------*/
+.g-10px{gap: 10px}
+.bgc-primary700{background-color:var(--primary700,#6941C6)}
+.x-shadow-sm{box-shadow:var(--shadow-sm, 0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06))}
+.--ho-bgc-primary700:hover{background-color:var(--primary700,#6941C6)}
+.--fo-bxs-shadow-0px-0px-0px-2px-primary900:focus{box-shadow:0px 0px 0px 2px}
+.--af\[cont\,db\,w-11px\,h-11px\,br-50p\,bgc-gray-25\]::after{content:""} 
+.--af\[cont\,db\,w-11px\,h-11px\,br-50p\,bgc-gray-25\]::after{display: block} 
+.--af\[cont\,db\,w-11px\,h-11px\,br-50p\,bgc-gray-25\]::after{width: 11px} 
+.--af\[cont\,db\,w-11px\,h-11px\,br-50p\,bgc-gray-25\]::after{height: 11px} 
+.--af\[cont\,db\,w-11px\,h-11px\,br-50p\,bgc-gray-25\]::after{border-radius: 50%} 
+.--af\[cont\,db\,w-11px\,h-11px\,br-50p\,bgc-gray-25\]::after{background-color:var(--gray25,#FCFCFD)} 
+
+.--ho-bgc-primary300:hover{background-color:var(--primary300,#D6BBFB)}
+.--fo-bxs-shadow-0px-0px-0px-2px-black:focus{box-shadow:0px 0px 0px 2px}
+
+            
+/* End :-----------ACSS radix-ui/RadioGroup/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/ScrollArea/css-modules/index.jsx------------------------*/
+.h-225px{height: 225px}
+.bxs-0px-2px-10px-0000000000d4{box-shadow:0px 2px 10px rgba(000,000,000,0.4)}
+.--x-scrollbar-size\:10px{--x-scrollbar-size:10px}
+.br-inherit{border-radius:inherit}
+.lh-18px{line-height: 18px}
+.bt-1px-solid-gray-400{border-top:1px solid var(--gray400,#98A2B3)}
+.pt-10px{padding-top: 10px}
+.touch-action-none{touch-action:none}
+.p-2px{padding: 2px}
+.bg-gray-300{background:var(--gray300,#D0D5DD)}
+.tn-background-160ms-ease-out{transition:background 160ms ease-out}
+.--h-bg-gray-400:hover{background:var(--gray400,#98A2B3)}
+.\[data-orientation\=vertical\]-w--x-scrollbar-size[data-orientation="vertical"]{width: var(--x-scrollbar-size)}
+.\[data-orientation\=horizontal\]\[fdc\,h--x-scrollbar-size\][data-orientation="horizontal"]{flex-direction: column} 
+.\[data-orientation\=horizontal\]\[fdc\,h--x-scrollbar-size\][data-orientation="horizontal"]{height: var(--x-scrollbar-size)} 
+
+.bgc-gray-700{background-color:var(--gray700,#344054)}
+.br--x-scrollbar-size{border-radius: var(--x-scrollbar-size)}
+.--bf\[cont\,pa\,t-50p\,l-50p\,tf-t--50p--50p\,w-100p\,h-100p\,mw-44px\,mh-44px\]::before{content:""} 
+.--bf\[cont\,pa\,t-50p\,l-50p\,tf-t--50p--50p\,w-100p\,h-100p\,mw-44px\,mh-44px\]::before{position: absolute} 
+.--bf\[cont\,pa\,t-50p\,l-50p\,tf-t--50p--50p\,w-100p\,h-100p\,mw-44px\,mh-44px\]::before{top: 50%} 
+.--bf\[cont\,pa\,t-50p\,l-50p\,tf-t--50p--50p\,w-100p\,h-100p\,mw-44px\,mh-44px\]::before{left: 50%} 
+.--bf\[cont\,pa\,t-50p\,l-50p\,tf-t--50p--50p\,w-100p\,h-100p\,mw-44px\,mh-44px\]::before{transform:translate(-50%, -50%)} 
+.--bf\[cont\,pa\,t-50p\,l-50p\,tf-t--50p--50p\,w-100p\,h-100p\,mw-44px\,mh-44px\]::before{width: 100%} 
+.--bf\[cont\,pa\,t-50p\,l-50p\,tf-t--50p--50p\,w-100p\,h-100p\,mw-44px\,mh-44px\]::before{height: 100%} 
+.--bf\[cont\,pa\,t-50p\,l-50p\,tf-t--50p--50p\,w-100p\,h-100p\,mw-44px\,mh-44px\]::before{min-width: 44px} 
+.--bf\[cont\,pa\,t-50p\,l-50p\,tf-t--50p--50p\,w-100p\,h-100p\,mw-44px\,mh-44px\]::before{min-height: 44px} 
+
+
+            
+/* End :-----------ACSS radix-ui/ScrollArea/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Select/css-modules/index.jsx------------------------*/
+.p-0-35px-0-25px{padding: 0 35px 0 25px}
+.\[data-disabled\]-c-gray-400[data-disabled]{color:var(--gray400,#98A2B3)}
+.\[data-highlighted\]\[bgc-gray-200\,c-gray-800\][data-highlighted]{background-color:var(--gray200,#EAECF0)} 
+.\[data-highlighted\]\[bgc-gray-200\,c-gray-800\][data-highlighted]{color:var(--gray800,#1D2939)} 
+
+.p-0-15px{padding: 0 15px}
+.g-5px{gap: 5px}
+.bxs-0px-2px-10px-00000000000d7{box-shadow:0px 2px 10px rgba(000,000,000,00.7)}
+.--ho-bgc-gray-300:hover{background-color:var(--gray300,#D0D5DD)}
+.\[data-placeholder\]-c-gray-800[data-placeholder]{color:var(--gray800,#1D2939)}
+.box-shadow-0px-10px-38px--10px-0220230240d35__0px-10px-20px--15px-0220230240d2{box-shadow:0px 10px 38px -10px rgba(022,023,024,0.35) , 0px 10px 20px -15px rgba(022,023,024,0.2)}
+.cursor-default{cursor:default}
+.p-0-25px{padding: 0 25px}
+.h-1px{height: 1px}
+.bgc-gray-400{background-color:var(--gray400,#98A2B3)}
+.m-5px{margin: 5px}
+
+            
+/* End :-----------ACSS radix-ui/Select/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Separator/css/index.jsx------------------------*/
+
+            
+/* End :-----------ACSS radix-ui/Separator/css/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Separator/css-modules/index.jsx------------------------*/
+.lh-20px{line-height: 20px}
+.\[data-orientation\=horizontal\]\[h-1px\,w-100p\][data-orientation="horizontal"]{height: 1px} 
+.\[data-orientation\=horizontal\]\[h-1px\,w-100p\][data-orientation="horizontal"]{width: 100%} 
+
+.\[data-orientation\=vertical\]\[w-1px\,h-100p\][data-orientation="vertical"]{width: 1px} 
+.\[data-orientation\=vertical\]\[w-1px\,h-100p\][data-orientation="vertical"]{height: 100%} 
+
+
+            
+/* End :-----------ACSS radix-ui/Separator/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Slider/css-modules/index.jsx------------------------*/
+.bgc-primary-500{background-color:var(--primary500,#9E77ED)}
+.flex-grow-1{flex-grow: 1}
+.br-9999px{border-radius: 9999px}
+.h-3px{height: 3px}
+.bgc-primary-900{background-color:var(--primary900,#42307D)}
+.w-20px{width: 20px}
+.--ho-bgc-primary-700:hover{background-color:var(--primary700,#6941C6)}
+.--fo\[oln\,bxs-shadow-0px-0px-0px-5px-0000000000d5\]:focus{outline:none} 
+.--fo\[oln\,bxs-shadow-0px-0px-0px-5px-0000000000d5\]:focus{box-shadow:0px 0px 0px 5px} 
+
+
+            
+/* End :-----------ACSS radix-ui/Slider/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Switch/css-modules/index.jsx------------------------*/
+.w-42px{width: 42px}
+.bgc-0000000000d8{background-color:rgba(000,000,000,0.8)}
+.webkit-tap-highlight-color-rgba-0-0-0-0{-webkit-tap-highlight-color:rgba(0 0 0 / 0)}
+.\[data-state\=checked\]-bgc-black[data-state="checked"]{background-color:black}
+.w-21px{width: 21px}
+.h-21px{height: 21px}
+.bxs-0px-2px-2px-0000000000d7{box-shadow:0px 2px 2px rgba(000,000,000,0.7)}
+.tn-transform-100ms{transition:transform 100ms}
+.tf-tx-2px{transform:translateX(2px)}
+.will-change-transform{will-change:transform}
+.\[data-state\=checked\]-tf-tx-19px[data-state="checked"]{transform:translateX(19px)}
+
+            
+/* End :-----------ACSS radix-ui/Switch/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Tabs/css-modules/index.jsx------------------------*/
+.p-0px-15px{padding: 0px 15px}
+.bgc-success-200{background-color:var(--success200,#ABEFC6)}
+.--ho-bgc-success-300:hover{background-color:var(--success300,#75E0A7)}
+.--fo-bxs-0px-0px-0px-2px-success-900:focus{box-shadow:0px 0px 0px 2px var(--success900,#074D31)}
+.bb-1px-s-gray-300{border-bottom:1px solid var(--gray300,#D0D5DD)}
+.p-0-20px{padding: 0 20px}
+.h-45px{height: 45px}
+.--fc-btlr-6px:first-child{border-top-left-radius: 6px}
+.--lc-btrr-6px:last-child{border-top-right-radius: 6px}
+.--h-c-primary-600:hover{color:var(--primary600,#7F56D9)}
+.\[data-state\=active\]\[c-primary600\,bxs-inset-0px--1px-0px-0px-currentColor__0px-1px-0px-0px-currentColor\][data-state="active"]{color:var(--primary600,#7F56D9)} 
+.\[data-state\=active\]\[c-primary600\,bxs-inset-0px--1px-0px-0px-currentColor__0px-1px-0px-0px-currentColor\][data-state="active"]{box-shadow:inset 0px -1px 0px 0px currentColor , 0px 1px 0px 0px currentColor} 
+
+.--fo\[pr\,bxs-0px-0px-0px-2px-black\]:focus{position: relative} 
+.--fo\[pr\,bxs-0px-0px-0px-2px-black\]:focus{box-shadow:0px 0px 0px 2px black} 
+
+.bblr-6px{border-bottom-left-radius: 6px}
+.bbrr-6px{border-bottom-right-radius: 6px}
+.mt-0{margin-top: 0}
+.mb-15px{margin-bottom: 15px}
+.jcfs{justify-content: flex-start}
+.flex-1-0-auto{flex: 1 0 auto}
+.bxs-0px-0px-0px-1px-primary700{box-shadow:0px 0px 0px 1px var(--primary700,#6941C6)}
+.--fo-bxs-0px-0px-0px-2px-primary800:focus{box-shadow:0px 0px 0px 2px var(--primary800,#53389E)}
+
+            
+/* End :-----------ACSS radix-ui/Tabs/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Toast/css-modules/index.jsx------------------------*/
+.\[class\~\=small\]\[fs-12px\,p-0-10px\,lh-25px\,h-25px\][class~="small"]{font-size: 12px} 
+.\[class\~\=small\]\[fs-12px\,p-0-10px\,lh-25px\,h-25px\][class~="small"]{padding: 0 10px} 
+.\[class\~\=small\]\[fs-12px\,p-0-10px\,lh-25px\,h-25px\][class~="small"]{line-height: 25px} 
+.\[class\~\=small\]\[fs-12px\,p-0-10px\,lh-25px\,h-25px\][class~="small"]{height: 25px} 
+
+.\[class\~\=large\]\[fs-15px\,p-0-15px\,lh-35px\,h-35px\][class~="large"]{font-size: 15px} 
+.\[class\~\=large\]\[fs-15px\,p-0-15px\,lh-35px\,h-35px\][class~="large"]{padding: 0 15px} 
+.\[class\~\=large\]\[fs-15px\,p-0-15px\,lh-35px\,h-35px\][class~="large"]{line-height: 35px} 
+.\[class\~\=large\]\[fs-15px\,p-0-15px\,lh-35px\,h-35px\][class~="large"]{height: 35px} 
+
+.\[class\~\=green\]\[bgc-green-100\,c-green-800\,bxs-inset-0px-0px-0px-1px-green400\,--h-bxs-0px-0px-0px-1px-green-500\,--fo-bxs-0px-0px-0px-2px-green-500\][class~="green"]{background-color:var(--green100,#D3F8DF)} 
+.\[class\~\=green\]\[bgc-green-100\,c-green-800\,bxs-inset-0px-0px-0px-1px-green400\,--h-bxs-0px-0px-0px-1px-green-500\,--fo-bxs-0px-0px-0px-2px-green-500\][class~="green"]{color:var(--green800,#095C37)} 
+.\[class\~\=green\]\[bgc-green-100\,c-green-800\,bxs-inset-0px-0px-0px-1px-green400\,--h-bxs-0px-0px-0px-1px-green-500\,--fo-bxs-0px-0px-0px-2px-green-500\][class~="green"]{box-shadow:inset 0px 0px 0px 1px var(--green400,#73E2A3)} 
+.\[class\~\=green\]\[bgc-green-100\,c-green-800\,bxs-inset-0px-0px-0px-1px-green400\,--h-bxs-0px-0px-0px-1px-green-500\,--fo-bxs-0px-0px-0px-2px-green-500\][class~="green"]:hover{box-shadow:0px 0px 0px 1px var(--green500,#16B364)} 
+.\[class\~\=green\]\[bgc-green-100\,c-green-800\,bxs-inset-0px-0px-0px-1px-green400\,--h-bxs-0px-0px-0px-1px-green-500\,--fo-bxs-0px-0px-0px-2px-green-500\][class~="green"]:focus{box-shadow:0px 0px 0px 2px var(--green500,#16B364)} 
+
+.bgc-gray-200{background-color:var(--gray200,#EAECF0)}
+.--hover-bxs-0px-0px-0px-1px-gray500:hover{box-shadow:0px 0px 0px 1px var(--gray500,#667085)}
+.--fo-bxs-0px-0px-0px-2px-gray500:focus{box-shadow:0px 0px 0px 2px var(--gray500,#667085)}
+.p-15px{padding: 15px}
+.gta-title_action-description_action{grid-template-areas:'title action' 'description action' }
+.gtc-auto-max-content{grid-template-columns: auto max-content}
+.cg-15px{column-gap: 15px}
+.bxs-0px-10px-38px--10px-00000000000d6__0px-10px-20px--15px-0000000000d5{box-shadow:0px 10px 38px -10px rgba(000,000,000,00.6) , 0px 10px 20px -15px rgba(000,000,000,0.5)}
+.\[data-state\=open\]\[an-slideIn\,adu-150ms\,atf--atf\:cubic-bezier\(0\.16\,1\,0\.3\,1\)\][data-state="open"]{animation-name:slideIn} 
+.\[data-state\=open\]\[an-slideIn\,adu-150ms\,atf--atf\:cubic-bezier\(0\.16\,1\,0\.3\,1\)\][data-state="open"]{animation-duration: 150ms} 
+.\[data-state\=open\]\[an-slideIn\,adu-150ms\,atf--atf\:cubic-bezier\(0\.16\,1\,0\.3\,1\)\][data-state="open"]{animation-timing-function: var(--atf,cubic-bezier(0.16,1,0.3,1))} 
+
+.\[data-state\=closed\]\[an-hide\,adu-100ms\,atf-ei\][data-state="closed"]{animation-name:hide} 
+.\[data-state\=closed\]\[an-hide\,adu-100ms\,atf-ei\][data-state="closed"]{animation-duration: 100ms} 
+.\[data-state\=closed\]\[an-hide\,adu-100ms\,atf-ei\][data-state="closed"]{animation-timing-function:ease-in} 
+
+.\[data-swipe\=move\]\[tf-tx--radix-toast-swipe-move-x\][data-swipe="move"]{transform:translateX(var(--radix-toast-swipe-move-x))} 
+
+.\[data-swipe\=cancel\]\[tf-tx-0\,tn-transform-200ms-ease-out\][data-swipe="cancel"]{transform:translateX(0)} 
+.\[data-swipe\=cancel\]\[tf-tx-0\,tn-transform-200ms-ease-out\][data-swipe="cancel"]{transition:transform 200ms ease-out} 
+
+.\[data-swipe\=end\]\[animation-swipeOut-100ms-ease-out\][data-swipe="end"]{animation: swipeOut 100ms ease-out} 
+
+.ga-title{grid-area:title}
+.grid-area-description{grid-area:description}
+.grid-area-action{grid-area:action}
+.btm-0{bottom: 0}
+.r-0{right: 0}
+.p--viewport-padding{padding: var(--viewport-padding)}
+.w-390px{width: 390px}
+.xw-100vw{max-width: 100vw}
+.zi-214567456{z-index:214567456}
+.--viewport-padding\:25px{--viewport-padding:25px}
+@keyframes swipeOut{
+ 0% {transform:translateX(var(--radix-toast-swipe-end-x))} 100% {transform:translateX(var(--viewport-padding-plus-100p))}
+}
+
+@keyframes slideIn{
+ 100% {transform:translateX(0px)} 0% {transform:translateX(var(--viewport-padding-plus-100p))}
+}
+
+@keyframes hide{
+ 0% {opacity: 1} 100% {opacity: 0}
+}
+
+
+            
+/* End :-----------ACSS radix-ui/Toast/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Toggle/css-modules/index.jsx------------------------*/
+.x-square-35px{width:calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(35px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
+.--h-bgc-primary-300:hover{background-color:var(--primary300,#D6BBFB)}
+.\[data-state\=on\]\[bgc-primary-600\,c--violet-900\][data-state="on"]{background-color:var(--primary600,#7F56D9)} 
+.\[data-state\=on\]\[bgc-primary-600\,c--violet-900\][data-state="on"]{color: var(--violet-900)} 
+
+
+            
+/* End :-----------ACSS radix-ui/Toggle/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/ToggleGroup/css-modules/index.jsx------------------------*/
+.ml-1px{margin-left: 1px}
+.--fc\[ml-0\,btlr-4px\,bblr-4px\]:first-child{margin-left: 0} 
+.--fc\[ml-0\,btlr-4px\,bblr-4px\]:first-child{border-top-left-radius: 4px} 
+.--fc\[ml-0\,btlr-4px\,bblr-4px\]:first-child{border-bottom-left-radius: 4px} 
+
+.--lc\[btrr-4px\,bbrr-4px\]:last-child{border-top-right-radius: 4px} 
+.--lc\[btrr-4px\,bbrr-4px\]:last-child{border-bottom-right-radius: 4px} 
+
+.\[data-state\=on\]\[c-primary-700\,bgc-primary-300\][data-state="on"]{color:var(--primary700,#6941C6)} 
+.\[data-state\=on\]\[c-primary-700\,bgc-primary-300\][data-state="on"]{background-color:var(--primary300,#D6BBFB)} 
+
+
+            
+/* End :-----------ACSS radix-ui/ToggleGroup/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Toolbar/css-modules/index.jsx------------------------*/
+.flex-0-0-auto{flex: 0 0 auto}
+.p-0-5px{padding: 0 5px}
+.--hover\[bgc-primary-200\,c-gray-600\]:hover{background-color:var(--primary200,#E9D7FE)} 
+.--hover\[bgc-primary-200\,c-gray-600\]:hover{color:var(--gray600,#475467)} 
+
+.--fo\[pr\,bxs-0px-0px-0px-2px-primary-200\]:focus{position: relative} 
+.--fo\[pr\,bxs-0px-0px-0px-2px-primary-200\]:focus{box-shadow:0px 0px 0px 2px var(--primary200,#E9D7FE)} 
+
+.ml-2px{margin-left: 2px}
+.--fc-ml-0:first-child{margin-left: 0}
+.\[data-state\=on\]\[bgc-primary-400\,c-primary-800\][data-state="on"]{background-color:var(--primary400,#B692F6)} 
+.\[data-state\=on\]\[bgc-primary-400\,c-primary-800\][data-state="on"]{color:var(--primary800,#53389E)} 
+
+.bg-transparent{background:transparent}
+.--ho-bg-transparent:hover{background:transparent}
+.--ho-cp:hover{cursor: pointer}
+@media (min-width : 576px){ .sm-dif{display: inline-flex}}
+.bgc-primary-600{background-color:var(--primary600,#7F56D9)}
+.--ho-c-fff:hover{color:#fff}
+.mw-max-content{min-width:max-content}
+.w-1px{width: 1px}
+.m-0-10px{margin: 0 10px}
+
+            
+/* End :-----------ACSS radix-ui/Toolbar/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS radix-ui/Tooltip/css-modules/index.jsx------------------------*/
+.c-primary-800{color:var(--primary800,#53389E)}
+.--ho-bgc-primary-300:hover{background-color:var(--primary300,#D6BBFB)}
+.p-10px-15px{padding: 10px 15px}
+.c-primary-700{color:var(--primary700,#6941C6)}
+.bxs-0px-10px-38px--10px-gray700{box-shadow:0px 10px 38px -10px var(--gray700,#344054)}
+@keyframes slideUpAndFade{
+ 0% {opacity: 0;transform:translateY(2px)} 100% {opacity: 1;transform:translateY(0)}
+}
+
+@keyframes slideRightAndFade{
+ 0% {opacity: 0;transform:translateX(-2px)} 100% {opacity: 1;transform:translateX(0)}
+}
+
+@keyframes slideDownAndFade{
+ 0% {opacity: 0;transform:translateY(-2px)} 100% {opacity: 1;transform:translateY(0)}
+}
+
+@keyframes slideLeftAndFade{
+ 0% {opacity: 0;transform:translateX(2px)} 100% {opacity: 1;transform:translateX(0)}
+}
+
+
+            
+/* End :-----------ACSS radix-ui/Tooltip/css-modules/index.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS react-aria/Button.tsx------------------------*/
+.appearance-none{appearance:none}
+.ff-system-ui{font-family:system-ui}
+.inline-flex-center{display:inline-flex;align-items:center;justify-content:center}
+.gap-1{gap:var(--space-1,0.25rem)}
+.-webkit-tap-highlight-color-transparent{-webkit-tap-highlight-color:transparent}
+.__svg\[width\(calc\(--spacing\,\*\,4\.5\)\)\,height\(calc\(--spacing\,\*\,4\.5\)\)\] > svg{width:calc(var(--spacing) * 4.5)} 
+.__svg\[width\(calc\(--spacing\,\*\,4\.5\)\)\,height\(calc\(--spacing\,\*\,4\.5\)\)\] > svg{height:calc(var(--spacing) * 4.5)} 
+
+.__svg--has\(--oc\)\[p-0px\,br-9999px\,flex-shrink-0\,w-2rem\] > svg:has(:only-child){padding: 0px} 
+.__svg--has\(--oc\)\[p-0px\,br-9999px\,flex-shrink-0\,w-2rem\] > svg:has(:only-child){border-radius: 9999px} 
+.__svg--has\(--oc\)\[p-0px\,br-9999px\,flex-shrink-0\,w-2rem\] > svg:has(:only-child){flex-shrink: 0} 
+.__svg--has\(--oc\)\[p-0px\,br-9999px\,flex-shrink-0\,w-2rem\] > svg:has(:only-child){width: 2rem} 
+
+.\[data-pressed\]-scale-0\.9[data-pressed]{scale: 0.9}
+
+            
+/* End :-----------ACSS react-aria/Button.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS react-aria/ProgressCircle.tsx------------------------*/
+
+            
+/* End :-----------ACSS react-aria/ProgressCircle.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS demos/react-aria/button.tsx------------------------*/
+
+            
+/* End :-----------ACSS demos/react-aria/button.tsx----------------------------*/
 
             

@@ -1,0 +1,70 @@
+import * as React from "react";
+import { Accordion } from "radix-ui";
+import classNames from "classnames";
+import { ChevronDownIcon } from "@radix-ui/react-icons";
+import styles from "./styles.module.css";
+import x from "./index.jsx.module.css";
+
+
+const AccordionDemo = () => (
+	<Accordion.Root
+		// className={styles.Root}
+		className={x['w-300px br-6px h-auto bgc--mauve6 bxs-0px-2px-10px--black-a4']}
+		type="single"
+		defaultValue="item-1"
+		collapsible
+    keyframes-slideDown="@0-h-0,@100-h--radix-accordion-content-height"
+    keyframes-slideUp="@0-h--radix-accordion-content-height,@100-h-0"
+	>
+		<Accordion.Item className={x['[oh,mt-1px,--fc-mt-0,--fc-btlr-4px,--fc-btrr-4px,--lc-bblr-4px,--lc-bbrr-4px,--fw-pr,--fw-zi-1,--fw-bxs-0px-0px-0px-3px--mauve-12]--as-AccordionItem']+' '+x['AccordionItem']} value="item-1">
+			<AccordionTrigger>Iss it accessible?</AccordionTrigger>
+			<AccordionContent>
+				Yes. It adheres to the WAI-ARIA design pattern.
+			</AccordionContent>
+		</Accordion.Item>
+
+		<Accordion.Item className={x['AccordionItem']} value="item-2">
+			<AccordionTrigger>Is it unstyled?</AccordionTrigger>
+			<AccordionContent>
+				Yes. It's unstyled by default, giving you freedom over the look and
+				feel.
+			</AccordionContent>
+		</Accordion.Item>
+
+		<Accordion.Item className={x['AccordionItem']} value="item-3">
+			<AccordionTrigger>Can it be animated?</AccordionTrigger>
+			<AccordionContent>
+				Yes! You can animate the Accordion with CSS or JavaScript.
+			</AccordionContent>
+		</Accordion.Item>
+	</Accordion.Root>
+);
+
+const AccordionTrigger = React.forwardRef(
+	({ children, className, ...props }, forwardedRef) => (
+		<Accordion.Header className={x['d-flex']}>
+			<Accordion.Trigger
+				className={classNames(x['[ff-inherit,bgc-transparent,p-0-20px,h-45px,flex-1,df,aic,jcsb,fs-15px,lh-1,c--violet-11,bsx-0px-1px-0px--mauve-6,bgc-fff,--h-bgc--mauve-2]--as-AccordionTrigger']+' '+x['AccordionTrigger'] , className)}
+				{...props}
+				ref={forwardedRef}
+			>
+				{children}
+				<ChevronDownIcon className={x['_svg[c--violet-10,tn-transform-300ms,ttf-cb-0.87,0,0.13,1]']} aria-hidden />
+			</Accordion.Trigger>
+		</Accordion.Header>
+	),
+);
+
+const AccordionContent = React.forwardRef(
+	({ children, className, ...props }, forwardedRef) => (
+		<Accordion.Content
+			className={classNames(styles.Content, className)}
+			{...props}
+			ref={forwardedRef}
+		>
+			<div className={styles.ContentText}>{children}</div>
+		</Accordion.Content>
+	),
+);
+
+export default AccordionDemo;

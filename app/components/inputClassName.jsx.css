@@ -16,7 +16,7 @@
 .--fo-bn:focus{border:none}
 .--fv-bn:focus-visible{border:none}
 .w100p{width:100%}
-.x-text-sm{font-size: 0.875rem; line-height: 1.25rem}
+.x-text-sm{font-size: var(--text-sm,0.875rem); line-height: 1.25rem}
 .fw-4{font-weight:400}
 .c-gray500{color:var(--gray500,#667085)}
 .flex-center{display:flex;align-items:center;justify-content:center}
@@ -26,14 +26,14 @@
 .b-1px-s-blue200{border:1px solid var(--blue200,#B2DDFF)}
 .bgc-blue100{background-color:var(--blue100,#D1E9FF)}
 .c-gray700{color:var(--gray700,#344054)}
-:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc-gray700{background-color:var(--gray700,#344054)}
-:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-c-gray100{color:var(--gray100,#F2F4F7)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc-gray700{background-color:var(--gray700,#344054)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-c-gray100{color:var(--gray100,#F2F4F7)}
 .cp{cursor: pointer}
 .--h-bgc-blue300:hover{background-color:var(--blue300,#84CAFF)}
 .w18px{width:18px}
 .h18px{height:18px}
 .stroke-gray700{stroke:var(--gray700,#344054)}
-:is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-stroke-gray100{stroke:var(--gray100,#F2F4F7)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-stroke-gray100{stroke:var(--gray100,#F2F4F7)}
 .stroke-width1px{stroke-width:1px}
 .stroke-linecap-round{stroke-linecap:round}
 .stroke-linejoin-round{stroke-linejoin:round}

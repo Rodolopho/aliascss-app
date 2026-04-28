@@ -1,0 +1,40 @@
+@layer base{ .\@base-all-unset{all:unset}}
+.flex-0-0-auto{flex: 0 0 auto}
+.c-gray-800{color:var(--gray800,#1D2939)}
+.h-25px{height: 25px}
+.p-0-5px{padding: 0 5px}
+.br-4px{border-radius: 4px}
+.dif{display: inline-flex}
+.aic{align-items: center}
+.jcc{justify-content: center}
+.fs-13px{font-size: 13px}
+.--hover\[bgc-primary-200\,c-gray-600\]:hover{background-color:var(--primary200,#E9D7FE)} 
+.--hover\[bgc-primary-200\,c-gray-600\]:hover{color:var(--gray600,#475467)} 
+
+.--fo\[pr\,bxs-0px-0px-0px-2px-primary-200\]:focus{position: relative} 
+.--fo\[pr\,bxs-0px-0px-0px-2px-primary-200\]:focus{box-shadow:0px 0px 0px 2px var(--primary200,#E9D7FE)} 
+
+.bgc-white{background-color:white}
+.ml-2px{margin-left: 2px}
+.--fc-ml-0:first-child{margin-left: 0}
+.\[data-state\=on\]\[bgc-primary-400\,c-primary-800\][data-state="on"]{background-color:var(--primary400,#B692F6)} 
+.\[data-state\=on\]\[bgc-primary-400\,c-primary-800\][data-state="on"]{color:var(--primary800,#53389E)} 
+
+.bg-transparent{background:transparent}
+.df{display: flex}
+.--ho-bg-transparent:hover{background:transparent}
+.--ho-cp:hover{cursor: pointer}
+@media (min-width : 576px){ .sm-dif{display: inline-flex}}
+.px-10px{padding-left:10px;padding-right:10px}
+.c-fff{color:#fff}
+.bgc-primary-600{background-color:var(--primary600,#7F56D9)}
+.--ho-bgc-primary-700:hover{background-color:var(--primary700,#6941C6)}
+.--ho-c-fff:hover{color:#fff}
+.p-10px{padding: 10px}
+.w-100p{width: 100%}
+.mw-max-content{min-width:max-content}
+.br-6px{border-radius: 6px}
+.bxs-0px-2px-10px-0000000000d7{box-shadow:0px 2px 10px rgba(000,000,000,0.7)}
+.w-1px{width: 1px}
+.bgc-gray-300{background-color:var(--gray300,#D0D5DD)}
+.m-0-10px{margin: 0 10px}

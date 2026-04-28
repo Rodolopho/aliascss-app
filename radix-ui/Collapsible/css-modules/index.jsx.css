@@ -1,0 +1,31 @@
+.w-300px{width: 300px}
+.df{display: flex}
+.aic{align-items: center}
+.jc-sb{justify-content:space-between}
+.repo-text{color:var(--violet800,#5720B7)} 
+.repo-text{font-size: 15px} 
+.repo-text{line-height: 25px} 
+ 
+
+.c-gray-700-i{color:var(--gray700,#344054) !important}
+@layer base{ .\@base-all-unset{all:unset}}
+.\[dif\,aic\,jcc\,x-square-25px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-000000\]{display: inline-flex} 
+.\[dif\,aic\,jcc\,x-square-25px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-000000\]{align-items: center} 
+.\[dif\,aic\,jcc\,x-square-25px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-000000\]{justify-content: center} 
+.\[dif\,aic\,jcc\,x-square-25px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-000000\]{width:calc(25px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(25px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(25px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))} 
+.\[dif\,aic\,jcc\,x-square-25px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-000000\]{font-family:inherit} 
+.\[dif\,aic\,jcc\,x-square-25px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-000000\]{border-radius: 100%} 
+.\[dif\,aic\,jcc\,x-square-25px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-000000\]{color:var(--violet800,#5720B7)} 
+.\[dif\,aic\,jcc\,x-square-25px\,ff-inherit\,br-100p\,c-violet-800\,bxs-0px-2px-10px-000000\]{box-shadow:0px 2px 10px #000000} 
+
+.--fo-bxs-0px-0px-0px-2px-black:focus{box-shadow:0px 0px 0px 2px black}
+.--hover-bgc-violet-200:hover{background-color:var(--violet200,#DDD6FE)}
+.\[data-state\=open\]-bgc-violet-200[data-state="open"]{background-color:var(--violet200,#DDD6FE)}
+.\[data-state\=closed\]-bgc-white[data-state="closed"]{background-color:white}
+.repository{background-color:#fff} 
+.repository{border-radius: 4px} 
+.repository{margin: 10px 0px} 
+.repository{padding: 10px} 
+.repository{box-shadow:0px 2px 10px rgba(000,000,000,0.6)} 
+ 
+

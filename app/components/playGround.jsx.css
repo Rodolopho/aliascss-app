@@ -8,11 +8,11 @@
 ._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button{color:#fff} 
 ._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button{font-weight:600} 
 ._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button{padding: 6px 10px} 
-._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button{font-size: 0.875rem; line-height: 1.25rem} 
+._button\[\@base-all-unset\,br-4px\,bgc-blue-300\,--h-bgc-blue-800\,c-fff\,fw-6\,p-6px-10px\,x-text-sm\] button{font-size: var(--text-sm,0.875rem); line-height: 1.25rem} 
 
 .bgc-primary600{background-color:var(--primary600,#7F56D9)}
 .c-fff{color:#fff}
 .p-30px-18px{padding: 30px 18px}
 .br-12px{border-radius: 12px}
-.x-display-xl{font-size: 3.75rem; line-height: 4.5rem; letter-spacing: -0.02em}
-.x-text-xs{font-size: 0.75rem; line-height: 1.125rem}
+.x-display-xl{font-size: var(--display-xl,3.75rem); line-height: 1.2; letter-spacing: -0.02em}
+.x-text-xs{font-size: var(--text-xs,0.75rem); line-height: 1.125rem}

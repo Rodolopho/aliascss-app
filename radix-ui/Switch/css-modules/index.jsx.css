@@ -1,0 +1,23 @@
+.c-gray-800{color:var(--gray800,#1D2939)}
+.fs-15px{font-size: 15px}
+.lh-1{line-height: 1}
+.usn{user-select: none}
+@layer base{ .\@base-all-unset{all:unset}}
+.w-42px{width: 42px}
+.h-25px{height: 25px}
+.bgc-0000000000d8{background-color:rgba(000,000,000,0.8)}
+.br-9999px{border-radius: 9999px}
+.pr{position: relative}
+.bxs-0px-2px-10px-0000000000d7{box-shadow:0px 2px 10px rgba(000,000,000,0.7)}
+.webkit-tap-highlight-color-rgba-0-0-0-0{-webkit-tap-highlight-color:rgba(0 0 0 / 0)}
+.--fo-bxs-0px-0px-0px-2px-black:focus{box-shadow:0px 0px 0px 2px black}
+.\[data-state\=checked\]-bgc-black[data-state="checked"]{background-color:black}
+.db{display: block}
+.w-21px{width: 21px}
+.h-21px{height: 21px}
+.bgc-fff{background-color:#fff}
+.bxs-0px-2px-2px-0000000000d7{box-shadow:0px 2px 2px rgba(000,000,000,0.7)}
+.tn-transform-100ms{transition:transform 100ms}
+.tf-tx-2px{transform:translateX(2px)}
+.will-change-transform{will-change:transform}
+.\[data-state\=checked\]-tf-tx-19px[data-state="checked"]{transform:translateX(19px)}

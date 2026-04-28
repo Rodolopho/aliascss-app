@@ -3,7 +3,7 @@
 .mt-16px{margin-top: 16px}
 .fdc{flex-direction: column}
 .w-100p{width: 100%}
-@media (min-width : 768px){ .md-fdr{flex-direction: row}}
+@media (min-width : 768px){ .md-fdr-i{flex-direction: row !important}}
 .__div\[flex-basis-50\%\] > div{flex-basis: 50%} 
 
 .mw-50p{min-width: 50%}
