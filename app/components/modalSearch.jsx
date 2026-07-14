@@ -22,9 +22,9 @@ export default function ModalSearch(){
             </div>
            
         {show && 
-        <div className="bgc-red bgc-0000000000d6  w-100vw h100vh zi-99 pf  br-8px df jcc  t-0px l-0px">
+        <div className=" bgc-0000000000d6  w-100vw h100vh zi-99 pf  br-8px df jcc  t-0px l-0px">
 
-            <div ref={modalRef} className="m-32px df --is(_html[class~=dark])&-border-1px-s-error500 --is(_html[class~=dark])&-filter-invert-100 bgc-gray100 shadow-xs hxc p-32px pr pr-62px br-8px w-80p">
+            <div ref={modalRef} className="m-32px df --is(_html[class~=dark])&-border-1px-s-transparent --is(_html[class~=dark])&-bgc-gray700 bgc-gray100 shadow-xs hxc p-32px pr pr-62px br-8px w-80p">
                 <SearchStaticClassNames/>
                 <button onClick={()=>setShow(!show)} className='pa t-16px r-16px '><XCircle className='w-18px  h-18px stroke-error500 stroke-width2px stroke-linecap-round stroke-linejoin-round fill-none'/></button>
             </div>

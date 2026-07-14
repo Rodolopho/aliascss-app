@@ -22,7 +22,7 @@ export default {
     // Alternatively, you can set title with `title` property
     title: 'Components',
     type:'page',
-    display:'hidden'
+   display:'hidden'
     // ... and provide extra configurations
   },
   playground: {

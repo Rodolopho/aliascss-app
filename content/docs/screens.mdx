@@ -1,102 +1,489 @@
-# Targeting Screen or Devices
+import { Callout, Tabs } from 'nextra/components'
 
-To target Device  , we can simply add device prefix at the very begin-ing of classname. for eg:-
-```html
-<p class="xs-dn">This will not show in smaller device</p>
-```
-or using semantic classname
- ```html
-<p class="xs-display-none">This will not show in smaller devices</p>
+# Screens and other Block level  Wrappers 
 
-```
-### Media | Responsive | device
-**Device Guide Table**
-|AliasCSS Device Prefix| CSS Selector|
-|--|--|
-|print|@media print|
-|xs|@media (max-width : 576px) |
-|sm|@media  (min-width : 576px) |
-|md|@media  (min-width : 768px) |
-|lg|@media  (min-width : 992px) |
-|xl|@media  (min-width : 1200px)|
-|2xl|@media  (min-width : 1408px) |
-|-xs|@media (min-width : 576px) |
-|-sm|@media  (max-width : 576px) |
-|-md|@media  (max-width : 768px) |
-|-lg|@media  (max-width : 992px) |
-|-xl|@media  (max-width : 1200px)|
-|-2xl|@media  (max-width : 1408px) |
-|dark|@media (prefers-color-scheme: dark) |
-|light|@media (prefers-color-scheme: light) |
-|@dark|@media (prefers-color-scheme: dark)|
-|@light|@media (prefers-color-scheme: light)|
-|@theme|@layer theme|
-|@base|@layer base|
-|@components|@layer components|
-|@comps|@layer components|
-|@utils|@layer utilities|
-|@utilities|@layer utilities|
-|@hover|@media screen and (hover: hover)|
-|@print|@media print|
-|@landscape|@media (orientation: landscape)|
-|@portrait|@media (orientation: portrait)|
-|@container-xs|@container (max-width : 576px)|
-|@container-sm|@container (min-width : 576px)|
-|@container-md|@container (min-width : 768px)|
-|@container-lg|@container (min-width : 992px)|
-|@container-xl|@container (min-width : 1200px)|
-|@container-2xl|@container (min-width : 1408px)|
+AliasCSS uses **scope wrapper prefixes** for media queries, layers, container queries, and other block-level CSS wrappers.
 
+A scope wrapper prefix does not behave like a normal utility prefix. Instead, it creates an outer CSS block such as `@media`, `@layer`, `@container`, or `@starting-style`. Because of that, AliasCSS parses scope wrappers before selectors, states, properties, and values.
 
-###### Want to customize Responsive prefix declaration [Customize media prefix](/docs/advance-customization#media-customize-media-selector)
-
->Any of the above prefix can be used, these prefix must be the at the beginning of the classnames.
-Few examples:-
- 
-**Define**
-```html
-<div class="xs-flex-direction-column">...</div>
-<!--using shorthand !-->
-<div class="xs-fdc">...</div>
-```
-
-
-**Compiled** 
-```css
-@media (max-width : 576px) {
-    .xs-flex-direction-column{
-            flex-direction: column ;
-        }
-}
-```
 ---
-**Define**
+
+## Quick start
+
+### Single scope wrapper
+
 ```html
-<div class="xs_p-flex-direction-column">...</div>
-<!-- using shorthand  -->
-<div class="xs_p-fdc">...</div>
+<div class="@md-d-flex"></div>
+<div class="@base-d-flex"></div>
+<div class="@container-md-grid-template-columns-2"></div>
+<div class="@dark-c-white"></div>
 ```
 
-**Compiled**
-```css
-@media (max-width : 576px) { 
-    .xs_p-flex-direction-column p{
-        flex-direction: column ;
-    }
-}
-```
-**Define**
+### Grouped scope wrappers
+
 ```html
-<div class="md-width-500px">...</div>
-<!-- using shorthand -->
- <div class="md-w-500p">...</div>
+<div class="@[md,base]-d-flex"></div>
+<div class="@[container-md,base]-grid-template-columns-2"></div>
+<div class="@[md,container-md][d-flex,gap-16px]"></div>
 ```
 
-**Compiled**
+<Callout type="info" emoji="💡">
+For consistency, prefer the `@` form for single scope wrappers. It makes it obvious that the prefix creates a CSS wrapper block.
+</Callout>
+
+---
+
+## Core rule
+
+A scope wrapper can be used in two ways:
+
+### 1. Single scope wrapper
+
+```text
+@scope-utility
+```
+
+Examples:
+
+```html
+<div class="@md-d-flex"></div>
+<div class="@base-d-flex"></div>
+<div class="@container-md-grid-template-columns-2"></div>
+<div class="@motion-reduce-an-none"></div>
+```
+
+### 2. Grouped scope wrappers
+
+```text
+@[scope,scope,scope]-utility
+@[scope,scope,scope][utility,utility]
+```
+
+Examples:
+
+```html
+<div class="@[md,base]-d-flex"></div>
+<div class="@[container-md,base]-grid-template-columns-2"></div>
+<div class="@[dark,base][c-white,bgc-black]"></div>
+```
+
+<Callout type="warning" emoji="⚠️">
+If a class needs more than one scope wrapper, group them with `@[...]`. Do not chain multiple scope wrappers as plain prefixes.
+</Callout>
+
+---
+
+## Why `@` is recommended
+
+Every scope wrapper prefix is conceptually a block wrapper. The `@` marker makes that meaning visible in the class name.
+
+### Recommended
+
+```html
+<div class="@md-d-flex"></div>
+<div class="@xs-dn"></div>
+<div class="@dark-c-white"></div>
+<div class="@container-md-grid-template-columns-2"></div>
+```
+
+### Also valid for selected common scopes
+
+```html
+<div class="md-d-flex"></div>
+<div class="xs-dn"></div>
+<div class="dark-c-white"></div>
+<div class="print-display-none"></div>
+```
+
+AliasCSS currently supports **a limited set of popular scope wrappers without `@`** for convenience. However, the recommended style is still to use `@` because it clearly signals a scope wrapper.
+
+<Callout type="info" emoji="ℹ️">
+Not every scope wrapper currently has a no-`@` alias. The `@` form is the complete and future-friendly form.
+</Callout>
+
+---
+
+## Important grouped syntax rule
+
+Inside `@[...]`, use **bare scope keys**.
+
+### Correct
+
+```html
+<div class="@[md,base]-d-flex"></div>
+<div class="@[container-md,base]-grid-template-columns-2"></div>
+<div class="@[dark,md][c-white,bgc-black]"></div>
+```
+
+### Incorrect
+
+```html
+<div class="@[md,@base]-d-flex"></div>
+<div class="[@container-md,base]-grid-template-columns-2"></div>
+<div class="[@dark,md][c-white,bgc-black]"></div>
+```
+
+Why? Because inside `@[...]`, AliasCSS is already parsing a scope list. Each item is treated as a scope key, so the extra `@` is unnecessary.
+
+---
+
+## Order and precedence
+
+The order inside `@[...]` matters.
+
+AliasCSS reads scope keys from left to right. That order determines how the generated CSS blocks are nested.
+
+### Example
+
+```html
+<div class="@[md,base]-d-flex"></div>
+```
+
+Conceptual output:
+
 ```css
-@media (min-width : 768px){
-    .md-width500px{
-         width:500px ;
+@media (min-width: 768px) {
+  @layer base {
+    .class {
+      display: flex;
     }
+  }
 }
 ```
+
+### Reversed order
+
+```html
+<div class="@[base,md]-d-flex"></div>
+```
+
+Conceptual output:
+
+```css
+@layer base {
+  @media (min-width: 768px) {
+    .class {
+      display: flex;
+    }
+  }
+}
+```
+
+### Rule
+
+```text
+The order inside @[...] determines scope precedence.
+```
+
+That means:
+
+1. the left-most scope wraps first
+2. the next scope nests inside it
+3. the final utility is generated in the deepest scope
+
+---
+
+## Grammar order
+
+Scope wrappers are parsed before the rest of the class.
+
+### Basic grammar
+
+```text
+@[scope,scope,scope] → selector/state → property → value
+```
+
+### With grouped utilities
+
+```text
+@[scope,scope,scope][utility,utility,utility]
+```
+
+### Mental model
+
+1. Resolve scope wrappers.
+2. Resolve selectors and states.
+3. Resolve property and value.
+4. Emit the CSS declaration inside the nested wrapper blocks.
+
+---
+
+## Scope wrappers vs selectors
+
+A scope wrapper is not the same thing as a selector or pseudo state.
+
+### Scope wrappers
+
+- `md`
+- `xs`
+- `dark`
+- `base`
+- `container-md`
+- `motion-reduce`
+- `starting-style`
+
+### Selectors and states
+
+- `_p`
+- `_div`
+- `--hover`
+- `--focus`
+- `[data-state=open]`
+
+### Example
+
+```html
+<div class="@[md,base]_p-c-red"></div>
+```
+
+Mental model:
+
+- `@[md,base]` creates the wrapper blocks
+- `_p` targets the `p` selector inside those blocks
+- `c-red` defines the final declaration
+
+---
+
+## Supported scope wrappers
+
+<Tabs items={["Responsive", "Media Features", "Layers & Special", "Containers"]}>
+
+### Responsive
+
+| Scope wrapper | Bare alias | Compiled CSS |
+| --- | --- | --- |
+| `@xs` | `xs` | `@media (max-width : 576px)` |
+| `@sm` | `sm` | `@media (min-width : 576px)` |
+| `@md` | `md` | `@media (min-width : 768px)` |
+| `@lg` | `lg` | `@media (min-width : 992px)` |
+| `@xl` | `xl` | `@media (min-width : 1200px)` |
+| `@2xl` | `2xl` | `@media (min-width : 1408px)` |
+| `-@xs` | `-xs` | `@media (min-width : 576px)` |
+| `-@sm` | `-sm` | `@media (max-width : 576px)` |
+| `-@md` | `-md` | `@media (max-width : 768px)` |
+| `-@lg` | `-lg` | `@media (max-width : 992px)` |
+| `-@xl` | `-xl` | `@media (max-width : 1200px)` |
+| `-@2xl` | `-2xl` | `@media (max-width : 1408px)` |
+| `@dark` | `dark` | `@media (prefers-color-scheme: dark)` |
+| `@light` | `light` | `@media (prefers-color-scheme: light)` |
+| `@print` | `print` | `@media print` |
+
+### Media Features
+
+| Scope wrapper | Bare alias | Compiled CSS |
+| --- | --- | --- |
+| `@hover` | — | `@media screen and (hover: hover)` |
+| `@landscape` | — | `@media (orientation: landscape)` |
+| `@portrait` | — | `@media (orientation: portrait)` |
+| `@forced-color-active` | — | `@media (forced-colors: active)` |
+| `@fca` | — | `@media (forced-colors: active)` |
+| `@standalone` | — | `@media (display-mode: standalone)` |
+| `@browser` | — | `@media (display-mode: browser)` |
+| `@short-height` | — | `@media (max-height: 600px)` |
+| `@xsh` | — | `@media (max-height: 600px)` |
+| `@p3` | — | `@media (color-gamut: p3)` |
+| `@motion-reduce` | — | `@media (prefers-reduced-motion: reduce)` |
+| `@mouse` | — | `@media (hover: hover) and (pointer: fine)` |
+| `@touch` | — | `@media (hover: none) and (pointer: coarse)` |
+| `@resolution-lg` | — | `@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)` |
+| `@resolution-xl` | — | `@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi)` |
+| `@contrast-more` | — | `@media (prefers-contrast: more)` |
+| `@data-reduce` | — | `@media (prefers-reduced-data: reduce)` |
+
+### Layers & Special
+
+| Scope wrapper | Bare alias | Compiled CSS |
+| --- | --- | --- |
+| `@theme` | — | `@layer theme` |
+| `@base` | — | `@layer base` |
+| `@components` | — | `@layer components` |
+| `@comps` | — | `@layer components` |
+| `@utils` | — | `@layer utilities` |
+| `@utilities` | — | `@layer utilities` |
+| `@starting-style` | — | `@starting-style` |
+| `@ss` | — | `@starting-style` |
+
+### Containers
+
+| Scope wrapper | Bare alias | Compiled CSS |
+| --- | --- | --- |
+| `@container-xs` | — | `@container (max-width : 576px)` |
+| `@container-sm` | — | `@container (min-width : 576px)` |
+| `@container-md` | — | `@container (min-width : 768px)` |
+| `@container-lg` | — | `@container (min-width : 992px)` |
+| `@container-xl` | — | `@container (min-width : 1200px)` |
+| `@container-2xl` | — | `@container (min-width : 1408px)` |
+
+</Tabs>
+
+---
+
+## Examples
+
+### Single responsive scope
+
+```html
+<div class="@md-w-500px"></div>
+<div class="md-w-500px"></div>
+```
+
+Compiled idea:
+
+```css
+@media (min-width: 768px) {
+  .class {
+    width: 500px;
+  }
+}
+```
+
+### Single layer scope
+
+```html
+<div class="@base-d-flex"></div>
+```
+
+Compiled idea:
+
+```css
+@layer base {
+  .class {
+    display: flex;
+  }
+}
+```
+
+### Single container scope
+
+```html
+<div class="@container-md-grid-template-columns-2"></div>
+```
+
+Compiled idea:
+
+```css
+@container (min-width: 768px) {
+  .class {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+```
+
+### Grouped media + layer
+
+```html
+<div class="@[md,base]-d-flex"></div>
+```
+
+Compiled idea:
+
+```css
+@media (min-width: 768px) {
+  @layer base {
+    .class {
+      display: flex;
+    }
+  }
+}
+```
+
+### Grouped container + layer
+
+```html
+<div class="@[container-md,base]-grid-template-columns-2"></div>
+```
+
+Compiled idea:
+
+```css
+@container (min-width: 768px) {
+  @layer base {
+    .class {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+```
+
+### Grouped responsive + container + grouped utilities
+
+```html
+<div class="@[md,container-md][d-flex,gap-16px]"></div>
+```
+
+Compiled idea:
+
+```css
+@media (min-width: 768px) {
+  @container (min-width: 768px) {
+    .class {
+      display: flex;
+      gap: 16px;
+    }
+  }
+}
+```
+
+---
+
+## Best practices
+
+- Prefer the `@` form for single scope wrappers.
+- Use no-`@` aliases only when you intentionally want shorter syntax.
+- When combining multiple scopes, always use `@[...]`.
+- Inside `@[...]`, use bare scope keys.
+- Keep scope order intentional, because order changes nesting precedence.
+- Do not place selectors such as `_p` or states such as `--hover` inside the scope list.
+- Use grouped utilities when several declarations share the same wrapper structure.
+
+---
+
+## Common pitfalls
+
+- Writing `@[md,@base]` instead of `@[md,base]`
+- Assuming `@[md,base]` is the same as `@[base,md]`
+- Mixing selectors into the scope list
+- Chaining multiple scope wrappers without `@[...]`
+- Assuming every scope wrapper currently has a no-`@` alias
+
+---
+
+## Cheat sheet
+
+```text
+@md-d-flex
+-> one media scope
+
+md-d-flex
+-> same as @md-d-flex (supported convenience alias)
+
+@base-d-flex
+-> one layer scope
+
+@container-md-grid-template-columns-2
+-> one container scope
+
+@[md,base]-d-flex
+-> media scope, then layer scope
+
+@[container-md,base]-grid-template-columns-2
+-> container scope, then layer scope
+
+@[md,container-md][d-flex,gap-16px]
+-> media + container with grouped utilities
+```
+
+## Customize scope behavior
+
+Want to customize responsive or media scope behavior?
+
+See: [Customize media prefix](/docs/advance-customization#media-customize-media-selector)
+
+## See also
+
+- Basic Usage
+- CSS Selectors
+- In-line Grouping
+- Targeting Screens and Devices
+- Layer System
+- Advanced Customization

@@ -6,10 +6,10 @@
         // 'pages/**/*.mdx',
         'app/components/**/*.(jsx|mdx|tsx)',
         'content/**/*.(jsx|mdx|tsx)',
-        'acss/**/*.(jsx|mdx|tsx)',
-        'radix-ui/**/*.(jsx|mdx|tsx)',
+        // 'acss/**/*.(jsx|mdx|tsx)',
+        // 'radix-ui/**/*.(jsx|mdx|tsx)',
         'react-aria/**/*.(jsx|mdx|tsx)',
-        'demos/**/*.(jsx|mdx|tsx)',
+        // 'demos/**/*.(jsx|mdx|tsx)',
     ],
 
     output:{

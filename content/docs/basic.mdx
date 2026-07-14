@@ -1,206 +1,264 @@
 import { Callout } from 'nextra/components'
+// export const metadata = {
+//   title: 'Introduction About AliasCSS',
+//   description: 'AliasCSS is a css-post processor ',
+// }
 
-## Basic : How to Use AliasCSS
-If you know CSS , then you already know AliasCSS. AliasCSS uses class attribute of  element for styling. And use your existing
-knowledge of core css in different way.It allow you to style you webpage without leaving the page your are working on.
- It allows you to apply css property and value in the form of class name. And you can also use aliascss along with your custom css or css frameworks like bootstrap.
+# Basic Usage
 
-##### Two className Category concept in AliasCSS
-In aliasCSS conceptually we can divide className is two categories.
-1. **Static Classnames**
-    These are the classnames which are created out of property which have fixed set of predefined values
-    E.g `display-flex`, `font-weight-900`, `align-items-center` etc
-2. **Dynamic Classnames** 
-    These are classnames which property has virtually unlimited number of possible values, such as colors, length, number, content..
-    E.g `margin-200px`, `color-green`, `font-size-1.2em` , `border-1px-solid-e3e3e3` 
+If you already know CSS, you already understand the core idea behind **AliasCSS**. AliasCSS lets you write CSS through class names directly in your markup, so you can style elements without switching back and forth between HTML and a separate stylesheet.
 
+In AliasCSS, a class name represents a CSS property-value pair. You can use it on its own, alongside custom CSS, or together with other frameworks such as Bootstrap.
 
-##### How to create AliasCSS classname out of your core css knowledge? 
+## Classname types
 
-1. ***Static ClassName:***
+AliasCSS class names can be understood in two categories:
 
-    To create a valid static aliascss classnames you simply replace ':' with '-' between property and value pairs.
-    `display:flex  => display-flex` ,` flex-direction:row` => `flex-direction-row` , `text-align: center` => `text-align-center`
-    `font-weight:900` => `font-went-900`, `text-decoration: var(--text-modify)` => `text-decoration--text-modify`
+### 1. Static class names
 
-    ***Shorthands/Alias(Any of given two method can be used)***
-    1. **Generic Shorthand rules:for fast prototyping(Valid Only for static-classnames)**
+Static class names are based on CSS properties that use a fixed set of predefined values.
 
-        To create a shorthand ,just take the first character from all words used in property-value pair and join them without '-', 
-        in property-value pair word can separated by '-' like in `display:inline-flex` and `font-weight:900` or by space as in `background-position: right bottom`.
-        we simply take first character of each word and make a classname. 
-        E.g 
-        `display:flex`  => `df` , `flex-direction:row` => `fdr` , `text-align: center` => `tac`
-        `font-weight:900` => `fw9`, `text-decoration: var(--text-modify)` => `td--text-modify` //this is no longer static classname
-        Every full semantic static classname have their corresponding shorthand classname in this method. when there is conflict
-        for example `align-content: stretch` and `align-content: start` both can claim acs as their shorthand property, in this case
-        we have acs for one and (`acs2` or `acs-2`) next one , similarly if we have 3 or 4 we just add 3,4 to resolve
-        the conflict.  Please note there is vey negligible number of conflict and 99% of the time you wil never encounter that.
-        And we always have our full semantic backup with 0% conflict in such cases.
+Examples:
 
-    2. **Another Method: Easy for reader and Maintainer (applicable for Dynamic classname also)**
+- `display-flex`
+- `font-weight-900`
+- `align-items-center`
 
-        This system is not applicable to every property-value pair , however cover almost all and most used ones. 
-        In this system we separate property value pair with `-` where   left side of the '-' represent property and 
-        right side of '-' represent value. we then either use property alias or value alias or combine both.     
-        E.g `display:flex` => `display-f`, `d-f`,`d-flex` 
-            `align-items:center` => `ai-c `, `ai-center`, `align-items-c`
-            `flex-direction:column` =>`flex-direction-c` ,`fd-column`, `fd-c`
+### 2. Dynamic class names
 
-   We recommend to use second method as much as possible for production, cause it is more readable and give some semi-semantic 
-   class-naming approach. You can use first method  shorthand approach for quick testing and prototyping. However its upto you
-   whichever suits your design pattern you can use it.          
+Dynamic class names are based on properties whose values can vary freely, such as length, color, number, or complex values.
 
-2. ***Dynamic ClassName:***
+Examples:
 
-    It similar to static classname , you have to keep value as it is and in some cases you need to know the writing
-    rules of complex value such as color with alpha scale, custom color and other custom values.
-    Few import Rules:-
-    1. use '--' before the numeric value to make it negative. Eg
-        `margin--12px` => `margin:-12px`,
-        `box-shadow--1px-1px-1px-black` => `box-shadow:-1px 1px 1px black`
-    2. `'.'` should always between digits. use `0.1rem` not `.1`rem // it might create some issue.    
-    3. Try `'0'` and unit rather that just `'0'`. `padding-0-0-12px-12px` use `padding-0px-0px-12px-12px` , both will work in this case but always
-        good practice to use `0` with unit.   
-    4. Every property in aliasCSS accepts css-vars eg. `background--background-color`-or-`bg--background-color`, `font-size--text-xl` -or-`fs--text-xl`.
-        Try to use css-variables for complex values. you can always define css-variable in style attribute of the class containing element. 
+- `margin-200px`
+- `color-green`
+- `font-size-1.2em`
+- `border-1px-solid-e3e3e3`
 
-        ```html copy showLineNumbers
-        <h1 
-            class="color--fg1-custom-color background--bg1-custom-color font-size-3rem" 
-            style="
-            --fg1-custom-color:color-mix(in srgb, red, white 20%);
-            --bg1-custom-color:hsl(from var(--primary) h s calc(l - 20%));
-                "
-        >
-        Hello, World
-        </h1>
-        ```  
+## Core idea
 
+To create an AliasCSS class name from normal CSS, replace the `:` between property and value with `-`.
 
+Examples:
 
-**Lets take an Example**\
-Lets say , you want ` h1 ` element to have color  blue and font-size 3rem. we simply write class names to tell aliascss what property and value we want to
-apply using the class attribute of `h1` tag as given below. 
-```html
-    <h1 class="color-blue font-size-3rem">Hello, World</h1>
-```    
+- `display: flex` → `display-flex`
+- `flex-direction: row` → `flex-direction-row`
+- `text-align: center` → `text-align-center`
+- `text-decoration: var(--text-modify)` → `text-decoration--text-modify`
 
 <Callout type="info" emoji="💡">
- ***Tips***: To make classname out of the basic  CSS property and value , we simply replace `:` with `-`, for example `color:blue` => `color-blue`, `display:inline-block`=> `display-inline-block`, `width:100px` => `width-100px`, `left:-100px` =>`left--100px`.
+To build a basic AliasCSS class, think in this form: `property:value` → `property-value`.
 </Callout>
-Here, we are applying style with class name, these class name also hold the property and value we want to apply. In short we are making class name out of css property and value we want to apply.
-e.g 
-```
-    color:blue  => color-blue is a valid aliascss class name
-```
-Similarly we can also use short hand , we can replace `color` by `c` and `fs` for `font-size`, to make it short hand.
+
+## Static class names
+
+For static values, the full semantic class name is usually the most direct format.
+
 ```html
-    <h1 class="c-blue fs-3rem">Hello, World</h1>
-```  
-Both classnames(full-semantic classname and shorthand className) in the above example are doing exactly same thing and have same style applied.
-{/* <Callout type="info" emoji="💡">
- ***Tips***: To make shorthand , if css property  and value both are string ( such as :` display:flex, font-weight:bold, justify-content:space-between`), we simply make class name 
- using first letter of property followed by first letter after every `-` in property then followed by first letter of value, followed by first letter after every `-` in value if there is any.
- for example `display:inline-grid`=>`dig`, `font-weight:bold`=>`fwb`,`justify-content:space-between`=>`jcsb`.
- - If CSS value is numeric, length , color or more complex , normally we only use shorthand for property and leave value as it is.
- for example:`margin:100px`=>`m-100px`,`color:red`=>`c-red`, `border:1px solid #cccccc`=>`b-1px-solid-cccccc`.
-`.
-</Callout> */}
+<div class="display-flex flex-direction-row text-align-center"></div>
+```
+
+### Shorthand options
+
+AliasCSS supports two shorthand approaches.
+
+#### Method 1: Generic shorthand
+
+This method is mainly useful for rapid prototyping. It works best with static class names.
+
+Rule:
+Take the first character of each word in the property and value, then combine them.
+
+Examples:
+
+- `display: flex` → `df`
+- `flex-direction: row` → `fdr`
+- `text-align: center` → `tac`
+- `font-weight: 900` → `fw9`
+
+If two declarations produce the same shorthand, AliasCSS resolves the conflict by appending a number such as `2`, `3`, or `4`. 
+Or better provide value that clears the inteneded classname you want to build  by uisng `/`( only applicable for conflicted shorthand classNames).
+
+Examples:
+
+- `acs` => `.acs{align-content: start}`
+- `acs2` => `.acs2{align-content: stretch}`
+- `acs/start`  => `.acs/start{align-content: start}`
+- `acs/stretch` => `.acs2{align-content: stretch}`
+
+Use this method when speed matters more than readability.
+
+#### Method 2: Alias-based shorthand
+
+This is the recommended shorthand style for production because it is easier to read and maintain. It also works for many dynamic class names.
+
+Rule:
+Use a short alias for the property, the value, or both.
+
+Examples:
+
+- `display: flex` → `display-f`, `d-flex`, `d-f`
+- `align-items: center` → `align-items-c`, `ai-center`, `ai-c`
+- `flex-direction: column` → `flex-direction-c`, `fd-column`, `fd-c`
 
 <Callout type="info" emoji="💡">
- Note, using `--` before length or numeric based value with make value negative.
- 
- `margin-100px` or `m-100px `=> `margin:100px`<br/>
- `margin--100px` or `m--100px=>margin:-100px`<br/>
- `margin-100px-100px-100px-100px` or `m-100px-100px-100px-100px `=> `margin: 100px 100px 100px 100px`<br/>
- `margin-100px--100px-100px--100px` or `m-100px--100px-100px--100px` => `margin: 100px -100px 100px -100px`<br/>
- `box-shadow-1px--1px-2px-3px-red` or `bxs-1px--1px-2px-3px-red  `=> `box-shadow:1px -1px 2px 3px red`<br/>
- `box-shadow--1px-0px-2px-ebebeb` or `bxs--1px-0px-2px-ebebeb `=> `box-shadow:-1px 0px 2px #ebebeb`<br/>
- `font-size-16px` or `fs-16px `=> `font-size:16px`<br/>
- `font-size--24px` or `fs--24px `=> `font-size:-24px` // Be care full
-
+Prefer alias-based shorthand in production. Use generic shorthand mainly for quick testing and prototyping.
 </Callout>
 
+## Dynamic class names
 
-**Here are other example  class name definition.**
-| CSS           | Classname | shorthand |
-| :------------ | :---------: | ----------: |
-| `display:flex`  |`display-flex  `| `df` or `d-f`         |
-| `list-style:none`     |   `list-style-none `  |    `lsn ` or `ls-n`|
-| `margin-left:32px` | `margin-left-32px`            |   `ml-32px`|
-| `margin-left:-32px` | `margin-left--32px`            |  ` ml--32px`|
-| `color:red`| `color-red`| `c-red`|
-| `border-color:#ccc`| `border-color-ccc`| `bc-ccc`|
-| `color:#e3e3e3`| `color-e3e3e3`| `c-e3e3e3`|
-| `background-color:skyBlue`| `background-color-skyBlue`|` bgc-skyBlue`|
-| `background:linear-gradient(red,blue)`| `background-linear-gradient-red-blue`| `bg-lg-red-blue` |
+Dynamic class names follow the same general pattern, but the value is written directly into the class name.
 
+Examples:
+
+- `margin: 12px` → `margin-12px`
+- `color: green` → `color-green`
+- `font-size: 3rem` → `font-size-3rem`
+
+For complex values such as shadows, gradients, and custom colors, AliasCSS uses strict writing rules.
+
+### Important rules
+
+1. Use `--` before a numeric value to make it negative.
+2. Keep decimal points between digits, for example `0.1rem` instead of `.1rem`.
+3. Prefer `0px`, `0rem`, or another explicit unit instead of bare `0` when writing multi-value utilities.
+4. Every property can use CSS variables.
+
+Examples:
+
+- `margin--12px` → `margin: -12px`
+- `box-shadow--1px-1px-1px-black` → `box-shadow: -1px 1px 1px black`
+
+### CSS variable example
+
+```html
+<h1
+  class="color--fg1-custom-color background--bg1-custom-color font-size-3rem"
+  style="
+    --fg1-custom-color: color-mix(in srgb, red, white 20%);
+    --bg1-custom-color: hsl(from var(--primary) h s calc(l - 20%));
+  "
+>
+  Hello, World
+</h1>
+```
+
+## First example
+
+Suppose you want an `h1` with blue text and a font size of `3rem`.
+
+```html
+<h1 class="color-blue font-size-3rem">Hello, World</h1>
+```
+
+This works because each class name directly describes the CSS declaration:
+
+- `color-blue` → `color: blue`
+- `font-size-3rem` → `font-size: 3rem`
+
+You can also use shorthand:
+
+```html
+<h1 class="c-blue fs-3rem">Hello, World</h1>
+```
+
+Both versions generate the same styling.
+
+<Callout type="info" emoji="💡">
+Full semantic names and shorthand names are equivalent. Choose whichever fits your team’s readability and workflow.
+</Callout>
+
+## Negative values
+
+When you place `--` before a numeric or length value, AliasCSS treats it as negative.
+
+```html
+<div class="m-100px"></div>
+<div class="m--100px"></div>
+<div class="m-100px--100px-100px--100px"></div>
+<div class="bxs-1px--1px-2px-3px-red"></div>
+```
+
+These map to:
+
+```css
+margin: 100px;
+margin: -100px;
+margin: 100px -100px 100px -100px;
+box-shadow: 1px -1px 2px 3px red;
+```
+
+<Callout type="info" emoji="💡">
+Be careful with negative numeric utilities such as `fs--24px`. AliasCSS will parse that as `font-size: -24px`, which is usually not valid in practical CSS usage.
+</Callout>
+
+## Common examples
+
+| CSS | Full class name | Shorthand |
+| --- | --- | --- |
+| `display: flex` | `display-flex` | `df`, `d-f` |
+| `list-style: none` | `list-style-none` | `lsn`, `ls-n` |
+| `margin-left: 32px` | `margin-left-32px` | `ml-32px` |
+| `margin-left: -32px` | `margin-left--32px` | `ml--32px` |
+| `color: red` | `color-red` | `c-red` |
+| `border-color: #ccc` | `border-color-ccc` | `bc-ccc` |
+| `color: #e3e3e3` | `color-e3e3e3` | `c-e3e3e3` |
+| `background-color: skyBlue` | `background-color-skyBlue` | `bgc-skyBlue` |
+| `background: linear-gradient(red, blue)` | `background-linear-gradient-red-blue` | `bg-lg-red-blue` |
+
+## Basic guidelines
+
+1. One AliasCSS class always represents one CSS property, but that property can contain multiple values.
+2. Common properties such as margin, padding, color, border, height, and width usually have shorthand aliases.
+3. You can mix shorthand and full semantic classes in the same element.
+4. Use CSS variables for complex or dynamic values.
+5. With `aliascss.config.js` and frontend tooling, you can shape AliasCSS into your own design system.
+
+Examples:
+
+```text
+margin-10px-20px           => margin: 10px 20px
+display-flex               => display: flex
+d-f                        => display: flex
+background-position-rb     => background-position: right bottom
+atf-eio                    => animation-timing-function: ease-in-out
+```
 
 <Callout type="info" emoji="ℹ️">
-  You can also target state like hover, focus etc , use css variable , target children and classname. There is more you can do with aliascss , 
-   first you need to understand how to write basic aliascss valid class names.
+AliasCSS also supports states such as hover and focus, selector targeting, grouping, components, layers, and more. This page focuses only on writing valid basic class names.
 </Callout>
 
-#### Basic Guideline to use aliascss.
-
-
-1. Every AliasCSS class name have single property but can have one or  more values. `margin-1px-20px =>margin:10px 20px`.
-2. widely used properties like height, length, color, padding, margin, border etc  has its corresponding shorthand or alias. `display-flex` and `df` or 'd-f' are exactly same. 
-  You can use both at same time. Use combination of shorthand for popular property and full semantic for rare used property when creating classnames.
-3. You grouping feature to use re-usable utility classname and create component and variant on the go.
-4. Take help of css-variable , for complex value and when you need to make value dynamic which can be updated or modify using `javascript` or other server side language.
-5. Using aliascss.config.js and frontend tools, you can virtually create you own unique design system.
-
-
-***Some widely Examples***
-```
-display:flex=> display-flex or d-f or df or display-f or d-flex
-background-position: right bottom => background-position-right-bottom or background-position-rb or bgp-right-bottom or bgprb or bgp-rb
-animation-timing-function: ease-in-out => animation-timing-function-ease-in-out or atf-ease-in-out or atf-eio or atfeio 
-```
-  
-
-
 ---
 
-# 🚀 AliasCSS Brief Feature Guide
+# AliasCSS Feature Overview
 
----
+## Philosophy
 
-# 🧠 1. Philosophy
+AliasCSS is built on three ideas:
 
-AliasCSS is built on 3 principles:
+1. Atomic: one class maps to one property.
+2. Composable: combine classes freely.
+3. Deterministic: strict grammar gives predictable output.
 
-1. **Atomic** → one class = one property
-2. **Composable** → combine everything
-3. **Deterministic** → strict grammar → predictable output
+## Parsing order
 
----
-
-# ⚙️ 2. Core Grammar (CRITICAL)
+AliasCSS parses every class in the following order:
 
 ```text
 @layer → media → pseudo → selector → property → value
 ```
 
-👉 Every class is parsed in this exact order.
+This order is important because it defines how each utility is compiled.
 
----
+## Atomic utilities
 
-# 🧩 3. Utility System (Atomic Core)
-
----
-
-## ✅ HTML
+Example:
 
 ```html
 <div class="d-flex p-20px bgc-blue"></div>
 ```
 
----
-
-## 💻 Compiled CSS
+Compiled CSS:
 
 ```css
 .d-flex { display: flex; }
@@ -208,27 +266,19 @@ AliasCSS is built on 3 principles:
 .bgc-blue { background-color: blue; }
 ```
 
----
-
-## 🔥 Rule
+Rule:
 
 ```text
 Each class = exactly one CSS declaration
 ```
 
----
+## Value system
 
-# 📏 4. Value System (Strict Parsing)
-
----
-
-## Length Values
+### Length values
 
 ```html
 <div class="p-20px m-1rem w-100p"></div>
 ```
-
----
 
 ```css
 .p-20px { padding: 20px; }
@@ -236,9 +286,7 @@ Each class = exactly one CSS declaration
 .w-100p { width: 100%; }
 ```
 
----
-
-## Negative Values
+### Negative values
 
 ```html
 <div class="mt--20px"></div>
@@ -248,33 +296,19 @@ Each class = exactly one CSS declaration
 .mt--20px { margin-top: -20px; }
 ```
 
----
-
-## Complex Values via Variables
+### Complex values with variables
 
 ```html
-<div class="bg--gradient"
-style="--gradient: linear-gradient(red, blue)"
->
-</div>
-
-<!-- OR  -->
-<style>
---gradient: linear-gradient(red, blue);
-</style>
+<div class="bg--gradient" style="--gradient: linear-gradient(red, blue)"></div>
 ```
 
 ```css
 .bg--gradient { background: var(--gradient); }
 ```
 
----
+## Color system
 
-# 🎨 5. Color System (Optimized Syntax)
-
----
-
-## Hex without `#`
+### Hex values without `#`
 
 ```html
 <div class="c-fff bgc-0f172a"></div>
@@ -285,96 +319,58 @@ style="--gradient: linear-gradient(red, blue)"
 .bgc-0f172a { background-color: #0f172a; }
 ```
 
----
-
-## RGBA
+### RGBA
 
 ```html
 <div class="c-rgba-255-0-0-0.5"></div>
 ```
 
 ```css
-.c-rgba-255-0-0-0.5 { color: rgba(255,0,0,0.5); }
+.c-rgba-255-0-0-0.5 { color: rgba(255, 0, 0, 0.5); }
 ```
 
----
-
-## Border
+### Border shorthand
 
 ```html
 <div class="b-1px-solid-e3e3e3"></div>
 ```
 
 ```css
-.b-1px-solid-e3e3e3 {
-  border: 1px solid #e3e3e3;
-}
+.b-1px-solid-e3e3e3 { border: 1px solid #e3e3e3; }
 ```
 
----
+## Property alias system
 
-# 🔤 6. Property Alias System 
+AliasCSS lets you use either the full property name or a shorter alias.
 
----
-
-## 🧠 Concept
-
-AliasCSS maps: use full property for unsure or confuse alias
-
-```text
-alias → full CSS property
-```
-
----
-
-## Examples
+Examples:
 
 ```html
 <div class="p-20px fs-16px bgc-red"></div>
 ```
 
-```css
-.p-20px { padding: 20px; }
-.fs-16px { font-size: 16px; }
-.bgc-red { background-color: red; }
-```
-
----
-
-## Full Property Equivalent
+Equivalent full property version:
 
 ```html
 <div class="padding-20px font-size-16px background-color-red"></div>
 ```
 
-```css
-.padding-20px { padding: 20px; }
-.font-size-16px { font-size: 16px; }
-.background-color-red { background-color: red; }
-```
-
----
-
-## 🔥 Rule
+Rule:
 
 ```text
-If alias unknown → Switch to full property name
+If you don't know the alias, use the full property name.
 ```
 
----
+Best practice:
 
-## ⚠️ Best Practice
+- Use aliases for common properties.
+- Use full names for uncommon or complex properties.
 
-* Use alias for common properties
-* Use full name for rare/complex
+## Selectors
 
----
+AliasCSS is not limited to plain utilities. It also supports selector-based patterns.
 
-# 🔗 7. Selector System (VERY IMPORTANT)
-
----
-
-## Element Selector
+### Element selector
 
 ```html
 <div class="_div-c-red"></div>
@@ -386,9 +382,7 @@ If alias unknown → Switch to full property name
 }
 ```
 
----
-
-## Nested Selector
+### Nested selector
 
 ```html
 <div class="_div_h4-fs-20px"></div>
@@ -400,9 +394,7 @@ If alias unknown → Switch to full property name
 }
 ```
 
----
-
-## Combinators
+### Combinators
 
 ```html
 <div class="_div__h4-c-red"></div>
@@ -416,9 +408,7 @@ If alias unknown → Switch to full property name
 ._div____h4-c-green div ~ h4 { color: green; }
 ```
 
----
-
-## Attribute Selector
+### Attribute selector
 
 ```html
 <div class="[data-state=open]-d-flex"></div>
@@ -430,51 +420,9 @@ If alias unknown → Switch to full property name
 }
 ```
 
----
+## Pseudo states
 
-# 🎯 8. Magic `&` (Selector Positioning)
-
----
-
-## Default Behavior
-
-```html
-<div class="_div-c-red"></div>
-```
-
-```css
-._div-c-red div { color: red; }
-```
-
----
-
-## With `&`
-
-```html
-<div class="_.card&-c-blue"></div>
-```
-
-```css
-.card ._.card\&-c-blue {
-  color: blue;
-}
-```
-
----
-
-## 🔥 Rule
-
-```text
-& controls where the class is inserted
-```
-
----
-
-# ⚡ 9. Pseudo System
-
----
-
-## Example
+Example:
 
 ```html
 <button class="--hover-bg-blue"></button>
@@ -486,9 +434,7 @@ If alias unknown → Switch to full property name
 }
 ```
 
----
-
-## Chaining
+Chained example:
 
 ```html
 <div class="--hover--focus-c-red"></div>
@@ -500,59 +446,33 @@ If alias unknown → Switch to full property name
 }
 ```
 
----
+## Grouping
 
-# 🧠 10. Grouping System (VERY IMPORTANT)
+Grouping expands multiple utilities from a single syntax.
 
----
-
-## Basic Group
+### Basic group
 
 ```html
 <div class="[p-20px,c-red]"></div>
 ```
 
-```css
-.p-20px { padding: 20px; }
-.c-red { color: red; }
-```
-
----
-
-## Pseudo Group
+### Pseudo group
 
 ```html
 <div class="--hover[c-red,bgc-blue]"></div>
 ```
 
-```css
-.--hover-c-red:hover { color: red; }
-.--hover-bgc-blue:hover { background-color: blue; }
-```
+Conceptually, AliasCSS expands grouped values into separate utilities internally.
 
----
+## Components with `--as`
 
-## 🔥 Insight
-
-```text
-Grouping expands into multiple classes internally
-```
-
----
-
-# 🧱 11. Component System (`—as`)
-
----
-
-## Example
+Example:
 
 ```html
 <div class="_div[p-20px]--as-card"></div>
 ```
 
----
-
-## Compiled CSS
+Compiled CSS:
 
 ```css
 .card div {
@@ -560,9 +480,7 @@ Grouping expands into multiple classes internally
 }
 ```
 
----
-
-## Multi-Class Export
+Multi-export example:
 
 ```html
 <div class="[p-20px]--as-[card,box]"></div>
@@ -573,63 +491,21 @@ Grouping expands into multiple classes internally
 .box { padding: 20px; }
 ```
 
----
-
-## 🔥 Rule
+Rule:
 
 ```text
-—as replaces class anchor, NOT selectors
+--as replaces the class anchor, not the selector logic
 ```
 
----
+## Keyframes
 
-# 🔁 12. Multi-Selector 
-
----
-
-```html
-<div class="_.someClass_div,_.ban_em[c-red]"></div>
-<!-- use class="--is(_div,_ul)[c-red]" to select both selector under current className  -->
-```
-
-```css
-_.someClass_div,_.ban_ul[c-red] .someClass div, .ban em {
-  color: red;
-}
-```
-
----
-
-## With `—as`
-
-```html
-<div class="_div,_.ban_ul[c-red]--as-[menu-a,item-a]"></div>
-```
-
-```css
-.menu-a div,.ban ul {
-  color: red;
-}
-.item-a div,.ban ul {
-  color: red;
-}
-```
-
----
-
-# 🎬 13. Keyframes System (Advanced)
-
----
-
-## Example
+Example:
 
 ```html
 <div keyframes-fade="@0-opacity-1 @100-opacity-0" class="an-fade adu-1s"></div>
 ```
 
----
-
-## Compiled CSS
+Compiled CSS:
 
 ```css
 @keyframes fade {
@@ -642,87 +518,23 @@ _.someClass_div,_.ban_ul[c-red] .someClass div, .ban em {
 }
 ```
 
----
+## Layers and media
 
-## Group Keyframes
-
-```html
-<div keyframes-move="@[0,50]-[left-0,top-0] @100-[left-100px,top-100px]"></div>
-```
-
-```css
-@keyframes move {
-  0%,50% { left: 0; top: 0; }
-  100% { left: 100px; top: 100px; }
-}
-```
-
----
-
-# 🧬 14. Layer System (DETAILED)
-
----
-
-## 🧠 Concept
-
-AliasCSS uses CSS `@layer` internally.
-
----
-
-## Example
+### Layer
 
 ```html
 <div class="@base-d-flex"></div>
 ```
 
----
-
-## Compiled CSS
-
 ```css
 @layer base {
-  .@base-d-flex {
+  .\@base-d-flex {
     display: flex;
   }
 }
 ```
 
----
-
-## Multiple Layers
-
-```html
-<div class="@[base,xs]-d-flex"></div>
-```
-
----
-
-## Compiled CSS
-
-```css
-@layer base {
-  @media (max-width: ...) {
-    .class {
-      display: flex;
-    }
-  }
-}
-```
-
----
-
-## 🔥 Rule
-
-```text
-Order defines nesting:
-@[base,xs] → base → xs
-```
-
----
-
-# 🎛 15. Media System
-
----
+### Media
 
 ```html
 <div class="md-d-flex"></div>
@@ -736,85 +548,29 @@ Order defines nesting:
 }
 ```
 
----
+Rule:
 
-# 🌍 16. Global Class System
-
----
-
-```html
-<div class="card" class-card="p-20px bgc-blue"></div>
+```text
+Order defines nesting: @layer → media → pseudo → selector → property → value
 ```
 
-```css
-.card {
-  padding: 20px;
-  background-color: blue;
-}
-```
+## Runtime usage
 
----
-
-# 🌐 17. Runtime (CDN)
-
----
+AliasCSS can also run directly from a CDN script.
 
 ```html
 <script defer src="https://cdn.jsdelivr.net/npm/aliascss@latest/dist/aliascss.js"></script>
 ```
 
----
+Runtime behavior:
 
-## Behavior
+- Scans the DOM
+- Compiles class names
+- Injects CSS
+- Watches for changes
 
-* scans DOM
-* compiles classes
-* injects CSS
-* watches changes
+## Mental model
 
----
+AliasCSS is more than a utility class library. It gives you a strict grammar for writing CSS directly in class names, including utilities, selectors, states, grouping, components, animation, and layers.
 
-# 🧠 18. Parsing Priority
-
----
-
-```text
-1. @layer
-2. media
-3. pseudo
-4. selector
-5. property
-6. value
-```
-
----
-
-# 🏁 Final Insight
-
-AliasCSS is:
-
-> A **full CSS language with compiler-level abstraction**
-
----
-
-# 🚀 Final Take
-
-AliasCSS is :
-
-* Atomic CSS ✅
-* Selector engine ✅
-* Component system ✅
-* Animation DSL ✅
-* Runtime compiler ✅
-* Layer architecture ✅
-
----
-
-# 🔥 Final Statement
-
-> AliasCSS is closer to a **CSS programming language** than a framework.
-
----
-
-
-
+> AliasCSS is closer to a CSS authoring language than a traditional utility framework.

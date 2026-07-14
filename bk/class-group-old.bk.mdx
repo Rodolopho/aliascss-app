@@ -1,0 +1,57 @@
+
+## In-line Grouping of acss
+
+ We can also group the acss class when we have different style we want to apply for the same state or selector. For Example.
+
+```html
+<button class="b-0 color-fff bgc-blue --hover-c-gray --hover-border-radius-4px --hover-bgc-skyBlue" >Label</button>
+```
+In this example we are targeting `hover ` state multiple times, we are repeating ourself. we can avoid this by grouping the 
+acss in `[acss,acss,acss]`. In short the above code can also be written as:
+```html
+<button class="b-0 color-fff bgc-blue --hover-[c-gray,border-radius-4px,bgc-skyBlue]" >Label</button>
+```
+```html
+<div class="[data-state=open][display-flex,left-0]" >...</div>
+```
+####  using '--as-' suffix
+
+we can group or bundle  acss classnames in a new reusable classname by adding --as-[new-class-name] at the end of inline-acss-group.
+```html
+<button class="[b-0,color-fff,bgc-blue]--as-btn --hover-[c-gray,border-radius-4px,bgc-skyBlue]--as-btn btn" >Label</button>
+```
+```html
+<div class="[data-state=open][display-flex,left-0]--as-active active" >...</div>
+```
+
+### Global ClassName:-Make reusable  classname by grouping valid AliasCSS Classnames
+AliasCSS provides custom attribute  'class-[name]' to group valid aliasCSS classnames.
+
+```html 
+<div  class="container" class-container="df bgc--main-color oh w-100p h-100p pa t-0 l-0 df aic acc jcc zi-100000" >
+  ...      
+</div>
+```
+ In the example, we grouped Classnames with attribute 'class-container', where container is a new class we are creating by group 
+ other valid aliascss classNames. Only the valid aliasCSS classnames will be grouped.
+ Once we have define classname by grouping valid AliasCSS classnames , we can use it anywhere throughout the webpage.
+
+### group with selector
+we can also group classname for css selector only by inserting aliascss selector followed by className inside `[]`;
+
+```html 
+<div  class="error" class-error="color-error500" class-error[--after]="bgc-error100 c-error700 b-1px-s-error700" >
+  ...      
+</div>
+```
+import './class-group.mdx.css'
+ 
+export function Animation() {
+ 
+  return (
+    <div className="mt-32px df p-32px pr">
+    </div>
+  )
+}
+
+<Animation></Animation>

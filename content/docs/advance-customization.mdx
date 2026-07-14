@@ -1,429 +1,668 @@
 import { Callout } from 'nextra/components'
 
+export const metadata = {
+  title: 'Advanced Customization',
+  description: 'Deep dive into aliascss.config.js, custom compilers, group compilers, media prefixes, extraction helpers, CSS Modules support, and design-system level extension in AliasCSS.',
+}
+
 # Advanced Customization
-Using `aliascss.config.js` we can fully customize how aliascss work, in fact you can create whole different version of aliascss.
 
-### `extend` : create your own compiler
-You can create your own compiler for each and every css properties or add new properties by extending the current 
-configuration file.Using extend you can create your version of AliasCSS which can be completely different design system.
-```js filename="aliascss.config.js" 
-const config={
-    
-    extend:{
-        background-color:{
-            alias:'bgc',
-            values:['transparent:t:no-color']
-            compiler:(value)=>value.replace(/^-/,''),
-        },
-        shadow:{
-            property:'box-shadow',
-            compiler:(value)=>{
-                value=value.slice(1);// remove '-' form value;
-                const values={
-                    '3xl': ' 0px 32px 64px -12px var(--shadow-color,rgba(16, 24, 40, 0.14))',
-                    '2xl': ' 0px 24px 48px -12px var(--shadow-color,rgba(16, 24, 40, 0.14))',
-                    'xl': ' 0px 20px 24px -4px var(--shadow-color,rgba(16, 24, 40, 0.14))',
-                    'lg': ' 0px 12px 16px -4px var(--shadow-color,rgba(16, 24, 40, 0.14))',
-                    'md': ' 0px 4px 8px -2px var(--shadow-color,rgba(16, 24, 40, 0.14))',
-                    'sm': ' 0px 1px 3px var(--shadow-color,rgba(16, 24, 40, 0.14))',
-                    'xs': ' 0px 1px 2px var(--shadow-color,rgba(16, 24, 40, 0.14))',
-                };
-                if(values.hasOwnProperty(value)) return values[value];
-            }
-         
-        }
+`aliascss.config.js` is the control center for advanced AliasCSS workflows. With it, you can change how classes are parsed, extend or replace compilers, define reusable utility bundles, control media prefixes, support extraction helpers, and even shape AliasCSS into a custom design system instead of using it as a fixed utility framework.
+
+At a basic level, the config file already supports custom media prefixes, CSS Module integration, extractor helpers, prebuilt class names, grouping, ignore rules, global statements, and custom colors. The official npm guide also shows that `extend` can add new compilers or override existing ones, which is the foundation for deeper customization.
+
+<Callout type="important" emoji="🧠">
+  This part of AliasCSS is not just about adding shortcuts. It is the layer where you define your own styling language, your own utility API, and your own design-system conventions.
+</Callout>
+
+## Why this matters
+
+Most utility frameworks give you a closed vocabulary. AliasCSS is different because the config file lets you redefine how that vocabulary works.
+
+That means you can:
+
+- Keep the default AliasCSS syntax and only add project-specific utilities.
+- Override built-in behavior to match your own naming or token system.
+- Create custom grouped utilities that behave more like semantic component primitives.
+- Build a hybrid system where atomic utilities, reusable groups, and component contracts all work together.
+
+For a growing product or design system, this is powerful because your utility layer no longer needs to stay generic. It can evolve into an internal style compiler tailored to your team.
+
+## Config structure
+
+A typical config includes `input`, `output`, and optional advanced keys such as `media`, `extractorFunction`, `importModuleAs`, `custom`, `extend`, `prebuild`, `statement`, `group`, and `ignore`.
+
+```js filename="aliascss.config.js"
+const config = {
+  input: ['app/**/*.(tsx|jsx)', 'components/**/*.(tsx|jsx)', 'public/*.html'],
+  output: {
+    location: './public/css/acss.css',
+    '--file': true,
+  },
+  media: {
+    prefix: {
+      xs: '@media (max-width : 600px)',
     },
+  },
+  '--module': true,
+  importModuleAs: 'x',
+  extractorFunction: 'x',
+  custom: {
+    colors: {
+      main: 'rgb(12,23,45)',
+      theme: '#c6c6c6',
+    },
+  },
+  extend: {},
+  prebuild: {},
+  statement: '',
+  group: {},
+  ignore: [],
 }
-export default config;
 
+export default config
 ```
-In above we create two compiler , `background` and `shadow`, `background` will overwrite default compiler
- as it is valid css property. In the case of `shadow` , It will be  added as new compiler, since `shadow` is custom property i.e 
-not a valid css property, we need to provide property  to tell which css property this compiler is for.
 
-#### Group compiler
+The npm guide also documents running AliasCSS from the config file with `npx aliascss --config`, plus watch mode with `npx aliascss --config --watch`.
 
-Normally, aliascss classNames holds single property and  value for it, when we want to have classNames that holds  
-for multiple css properties declaration, we can use compiler with type='group', as given below.
-```js filename="aliascss.config.js" 
-import {getCompiler} from 'aliascss';
+## `extend`: create your own compiler
 
-const config={
-    
-    extend:{
-        background:{
-            alias:'bg',
-            values:['transparent:t:no-color']
-            compiler:(value)=>value,
-        },
+`extend` is the most advanced part of the configuration system. It lets you override an existing compiler or define a new one.
 
-        'import-var':{
-            type:'group',
-            groups:{
-                    'spacing':`
-                    --space-1:4px;
-                    --space-2:8px;
-                    --space-3:12px;
-                    --space-4:16px;
-                    --space-5:24px;
-                    --space-6:32px;
-                    --space-7:40px;
-                    --space-8:48px;
-                    --space-9:64px;
-                    `,
-                    theme:`
-                    
-                    `
-            },
+When the compiler key matches a valid CSS property, it can replace or customize the default behavior for that property. When the key is custom, you provide `property` to tell AliasCSS which real CSS property should receive the output.
 
+### Example: overriding and adding compilers
+
+```js filename="aliascss.config.js"
+const config = {
+  extend: {
+    'background-color': {
+      alias: 'bgc',
+      values: ['transparent:t:no-color'],
+      compiler: (value) => value.replace(/^-/, ''),
     },
-    'text':{
-            type:'group',
-            compiler:(value)=>{
-                let result='';
-                const match=/-([-]?[\w\.]+)/;
-                const property=['font-size','line-height','letter-spacing','font-weight'];
-                value.match(new RegExp(match,'g')).forEach((e,i)=>{
-                    if(i<property.length){
-                        result+=`${property[i]}:${e.replace(match,'$1').replace(/(\d)d(\d)/,'$1.$2').replace(/([\d])p([\s]|$)/,'$1%$2')};`;
-                    }
-                    
-                })
-                return result;
-                
-            },
-            groups:{
-                '1':'font-size:12px;letter-spacing:0.0025em;line-height:16px;',
-                '2':'font-size:14px;letter-spacing:0em;line-height:20px;',
-                '3':'font-size:16px;letter-spacing:0em;line-height:24px;',
-                '4':'font-size:18px;letter-spacing:-0.0025em;line-height:26px;',
-                '5':'font-size:20px;letter-spacing:-0.005em;line-height:28px;',
-                '6':'font-size:24px;letter-spacing:-0.00625em;line-height:30px;',
-                '7':'font-size:28px;letter-spacing:-0.0075em;line-height:36px;',
-                '8':'font-size:35px;letter-spacing:-0.01em;line-height:40px;',
-                '9':'font-size:60px;letter-spacing:-0.025em;line-height:60px;',
-                'xs':'font-size:12px;letter-spacing:0.0025em;line-height:16px;',
-                'sm':'font-size:14px;letter-spacing:0em;line-height:20px;',
-                'md':'font-size:16px;letter-spacing:0em;line-height:24px;',
-                'lg':'font-size:18px;letter-spacing:-0.0025em;line-height:26px;',
-                'xl':'font-size:20px;letter-spacing:-0.005em;line-height:28px;',
-                '2xl':'font-size:24px;letter-spacing:-0.00625em;line-height:30px;',
-                '3xl':'font-size:28px;letter-spacing:-0.0075em;line-height:36px;',
-                '4xl':'font-size:35px;letter-spacing:-0.01em;line-height:40px;',
-                '5xl':'font-size:60px;letter-spacing:-0.025em;line-height:60px;',
-            },
-            
-            
-    },
-    box:{
-        compiler:(value)=>{
-                let result='';
-                const match=/-([-]?[\w\.]+)/;
-                const property=['width','height','padding'];
-                value.match(new RegExp(match,'g')).forEach((e,i)=>{
-                    if(i<property.length){
-                        result+=`${property[i]}:${e.replace(match,'$1').replace(/(\d)d(\d)/,'$1.$2').replace(/([\d])p([\s]|$)/,'$1%$2')};`;
-                    }else{
-            
-                        result=result.replace(/;$/,` ${e.replace(match,'$1').replace(/(\d)d(\d)/,'$1.$2').replace(/([\d])p([\s]|$)/,'$1%$2')};`)
-                    }
-                    
-                })
-                return result;
-                
-            },
-        type:'group',
-    },
-    placement:{
-        type:'group',
-        compiler:(value)=>{
-                let result='';
-                const match=/-([-]?[\w\.]+)/;
-                const property=['position','top','right','bottom','left'];
-                value.match(new RegExp(match,'g')).forEach((e,i)=>{
-                    if(i<property.length){
-                        result+=`${property[i]}:${e.replace(match,'$1').replace(/(\d)d(\d)/,'$1.$2').replace(/([\d])p([\s]|$)/,'$1%$2')};`;
-                    }
-                    
-                })
-                return result;
-                
-            },
-
-    }, 
-    colorize:{
-         type:'group',
-        compiler:(value,custom)=>{
-                let result='';
-                const match=/-([-]?[\w\.]+)/;
-                const property=['background-color','border-color','color',];
-                value.match(new RegExp(match,'g')).forEach((e,i)=>{
-                    
-                    if(i<property.length){
-                        if(e.match(/^--[a-zA-Z]/)){
-                            result+=`${property[i]}:var(${e});`
-                        }else{
-                            result+=`${property[i]}:${getCompiler('color').compiler(e,custom)};`;
-                        }          
-                    }  
-                })
-                return result;
-                
-            },
-       
-    },  
-    container:{
-        type:"group",
-        compiler:(value)=>value,
-        groups:{
-            '1':'display:block;margin:auto;width:var(--container-1,448px)',
-            '2':'display:block;margin:auto;width:var(--container-2,688px)',
-            '3':'display:block;margin:auto;width:var(--container-3,880px)',
-            '4':'display:block;margin:auto;width:var(--container-4,1136px)',
-            'xs':'display:block;margin:auto;width:var(--container-xs,448px)',
-            'sm':'display:block;margin:auto;width:var(--container-sm,688px)',
-            'md':'display:block;margin:auto;width:var(--container-md,880px)',
-            'lg':'display:block;margin:auto;width:var(--container-lg,1136px)',
+    shadow: {
+      property: 'box-shadow',
+      compiler: (value) => {
+        value = value.slice(1)
+        const values = {
+          '3xl': '0px 32px 64px -12px var(--shadow-color,rgba(16, 24, 40, 0.14))',
+          '2xl': '0px 24px 48px -12px var(--shadow-color,rgba(16, 24, 40, 0.14))',
+          xl: '0px 20px 24px -4px var(--shadow-color,rgba(16, 24, 40, 0.14))',
+          lg: '0px 12px 16px -4px var(--shadow-color,rgba(16, 24, 40, 0.14))',
+          md: '0px 4px 8px -2px var(--shadow-color,rgba(16, 24, 40, 0.14))',
+          sm: '0px 1px 3px var(--shadow-color,rgba(16, 24, 40, 0.14))',
+          xs: '0px 1px 2px var(--shadow-color,rgba(16, 24, 40, 0.14))',
         }
+        if (values.hasOwnProperty(value)) return values[value]
+      },
     },
-    section:{
-        type:"group",
-        compiler:(value)=>value,
-        groups:{
-            '1':'display:block;padding:var(--section-padding-1,24px) auto',
-            '2':'display:block;padding:var(--section-padding-2,40px) auto',
-            '3':'display:block;padding:var(--section-padding-3,64px) auto',
-            '4':'display:block;padding:var(--section-padding-4,80px) auto',
-            'xs':'display:block;padding:var(--section-padding-xs,24px) auto',
-            'sm':'display:block;padding:var(--section-padding-sm,40px) auto',
-            'md':'display:block;padding:var(--section-padding-md,64px) auto',
-            'lg':'display:block;padding:var(--section-padding-lg,80px) auto',
-
-        }
-    },                 
+  },
 }
-        
-        
-    },
-    // Note:- Above classNames are influenced from radix-ui.com
-}
-export default config;
 
+export default config
 ```
-Similarly, using type of `group`, we can use it to group css properties and value and/or used as groupCSSPropertiesCompiler.
 
+### How to think about `extend`
 
+Use `extend` when you want to change the meaning of a property, normalize custom naming, or map design tokens into your own utility API.
 
-##### Compiler properties
-| Property|Type|Description|
-| -------|----|------|
-|`values`|`[Array]`|default or predefine values|
-|`alias`|`string`|create a alias for given property|
-|`compiler`|`function`|function that accept value portion as first and custom object as second arguments and returns value replacement|
-|`property`|`string`|css-property  to be used incase compiler name is not css property |
-|`groups`|`{}`|used to define static group of multiple properties  |
-|`type`|`string`|when value is `group` it will treated as group compiler  |
+A few practical examples:
+
+- Map a utility prefix to internal tokens such as `bgc-surface`, `bgc-panel`, or `bgc-elevated`.
+- Create a design-system shadow compiler so developers use `shadow-sm` or `shadow-xl` instead of raw values.
+- Replace default value parsing to support organization-specific naming patterns.
+
+### Developer notes
+
+- `alias` creates a short utility prefix.
+- `values` defines preset values or shorthand aliases.
+- `compiler` receives the value portion and returns the final CSS value.
+- `property` is required when the compiler name is not a native CSS property.
 
 <Callout type="info" emoji="ℹ️">
-  Compiler Names cannot have number and uppercase letter other that first character. 
+  Compiler names cannot contain numbers or uppercase letters other than the first character.
 </Callout>
-### `media` Customize media selector
+
+## Group compilers
+
+By default, one AliasCSS class typically maps to one property and one value. Group compilers let one class generate multiple CSS declarations.
+
+This is useful when you want a class to act like a compound primitive rather than a single-property utility.
+
+### Example: token import groups
 
 ```js filename="aliascss.config.js"
-const config={
-    ...
-    media:{
-        prefix:{
-            'xs':'@media (max-width : 600px)',
-        }
-    }
-    ...
-}
-export default config;
-```
+import { getCompiler } from 'aliascss'
 
-You can overwrite default media prefix selector to your own selector declaration. To customize simply add media property
-on your `aliascss.config.js` file and add prefix object with prefix and media selector as per your need.
-
-### `extractorFunction` 
-
-Aliascss compiler will look for classNames either in  `class` or `className` attribute. But sometimes you need want to use
-classnames in other places as well, for example for conditional uses of classNames. For that we can use extractorFunction, to tell aliascss compiler 
-to compile the given classNames.
-
-```js filename="aliascss.config.js"
-const config={
-    ...
-   extractorFunction:'x',// you can use x('aliascss-classNames')
-    ...
-}
-export default config;
-```
-
-Now in your project you can create a extractorFunction and use it.
-```jsx filename="Button.tsx" showLineNumbers
-import { useState } from "react";
-
-// just  create a simple extractorFunction which return the input
-const x=(y:string)=>y;
-export default function Button() {
-    let [isActive,setActive]=useState(false)
-    return (
-        <div>
-            <button 
-            onClick={()=>setActive(!isActive)}
-             className={
-                isActive?
-                x('bgc-primary100 border-1px-s-primary700 c-primary700')
-                // or x`bgc-primary100 border-1px-s-primary700 c-primary700`
-                :
-                x('bgc-gray200 c-gray700 b1px-s-gray700')}>Button</button>
-        </div>
-    );
-}
-
-```
-
-### `importModuleAs` : Use Aliascss for CSS module
-
-CSS Module will be vey helpful to avoid className conflicts and avoid css declaration order  or scope issues. Many frontend frameworks
-support importing css module which will be scoped to given component or page. 
- By using simple trick we can make aliascss to work as a module and make css scoped.
-
-```js filename="aliascss.config.js"
-const config={
-    ...
-    '--module':true,
-   importModuleAs:'x',// you can use x['aliascss-classNames']
-    ...
-}
-export default config;
-```
-
-Now in your project you can create a extractorFunction and use it.
-```jsx filename="Button.tsx" showLineNumbers
-import { useState } from "react";
-import x from './Button.tsx.module.css' // note when module is used aliascss will create a css file with module.css to current filename 
-
-export default function Button() {
-    let [isActive,SetActive]=useState(false)
-    return (
-        <div>
-            <button 
-            onClick={()=>SetActive(!isActive)}
-             className={
-                isActive?
-                x['bgc-primary100 border-1-s-primary700 c-primary700']
-                :
-                x['bgc-gray200 c-gray700 b-1px-s-gray700']}>Button</button>
-        </div>
-    );
-}
-```
-
-### Custom Colors
-To add custom colors you can add custom property in `aliascss.config.js` file
-
-```js file="aliascss.config.js"
-const config={
-    ...
-   custom:{
-        colors:{
-            "themeTextColor":'var(--theme-text-color,#c3c3c3),
-            "themeBgcolor":'var(--theme-bg-color,#0e0e0e),
-            "primary":'rgba(124,143,234,1)'
-        }
-   
-   }
-    ...
-}
-export default config;
-```
-It is recommended to use camelCase for the name of custom color. Using '-' or '_' in the custom color name might cause error.
-
-### `prebuild` Predefine classnames
-
-It is very easy to export predefine className in the application using `prebuild` property in `aliascss.config.js`
-
-```js file="aliascss.config.js"
-const config={
-    ...
-   prebuild:{
- 
-        'text-xl': 'font-size:20px;line-height:30px',
-        'text-lg': 'font-size:18px;line-height:28px',
-        'text-md': 'font-size:16px;line-height:24px',
-        'text-sm': 'font-size:14px;line-height:20px',
-        'text-xs': 'font-size:12px;line-height:18px',
- 
-        'radius-xs':'border-radius:4px',
- 
-        'flex-center':'display:flex;align-items:center;justify-content:center',
+const config = {
+  extend: {
+    background: {
+      alias: 'bg',
+      values: ['transparent:t:no-color'],
+      compiler: (value) => value,
     },
-    ...
+
+    'import-var': {
+      type: 'group',
+      groups: {
+        spacing: `
+          --space-1:4px;
+          --space-2:8px;
+          --space-3:12px;
+          --space-4:16px;
+          --space-5:24px;
+          --space-6:32px;
+          --space-7:40px;
+          --space-8:48px;
+          --space-9:64px;
+        `,
+        theme: `
+        `,
+      },
+    },
+  },
 }
-export default config;
+
+export default config
 ```
 
-`prebuild className` can be easily used along with `selector`
+In this pattern, a single class can inject a named block of CSS variables or declarations. That makes it useful for tokens, themes, spacing presets, and environment-level setup.
+
+### Example: `text` group compiler
+
+```js filename="aliascss.config.js"
+const config = {
+  extend: {
+    text: {
+      type: 'group',
+      compiler: (value) => {
+        let result = ''
+        const match = /-([-]?[\w\.]+)/
+        const property = ['font-size', 'line-height', 'letter-spacing', 'font-weight']
+
+        value.match(new RegExp(match, 'g')).forEach((e, i) => {
+          if (i < property.length) {
+            result += `${property[i]}:${e
+              .replace(match, '$1')
+              .replace(/(\d)d(\d)/, '$1.$2')
+              .replace(/([\d])p([\s]|$)/, '$1%$2')};`
+          }
+        })
+
+        return result
+      },
+      groups: {
+        '1': 'font-size:12px;letter-spacing:0.0025em;line-height:16px;',
+        '2': 'font-size:14px;letter-spacing:0em;line-height:20px;',
+        '3': 'font-size:16px;letter-spacing:0em;line-height:24px;',
+        '4': 'font-size:18px;letter-spacing:-0.0025em;line-height:26px;',
+        '5': 'font-size:20px;letter-spacing:-0.005em;line-height:28px;',
+        '6': 'font-size:24px;letter-spacing:-0.00625em;line-height:30px;',
+        '7': 'font-size:28px;letter-spacing:-0.0075em;line-height:36px;',
+        '8': 'font-size:35px;letter-spacing:-0.01em;line-height:40px;',
+        '9': 'font-size:60px;letter-spacing:-0.025em;line-height:60px;',
+        xs: 'font-size:12px;letter-spacing:0.0025em;line-height:16px;',
+        sm: 'font-size:14px;letter-spacing:0em;line-height:20px;',
+        md: 'font-size:16px;letter-spacing:0em;line-height:24px;',
+        lg: 'font-size:18px;letter-spacing:-0.0025em;line-height:26px;',
+        xl: 'font-size:20px;letter-spacing:-0.005em;line-height:28px;',
+        '2xl': 'font-size:24px;letter-spacing:-0.00625em;line-height:30px;',
+        '3xl': 'font-size:28px;letter-spacing:-0.0075em;line-height:36px;',
+        '4xl': 'font-size:35px;letter-spacing:-0.01em;line-height:40px;',
+        '5xl': 'font-size:60px;letter-spacing:-0.025em;line-height:60px;',
+      },
+    },
+  },
+}
+
+export default config
+```
+
+This is a strong example of turning AliasCSS into a typography API. Instead of composing `font-size`, `line-height`, and `letter-spacing` separately, one utility can generate a full text scale contract.
+
+### Example: `box`, `placement`, `colorize`, `container`, `section`
+
+```js filename="aliascss.config.js"
+import { getCompiler } from 'aliascss'
+
+const config = {
+  extend: {
+    box: {
+      type: 'group',
+      compiler: (value) => {
+        let result = ''
+        const match = /-([-]?[\w\.]+)/
+        const property = ['width', 'height', 'padding']
+        value.match(new RegExp(match, 'g')).forEach((e, i) => {
+          if (i < property.length) {
+            result += `${property[i]}:${e
+              .replace(match, '$1')
+              .replace(/(\d)d(\d)/, '$1.$2')
+              .replace(/([\d])p([\s]|$)/, '$1%$2')};`
+          } else {
+            result = result.replace(
+              /;$/,
+              ` ${e.replace(match, '$1').replace(/(\d)d(\d)/, '$1.$2').replace(/([\d])p([\s]|$)/, '$1%$2')};`
+            )
+          }
+        })
+        return result
+      },
+    },
+    placement: {
+      type: 'group',
+      compiler: (value) => {
+        let result = ''
+        const match = /-([-]?[\w\.]+)/
+        const property = ['position', 'top', 'right', 'bottom', 'left']
+        value.match(new RegExp(match, 'g')).forEach((e, i) => {
+          if (i < property.length) {
+            result += `${property[i]}:${e
+              .replace(match, '$1')
+              .replace(/(\d)d(\d)/, '$1.$2')
+              .replace(/([\d])p([\s]|$)/, '$1%$2')};`
+          }
+        })
+        return result
+      },
+    },
+    colorize: {
+      type: 'group',
+      compiler: (value, custom) => {
+        let result = ''
+        const match = /-([-]?[\w\.]+)/
+        const property = ['background-color', 'border-color', 'color']
+        value.match(new RegExp(match, 'g')).forEach((e, i) => {
+          if (i < property.length) {
+            if (e.match(/^--[a-zA-Z]/)) {
+              result += `${property[i]}:var(${e});`
+            } else {
+              result += `${property[i]}:${getCompiler('color').compiler(e, custom)};`
+            }
+          }
+        })
+        return result
+      },
+    },
+    container: {
+      type: 'group',
+      compiler: (value) => value,
+      groups: {
+        '1': 'display:block;margin:auto;width:var(--container-1,448px)',
+        '2': 'display:block;margin:auto;width:var(--container-2,688px)',
+        '3': 'display:block;margin:auto;width:var(--container-3,880px)',
+        '4': 'display:block;margin:auto;width:var(--container-4,1136px)',
+        xs: 'display:block;margin:auto;width:var(--container-xs,448px)',
+        sm: 'display:block;margin:auto;width:var(--container-sm,688px)',
+        md: 'display:block;margin:auto;width:var(--container-md,880px)',
+        lg: 'display:block;margin:auto;width:var(--container-lg,1136px)',
+      },
+    },
+    section: {
+      type: 'group',
+      compiler: (value) => value,
+      groups: {
+        '1': 'display:block;padding:var(--section-padding-1,24px) auto',
+        '2': 'display:block;padding:var(--section-padding-2,40px) auto',
+        '3': 'display:block;padding:var(--section-padding-3,64px) auto',
+        '4': 'display:block;padding:var(--section-padding-4,80px) auto',
+        xs: 'display:block;padding:var(--section-padding-xs,24px) auto',
+        sm: 'display:block;padding:var(--section-padding-sm,40px) auto',
+        md: 'display:block;padding:var(--section-padding-md,64px) auto',
+        lg: 'display:block;padding:var(--section-padding-lg,80px) auto',
+      },
+    },
+  },
+}
+
+export default config
+```
+
+These examples show four different directions group compilers can take:
+
+- `box` builds multi-property layout primitives.
+- `placement` creates positional shorthand contracts.
+- `colorize` coordinates multiple color-related properties through one utility.
+- `container` and `section` define higher-level layout primitives tied to design tokens.
+
+## Group compiler patterns
+
+Once you start using `type: 'group'`, AliasCSS stops feeling like a strict single-property utility engine and starts behaving more like a CSS DSL for your design system.
+
+A good mental model is this:
+
+| Pattern | Role |
+| --- | --- |
+| Single-property compiler | Atomic utility |
+| Group compiler | Compound primitive |
+| `prebuild` | Static utility bundle |
+| `group` | Global class alias |
+| `--as-` inline grouping | Local semantic abstraction |
+
+This layered model is what makes AliasCSS well-suited for a hybrid design system. You can move between raw utilities and reusable semantic patterns without leaving the framework.
+
+## Compiler properties
+
+The official config examples and your extended examples together establish the main compiler properties below.
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `values` | `Array` | Default or predefined values. |
+| `alias` | `string` | Short alias for the property or compiler. |
+| `compiler` | `function` | Receives the value portion, and optionally custom config, and returns the final CSS output. |
+| `property` | `string` | Real CSS property to use when the compiler key is not itself a CSS property. |
+| `groups` | `object` | Static named groups of multiple CSS declarations. |
+| `type` | `string` | When set to `'group'`, the compiler is treated as a group compiler. |
+
+## `media`: customize media prefixes
+
+The config file can override default media prefixes by defining your own prefix-to-media-query mapping.
+
+```js filename="aliascss.config.js"
+const config = {
+  media: {
+    prefix: {
+      xs: '@media (max-width : 600px)',
+    },
+  },
+}
+
+export default config
+```
+
+This is useful when your team has its own breakpoint system. MDN describes `@media` as the CSS at-rule used to apply styles only when a media query matches, which aligns with how AliasCSS maps prefix names to media conditions.
+
+### When to customize media
+
+Use custom media prefixes when:
+
+- Your design system already defines breakpoint tokens.
+- You want naming like `mobile`, `tablet`, `desktop`, or `2xl` instead of generic defaults.
+- You need organization-specific responsive contracts across multiple apps.
+
+## `extractorFunction`
+
+By default, AliasCSS looks for class names in `class` and `className`. `extractorFunction` lets you declare an additional wrapper function so AliasCSS can still find class strings when they are nested inside expressions or conditional helpers.
+
+```js filename="aliascss.config.js"
+const config = {
+  extractorFunction: 'x',
+}
+
+export default config
+```
+
+Now you can use a helper that simply returns the string:
+
+```tsx filename="Button.tsx" showLineNumbers
+import { useState } from 'react'
+
+const x = (y: string) => y
+
+export default function Button() {
+  const [isActive, setActive] = useState(false)
+
+  return (
+    <div>
+      <button
+        onClick={() => setActive(!isActive)}
+        className={
+          isActive
+            ? x('bgc-primary100 border-1px-s-primary700 c-primary700')
+            : x('bgc-gray200 c-gray700 b1px-s-gray700')
+        }
+      >
+        Button
+      </button>
+    </div>
+  )
+}
+```
+
+This keeps dynamic class composition readable while still allowing the compiler to extract the strings.
+
+## `importModuleAs`: use AliasCSS with CSS Modules
+
+The npm guide documents built-in support for module-style workflows with `--module` and `importModuleAs`. CSS Modules export a mapping object from local class names to generated scoped names, which is why the pattern works naturally in component files.
+
+```js filename="aliascss.config.js"
+const config = {
+  '--module': true,
+  importModuleAs: 'x',
+}
+
+export default config
+```
+
+Then in the component:
+
+```tsx filename="Button.tsx" showLineNumbers
+import { useState } from 'react'
+import x from './Button.tsx.module.css'
+
+export default function Button() {
+  const [isActive, setActive] = useState(false)
+
+  return (
+    <div>
+      <button
+        onClick={() => setActive(!isActive)}
+        className={
+          isActive
+            ? x['bgc-primary100 border-1-s-primary700 c-primary700']
+            : x['bgc-gray200 c-gray700 b-1px-s-gray700']
+        }
+      >
+        Button
+      </button>
+    </div>
+  )
+}
+```
+
+### Why this is valuable
+
+This mode lets you keep the speed of AliasCSS utilities while also gaining scoped CSS behavior for component-level isolation. That is helpful when large teams want to reduce naming conflicts and avoid global ordering issues.
+
+## Custom colors
+
+Custom colors are registered under `custom.colors` in the config file. The npm guide notes that custom color keys should not use `-` or `_` if you want them to work reliably, so camelCase is the safer naming convention.
+
+```js filename="aliascss.config.js"
+const config = {
+  custom: {
+    colors: {
+      themeTextColor: 'var(--theme-text-color,#c3c3c3)',
+      themeBgcolor: 'var(--theme-bg-color,#0e0e0e)',
+      primary: 'rgba(124,143,234,1)',
+    },
+  },
+}
+
+export default config
+```
+
+This is useful when you want utilities to resolve against design tokens, CSS variables, or brand-specific color names instead of raw palette values.
+
+## `prebuild`: predefined class names
+
+`prebuild` lets you define static utility bundles that compile into ready-to-use class names.
+
+```js filename="aliascss.config.js"
+const config = {
+  prebuild: {
+    'text-xl': 'font-size:20px;line-height:30px',
+    'text-lg': 'font-size:18px;line-height:28px',
+    'text-md': 'font-size:16px;line-height:24px',
+    'text-sm': 'font-size:14px;line-height:20px',
+    'text-xs': 'font-size:12px;line-height:18px',
+    'radius-xs': 'border-radius:4px',
+    'flex-center': 'display:flex;align-items:center;justify-content:center',
+  },
+}
+
+export default config
+```
+
+And then use them directly:
+
 ```html
-<h1 class="text-sm lg-text-xl --hover-text-md" >Hello World</h1>
-
-
+<h1 class="text-sm lg-text-xl --hover-text-md">Hello World</h1>
 ```
 
-### `group` : Group AliasCSS classNames
- You can group valid aliascss classNames in a group which will be available globally in your project.
-  `Note:- group cannot be used with selector.`
+### When to use `prebuild`
 
- ```js file="aliascss.config.js"
-const config={
-    ...
-   group:{
-		'container':' df fdc bsbb aic flex-shrink-1 flex-grow-1 ',
-		'section':'flex-shrink0 bsbb',
-     'button-base':'bgc-gray300 oln --hover-bgc-gray400 bn --focus-outline-none'
-	},
-    ...
+Use `prebuild` for patterns that are static, repeat often, and do not need dynamic parsing. Good examples are typography scale utilities, layout helpers, radius tokens, and alignment shorthands.
+
+## `group`: global grouped AliasCSS classes
+
+`group` lets you bundle valid AliasCSS class names into global reusable class names. The npm guide explicitly notes that grouped names can be used as predefined bundles, while your note adds an important limitation: `group` cannot be used with selector.
+
+```js filename="aliascss.config.js"
+const config = {
+  group: {
+    container: 'df fdc bsbb aic flex-shrink-1 flex-grow-1',
+    section: 'flex-shrink0 bsbb',
+    'button-base': 'bgc-gray300 oln --hover-bgc-gray400 bn --focus-outline-none',
+  },
 }
-export default config;
+
+export default config
 ```
 
-### `ignore` : Tell AliasCSS to ignore className
-Some classNames can collide with other classNames if you are working with other css frameworks or 
-you own custom css. you can tell aliascss to ignore those classNames which can  collide with other.
+### `group` vs `--as-`
 
- ```js file="aliascss.config.js"
-export config={
-    ...
-   ignore:['color-primary fs-xl']
-    ...
+A useful distinction is:
+
+- `group` is global and config-driven.
+- `--as-` is local and authored inline.
+
+Use `group` for framework-level or project-wide primitives. Use `--as-` when a pattern is being shaped close to component markup or when you want semantic reuse without pushing everything into global config.
+
+## `ignore`: tell AliasCSS to skip classes
+
+`ignore` is for collision control. The official docs show that ignored class names are simply skipped, which is useful when working alongside other CSS frameworks or a legacy stylesheet.
+
+```js filename="aliascss.config.js"
+const config = {
+  ignore: ['color-primary', 'fs-xl'],
 }
-export default config;
+
+export default config
 ```
 
-### `statement` : Add global css statement :
-`statement` property will allow you to inject css statement in every css file compile by aliascss. 
-It has global scope and available in every css file compile by aliascss.
- ```js file="aliascss.config.js"
-const config={
-    ...
-   statement:`
-        :root{
-            --bg-dark-color:rgba(111,111,111,1) ;
-            --bg-light-color:rgba(21,21,21,1) ;
-            --outline-color:blue;
-    
-        }
- 
-        body{
-            font-family:BlinkMacSystemFont , -apple-system ;
-        }
- 
-	`,
-    ...
+This is especially important in migration projects where Tailwind, Bootstrap, handwritten CSS, or third-party UI libraries may use class names that overlap with AliasCSS patterns.
+
+## `statement`: inject global CSS
+
+`statement` injects global CSS into compiled output. The npm guide shows this as a way to add shared variables or base styles across all compiled CSS files.
+
+```js filename="aliascss.config.js"
+const config = {
+  statement: `
+    :root {
+      --bg-dark-color: rgba(111,111,111,1);
+      --bg-light-color: rgba(21,21,21,1);
+      --outline-color: blue;
+    }
+
+    body {
+      font-family: BlinkMacSystemFont, -apple-system;
+    }
+  `,
 }
-export default config;
+
+export default config
 ```
-Note:- Try to avoid using `statement` property when you are compiling file by file i.e using '--file'. Instead inject 
-separate css file in your root layout or master css file.
+
+Your note is important here: avoid relying too heavily on `statement` when compiling file-by-file with `--file`. In that workflow, a shared root stylesheet is often cleaner for long-term maintenance.
+
+## Building your own AliasCSS dialect
+
+This advanced layer is best understood as a spectrum of abstraction.
+
+### Level 1: utility extension
+
+Add a few custom colors, one shadow compiler, and some prebuilt helpers.
+
+### Level 2: token-driven utilities
+
+Replace raw values with token-aware compilers for spacing, colors, text, and layout.
+
+### Level 3: compound primitives
+
+Use group compilers for text scales, color systems, layout containers, and component shells.
+
+### Level 4: hybrid design system
+
+Blend:
+
+- Atomic utilities for local control.
+- `prebuild` for stable utility bundles.
+- `group` for global semantic primitives.
+- `--as-` for inline component extraction.
+- Group compilers for higher-level API design.
+
+At this level, AliasCSS is no longer just a compiler for shorthand classes. It becomes a design-system authoring tool.
+
+## Suggested architecture
+
+A practical team setup could look like this:
+
+```js filename="aliascss.config.js"
+const config = {
+  custom: {
+    colors: {
+      surface: 'var(--color-surface)',
+      panel: 'var(--color-panel)',
+      primary: 'var(--color-primary)',
+      danger: 'var(--color-danger)',
+    },
+  },
+  prebuild: {
+    'text-body': 'font-size:16px;line-height:24px',
+    'text-title': 'font-size:20px;line-height:30px;font-weight:600',
+    'flex-center': 'display:flex;align-items:center;justify-content:center',
+  },
+  group: {
+    card: 'bgc-surface radius-lg shadow-sm p-16px',
+    'button-base': 'radius-md px-16px py-10px fw-600',
+  },
+  extend: {
+    shadow: {
+      property: 'box-shadow',
+      compiler: (value) => value,
+    },
+    text: {
+      type: 'group',
+      compiler: (value) => value,
+      groups: {
+        body: 'font-size:16px;line-height:24px;',
+        title: 'font-size:20px;line-height:30px;font-weight:600;',
+      },
+    },
+  },
+}
+
+export default config
+```
+
+This kind of configuration gives your team a controlled vocabulary that still feels lightweight in markup.
+
+<Callout type="warning" emoji="⚠️">
+  The more powerful your config becomes, the more important naming consistency becomes. If utility names, group names, and compiler behavior drift without a shared convention, your custom AliasCSS layer can become harder to learn than plain CSS.
+</Callout>
+
+## Documentation strategy
+
+If you expose advanced customization to other developers, document it in layers:
+
+1. Start with simple `extend` examples.
+2. Show how `property`, `alias`, and `values` work together.
+3. Introduce `type: 'group'` only after single-property compilers are clear.
+4. Separate static patterns (`prebuild`, `group`) from dynamic compilers.
+5. End with a full design-system example that combines colors, typography, layout, and component primitives.
+
+This progression helps developers understand not just what each config key does, but how the whole system fits together.
+

@@ -1,34 +1,319 @@
-import {  Table } from 'nextra/components'
-import SearchStaticClassNames,{classNames} from '../../app/components/staticClassNames';
-import { staticClassNames } from '../../node_modules/aliascss/lib/index';
+import { Callout, Table } from 'nextra/components'
+import SearchStaticClassNames, { classNames } from '../../app/components/staticClassNames'
+import { staticClassNames } from '../../node_modules/aliascss/lib/index'
 
+# Static ClassNames
 
+<SearchStaticClassNames />
 
-## Static ClassNames
-<SearchStaticClassNames/>
-<br/>
-### Popular static ClassNames (Shorthand)
-# 
+<br />
 
+## Static class name definition
 
-<Table>
-  <thead>
-    <Table.Tr>
-      <Table.Th>className</Table.Th>
-      <Table.Th>Style</Table.Th>
-    </Table.Tr>
-  </thead>
-  <tbody>
-    {['dn','aic','jcc','jcsb','aifs','df','dif','fw-5','fw-6'].map((item,index)=>(
-      <Table.Tr>
-        <Table.Td><code>{item}</code></Table.Td>
-        <Table.Td><code>{staticClassNames[item]}</code></Table.Td>
-      </Table.Tr>
-     ))
-    }
-  </tbody>
-</Table>
+Static class names are AliasCSS class names whose property-value pairs use a **fixed or limited set of valid values**.
 
-``` $${{'red'}}```
-  
+This is different from dynamic utilities such as color, width, border, transform, margin, or font-size, where the value can vary more freely.
 
+### Examples of static-style declarations
+
+- `display: flex`
+- `flex-direction: row`
+- `text-align: center`
+- `align-items: stretch`
+- `justify-content: space-between`
+
+### Core rule
+
+To create a static AliasCSS class name from a CSS declaration:
+
+- replace `:` with `-`
+- replace spaces inside the value with `-`
+
+### Examples
+
+- `display: flex` → `display-flex`
+- `flex-direction: row` → `flex-direction-row`
+- `text-align: center` → `text-align-center`
+- `background-position: right bottom` → `background-position-right-bottom`
+- `display: var(--mode-of-display)` → `display--mode-of-display`
+
+<Callout type="info" emoji="💡">
+You do not need to memorize static class names. If you know the CSS property and value you want, you can usually construct the AliasCSS class name directly.
+</Callout>
+
+---
+
+## Method 1: Generic shorthand
+
+AliasCSS can generate an equivalent shorthand for static class names by taking the **first letter of each word** from the property and value.
+
+Words can be separated by:
+
+- `-` inside a property or value
+- spaces inside the value
+
+### Rule
+
+Take the first character from each word in the property and value, then combine them into one shorthand class name.
+
+### Examples
+
+- `display: flex` → `df`
+- `display: inline-flex` → `dif`
+- `text-decoration: underline` → `tdu`
+- `perspective-origin: bottom left` → `pobl`
+- `justify-content: space-between` → `jcsb`
+
+This shorthand is mainly useful for rapid development, quick testing, or compact utility usage.
+
+---
+
+## Conflict handling
+
+Sometimes two different declarations may generate the same shorthand.
+
+When that happens, AliasCSS resolves the conflict by appending a number such as `2`, `3`, or `4`.
+
+### Example
+
+```text
+acs       -> align-content: start
+acs2      -> align-content: stretch
+```
+
+AliasCSS can also let you write the intended value explicitly using `/` for conflicted shorthand forms.
+
+### Example
+
+```text
+acs/start   -> align-content: start
+acs/stretch -> align-content: stretch
+```
+
+<Callout type="warning" emoji="⚠️">
+Conflict suffixes matter only when two static declarations collide to the same shorthand. In most day-to-day usage, you will rarely need to think about them.
+</Callout>
+
+---
+
+## Method 2: Alias-style shorthand
+
+AliasCSS also supports a second shorthand style that is more readable and better suited for production.
+
+This method works by using:
+
+- a short alias for the property,
+- a short alias for the value,
+- or both.
+
+### Rule
+
+Write the class name in a readable alias form:
+
+```text
+propertyAlias-value
+property-valueAlias
+propertyAlias-valueAlias
+```
+
+### Examples
+
+- `display: flex` → `display-f`, `d-flex`, `d-f`
+- `align-items: center` → `align-items-c`, `ai-center`, `ai-c`
+- `flex-direction: column` → `flex-direction-c`, `fd-column`, `fd-c`
+- `text-align: center` → `text-align-c`, `ta-center`, `ta-c`
+
+This style is easier to scan in production code because it stays shorter without becoming fully cryptic.
+
+---
+## Property and value alias rules
+
+AliasCSS only recognizes **explicitly defined property aliases and value aliases**.
+
+That means you can use either:
+
+- the full property name, or
+- an official AliasCSS property alias
+
+but you cannot invent partial or mixed forms that are not defined by the system.
+
+### Example: `font-family`
+
+### Valid
+
+```html
+<p class="font-family-system-ui">Text</p>
+<p class="ff-system-ui">Text</p>
+```
+
+Here:
+
+- `font-family` is the full property name
+- `ff` is the official property alias
+
+### Invalid
+
+```html
+<p class="f-family-system-ui">Text</p>
+<p class="font-f-system-ui">Text</p>
+```
+
+These look similar, but they are not valid unless AliasCSS explicitly defines them as aliases.
+
+### Same rule for values
+
+You can use:
+
+- the full value, or
+- a defined value alias
+
+but you should not invent value abbreviations that are not part of the system.
+
+### Valid
+
+```html
+<p class="ff-system-ui">System font</p>
+```
+
+### Invalid unless explicitly configured
+
+```html
+<p class="ff-sys">System font</p>
+```
+
+If `sys` is not defined as an AliasCSS value alias, it should not be treated as a valid replacement for `system-ui`.
+
+<Callout type="warning" emoji="⚠️">
+Do not assume any partial spelling is valid. In AliasCSS, only the full property/value form or an officially defined alias is valid.
+</Callout>
+
+---
+
+## Which shorthand should you use?
+
+Both shorthand systems are valid, but they serve slightly different purposes.
+
+| Style | Best for | Example |
+| --- | --- | --- |
+| Generic shorthand | Fast prototyping, compact writing | `df`, `jcsb`, `pobl` |
+| Alias-style shorthand | Production code, readability, maintainability | `d-flex`, `ai-c`, `fd-column` |
+
+### Recommendation
+
+- Use shorthand for very common, easy-to-recognize declarations.
+- Use full semantic class names for less common or less obvious declarations.
+- Prefer alias-style shorthand in production when readability matters.
+- Use full semantic names whenever shorthand starts to feel ambiguous.
+
+<Callout type="info" emoji="ℹ️">
+A good practical pattern is to use shorthand for highly familiar utilities like `d-flex`, `ai-c`, or `ta-c`, and use full semantic names for less common declarations.
+</Callout>
+
+---
+
+## Mental model
+
+If the CSS value belongs to a small, well-defined set of known options, it usually fits the static class name system.
+
+Examples:
+
+- `display: flex`
+- `position: absolute`
+- `text-transform: uppercase`
+- `justify-content: center`
+
+If the value is open-ended or highly variable, it usually belongs to the dynamic class system instead.
+
+Examples:
+
+- `width: 320px`
+- `color: #e3e3e3`
+- `transform: rotate(30deg)`
+- `margin: 12px 24px`
+
+---
+
+## Example patterns
+
+### Full semantic form
+
+```html
+<div class="display-flex flex-direction-row align-items-center justify-content-space-between">
+  ...
+</div>
+```
+
+### Generic shorthand form
+
+```html
+<div class="df fdr aic jcsb">
+  ...
+</div>
+```
+
+### Alias-style shorthand form
+
+```html
+<div class="d-flex fd-row ai-center jc-space-between">
+  ...
+</div>
+```
+
+All three forms express the same visual intent. The difference is only how explicit or compact you want the class names to be.
+
+---
+
+## Best practices
+
+- Start with full semantic names until the pattern feels natural.
+- Use generic shorthand mainly for quick experiments or dense utility writing.
+- Use alias-style shorthand for production-friendly readability.
+- Do not force shorthand for obscure declarations.
+- When in doubt, prefer clarity over brevity.
+
+---
+
+## Common pitfalls
+
+- Assuming every short form is easier to read
+- Overusing highly compressed shorthand in shared codebases
+- Forgetting that spaces inside values must become `-`
+- Mixing too many shorthand styles without a team convention
+- Treating dynamic-value utilities as static ones
+
+---
+
+## Cheat sheet
+
+```text
+display: flex
+-> display-flex
+-> df
+-> d-flex
+-> d-f
+
+flex-direction: row
+-> flex-direction-row
+-> fdr
+-> fd-row
+-> fd-r
+
+text-align: center
+-> text-align-center
+-> tac
+-> ta-center
+-> ta-c
+
+justify-content: space-between
+-> justify-content-space-between
+-> jcsb
+-> jc-space-between
+-> jc-sb
+```
+
+## See also
+
+- Basic Usage
+- Dynamic ClassNames
+- Scope Grammar
+- In-line Grouping

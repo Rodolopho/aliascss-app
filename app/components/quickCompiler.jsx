@@ -1,20 +1,26 @@
 "use client"
 import InputBox from './inputClassName.jsx';
 import {main}  from '../../node_modules/aliascss/lib/index.js';
+
 import './quickCompiler.jsx.css';
 // import { HelpCircle } from 'react-feather';
 // import SearchStaticClassNames from '../components/staticClassNames';
 import ModalSearch from './modalSearch.jsx';
 import { useState,useEffect,useRef } from 'react'
+import CSSCodeBlock from './css-highlighter.jsx';
 
 
 
 
 export default function QuickCompiler(){
     const[className,setClassName]=useState([]);
+    const [formattedCSS, setFormattedCSS] = useState(`/* Here you can View Compiled CSS */`);
     const compilerBox=useRef(null);
     useEffect(()=>{
-            if(className.length)compilerBox.current.innerHTML=formatter(className,main);
+            if(className.length){
+                compilerBox.current.innerHTML=formatter(className,main);
+                setFormattedCSS(formatter(className, main,true));
+            };
     },[className]);
 
     const handleSubmit=(e,value)=>{
@@ -24,45 +30,57 @@ export default function QuickCompiler(){
         }
         
     }
-        return(
-            <div className="df g-16px fd-c">
-                <InputBox handleSubmit={handleSubmit}/>
+        return (
+          <div className="df g-16px fd-c">
+            <InputBox handleSubmit={handleSubmit} />
+            <div className="df jcsb">
+              <div className="p-4px-10px-4px-4px br-16px bgc-blue50 --is(_html[class~=dark])&-bgc-gray700 --is(_html[class~=dark])&-c-blue100 x-text-xs fw5 c-gray500 w-xc aic g12px dif">
+                <span className="bgc-fff p-2px-10px br16px df aic g4px --is(_html[class~=dark])&-bgc-blue700 --is(_html[class~=dark])&-c-blue100">
+                  Note
+                </span>
+                <span className="df aic gap-4px">
+                  {" "}
+                  input classname/s separated by space.
+                </span>
+              </div>
 
-                <div className="df jcsb">
-                    <div className="p-4px-10px-4px-4px br-16px bgc-blue50 --is(_html[class~=dark])&-bgc-gray700 --is(_html[class~=dark])&-c-blue100 x-text-xs fw5 c-gray500 w-xc aic g12px dif">
-                        <span className="bgc-fff p-2px-10px br16px df aic g4px --is(_html[class~=dark])&-bgc-blue700 --is(_html[class~=dark])&-c-blue100">Note</span>
-                        <span className="df aic gap-4px"> input classname/s separated by space.</span>
-                       
-                    </div>
-
-                   <ModalSearch />
-                     
-                </div>
-                
-                    <div 
-                    id="acss-box" 
-                    ref={compilerBox} 
-                    className="h-30rem b-1px-s-ccc oa br-5px p24px bl15px-s-blueLight600  ff-courier x-text-sm o-a w100p"
-                    
-                    >
-                        {className.length?
-                        '':
-                        '[Here you can view Compiled ACSS className]'
-                        }
-                        {/* {className.map((value)=>{
+              <ModalSearch />
+            </div>
+            <div
+              id="acss-box"
+              ref={compilerBox}
+              className="dn h-30rem b-1px-s-ccc oa br-5px p24px bl15px-s-blueLight600  ff-courier x-text-sm o-a w100p"
+            >
+              {className.length
+                ? ""
+                : "[Here you can view Compiled ACSS className]"}
+              {/* {className.map((value)=>{
                             if(value.trim())
                                 return(
                                     <CSSStm statement={value}/>
                             )
                         })} */}
-                    </div>
-                <div>
-
-
-                </div>
             </div>
+            <div
+              keyframes-borderflow="@0-[bgp-0%-50%] @50-[bgp-100%-50%] @100-[bgp-0%-100%]"
+              
+              className="
+               --webkit-scrollbar-dn  _pre[--webkit-scrollbar-dn,h-100%,p-16px]  
+               h-30rem b-1px-s-transparent oa br-5px  bl0px-s-transparent  ff-courier x-text-sm o-a w100p
+               bg-lg-135deg-blue700-fuchsia700-purple700
+                bgs-200%-200%
+                animation-name-borderflow
+                animation-duration-3s
+                animation-timing-function-linear
+                animation-iteration-count-infinite
+                pl-5px
+               "
 
-        )
+            >
+              <CSSCodeBlock cssCode={formattedCSS} />
+            </div>
+          </div>
+        );
 }
 
 export function CSSStm(props){
@@ -91,14 +109,25 @@ export function CSSStm(props){
        
 }
 
-function formatter( classes, acssCompiler) {
+function formatter( classes, acssCompiler,bool) {
 
-    let statement='';
+    let statement = "/* Here you can View Compiled CSS */";
   
       classes.forEach(function (eachClass) {
+        if(! eachClass.trim().length) return;
         var result = acssCompiler.make(eachClass);
         if (result) {
           var styledResult = result;
+
+          if(bool){
+            if (statement.match(/\n$/)) {
+              statement += styledResult;
+            } else {
+              statement += "\n" + styledResult;
+            }
+           
+            return;
+        }
   
           styledResult = styledResult.replace(
             /{(.+)}/g,
@@ -109,6 +138,14 @@ function formatter( classes, acssCompiler) {
           // +"&nbsp;&nbsp;&nbsp;&nbsp;"+styleresult + ";</sapn><br>" +"<span style='color:blue'>}</span><br>";
           statement += styledResult;
         } else {
+             if (bool) {
+                if (statement.match(/\n$/)) {
+                  statement += `/*  ${eachClass} is Not a Valid AliasCSS Classname */`;
+                } else {
+                  statement += `\n/*  ${eachClass} is Not a Valid AliasCSS Classname */`;
+                }
+               return;
+             }
           statement +=
             '<br><em><span className="c-warning"><i className="fas fa-warning"></i></span><span style="color:#f4433c" > ' +
             eachClass +

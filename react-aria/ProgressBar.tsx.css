@@ -1,0 +1,24 @@
+.df{display: flex}
+.fdc{flex-direction: column}
+.g-2{gap:var(--space-2,0.5rem)}
+.w-100p{width: 100%}
+.dif{display: inline-flex}
+.aic{align-items: center}
+.jcsb{justify-content: space-between}
+.fs--font-size{font-size: var(--font-size)}
+.c-grayRATheme1200{color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 79.1773% c h))}
+.oh{overflow: hidden}
+.h-2{height:var(--space-2,0.5rem)}
+.br-9999px{border-radius: 9999px}
+.h-100p{height: 100%}
+.bgc-indigoRATheme1000{background-color:light-dark(oklch(from var(--indigoColor,oklch(1 .25049 284.23)) 51.9076% c h),oklch(from var(--indigoColor,oklch(1 .25049 284.23)) 67.0121% c h))}
+.tn-width-200ms{transition:width 200ms}
+.w-8{width:var(--space-8,2rem)}
+.an-progress-indeterminate{animation-name:progress-indeterminate}
+.adu-1s{animation-duration: 1s}
+.atf-linear{animation-timing-function:linear}
+.aic-infinite{animation-iteration-count:infinite}
+@keyframes progress-indeterminate{
+ 0% {transform:translateX(-100%)} 100% {transform:translateX(250%)}
+}
+

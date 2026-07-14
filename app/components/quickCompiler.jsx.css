@@ -20,6 +20,7 @@
 .g4px{gap:4px}
  :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc-blue700{background-color:var(--blue700,#175CD3)}
 .gap-4px{gap: 4px}
+.dn{display: none}
 .h-30rem{height: 30rem}
 .b-1px-s-ccc{border:1px solid #ccc}
 .oa{overflow: auto}
@@ -30,6 +31,20 @@
 .x-text-sm{font-size: var(--text-sm,0.875rem); line-height: 1.25rem}
 .o-a{opacity:-a}
 .w100p{width:100%}
+.--webkit-scrollbar-dn::-webkit-scrollbar{display: none}
+._pre\[--webkit-scrollbar-dn\,h-100\%\,p-16px\] pre::-webkit-scrollbar{display: none} 
+._pre\[--webkit-scrollbar-dn\,h-100\%\,p-16px\] pre{height: 100%} 
+._pre\[--webkit-scrollbar-dn\,h-100\%\,p-16px\] pre{padding: 16px} 
+
+.b-1px-s-transparent{border:1px solid transparent}
+.bl0px-s-transparent{border-left:0px solid transparent}
+.bg-lg-135deg-blue700-fuchsia700-purple700{background:linear-gradient( 135deg,  var(--blue700,#175CD3), var(--fuchsia700,#9F1AB1), var(--purple700,#5925DC) )}
+.bgs-200\%-200\%{background-size: 200% 200%}
+.animation-name-borderflow{animation-name:borderflow}
+.animation-duration-3s{animation-duration: 3s}
+.animation-timing-function-linear{animation-timing-function:linear}
+.animation-iteration-count-infinite{animation-iteration-count:infinite}
+.pl-5px{padding-left: 5px}
 .fdc{flex-direction: column}
 .c-green700{color:var(--green700,#087443)}
 .fw6{font-weight: 600}
@@ -41,3 +56,7 @@
 .c-error500{color:var(--error500,#F04438)}
 .c-blue{color:blue}
 .c-warning{color:warning}
+@keyframes borderflow{
+ 0% {background-position: 0% 50%} 50% {background-position: 100% 50%} 100% {background-position: 0% 100%}
+}
+

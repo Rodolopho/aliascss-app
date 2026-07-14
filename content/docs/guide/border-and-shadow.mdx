@@ -1,80 +1,123 @@
 import { Callout } from 'nextra/components'
 
+export const metadata = {
+  title: 'Border and Shadow',
+  description: 'Documentation-friendly guide to borders, border radius, border styles, and box shadows in AliasCSS.',
+}
+
 # Border and Shadow
----------
 
-Border and Shadow are very common styles used in almost every website and application
+Borders and shadows are among the most common visual tools in modern UI. Borders help define edges, separation, and states, while shadows add depth and emphasis around an element’s frame [web:153][web:144].
 
-### Border
-| Classname | Shorthand | Compiled Style |
-| :------------ | :---------: | ----------: |
+## Border
+
+AliasCSS includes utilities for border reset, radius, width, side-specific borders, border style, and border color. This maps closely to native CSS, where the `border` shorthand combines width, style, and color into one declaration [web:153].
+
+### Examples
+
+| Classname | Shorthand | Compiled style |
+| --- | --- | --- |
 | `border-none` | `bn` | `border:none` |
-| `border-radius-12px` | `br-12px` | `border-radius:1px` |
+| `border-radius-12px` | `br-12px` | `border-radius:12px` |
 | `border-width-1px` | `bw-1px` | `border-width:1px` |
 | `border-width-1px-2px` | `bw-1px-2px` | `border-width:1px 2px` |
 | `border-1px-solid-red` | `b-1px-s-red` | `border:1px solid red` |
-| `border-1px-solid-red` | `b-1px-s-red` | `border:1px solid red` |
-| `border-1px-dashed--border-color` | `b-1px-d--border-color`| `border:1px dashed var(--border-color)` |
+| `border-1px-dashed--border-color` | `b-1px-d--border-color` | `border:1px dashed var(--border-color)` |
 | `border-right-1px-solid-red` | `brt-1px-s-red` | `border-right:1px solid red` |
 | `border-top-1px-solid-red` | `bt-1px-s-red` | `border-top:1px solid red` |
 | `border-left-1px-solid-red` | `bl-1px-s-red` | `border-left:1px solid red` |
 | `border-bottom-1px-solid-red` | `bb-1px-s-red` | `border-bottom:1px solid red` |
 | `border-color-red` | `bc-red` | `border-color:red` |
 | `border-bottom-color-red` | `bbc-red` | `border-bottom-color:red` |
-| `border-style-solid` | `bss` | `border-style:solid` |
-| `border-style-dashed` | `bsd` | `border-style:dashed` |
-| `border-style-dotted` | `bsdt` | `border-style:dotted` |
-| `border-style-double` | `bsdb` | `border-style:double` |
+| `border-style-solid` | `bss` or | `border-style:solid` |
+| `border-style-dashed` | `bsd` or `bsd/dashed` | `border-style:dashed` |
+| `border-style-dotted` | `bsdt`  or `bsd3` or `bsd/dotted` | `border-style:dotted` |
+| `border-style-double` | `bsdb` or `bsd2`  or `bsd/double`| `border-style:double` |
 | `border-style-groove` | `bsg` | `border-style:groove` |
 | `border-style-inset` | `bsi` | `border-style:inset` |
 | `border-style-none` | `bsn` | `border-style:none` |
 
-Usage Eg:- 
-```html copy  showLineNumbers
-    <h1 
-    class="p-32px br-8px b-1px-s-e3e3e3 d-f w-100px mh-64px"
-    >
-    Hello, World
-    </h1>
-``` 
+### Usage
 
+```html copy showLineNumbers
+<h1
+  class="p-32px br-8px b-1px-s-e3e3e3 d-f w-100px mh-64px"
+>
+  Hello, World
+</h1>
+```
 
+`border-radius` rounds the corners of an element’s outer border edge, so it is especially useful for cards, buttons, inputs, badges, and modern surface components [web:151].
 
-### Box Shadow
+<Callout type="info" emoji="🧱">
+  In modern UI, borders usually work best when they are subtle. For many surfaces, a light border plus a soft shadow feels cleaner than a heavy border alone.
+</Callout>
 
-| Classname | Shorthand | Compiled Style |
-| :------------ | :---------: | ----------: |
-| `box-shadow-1px-1px-1px-red` | `box-shadow-1px-1px-1px-red` | `box-shadow:1px 1px 1px red` |
+## Box shadow
+
+AliasCSS also supports direct box-shadow utilities, including inset shadows, multi-layer shadows, and color functions. MDN defines `box-shadow` as a property that adds shadow effects around an element’s frame, and multiple shadows can be separated with commas [web:144].
+
+### Examples
+
+| Classname | Shorthand | Compiled style |
+| --- | --- | --- |
+| `box-shadow-1px-1px-1px-red` | `bxs-1px-1px-1px-red` | `box-shadow:1px 1px 1px red` |
 | `box-shadow-inset-5em-1em-blue200` | `bxs-i-5em-1em-blue200` | `box-shadow:inset 5em 1em var(--blue200,#B2DDFF)` |
-| `box-shadow-2px-2px-2px-2px-rgb-231-0-0-0.4` | `box-shadow-2px-2px-2px-1px-rgb-231-0-0-0.4` | `box-shadow:2px 2px 2px 1px rgb(231 0 0 / 0.4)` |
-| `box-shadow-2px-2px-2px-2px-red__1px-1px-4px-skyBlue` | `box-shadow-2px-2px-2px-1px-red__1px-1px-4px-skyBlue` | `box-shadow:2px 2px 2px 1px red, 1px 1px 4px skyBlue` |
+| `box-shadow-2px-2px-2px-1px-rgb-231-0-0-0.4` | `bxs-2px-2px-2px-1px-rgb-231-0-0-0.4` | `box-shadow:2px 2px 2px 1px rgb(231 0 0 / 0.4)` |
+| `box-shadow-2px-2px-2px-1px-red__1px-1px-4px-skyBlue` | `bxs-2px-2px-2px-1px-red__1px-1px-4px-skyBlue` | `box-shadow:2px 2px 2px 1px red, 1px 1px 4px skyBlue` |
 
+### Usage
 
-Usage Eg:- 
-```html copy  showLineNumbers
-    <h1 
-    class="p-32px br-8px bxs-1px--1px-2px-2px--black/7 d-f w-100px mh-64px"
-    >
-    Hello, World
-    </h1>
-``` 
+```html copy showLineNumbers
+<h1
+  class="p-32px br-8px bxs-1px--1px-2px-2px--black/7 d-f w-100px mh-64px"
+>
+  Hello, World
+</h1>
+```
 
+The `box-shadow` property supports horizontal offset, vertical offset, blur radius, spread radius, optional `inset`, and one or more shadow colors, which makes it flexible enough for soft elevation, focus rings, inner shadows, and multi-layer depth [web:144][web:152].
 
+## Borders and shadows together
 
+Borders and shadows often work best together. If an element has a `border-radius`, the shadow follows the same rounded corners, which helps card and button surfaces feel coherent [web:149].
 
-------------------
-***Note***
+A practical pattern for modern UI is:
+
+- Use a thin border for edge definition.
+- Use a soft shadow for elevation.
+- Use radius to match the visual softness of the component.
+- Keep shadow color low-contrast unless the design intentionally calls for dramatic depth.
+
+## CSS variables for complex values
+
+When border or shadow values become complex, CSS variables are usually the cleanest solution.
+
 <Callout type="info" emoji="💡">
-***TIPS***
-You can always use css-variables to handle complex  values. for Example
-</Callout >
-```html copy  showLineNumbers
-    <button 
-    class="display-inline-flex b-1px-s-primary600 bxs--shadow-sm" 
-    style='
-    --shadow-sm:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)
-    '
-    >
-        Hello, World
-    </button>
-``` 
+  You can always use CSS variables to handle complex shadow values, then reference them in AliasCSS classes.
+</Callout>
+
+```html copy showLineNumbers
+<button
+  class="display-inline-flex b-1px-s-primary600 bxs--shadow-sm"
+  style='
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)
+  '
+>
+  Hello, World
+</button>
+```
+
+This approach is especially useful for reusable elevation tokens such as `--shadow-sm`, `--shadow-md`, and `--shadow-lg`, or when your design system wants centralized control over shadow recipes.
+
+## Guidance
+
+A practical way to use border and shadow utilities in AliasCSS is:
+
+- Use borders for separation and state.
+- Use radius to soften shape.
+- Use shadows for depth, not decoration overload.
+- Prefer tokenized shadow variables for consistency.
+- Combine border, radius, and shadow intentionally so surfaces feel part of one visual system.
+
+That makes these utilities work well not only for simple components, but also for cards, panels, dialogs, tables, and full design-system surface patterns.

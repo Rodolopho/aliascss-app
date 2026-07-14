@@ -1,0 +1,32 @@
+# Number Field
+import NumberFieldDemo from '../../../demos/react-aria/number-field';
+import content from '!!raw-loader!../../../demos/react-aria/number-field';
+import component from '!!raw-loader!../../../react-aria/NumberField';
+import { compileMdx } from 'nextra/compile';
+import { MDXRemote } from 'nextra/mdx-remote';
+import { Tabs } from 'nextra/components';
+
+export const filenames=['number-field.tsx','NumberField.tsx'];
+
+import './react-aria-number-field.mdx.css';
+
+<NumberFieldDemo/>
+
+<Tabs items={[filenames[0], filenames[1]]}>
+  <Tabs.Tab>
+    <MDXRemote
+      className="_pre-white-space-pre-wrap"
+      compiledSource={await compileMdx('```jsx  showLineNumbers copy filename="'+filenames[0]+'" '+ '\n'+content+'\n'+'```')}
+      components={{ MyComponent: () => <div>My Component</div> }}
+      scope={{ myVariable: content }}
+    />
+  </Tabs.Tab>
+  <Tabs.Tab>
+    <MDXRemote
+      className="_pre-white-space-pre-wrap"
+      compiledSource={await compileMdx('```jsx  showLineNumbers copy filename="'+filenames[1]+'" '+ '\n'+component+'\n'+'```')}
+      components={{ MyComponent: () => <div>My Component</div> }}
+      scope={{ myVariable: component }}
+    />
+  </Tabs.Tab>
+</Tabs>

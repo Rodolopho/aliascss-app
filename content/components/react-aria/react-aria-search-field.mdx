@@ -1,0 +1,32 @@
+# Search Field
+import SearchFieldDemo from '../../../demos/react-aria/search-field';
+import content from '!!raw-loader!../../../demos/react-aria/search-field';
+import component from '!!raw-loader!../../../react-aria/SearchField';
+import { compileMdx } from 'nextra/compile';
+import { MDXRemote } from 'nextra/mdx-remote';
+import { Tabs } from 'nextra/components';
+
+export const filenames=['search-field.tsx','SearchField.tsx'];
+
+import './react-aria-search-field.mdx.css';
+
+<SearchFieldDemo/>
+
+<Tabs items={[filenames[0], filenames[1]]}>
+  <Tabs.Tab>
+    <MDXRemote
+      className="_pre-white-space-pre-wrap"
+      compiledSource={await compileMdx('```jsx  showLineNumbers copy filename="'+filenames[0]+'" '+ '\n'+content+'\n'+'```')}
+      components={{ MyComponent: () => <div>My Component</div> }}
+      scope={{ myVariable: content }}
+    />
+  </Tabs.Tab>
+  <Tabs.Tab>
+    <MDXRemote
+      className="_pre-white-space-pre-wrap"
+      compiledSource={await compileMdx('```jsx  showLineNumbers copy filename="'+filenames[1]+'" '+ '\n'+component+'\n'+'```')}
+      components={{ MyComponent: () => <div>My Component</div> }}
+      scope={{ myVariable: component }}
+    />
+  </Tabs.Tab>
+</Tabs>

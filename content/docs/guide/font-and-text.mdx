@@ -1,82 +1,147 @@
 import { Callout } from 'nextra/components'
 
+export const metadata = {
+  title: 'Font and Text',
+  description: 'Documentation-friendly guide to font, typography, alignment, wrapping, decoration, transformation, and text shadow utilities in AliasCSS.',
+}
+
 # Font and Text
----------
 
+Typography utilities are a core part of AliasCSS because text styling appears in almost every UI. AliasCSS covers font family, size, weight, style, alignment, decoration, wrapping, transformation, and text shadow in a syntax that stays close to native CSS concepts [web:19][web:157].
 
+## Font and text utilities
 
-### Font and text related classNames examples
-| Classname | Shorthand | Compiled Style |
-| :------------ | :---------: | ----------: |
-| `font-size-1.2em` | `fs-1,2em` | `font-size:1.2rem` |
+AliasCSS supports both semantic property names and shorthand forms for many text-related styles.
+
+### Examples
+
+| Classname | Shorthand | Compiled style |
+| --- | --- | --- |
+| `font-size-1.2em` | `fs-1d2em` | `font-size:1.2em` |
 | `font-family-inter` | `ff-inter` | `font-family:inter` |
 | `font-family-Inter__Segoe_UI__Arial__sans-serif` | `ff-Inter__Segoe_UI__Arial__sans-serif` | `font-family:Inter, "Segoe UI", Arial, sans-serif` |
-| `font-family_-apple-system__BlinkMacSystemFont__Arial,__sans-serif` | `ff-system-ui__-apple-system__sans-serif` | `font-family:-apple-system, BlinkMacSystemFont, Arial, sans-serif` |
-| `font-family-Georgia__Times_New_Roman__serif` | `ff-Georgia__Times_New_Roman__serif` | `font-family: Georgia, "Times New Roman", serif;` |
+| `font-family--apple-system__BlinkMacSystemFont__Arial__sans-serif` | `ff--apple-system__BlinkMacSystemFont__Arial__sans-serif` | `font-family:-apple-system, BlinkMacSystemFont, Arial, sans-serif` |
+| `font-family-Georgia__Times_New_Roman__serif` | `ff-Georgia__Times_New_Roman__serif` | `font-family:Georgia, "Times New Roman", serif` |
+| `font-style-italic` | `fsi` | `font-style:italic` |
+| `font-style-oblique` | `fso` | `font-style:oblique` |
+| `font-style-normal` | `fsnl` | `font-style:normal` |
+| `font-weight-900` | `fw9` | `font-weight:900` |
+| `font-weight-800` | `fw8` | `font-weight:800` |
+| `font-weight-700` | `fw7` | `font-weight:700` |
+| `font-weight-600` | `fw6` or `fw-600` | `font-weight:600` |
+| `font-weight-thin` | `fw-thin` | `font-weight:100` |
+| `font-weight-bold` | `fwb` | `font-weight:bold` |
+| `font-weight-lighter` | `fwl` | `font-weight:lighter` |
+| `text-align-center` | `tac` | `text-align:center` |
+| `text-align-right` | `tar` | `text-align:right` |
+| `text-align-justify` | `taj` | `text-align:justify` |
+| `text-align-left` | `tal` | `text-align:left` |
+| `text-align-last-left` | `tall` | `text-align-last:left` |
+| `text-decoration-underline` | `tdu` | `text-decoration:underline` |
+| `text-decoration-none` | `tdn` | `text-decoration:none` |
+| `text-transform-uppercase` | `ttu` | `text-transform:uppercase` |
+| `text-transform-capitalize` | `ttc` | `text-transform:capitalize` |
+| `text-transform-lowercase` | `ttl` | `text-transform:lowercase` |
+| `text-wrap-balance` | No alias | `text-wrap:balance` |
+| `text-wrap-wrap` | No alias | `text-wrap:wrap` |
+| `text-wrap-nowrap` | No alias | `text-wrap:nowrap` |
+| `text-wrap-pretty` | No alias | `text-wrap:pretty` |
+| `text-wrap-stable` | No alias | `text-wrap:stable` |
 
-| `font-style-italic` | `fsi` | `font-style: italic` |
-| `font-style-oblique` | `fso` | `font-style: oblique` |
-| `font-style-normal` | `fsnl` | `font-style: normal` |
-| `font-weight-900` | `fw9` | `font-weight: ` |
-| `font-weight-800` | `fw8` | `font-weight: 800` |
-| `font-weight-700` | `fw7` | `font-weight: 700` |
-| `font-weight-600` | `fw6 or fw-600` | `font-weight: 600` |
+The CSS `font-family` property should generally include fallback fonts, and multi-word family names should be quoted, which matches the utility patterns shown above [web:166].
 
-| `font-weight-thin` | `fw-thin` | `font-weight: 100` |
-| `font-weight-bold` | `fwb` | `font-weight: bold` |
-| `font-weight-lighter` | `fwl` | `font-weight: lighter` |
-| `text-align-center` | `tac` | `text-align: center` |
-| `text-align-right` | `tar` | `text-align: right` |
-| `text-align-justify` | `taj` | `text-align: justify` |
-| `text-align-left` | `tal` | `text-align: left` |
-| `text-align-last-left` | `tall` | `text-align-last: left` |
-| `text-decoration-underline` | `tdu` | `text-decoration: underline` |
-| `text-decoration-none` | `tdn` | `text-decoration: none` |
-| `text-transform-uppercase` | `ttu` | `text-transform: uppercase` |
-| `text-transform-capitalize` | `ttc` | `text-transform: capitalize` |
-| `text-transform-lowercase` | `ttl` | `text-transform: lowercase` |
-| `text-wrap-balance` | `no Alias` | `text-wrap: balance` |
-| `text-wrap-wrap` | `no Alias` | `text-wrap: wrap` |
-| `text-wrap-nowrap` | `no Alias` | `text-wrap: nowrap` |
-| `text-wrap-pretty` | `no Alias` | `text-wrap: pretty` |
-| `text-wrap-stable` | `no Alias` | `text-wrap: stable` |
+## Font families
 
+Font family utilities are especially useful because they let you express fallback stacks directly in class names.
 
+Examples such as `ff-Inter__Segoe_UI__Arial__sans-serif` or `ff-Georgia__Times_New_Roman__serif` make it possible to define a primary font, then list progressively safer fallbacks in the same utility string. This mirrors how CSS expects font stacks to be written, with the preferred family first and a generic family at the end [web:166][web:157].
 
-### Text Shadow
+## Font size, weight, and style
 
-| Classname | Shorthand | Compiled Style |
-| :------------ | :---------: | ----------: |
+AliasCSS covers the most common typography controls:
+
+- `font-size` for type scale decisions.
+- `font-weight` for emphasis and hierarchy.
+- `font-style` for italic, oblique, or normal rendering.
+
+These are some of the most frequently used text controls in CSS, and numeric weight values such as `600`, `700`, and `800` are standard for fine-grained emphasis [web:157][web:160].
+
+## Alignment, decoration, and transform
+
+Text alignment and text decoration utilities are useful for headings, links, labels, buttons, and structured content. AliasCSS also includes text transformation utilities for uppercase, lowercase, and capitalized text.
+
+These patterns help keep typographic decisions visible in markup, especially in component-driven interfaces where small text changes often matter as much as layout changes [web:19][web:157].
+
+## Text wrapping
+
+AliasCSS exposes `text-wrap` values directly, including modern options like `balance` and `pretty`. MDN describes `text-wrap` as the shorthand that controls how text inside an element is wrapped, while the related `text-wrap-mode` property controls whether text should wrap at all [web:163][web:161].
+
+### Why this matters
+
+Modern text wrapping values are especially useful for:
+
+- Balancing headings across multiple lines.
+- Improving paragraph rag in compact layouts.
+- Preventing awkward wrapping in cards, callouts, and dashboards.
+
+<Callout type="important" emoji="📝">
+  `text-wrap: balance` and `text-wrap: pretty` can noticeably improve headline and paragraph readability in modern interfaces, especially inside cards, banners, and documentation layouts.
+</Callout>
+
+## Text shadow
+
+AliasCSS also includes text-shadow utilities for glow, depth, contrast, and layered text effects. MDN describes `text-shadow` as a property that adds shadows to text and accepts a comma-separated list of shadows [web:165].
+
+### Examples
+
+| Classname | Shorthand | Compiled style |
+| --- | --- | --- |
 | `text-shadow-1px-1px-1px-red` | `txs-1px-1px-1px-red` | `text-shadow:1px 1px 1px red` |
 | `text-shadow-2px-2px-rgb-231-0-0-0.4` | `txs-2px-2px-rgb-231-0-0-0.4` | `text-shadow:2px 2px rgb(231 0 0 / 0.4)` |
-| `text-shadow-2px-2px-1px-red__1px-1px-4px-skyBlue` | `txs-2px-2px-1px-red__1px-1px-4px-skyBlue` | `text-shadow:2px 2px  1px red, 1px 1px 4px skyBlue` |
+| `text-shadow-2px-2px-1px-red__1px-1px-4px-skyBlue` | `txs-2px-2px-1px-red__1px-1px-4px-skyBlue` | `text-shadow:2px 2px 1px red, 1px 1px 4px skyBlue` |
 
+### Usage
 
-Usage Eg:- 
-```html copy  showLineNumbers
-    <h1 
-    class="p-32px br-8px txs-1px-1px-2px--black/7 d-f w-100px mh-64px"
-    >
-    Hello, World
-    </h1>
-``` 
+```html copy showLineNumbers
+<h1
+  class="p-32px br-8px txs-1px-1px-2px--black/7 d-f w-100px mh-64px"
+>
+  Hello, World
+</h1>
+```
 
+Text shadows can be subtle or decorative, but in most modern UI they work best when used lightly for hero text, image overlays, or contrast enhancement rather than on every heading [web:165].
 
+## CSS variables for complex text values
 
+When font stacks or text shadows become too complex, CSS variables are the best escape hatch.
 
-------------------
-***Note***
 <Callout type="info" emoji="💡">
-***TIPS***
-You can always use css-variables to handle complex  values. for Example
-</Callout >
-```html copy  showLineNumbers
-    <button 
-    class="display-inline-flex b-1px-s-primary600 bxs--text-shadow-sm" 
-    style='
-    --text-shadow-sm:0 1px 3px rgb(0 0 0 / 0.2), 0 1px 2px  rgb(24 0 0 / 0.1)
-    '
-    >
-        Hello, World
-    </button>
-``` 
+  You can always use CSS variables to handle complex text-related values, then reference those variables through AliasCSS classes.
+</Callout>
+
+```html copy showLineNumbers
+<button
+  class="display-inline-flex b-1px-s-primary600 txs--text-shadow-sm"
+  style='
+    --text-shadow-sm: 0 1px 3px rgb(0 0 0 / 0.2), 0 1px 2px rgb(24 0 0 / 0.1)
+  '
+>
+  Hello, World
+</button>
+```
+
+This pattern is especially useful when your project has reusable typographic tokens such as `--text-shadow-sm`, `--heading-font`, or `--body-font-stack`.
+
+## Guidance
+
+A practical way to use font and text utilities in AliasCSS is:
+
+- Use `font-family` utilities with full fallback stacks.
+- Use numeric `font-weight` values for consistent hierarchy.
+- Use alignment and transform utilities sparingly and intentionally.
+- Use modern `text-wrap` values where readability benefits.
+- Use text shadows only when they improve contrast or create a deliberate visual effect.
+- Move complex font stacks and shadow recipes into CSS variables when the class name becomes too dense.
+
+That keeps typography expressive without making the markup harder to read.

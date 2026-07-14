@@ -1,0 +1,32 @@
+# Radio Group
+import RadioGroupDemo from '../../../demos/react-aria/radio-group';
+import content from '!!raw-loader!../../../demos/react-aria/radio-group';
+import component from '!!raw-loader!../../../react-aria/RadioGroup';
+import { compileMdx } from 'nextra/compile';
+import { MDXRemote } from 'nextra/mdx-remote';
+import { Tabs } from 'nextra/components';
+
+export const filenames=['radio-group.tsx','RadioGroup.tsx'];
+
+import './react-aria-radio-group.mdx.css';
+
+<RadioGroupDemo/>
+
+<Tabs items={[filenames[0], filenames[1]]}>
+  <Tabs.Tab>
+    <MDXRemote
+      className="_pre-white-space-pre-wrap"
+      compiledSource={await compileMdx('```jsx  showLineNumbers copy filename="'+filenames[0]+'" '+ '\n'+content+'\n'+'```')}
+      components={{ MyComponent: () => <div>My Component</div> }}
+      scope={{ myVariable: content }}
+    />
+  </Tabs.Tab>
+  <Tabs.Tab>
+    <MDXRemote
+      className="_pre-white-space-pre-wrap"
+      compiledSource={await compileMdx('```jsx  showLineNumbers copy filename="'+filenames[1]+'" '+ '\n'+component+'\n'+'```')}
+      components={{ MyComponent: () => <div>My Component</div> }}
+      scope={{ myVariable: component }}
+    />
+  </Tabs.Tab>
+</Tabs>

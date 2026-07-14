@@ -1,16 +1,16 @@
-.card{padding: 20px} 
-.card{background-color:blue} 
-
-.----------\:{----------:}
-.height\,{height:,}
-.padding\,{padding:,}
-.margin\,{margin:,}
+.display-flex{display:flex}
+.flex-direction-row{flex-direction:row}
+.text-align-center{text-align:center}
 .color--fg1-custom-color{color: var(--fg1-custom-color)}
 .background--bg1-custom-color{background: var(--bg1-custom-color)}
 .font-size-3rem{font-size: 3rem}
 .color-blue{color:blue}
 .c-blue{color:blue}
 .fs-3rem{font-size: 3rem}
+.m-100px{margin: 100px}
+.m--100px{margin: -100px}
+.m-100px--100px-100px--100px{margin: 100px -100px 100px -100px}
+.bxs-1px--1px-2px-3px-red{box-shadow:1px -1px 2px 3px red}
 .d-flex{display:flex}
 .p-20px{padding: 20px}
 .bgc-blue{background-color:blue}
@@ -33,7 +33,6 @@
 ._div___h4-c-blue div + h4{color:blue}
 ._div____h4-c-green div ~ h4{color:green}
 .\[data-state\=open\]-d-flex[data-state="open"]{display:flex}
- .card ._\.card\&-c-blue{color:blue}
 .--hover-bg-blue:hover{background:blue}
 .--hover--focus-c-red:hover:focus{color:red}
 .\[p-20px\,c-red\]{padding: 20px} 
@@ -52,27 +51,11 @@
  
  
 
-._\.someClass_div\,_\.ban_em\[c-red\] .someClass div, .ban em{color:red} 
-
-.--is\(_div\,_ul\)\[c-red\] :is( div, ul){color:red} 
-
-.menu-a div, .ban ul{color:red} 
- 
- 
-.item-a div, .ban ul{color:red} 
- 
- 
-
 .an-fade{animation-name:fade}
 .adu-1s{animation-duration: 1s}
 @layer base{ .\@base-d-flex{display:flex}}
-@layer base{ @media (max-width : 576px){ .\@\[base\,xs\]-d-flex{display:flex}}}
 @media (min-width : 768px){ .md-d-flex{display:flex}}
 @keyframes fade{
  0% {opacity: 1} 100% {opacity: 0}
-}
-
-@keyframes move{
- 0%,50% {left: 0;top: 0} 100% {left: 100px;top: 100px}
 }
 

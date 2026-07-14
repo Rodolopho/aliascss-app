@@ -1,3 +1,5 @@
 .df{display: flex}
 .aic{align-items: center}
 .g8px{gap:8px}
+.pl-32px{padding-left: 32px}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-filter-invert-20\%{filter:invert(20%)}

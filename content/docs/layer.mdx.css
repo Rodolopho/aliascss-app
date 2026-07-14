@@ -1,4 +1,5 @@
 @layer base{ .\@base-all-unset{all:unset}}
+@layer theme{ .\@theme-c-gray{color:gray}}
 .color-fff{color:#fff}
 .bgc-blue{background-color:blue}
 @layer theme{ .\@theme-\[c-gray\,border-radius-4px\,bgc-skyBlue\]{color:gray}} 
@@ -21,3 +22,5 @@
 @media (max-width : 576px){ @layer base{ .active[data-state="open"]{left: 0}}} 
  
 
+@layer base{ @media (max-width : 576px){ .\@\[base\,xs\]-d-flex{display:flex}}}
+@media (max-width : 576px){ @layer base{ .\@\[xs\,base\]-d-flex{display:flex}}}

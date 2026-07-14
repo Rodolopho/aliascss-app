@@ -6,4 +6,4 @@
 .mh-64px{min-height: 64px}
 .display-inline-flex{display:inline-flex}
 .b-1px-s-primary600{border:1px solid var(--primary600,#7F56D9)}
-.bxs--text-shadow-sm{box-shadow: var(--text-shadow-sm)}
+.txs--text-shadow-sm{text-shadow: var(--text-shadow-sm)}

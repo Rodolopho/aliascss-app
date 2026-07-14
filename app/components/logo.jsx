@@ -1,9 +1,18 @@
 import Image from 'next/image'
 import './logo.jsx.css'
-import SearchStaticClassNames from '../components/staticClassNames';
+// import SearchStaticClassNames from '../components/staticClassNames';
 export default function Logo(){
-return <div className="df aic g8px">
-            <Image src='/logo.svg' alt="AliasCSS Logo" width={100} height={100} />
-            {/* <SearchStaticClassNames/> */}
-        </div>
+return (
+  <div className="df aic g8px pl-32px --is(_html[class~=dark])&-filter-invert-20% ">
+    <Image
+      className=""
+      src="/SVG/full-whiteAsset 4.svg"
+      alt="AliasCSS Logo"
+      width={120}
+      height={100}
+    />{" "}
+    {/* AliasCSS */}
+    {/* <SearchStaticClassNames/> */}
+  </div>
+);
 }

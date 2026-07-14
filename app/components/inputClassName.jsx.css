@@ -19,6 +19,7 @@
 .x-text-sm{font-size: var(--text-sm,0.875rem); line-height: 1.25rem}
 .fw-4{font-weight:400}
 .c-gray500{color:var(--gray500,#667085)}
+.ff-courier{font-family:courier}
 .flex-center{display:flex;align-items:center;justify-content:center}
 .p-8px-10px{padding: 8px 10px}
 .br-8px{border-radius: 8px}

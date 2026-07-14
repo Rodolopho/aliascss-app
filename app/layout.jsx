@@ -5,11 +5,14 @@ import 'nextra-theme-docs/style.css'
 import Logo from '../app/components/logo'
 
 export const metadata = {
+  title: "AliasCSS Offical Page",
+  description: "AliasCSS is hybrid (Component + Atomic) Design Building System using Native CSS.",
   // Define your metadata here
   // For more information on metadata API, see: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
-}
+};
+
  
-const banner = <Banner storageKey="some-key">Welcome tp 🎉</Banner>
+const banner = <Banner storageKey="some-key">Welcome To AlisaCSS 🎉</Banner>
 const navbar = (
   <Navbar
     logo={<Logo/>}
@@ -43,18 +46,23 @@ export default async function RootLayout({ children }) {
       // ... Your additional head options
       >
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta property="og:title" content="AliasCSS" />
-      <link rel="icon" type="image/svg" href="/logo-acss-icon.svg" sizes="32x32" />
-      <meta property="og:description" content="Official AliasCSS Site" />
+        <meta property="og:title" content="AliasCSS" />
+        <link
+          rel="icon"
+          type="image/svg"
+          // href="/2x/full-whiteAsset 1@2x.png"
+          href="/SVG/full-whiteAsset 1.svg"
+          sizes="32x32"
+        />
+        <meta property="og:description" content="Official AliasCSS Site" />
+        <link rel="stylesheet" href="/ra.css" />
         {/* Your additional tags should be passed as `children` of `<Head>` element */}
       </Head>
       <body>
         <Layout
-         
+          // banner={banner}
           navbar={navbar}
           pageMap={await getPageMap()}
-         
-
           docsRepositoryBase="https://github.com/Rodolopho/aliascss"
           footer={footer}
           // ... Your additional layout options
@@ -63,5 +71,5 @@ export default async function RootLayout({ children }) {
         </Layout>
       </body>
     </html>
-  )
+  );
 }

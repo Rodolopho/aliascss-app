@@ -6,15 +6,23 @@
 .dot{animation-timing-function:ease-in-out} 
 .dot{animation-direction: alternate} 
 .dot{animation-iteration-count: infinite} 
-.dot{border-radius: 100%} 
-.dot{border:5px solid #555} 
-.dot{margin: 10px} 
-.dot{animation-name:loading} 
-.dot{animation-duration: 0.6s} 
-.dot{animation-timing-function:ease-in-out} 
-.dot{animation-direction: alternate} 
-.dot{animation-iteration-count: infinite} 
 
+.an-fadeOut{animation-name:fadeOut}
+.adu-1s{animation-duration: 1s}
+.an-flash{animation-name:flash}
+.adu-2s{animation-duration: 2s}
+.animation-name-flash{animation-name:flash}
+.animation-duration-2s{animation-duration: 2s}
+.bg-rg-gray300-gray600{background:radial-gradient( var(--gray300,#D0D5DD), var(--gray600,#475467) )}
+.w-64px{width: 64px}
+.h-64px{height: 64px}
+.br-50p{border-radius: 50%}
+.an-pop-up{animation-name:pop-up}
+.adu-1d5s{animation-duration: 1.5s}
+.ada{animation-direction: alternate}
+.atf--timing-func{animation-timing-function: var(--timing-func)}
+.aici{animation-iteration-count: infinite}
+.afmbo{animation-fill-mode: both}
 .bgc-ecf0f1{background-color:#ecf0f1}
 .oh{overflow: hidden}
 .w-100p{width: 100%}
@@ -28,40 +36,115 @@
 .jcc{justify-content: center}
 .adl-0d2s{animation-delay: 0.2s}
 .adl-0d4s{animation-delay: 0.4s}
-.mt-32px{margin-top: 32px}
-.p32px{padding:32px}
-.pr{position: relative}
-.h-100p{height: 100%}
-.an-flash{animation-name:flash}
-.adu2s{animation-duration:2s}
-.animation-name-flash{animation-name:flash}
-.animation-duration-2s{animation-duration: 2s}
-.an-fadeOut{animation-name:fadeOut}
-.adu-1s{animation-duration: 1s}
-.p-64px-32px{padding: 64px 32px}
-.bg-rg-gray300-gray600{background:radial-gradient( var(--gray300,#D0D5DD), var(--gray600,#475467) )}
-.aici{animation-iteration-count: infinite}
-.w-64px{width: 64px}
-.h-64px{height: 64px}
-.br-50p{border-radius: 50%}
-.an-pop-up{animation-name:pop-up}
-.adu-1d5s{animation-duration: 1.5s}
-.ada{animation-direction: alternate}
-.atf--timing-func{animation-timing-function: var(--timing-func)}
-.afmbo{animation-fill-mode: both}
+.an-fadeIn{animation-name:fadeIn}
+.adu-300ms{animation-duration: 300ms}
+.an-blink{animation-name:blink}
+.an-slideUp{animation-name:slideUp}
+.adu-400ms{animation-duration: 400ms}
+.an-slideDown{animation-name:slideDown}
+.an-slideLeft{animation-name:slideLeft}
+.an-slideRight{animation-name:slideRight}
+.an-dropIn{animation-name:dropIn}
+.an-scaleIn{animation-name:scaleIn}
+.adu-250ms{animation-duration: 250ms}
+.an-scaleOut{animation-name:scaleOut}
+.an-pop{animation-name:pop}
+.adu-350ms{animation-duration: 350ms}
+.an-pulse{animation-name:pulse}
+.an-heartbeat{animation-name:heartbeat}
+.an-bounce{animation-name:bounce}
+.adu-700ms{animation-duration: 700ms}
+.an-float{animation-name:float}
+.an-spin{animation-name:spin}
+.an-rotateIn{animation-name:rotateIn}
+.an-shake{animation-name:shake}
+.an-wiggle{animation-name:wiggle}
+.adu-600ms{animation-duration: 600ms}
+@keyframes fadeOut{
+ 0% {opacity: 1} 100% {opacity: 0} 0% {opacity: 1} 100% {opacity: 0} 0% {opacity: 1} 100% {opacity: 0} 0% {opacity: 1} 100% {opacity: 0}
+}
+
+@keyframes flash{
+ 0% {opacity: 1} 100% {opacity: 0} 0% {opacity: 1} 100% {opacity: 0} 0%,50%,100% {display:flex} 0%,50%,100% {display:flex} 25%,75% {display:none;transform:scale(0.5)} 0% {opacity: 1} 100% {opacity: 0}
+}
+
+@keyframes pop-up{
+ 0% {transform:translateY(0);transform-origin: 50% 50%;box-shadow: var(--shadow-down)} 100% {transform:translateY(-50px);transform-origin: 50% 50%;box-shadow: var(--shadow-up)}
+}
+
 @keyframes loading{
  100% {transform:scale(2)} 100% {border-color:var(--gray600,#475467)} 100% {transform:scale(2)} 100% {border-color:var(--gray600,#475467)}
 }
 
-@keyframes flash{
- 0%,50%,100% {opacity: 1} 25%,75% {opacity: 0} 0%,50%,100% {opacity: 1} 25%,75% {opacity: 0}
+@keyframes fadeIn{
+ 0% {opacity: 0} 100% {opacity: 1}
 }
 
-@keyframes fadeOut{
- 0% {opacity: 1} 100% {opacity: 0}
+@keyframes blink{
+ 0% {opacity: 1} 50% {opacity: 0} 100% {opacity: 1}
 }
 
-@keyframes pop-up{
- 0% {transform:translateY(0);transform-origin: 50% 50%;box-shadow: var(--shadow-down)} 100% {transform:translateY(-50px);transform-origin: 50% 50%;box-shadow: var(--shadow-up)} 0% {transform:translateY(0);transform-origin: 50% 50%;box-shadow: var(--shadow-down)} 100% {transform:translateY(-50px);transform-origin: 50% 50%;box-shadow: var(--shadow-up)}
+@keyframes slideUp{
+ 0% {transform:translateY(20px)} 100% {transform:translateY(0)} 0% {transform:translateY(20px)} 100% {transform:translateY(0)}
+}
+
+@keyframes slideDown{
+ 0% {transform:translateY(-20px)} 100% {transform:translateY(0)}
+}
+
+@keyframes slideLeft{
+ 0% {transform:translateX(-24px)} 100% {transform:translateX(0)}
+}
+
+@keyframes slideRight{
+ 0% {transform:translateX(24px)} 100% {transform:translateX(0)}
+}
+
+@keyframes dropIn{
+ 0% {transform:translateY(-30px);opacity: 0} 100% {transform:translateY(0);opacity: 1}
+}
+
+@keyframes scaleIn{
+ 0% {transform:scale(0.9)} 100% {transform:scale(1)}
+}
+
+@keyframes scaleOut{
+ 0% {transform:scale(1)} 100% {transform:scale(0.9)}
+}
+
+@keyframes pop{
+ 0% {transform:scale(0.8);opacity: 0} 80% {transform:scale(1.05);opacity: 1} 100% {transform:scale(1);opacity: 1} 0% {transform:scale(0.8);opacity: 0} 100% {transform:scale(1);opacity: 1}
+}
+
+@keyframes pulse{
+ 0% {transform:scale(1)} 50% {transform:scale(1.05)} 100% {transform:scale(1)}
+}
+
+@keyframes heartbeat{
+ 0% {transform:scale(1)} 14% {transform:scale(1.08)} 28% {transform:scale(1)} 42% {transform:scale(1.08)} 70% {transform:scale(1)}
+}
+
+@keyframes bounce{
+ 0% {transform:translateY(0)} 40% {transform:translateY(-12px)} 60% {transform:translateY(0)} 80% {transform:translateY(-6px)} 100% {transform:translateY(0)}
+}
+
+@keyframes float{
+ 0% {transform:translateY(0)} 50% {transform:translateY(-8px)} 100% {transform:translateY(0)}
+}
+
+@keyframes spin{
+ 0% {transform:rotate(0)} 100% {transform:rotate(360deg)}
+}
+
+@keyframes rotateIn{
+ 0% {transform:rotate(-12deg);opacity: 0} 100% {transform:rotate(0);opacity: 1}
+}
+
+@keyframes shake{
+ 0% {transform:translateX(0)} 25% {transform:translateX(-4px)} 50% {transform:translateX(4px)} 75% {transform:translateX(-4px)} 100% {transform:translateX(0)} 0% {transform:translateX(0)} 25% {transform:translateX(-4px)} 50% {transform:translateX(4px)}
+}
+
+@keyframes wiggle{
+ 0% {transform:rotate(0)} 25% {transform:rotate(-6deg)} 50% {transform:rotate(6deg)} 75% {transform:rotate(-3deg)} 100% {transform:rotate(0)}
 }
 

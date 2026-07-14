@@ -1,0 +1,32 @@
+# Progress Bar
+import ProgressBarDemo from '../../../demos/react-aria/progress-bar';
+import content from '!!raw-loader!../../../demos/react-aria/progress-bar';
+import component from '!!raw-loader!../../../react-aria/ProgressBar';
+import { compileMdx } from 'nextra/compile';
+import { MDXRemote } from 'nextra/mdx-remote';
+import { Tabs } from 'nextra/components';
+
+export const filenames=['progress-bar.tsx','ProgressBar.tsx'];
+
+import './react-aria-progress-bar.mdx.css';
+
+<ProgressBarDemo/>
+
+<Tabs items={[filenames[0], filenames[1]]}>
+  <Tabs.Tab>
+    <MDXRemote
+      className="_pre-white-space-pre-wrap"
+      compiledSource={await compileMdx('```jsx  showLineNumbers copy filename="'+filenames[0]+'" '+ '\n'+content+'\n'+'```')}
+      components={{ MyComponent: () => <div>My Component</div> }}
+      scope={{ myVariable: content }}
+    />
+  </Tabs.Tab>
+  <Tabs.Tab>
+    <MDXRemote
+      className="_pre-white-space-pre-wrap"
+      compiledSource={await compileMdx('```jsx  showLineNumbers copy filename="'+filenames[1]+'" '+ '\n'+component+'\n'+'```')}
+      components={{ MyComponent: () => <div>My Component</div> }}
+      scope={{ myVariable: component }}
+    />
+  </Tabs.Tab>
+</Tabs>

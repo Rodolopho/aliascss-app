@@ -1,30 +1,139 @@
+import { Callout } from 'nextra/components';
+
 # Magic `&` Identifier
 
-### Sepcial `&` character in className
+AliasCSS uses `&` when you want the generated selector to appear **before** the class name instead of after it.
 
-By default in AliasCSS the Element selector or Pseudo Element selector identifier used, are applied after the className i.e they are 
-scoped to given className i.e in`_div-bgc-red` className `div` selector follows className `_div-bgc-red div {...}`, what if you want 
-the `div` selector to come before the give class `_div-bgc-red`  like `div _div-bgc-red{...}`. To acheive same feature, you can 
-use `&` at the point where you want the selector to come before the className.
+By default, element selectors and pseudo-element selectors are scoped after the class name:
+
 ```html
-    <h1 class="_div&-bgc-red">Hello World!</h1>
-``` 
-```css
- div ._div\&-bgc-red{
-    background-color:red
- }
+<div class="_div-bgc-red"></div>
 ```
-##### Simple use case Example
-```html
-    <div class="--is(_html[class~=dark])&-bgc--dark-bg-color">
-        .......
-    </div>
-``` 
-```css
- :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc--dark-bg-color{
-    background-color: var(--dark-bg-color)
-    }
- 
- ```
 
- 
+This compiles to:
+
+```css
+._div-bgc-red div {
+  background-color: red;
+}
+```
+
+If you want the selector to come before the class name, place `&` where the class should be inserted.
+
+---
+
+## Basic syntax
+
+```text
+_selector&-utility
+```
+
+Example:
+
+```html
+<h1 class="_div&-bgc-red">Hello World!</h1>
+```
+
+Compiled CSS:
+
+```css
+div ._div\&-bgc-red {
+  background-color: red;
+}
+```
+
+In this case, `div` comes before the class selector instead of after it.
+
+<Callout type="info" emoji="💡">
+Use `&` when you need to control selector placement inside the generated CSS.
+</Callout>
+
+---
+
+## Why `&` exists
+
+The `&` character gives you more control over how AliasCSS builds selectors.
+
+Use it when:
+
+- you want the target selector to appear before the class name,
+- you are working with nested selector structures,
+- you need more advanced control over contextual styling.
+
+This is especially useful when combining AliasCSS with parent-level state or document-level selectors.
+
+---
+
+## Example: dark mode context
+
+A common use case is styling based on a root-level condition.
+
+### Example
+
+```html
+<div class="--is(_html[class~=dark])&-bgc--dark-bg-color">
+  ...
+</div>
+```
+
+### Compiled CSS
+
+```css
+:is(html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc--dark-bg-color {
+  background-color: var(--dark-bg-color);
+}
+```
+
+This means the utility applies only when the page is in dark mode.
+
+---
+
+## Mental model
+
+Think of `&` as a **selector anchor**.
+
+- Without `&`, the selector is attached after the class.
+- With `&`, you can move the selector before the class.
+- This gives you more control over parent/child and contextual selector placement.
+
+---
+
+## Practical example
+
+```html
+<div class="--is(_html[class~=dark])&-bgc--dark-bg-color">
+  Content
+</div>
+```
+
+This is useful when:
+
+- the utility should only apply inside a special page state,
+- the state lives on a parent or root element,
+- you want to keep the class name itself as the styling entry point.
+
+---
+
+## Best practices
+
+- Use `&` only when the default selector placement is not enough.
+- Keep selector chains readable.
+- Prefer simpler selector patterns for everyday styling.
+- Reserve this pattern for advanced contextual rules.
+
+---
+
+## Quick reference
+
+```text
+_div-bgc-red              -> selector follows the class name
+_div&-bgc-red             -> selector appears before the class name
+--is(_html[class~=dark])&-bgc--dark-bg-color
+                          -> contextual selector before the class anchor
+```
+
+## Notes
+
+- This pattern is advanced.
+- It is most useful when working with root-level conditions or nested selector logic.
+- For most cases, the default `_selector-utility` form is easier to read and maintain.
