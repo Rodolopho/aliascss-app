@@ -1,0 +1,302 @@
+# Quick Compiler
+
+
+import QuickCompiler from '../app/components/quickCompiler';
+
+import './index.mdx.css'
+
+import { Bleed } from 'nextra-theme-docs'
+ 
+
+
+ 
+export function Page({ children }) {
+    return (
+        <div className="d-f g-32px mt-16px fdc w-100p md-fdr-i __div[flex-basis-50%] ">
+            <div className=" mw-50p ">
+                <QuickCompiler/>
+            </div>
+            <div className=" mw-50p md-mt-80px">
+                {children}
+            </div>
+            
+        </div>
+    )
+
+}
+
+<Page>
+
+
+import Image from 'next/image'
+ 
+<Image src="/SVG/full-whiteAsset 3.svg"  className="xw-200px w-100px dn lg-db lg-mla lg-mra " alt="AliasCSS" style={{width:'auto'}} width={200} height={100} />
+ #### Zero Learning Curve Atomic CSS Framework for both Humans and AI.
+ AliasCSS is a deterministic CSS language designed for both humans and AI. Every style has a predictable representation, allowing AI to generate, understand, modify, and refactor interfaces without relying on arbitrary class names or component-specific CSS.
+  > ###  If you know CSS, you already know AliasCSS. 📖 
+
+
+```html
+<h1 class="color-red font-size-12px display-inline-block">
+     Hello world
+</h1>
+ ```
+
+OR Using shorthand
+
+```html
+<h1 class="c-red fs-12px dib">
+     Hello world
+</h1>
+ ```
+
+{/* Here we have defined the color, font size, display properties for h1 element using post defined class names, which
+ Aliascss will compiles to corresponding CSS declaration in the stylesheet. Normally, every aliascss classname hold single propery and value for it.
+ Goto  */}
+ Goto [Documentation](/docs/getting_started) to know more.
+</Page>
+
+
+***
+
+    {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/64hSb5SbFus" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
+
+
+{/*  
+
+### ⚡ Why AliasCSS is Different
+#### 1. Zero New Vocabularies to Learn
+With other frameworks, you have to learn new names for properties you already know (like memorizing tracking-tight for letter-spacing, or rounded-lg for border-radius).
+
+* The AliasCSS Rule: You simply write the CSS property and value separated by a hyphen (-).
+* `font-size: 3rem` becomes `font-size-3rem` or shortcode `fs-3rem`. It is completely transparent, predictable, and deterministic.
+
+#### 2. "Declare-Once" Hybrid Component Architecture
+Tired of unreadable, copy-pasted utility bloat across your lists, loops, and loops? AliasCSS gives you a built-in macro-bundling system without forcing you to switch files or configurations.
+
+* Wrap your core utilities inside brackets and assign an instant component name with the `--as-` suffix: `class="[df,p-20px,br-8px]--as-my-card my-card"`.
+* Once declared on the first item, you just use the clean my-card token everywhere else.
+
+#### 3. Lowest Specificity Blueprinting (@base Isolation)
+When you combine utility classes with custom component systems, class collisions usually break your styling. AliasCSS cleanly steps around this by letting you isolate your macro components inside the browser's native @layer base. Because @base has the lowest CSS cascade weight, any downstream single atomic utility class you add to your elements will override the default cleanly with 0 specificity collision.
+#### 4. Inline Animation Tracks (keyframes- Engine)
+Writing custom keyframe animations usually forces you out of your markup back into a separate stylesheet. AliasCSS introduces a rigid, powerful keyframes syntax directly on your elements:
+
+* ```keyframes-pulse="@[0,100][opacity-1] @50[opacity-0.5]"```
+* The compiler extracts this track cleanly, automatically structures the timeline, and maps it directly to your global root production build.
+
+#### 5. Magic Scoping Anchor (& Selector Engine)
+ - Managing parent modifiers or context states (like global dark modes, theme sheets, or active container triggers) usually means writing messy wrapper scripts. With AliasCSS, adding the special & anchor token lets you change the priority anchor of child vs. parent targeting directly in your utility declaration strings.
+------------------------------
+#### 🚀 See the Syntax in Action
+
+```html
+<!-- Soft default component blueprint isolated in the @base cascade layer -->
+<button class="@[base][fs-14px,fw-semibold,border-none,br-6px,p-10px-20px,transition-all-0.2s]--as-action-btn action-btn c-gray700 bgc-gray100 --hover-bgc-gray200 vab/baseline">
+  Cancel Action
+</button>
+<!-- Clean instance consumption with flawless atomic utility overrides -->
+<button class="action-btn c-white bgc-blue box-shadow-0px-4px-12px-rgba(59,130,246,0.3) --hover-transform-scale(1.02) vab2">
+  Confirm Build
+</button>
+```
+
+
+Here’s a cleaned, website-ready Markdown version of your copy with better hierarchy and structure, tuned for a product/landing page section about AliasCSS. References to utility-first CSS and atomic approaches align with current frameworks like Tailwind and atomic CSS discussions. [v1.tailwindcss](https://v1.tailwindcss.com/)
+
+***
+
+## Build at the Speed of Utilities  
+### Scale with the Cleanliness of Components
+
+AliasCSS is a modern, utility-first translation engine that eliminates framework lock‑in, endless class strings, and stylesheet bloat. 
+By combining the immediacy of atomic utilities with an elegant, compiler‑driven Macro‑Grouping System, AliasCSS lets you author highly responsive, state‑aware UI layouts completely inline—without making your markup unreadable.
+
+***
+
+## Why AliasCSS?
+
+Utility‑first frameworks revolutionized styling, but they often leave developers with long class attributes, duplicate code chunks, and heavy build pipelines. 
+Inline styles solve isolation, yet they typically break responsive design and pseudo‑states, forcing awkward workarounds for breakpoints and interactivity. 
+
+AliasCSS is the hybrid bridge that delivers the best of both worlds.
+
+- **Zero Framework Hallucination**  
+  No arbitrary utility names to memorize. AliasCSS compiles standard CSS property–value pairs (e.g., `display-flex`, `margin-200px`) using an intuitive, uniform single‑hyphen syntax.
+
+- **The Power of Macro Grouping (`--as-` suffix)**  
+  Bundle core utility tokens into readable, reusable custom component aliases directly in your markup—declared once, consumed cleanly everywhere else.
+
+- **Decoupled Complexity**  
+  Offload fluid variables, math functions like `clamp()` and `calc()`, and dynamic color mixing to native CSS variables in the `style` attribute, keeping your classes slim and expressive. 
+
+- **Native Screen & State Isolation**  
+  Orchestrate responsive breakpoints (`md-`, `lg-`) and interactive states (`--hover-`, `--focus-`) without syntax collisions or awkward colon stacks.
+
+***
+
+## See AliasCSS in Action
+
+Stop choosing between clean markup and fast layout authoring.  
+Here’s an example of declaring a responsive panel inline using the AliasCSS hybrid engine:
+
+```html copy filename="login.html"  
+<section class=" ff-inter _all-bsbb mh-100vh d-flex ai-center jc-center p-24px bgc-f6f7fb">
+  <div class="[w-100%,mw-420px,p-32px,bgc-fff,br-24px,bxs-0-20px-60px-blue200,d-flex,fd-column,gap-20px]--as-auth-card auth-card">
+    
+    <div class="d-flex fd-column gap-8px ta-center">
+      <span class="[d-inline-flex,ai-center,jc-center,w-fc,px-12px,py-6px,mx-auto,fs-12px,fw-700,ls-0.4px,tt-uppercase,bgc-eef2ff,color-4338ca,br-999px]--as-badge badge">
+        AliasCSS Demo
+      </span>
+
+      <h2 class="m-0 fs-32px fw-800 lh-1.1 color-0f172a">
+        Welcome back
+      </h2>
+
+      <p class="m-0 fs-15px lh-1.7 color-64748b">
+        Sign in to your workspace with clean, utility-driven elegance.
+      </p>
+    </div>
+
+    <form class="d-flex fd-column gap-16px" action="#">
+      <div class="d-flex fd-column gap-8px">
+        <label for="email" class="fs-14px fw-700 color-334155">
+          Email address
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          placeholder="you@example.com"
+          class="[w-100pct,h-52px,px-14px,fs-15px,bgc-fff,b-1px-solid-e2e8f0,br-14px,color-0f172a,outline-none]--as-input input --focus-bc-4f46e5 --focus-bs-0-0-0-4px-rgba(79,70,229,0.12)"
+        />
+      </div>
+
+      <div class="d-flex fd-column gap-8px">
+        <div class="d-flex ai-center jc-space-between gap-12px">
+          <label for="password" class="fs-14px fw-700 color-334155 -">
+            Password
+          </label>
+          <a href="#" class="fs-13px fw-600 td-none color-4f46e5 --hover-tdu">
+            Forgot password?
+          </a>
+        </div>
+
+        <div class="pos-relative">
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Enter your password"
+            class="[w-100pct,h-52px,px-14px,pr-72px,fs-15px,bgc-fff,b-1px-solid-e2e8f0,br-14px,color-0f172a,outline-none]--as-input input --focus-bc-4f46e5 --focus-bs-0-0-0-4px-rgba(79,70,229,0.12)"
+          />
+          <button
+            type="button"
+            class="pos-absolute r-10px t-50p translateY--50p h-36px px-12px fs-13px fw-700 bgc-f8fafc color-334155 b-1px-solid-e2e8f0 br-10px"
+          >
+            Show
+          </button>
+        </div>
+      </div>
+
+      <div class="d-flex ai-center jc-space-between gap-12px">
+        <label class="d-inline-flex ai-center gap-8px fs-14px color-475569 cur-pointer">
+          <input type="checkbox" class="accent-4f46e5" />
+          <span>Remember me</span>
+        </label>
+
+        <span class="fs-13px fw-600 color-94a3b8">
+          Secure sign-in
+        </span>
+      </div>
+
+      <button
+        type="submit"
+        class="[w-100p,h-54px,fs-15px,fw-800,color-fff,bgc-4f46e5,br-14px,b-none]--as-btn btn --hover-bgc-4338ca"
+      >
+        Sign in
+      </button>
+
+      <div class="pos-relative py-4px">
+        <div class="h-1px bgc-e2e8f0"></div>
+        <span class="pos-absolute l-50p t-50p translate--50p--50p px-12px bgc-fff fs-12px fw-700 ls-0.4px tt-uppercase color-94a3b8">
+          Or continue with
+        </span>
+      </div>
+
+      <div class="d-grid gtc-1fr-1fr gap-12px">
+        <button
+          type="button"
+          class="[h-48px,fs-14px,fw-700,bgc-fff,color-0f172a,b-1px-solid-e2e8f0,br-14px]--as-social-btn social-btn --hover-bgc-f8fafc"
+        >
+          Google
+        </button>
+
+        <button
+          type="button"
+          class="[h-48px,fs-14px,fw-700,bgc-fff,color-0f172a,b-1px-solid-e2e8f0,br-14px]--as-social-btn social-btn --hover-bgc-f8fafc"
+        >
+          GitHub
+        </button>
+      </div>
+
+      <p class="m-0 pt-4px ta-center fs-14px color-64748b">
+        New here?
+        <a href="#" class="fw-700 td-none color-4f46e5 --hover-tdu">Create an account</a>
+      </p>
+    </form>
+  </div>
+</section>
+```
+
+This pattern keeps your layout responsive, state‑aware, and readable while still benefiting from utility‑style speed. 
+
+***
+
+## Core Mechanics at a Glance
+
+### 1. Abbreviation Architecture
+
+Accelerate your feedback loop using:
+
+- **Acro‑Static Shorthand** – e.g., `df` for `display: flex;`.
+- **Semi‑Semantic Shorthand** – e.g., `bgc-red` for `background-color: red;`.
+
+Both map directly to standard CSS properties, avoiding opaque, framework‑specific naming. 
+
+### 2. Space‑to‑Hyphen Multi‑Values
+
+Convert multi‑value CSS declarations into explicit, hyphen‑separated tokens—no brackets or exotic syntax:
+
+- CSS:  
+  `padding: 10px 20px 5px 0px;`
+- AliasCSS:  
+  `padding-10px-20px-5px-0px`
+
+This keeps complex box‑model declarations compact and legible.
+
+### 3. Strict State Stacking
+
+Chain breakpoints and interactive states in a predictable order.  
+The breakpoint always wraps the state and utility as the outer shell:
+
+- Pattern:  
+  `[breakpoint]-[state]-[utility]`
+- Example:  
+  `md--hover-bgc-green`
+
+This strict stacking makes responsive and interactive behavior easy to parse at a glance. 
+
+***
+
+## Stop Configuring. Start Coding.
+
+AliasCSS runs on a zero‑tolerance parser that strips away framework dependencies and auto‑generated bloat, leaving behind pristine, hyper‑optimized component styling. [css-tricks](https://css-tricks.com/on-auto-generated-atomic-css/)
+
+[Get Started with AliasCSS →](http://localhost:3000/docs/getting_started)
+
+***
+
+*/}

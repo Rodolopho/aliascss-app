@@ -1,0 +1,104 @@
+import { Callout } from 'nextra/components';
+
+# Attribute Selectors
+
+AliasCSS supports attribute selectors directly in class names.
+
+Use this pattern when you want a utility to apply only when an element has a specific attribute value.
+
+---
+
+## Basic syntax
+
+```text
+[attribute-selector]-utility
+```
+
+Examples:
+
+- `[data-state=open]-display-none`
+- `[aria-expanded=true]-bgc-blue`
+- `--focus[class~=code]-fw-bold`
+
+---
+
+## Example
+
+```html
+<div class="[data-state=close]-display-none" data-state="open">
+  I will not display when `data-state="close"`
+</div>
+
+<div class="[class~=code]-font-mono code">
+  <code>x+y=z</code>
+</div>
+```
+
+### What it means
+
+- `[data-state=close]-display-none` applies `display: none` when `data-state="close"`.
+- `[class~=code]-font-mono` applies `font-family: monospace` when the element has a `code` class.
+
+---
+
+## Supported pattern
+
+AliasCSS uses the attribute selector inside square brackets, followed by the utility you want to apply.
+
+```text
+[attribute-name=value]-property-value
+```
+
+Examples:
+
+- `[data-state=open]-c-red`
+- `[aria-pressed=true]-bgc-blue`
+- `[type=button]-cursor-pointer`
+
+---
+
+## Important note
+
+Quotes are not allowed inside the attribute selector syntax.
+
+Use this:
+
+```html
+[data-state=open]-display-none
+```
+
+Not this:
+
+```html
+[data-state="open"]-display-none
+```
+
+<Callout type="warning" emoji="⚠️">
+Keep attribute selector values unquoted in AliasCSS class names.
+</Callout>
+
+---
+
+## Best practices
+
+- Use attribute selectors for state-based styling.
+- Prefer them when the state already exists in markup, such as `data-*` or ARIA attributes.
+- Keep selector classes short and readable.
+- Use them sparingly when a normal utility class would be simpler.
+
+---
+
+## Quick reference
+
+```text
+[data-state=open]-display-none     -> target an element with data-state="open"
+[aria-expanded=true]-bgc-blue      -> target an expanded control
+[class~=code]-font-mono            -> target elements whose class list contains code
+[type=button]-cursor-pointer       -> target button-like inputs
+```
+
+## Notes
+
+- Attribute selectors work well with component states.
+- They are especially useful for `data-*`, ARIA, and form-related attributes.
+- Avoid quoting values inside the class name syntax.

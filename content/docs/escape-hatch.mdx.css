@@ -1,0 +1,24 @@
+
+    .removeCancelButton {
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+    }
+  
+
+    .removeCancelButton {
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+    }
+  
+
+  .some-class {
+    padding: 24px;
+  }
+
+
+.transition-delay--stagger{transition-delay: var(--stagger)}
+.padding-24px{padding: 24px}

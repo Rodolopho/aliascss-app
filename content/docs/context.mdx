@@ -1,0 +1,265 @@
+
+# Block-Level Scopes & At-Rules
+
+In AliasCSS, media queries, cascade layers (`@layer`), container queries (`@container`), entry transitions (`@starting-style`), feature queries (`@supports`), and custom `@`-rules are unified as **Scope Wrappers**.
+
+Positioned at Tier 1 (the leftmost segment) of the class evaluation pipeline, scope wrappers construct an enclosing CSS block around the generated selector and declarations.
+
+---
+
+## 1. Syntax Taxonomy & Composition Grammar
+
+Scope wrappers adapt across single declarations, bracketed utility groups, and multi-scope nesting pipelines:
+
+| Syntax Pattern | Construct Type | Emitted CSS Structure | Concrete Example | Native Rule Equivalent |
+| :--- | :--- | :--- | :--- | :--- |
+| `@scope-utility` | Single scope utility | `@scope { .class { ... } }` | `@md-display-flex` | `@media (min-width: 768px) { display: flex; }` |
+| `@scope[u1, u2]` | Single scope, grouped | `@scope { .class { ...; ...; } }` | `@base[padding-8px,margin-0]` | `@layer base { padding: 8px; margin: 0; }` |
+| `@scope-[u1, u2]` | Single scope (hyphen variant) | `@scope { .class { ...; ...; } }` | `@md-[display-none]` | `@media (min-width: 768px) { display: none; }` |
+| `@[s1, s2]-utility` | Nested compound scope | `@s1 { @s2 { .class { ... } } }` | `@[xs,base]-color-ffffff` | `@media ... { @layer base { color: #fff; } }` |
+| `@[s1, s2][u1, u2]` | Nested scope + grouped | `@s1 { @s2 { .class { ...; } } }` | `@[md,container-md][d-flex,gap-16px]` | Compound `@media` + `@container` block |
+| `@[media(...)]-utility` | Raw media query escape | `@media (...) { .class { ... } }` | `@[media(768px<=width<=1024px)]-dn` | Native mathematical range query |
+| `@[supports(...),base]-` | Feature query + layer | `@supports (...) { @layer base { ... } }` | `@[supports(display:grid),base]-d-grid` | Feature check enclosing a cascade layer |
+| `@[container_name(...)]-` | Named container query | `@container name (...) { .class { ... } }` | `@[container_sidebar(min-width:400px)]-dn` | Scoped to named container element |
+
+---
+
+## 2. Core Invariants & Nesting Laws
+
+### Invariant 1: Bare Keys Inside `@[...]`
+Inside compound scope brackets, declare tokens without leading `@` characters:
+* **Valid:** `@[md,base]-display-flex`
+* **Invalid:** `@[@md,@base]-display-flex` *(the leading `@` already establishes parser scope)*
+
+### Invariant 2: Left-to-Right Nesting Precedence
+The declaration order inside `@[...]` determines block nesting from the outside in:
+* `@[xs,base]` nests `@layer base` **inside** `@media (max-width: 575.99px)`.
+* `@[base,xs]` nests `@media (max-width: 575.99px)` **inside** `@layer base`.
+
+```html
+<!-- Outer wrapper: @media | Inner wrapper: @layer base -->
+<button class="@[xs,base][border-0,color-fff,bgc-blue]">
+  Scoped Button
+</button>
+
+```
+
+Compiled CSS Output:
+
+```css
+@media (max-width: 575.99px) {
+  @layer base {
+    .class {
+      border: 0;
+      color: #fff;
+      background-color: blue;
+    }
+  }
+}
+
+```
+
+### Invariant 3: Structural Sigil Attachment
+
+Connecting a scope wrapper to subsequent tokens follows explicit attachment rules:
+
+* **Standard Utilities:** Require a hyphen delimiter (e.g., `@md-dn`, `@base-margin-0`).
+
+
+* **Grouped Brackets:** Hyphens are optional (e.g., `@md[dn]` or `@md-[dn]`).
+
+
+* **Combinators (`_`):** Attach directly without an extra hyphen (e.g., `@md_p-c-red`).
+
+
+* **States (`--`):** Attach directly without an extra hyphen (e.g., `@md--hover-bgc-blue`).
+
+
+
+### Invariant 4: Sub-Pixel Collision Prevention
+
+Default `max-width` responsive breakpoints use a `.99px` offset to prevent 1px viewport collisions with adjacent `min-width` rules:
+
+* `@xs` -> `@media (max-width: 575.99px)`
+
+* `@sm` -> `@media (min-width: 576px)`
+
+
+---
+
+## 3. Scope Wrapper Directory
+
+### Responsive & Device Media Queries
+
+* `@xs` (`xs`): `@media (max-width: 575.99px)`
+
+* `@sm` (`sm`): `@media (min-width: 576px)`
+
+* `@md` (`md`): `@media (min-width: 768px)`
+
+* `@lg` (`lg`): `@media (min-width: 992px)`
+
+* `@xl` (`xl`): `@media (min-width: 1200px)`
+
+* `@xxl` (`xxl`): `@media (min-width: 1408px)`
+
+* `@dark` (`dark`): `@media (prefers-color-scheme: dark)`
+
+* `@light` (`light`): `@media (prefers-color-scheme: light)`
+
+* `@print` (`print`): `@media print`
+
+* `@hover`: `@media screen and (hover: hover)`
+
+* `@mouse`: `@media (hover: hover) and (pointer: fine)`
+
+* `@touch`: `@media (hover: none) and (pointer: coarse)`
+
+* `@landscape`: `@media (orientation: landscape)`
+
+* `@portrait`: `@media (orientation: portrait)`
+
+* `@motion-reduce`: `@media (prefers-reduced-motion: reduce)`
+
+* `@contrast-more`: `@media (prefers-contrast: more)`
+
+* `@forced-color-active` (`@fca`): `@media (forced-colors: active)`
+
+* `@p3`: `@media (color-gamut: p3)`
+
+* `@data-reduce`: `@media (prefers-reduced-data: reduce)`
+
+* `@short-height` (`@xsh`): `@media (max-height: 600px)`
+
+* `@standalone`: `@media (display-mode: standalone)`
+
+* `@browser`: `@media (display-mode: browser)`
+
+* `@resolution-lg`: `@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)`
+
+* `@resolution-xl`: `@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi)`
+
+
+### Cascade Layers & Native Entry States
+
+* `@reset` (`@rs`): `@layer reset`
+
+* `@base`: `@layer base`
+
+* `@theme`: `@layer theme`
+
+* `@components` (`@comps`): `@layer components`
+
+* `@utilities` (`@utils`): `@layer utilities`
+
+* `@starting-style` (`@ss`): `@starting-style` *(entry styling for dialogs, popovers, and DOM insertions)*
+
+
+```html
+<dialog class="
+  opacity-1
+  transform-scale-1
+  transition-all-200ms
+  @starting-style[opacity-0,tf-scale-0.9]
+">
+  Animated Entry Dialog
+</dialog>
+
+```
+
+### Container Queries (`@container-*`)
+
+Establish container context on an ancestor, then query dimensions downstream:
+
+```html
+<section class="container-type-inline-size width-100%">
+  <div class="display-flex flex-direction-column @container-md[flex-direction-row,align-items-center]">
+    Adaptive Panel
+  </div>
+</section>
+
+```
+
+* `@container-xs`: `@container (max-width: 575.99px)`
+
+* `@container-sm`: `@container (min-width: 576px)`
+
+* `@container-md`: `@container (min-width: 768px)`
+
+* `@container-lg`: `@container (min-width: 992px)`
+
+* `@container-xl`: `@container (min-width: 1200px)`
+
+* `@container-2xl`: `@container (min-width: 1408px)`
+
+
+---
+
+## 4. Raw Block Rules Escape Hatch (`@[rule(...)]`)
+
+Author mathematical ranges, modern feature checks, or named container queries using raw rule definitions inside `@[...]`:
+
+### Mathematical Range Queries
+
+```html
+<div class="@[media(768px<=width<=1024px)]-display-none">
+  Visible outside tablet range
+</div>
+
+```
+
+Compiled CSS: `@media (768px <= width <= 1024px) { ... }`
+
+### Feature Queries (`@supports`)
+
+```html
+<div class="@[supports(display:grid),base]-display-grid">
+  Fallback-safe grid layout
+</div>
+
+```
+
+Compiled CSS: `@supports (display: grid) { @layer base { ... } }`
+
+### Named Container Queries
+
+Use an underscore `_` to represent the space between keyword and name:
+
+```html
+<div class="@[container_sidebar(min-width:400px)]-display-none">
+  Collapsible Widget
+</div>
+
+```
+
+Compiled CSS: `@container sidebar (min-width: 400px) { ... }`
+
+---
+
+## 5. Configuration & Custom Breakpoints
+
+Default media prefixes can be extended or overridden in `aliascss.config.js`. Because both the `@`-prefixed key and the bare alias token exist as independent lookup entries, register both forms:
+
+```javascript
+// aliascss.config.js
+export default {
+  media: {
+    prefix: {
+      // Overriding default breakpoints (both keys required)
+      '@xs': '@media (max-width: 600px)',
+      'xs': '@media (max-width: 600px)',
+      '@sm': '@media (min-width: 600px)',
+      'sm': '@media (min-width: 600px)',
+
+      // Adding custom project scopes
+      '@mobile': '@media (max-width: 640px)',
+      'mobile': '@media (max-width: 640px)',
+      '@tablet': '@media (min-width: 768px) and (max-width: 1024px)',
+      'tablet': '@media (min-width: 768px) and (max-width: 1024px)',
+      '@desktop': '@media (min-width: 1025px)',
+      'desktop': '@media (min-width: 1025px)',
+    },
+  },
+};
+
+```

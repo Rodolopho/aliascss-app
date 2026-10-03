@@ -5,7 +5,8 @@
 		"start": "next start",
 		"postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
 		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build"
+		"build-storybook": "storybook build",
+		"aliascss-watch": "aliascss --config --watch"
 	},
 	"dependencies": {
 		"@codesandbox/sandpack-react": "^2.20.0",
@@ -26,7 +27,7 @@
 		"@types/react": "19.2.14",
 		"@vitest/browser-playwright": "^4.1.5",
 		"@vitest/coverage-v8": "^4.1.5",
-		"aliascss": "^1.3.9",
+		"aliascss": "^1.4.2",
 		"pagefind": "^1.5.2",
 		"playwright": "^1.59.1",
 		"raw-loader": "^4.0.2",

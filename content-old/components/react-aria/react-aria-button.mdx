@@ -1,0 +1,42 @@
+
+# Button
+import ButtonDemo from '../../../demos/react-aria/button';
+import content from '!!raw-loader!../../../demos/react-aria/button';
+import component from '!!raw-loader!../../../react-aria/Button';
+import { compileMdx } from 'nextra/compile';
+import { MDXRemote } from 'nextra/mdx-remote';
+import { Tabs } from 'nextra/components';
+
+export const filenames=['Button.tsx','Button.tsx'];
+
+import './react-aria-button.mdx.css';
+
+<ButtonDemo/>
+{/* // export const Wrapper=()=>{
+// return(
+//     <div className="w-100p p-100px mt-32px g-24px flex-center mh-200px b1px-s-grayA6">
+//         <Button>Press me</Button>
+//         <Button variant={'quiet'}>Press me</Button>
+//         <Button variant='secondary'>Press me</Button>
+//     </div>
+// )
+// }
+
+// <Wrapper/> */}
+<Tabs items={[filenames[0], filenames[1]]}>
+  <Tabs.Tab>
+        <MDXRemote className="_pre-white-space-pre-wrap"
+            compiledSource={await compileMdx('```jsx  showLineNumbers copy filename="'+filenames[0]+'" '+ '\n'+content+'\n'+'```')}
+            components={{ MyComponent: () => <div>My Component</div> }}
+            scope={{ myVariable: content }}
+        />
+  </Tabs.Tab>
+  <Tabs.Tab>
+        <MDXRemote className="_pre-white-space-pre-wrap"
+            compiledSource={await compileMdx('```jsx  showLineNumbers copy filename="'+filenames[1]+'" '+ '\n'+component+'\n'+'```')}
+            components={{ MyComponent: () => <div>My Component</div> }}
+            scope={{ myVariable: component }}
+        />
+  </Tabs.Tab>
+  {/* <Tabs.Tab></Tabs.Tab> */}
+</Tabs>

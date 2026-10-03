@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AliasCSS — CSS you already know</title>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/aliascss@latest/dist/aliascss.js">
+  </script>
+</head>
+
+
+<body class="
+  m-0px
+  min-height-100vh
+  background-color-070a12
+  color-fff
+  font-family-system-ui
+">
+
+
+  <!-- ================================================== -->
+  <!-- GLOBAL BACKGROUND                                  -->
+  <!-- ================================================== -->
+
+  <div class="
+    position-fixed
+    top--180px
+    left-50p
+    transform-translateX--50p
+    width-700px
+    height-500px
+    border-radius-50p
+    background-color-6366f1/0.12
+    filter-blur-100px
+    pointer-events-none
+  "></div>
+
+
+  <div class="
+    position-fixed
+    right--180px
+    top-500px
+    width-500px
+    height-500px
+    border-radius-50p
+    background-color-8b5cf6/0.08
+    filter-blur-100px
+    pointer-events-none
+  "></div>
+
+
+  <!-- ================================================== -->
+  <!-- NAVIGATION                                         -->
+  <!-- ================================================== -->
+
+  <header class="
+    position-relative
+    z-index-10
+    width-100%
+    box-sizing-border-box
+    padding-20px-6%
+    display-flex
+    align-items-center
+    justify-content-space-between
+    border-bottom-1px-solid-ffffff/0.06
+  ">
+
+    <a class="
+      display-flex
+      align-items-center
+      color-fff
+      text-decoration-none
+      font-weight-750
+      font-size-18px
+    ">
+
+      <span class="
+        width-34px
+        height-34px
+        display-flex
+        align-items-center
+        justify-content-center
+        margin-right-10px
+        background-color-6366f1
+        border-radius-9px
+        box-shadow-0px-8px-25px-6366f1/0.30
+      ">
+        A
+      </span>
+
+      AliasCSS
+
+    </a>
+
+
+    <nav class="
+      display-flex
+      align-items-center
+      gap-26px
+    ">
+
+      <a class="
+        color-8d98ac
+        text-decoration-none
+        font-size-13px
+        --hover-color-fff
+      ">
+        Documentation
+      </a>
+
+      <a class="
+        color-8d98ac
+        text-decoration-none
+        font-size-13px
+        --hover-color-fff
+      ">
+        GitHub
+      </a>
+
+      <a class="
+        padding-9px-14px
+        background-color-fff/0.06
+        border-1px-solid-fff/0.10
+        border-radius-8px
+        color-fff
+        text-decoration-none
+        font-size-12px
+        font-weight-600
+        --hover-background-color-fff/0.10
+      ">
+        Get Started
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- ================================================== -->
+  <!-- HERO                                               -->
+  <!-- ================================================== -->
+
+  <main class="
+    position-relative
+    z-index-1
+  ">
+
+
+    <section class="
+      max-width-1180px
+      margin-0px-auto
+      padding-110px-24px-90px
+      text-align-center
+    ">
+
+
+      <!-- BADGE -->
+
+      <div class="
+        display-inline-flex
+        align-items-center
+        padding-7px-12px
+        background-color-6366f1/0.10
+        border-1px-solid-6366f1/0.20
+        border-radius-30px
+        color-a5b4fc
+        font-size-11px
+        font-weight-700
+        margin-bottom-24px
+      ">
+
+        <span class="
+          width-6px
+          height-6px
+          margin-right-7px
+          border-radius-50p
+          background-color-4ade80
+          box-shadow-0px-0px-10px-4ade80/0.60
+        "></span>
+
+        CSS-native styling for humans and AI
+
+      </div>
+
+
+      <!-- TITLE -->
+
+      <h1 class="
+        max-width-850px
+        margin-0px-auto
+        font-size-68px
+        line-height-1.05
+        letter-spacing--2.5px
+        font-weight-800
+        -md-[class]-font-size-48px
+        -sm-[class]-font-size-38px
+        -sm-[class]-letter-spacing--1px
+      ">
+
+        If you know CSS,
+        <span class="
+          color-a5b4fc
+        ">
+          you know AliasCSS.
+        </span>
+
+      </h1>
+
+
+      <!-- SUBTITLE -->
+
+      <p class="
+        max-width-650px
+        margin-24px-auto-0px
+        color-8d98ac
+        font-size-18px
+        line-height-1.7
+        -sm-[class]-font-size-15px
+      ">
+
+        A deterministic CSS language that turns familiar
+        CSS properties and values into predictable,
+        readable class names.
+
+      </p>
+
+
+      <!-- ACTIONS -->
+
+      <div class="
+        display-flex
+        align-items-center
+        justify-content-center
+        gap-12px
+        margin-top-32px
+        -sm-[class]-flex-direction-column
+      ">
+
+        <a class="
+          padding-13px-20px
+          background-color-6366f1
+          color-fff
+          border-radius-10px
+          text-decoration-none
+          font-size-13px
+          font-weight-700
+          box-shadow-0px-12px-30px-6366f1/0.25
+          --hover-background-color-818cf8
+        ">
+          Try the Compiler
+        </a>
+
+        <a class="
+          padding-13px-20px
+          background-color-fff/0.05
+          color-dce1ea
+          border-1px-solid-fff/0.10
+          border-radius-10px
+          text-decoration-none
+          font-size-13px
+          font-weight-600
+          --hover-background-color-fff/0.09
+        ">
+          Read Documentation
+        </a>
+
+      </div>
+
+
+      <!-- ================================================= -->
+      <!-- CODE TRANSFORMATION                              -->
+      <!-- ================================================= -->
+
+      <div class="
+        max-width-950px
+        margin-70px-auto-0px
+        display-grid
+        grid-template-columns-1fr-60px-1fr
+        align-items-center
+        gap-14px
+        -md-[class]-grid-template-columns-1fr
+      ">
+
+
+        <!-- CSS -->
+
+        <div class="
+          text-align-left
+          background-color-0d1220
+          border-1px-solid-202a3d
+          border-radius-16px
+          overflow-hidden
+          box-shadow-0px-25px-80px-000000/0.25
+        ">
+
+          <div class="
+            padding-10px-14px
+            border-bottom-1px-solid-202a3d
+            color-59657c
+            font-size-10px
+            font-weight-700
+          ">
+            CSS
+          </div>
+
+          <pre class="
+            margin-0px
+            padding-22px
+            color-cbd5e1
+            font-size-13px
+            line-height-1.8
+            overflow-auto
+          "><code>transform: rotateY(-90deg)
+           translateZ(70px);
+
+box-shadow: 0px -2px 8px
+            #00000055;</code></pre>
+
+        </div>
+
+
+        <!-- ARROW -->
+
+        <div class="
+          display-flex
+          align-items-center
+          justify-content-center
+          color-6366f1
+          font-size-25px
+          -md-[class]-display-none
+        ">
+          →
+        </div>
+
+
+        <!-- ALIASCSS -->
+
+        <div class="
+          text-align-left
+          background-color-10172a
+          border-1px-solid-6366f1/0.25
+          border-radius-16px
+          overflow-hidden
+          box-shadow-0px-25px-80px-6366f1/0.08
+        ">
+
+          <div class="
+            padding-10px-14px
+            border-bottom-1px-solid-6366f1/0.15
+            color-a5b4fc
+            font-size-10px
+            font-weight-700
+          ">
+            AliasCSS
+          </div>
+
+          <pre class="
+            margin-0px
+            padding-22px
+            color-dbeafe
+            font-size-13px
+            line-height-1.8
+            overflow-auto
+          "><code>transform-rotateY--90deg
+__translateZ-70px
+
+box-shadow-0px--2px
+-8px-00000055</code></pre>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================================== -->
+    <!-- PRINCIPLES                                        -->
+    <!-- ================================================== -->
+
+    <section class="
+      max-width-1100px
+      margin-0px-auto
+      padding-70px-24px
+    ">
+
+
+      <div class="
+        text-align-center
+        margin-bottom-45px
+      ">
+
+        <span class="
+          color-818cf8
+          font-size-11px
+          font-weight-700
+          letter-spacing-1px
+        ">
+          THE IDEA
+        </span>
+
+        <h2 class="
+          margin-10px-0px-0px
+          font-size-36px
+          font-weight-750
+          -sm-[class]-font-size-28px
+        ">
+          CSS without the translation layer.
+        </h2>
+
+        <p class="
+          max-width-600px
+          margin-14px-auto-0px
+          color-748096
+          line-height-1.7
+          font-size-14px
+        ">
+          AliasCSS keeps the relationship between
+          the class and the CSS visible.
+        </p>
+
+      </div>
+
+
+      <div class="
+        display-grid
+        grid-template-columns-repeat-3-1fr
+        gap-14px
+        -md-[class]-grid-template-columns-1fr
+      ">
+
+
+        <!-- CARD -->
+
+        <article class="
+          padding-24px
+          background-color-0d1220
+          border-1px-solid-202a3d
+          border-radius-16px
+        ">
+
+          <div class="
+            width-38px
+            height-38px
+            display-flex
+            align-items-center
+            justify-content-center
+            margin-bottom-18px
+            background-color-6366f1/0.12
+            color-a5b4fc
+            border-radius-9px
+            font-weight-700
+          ">
+            01
+          </div>
+
+          <h3 class="
+            margin-0px
+            font-size-16px
+            font-weight-700
+          ">
+            Predictable
+          </h3>
+
+          <p class="
+            margin-9px-0px-0px
+            color-68748a
+            font-size-13px
+            line-height-1.7
+          ">
+            CSS properties and values map to
+            recognizable AliasCSS class names.
+          </p>
+
+        </article>
+
+
+        <!-- CARD -->
+
+        <article class="
+          padding-24px
+          background-color-0d1220
+          border-1px-solid-202a3d
+          border-radius-16px
+        ">
+
+          <div class="
+            width-38px
+            height-38px
+            display-flex
+            align-items-center
+            justify-content-center
+            margin-bottom-18px
+            background-color-8b5cf6/0.12
+            color-c4b5fd
+            border-radius-9px
+            font-weight-700
+          ">
+            02
+          </div>
+
+          <h3 class="
+            margin-0px
+            font-size-16px
+            font-weight-700
+          ">
+            Readable
+          </h3>
+
+          <p class="
+            margin-9px-0px-0px
+            color-68748a
+            font-size-13px
+            line-height-1.7
+          ">
+            Developers can understand generated
+            code without memorizing arbitrary tokens.
+          </p>
+
+        </article>
+
+
+        <!-- CARD -->
+
+        <article class="
+          padding-24px
+          background-color-0d1220
+          border-1px-solid-202a3d
+          border-radius-16px
+        ">
+
+          <div class="
+            width-38px
+            height-38px
+            display-flex
+            align-items-center
+            justify-content-center
+            margin-bottom-18px
+            background-color-ec4899/0.12
+            color-f9a8d4
+            border-radius-9px
+            font-weight-700
+          ">
+            03
+          </div>
+
+          <h3 class="
+            margin-0px
+            font-size-16px
+            font-weight-700
+          ">
+            AI-friendly
+          </h3>
+
+          <p class="
+            margin-9px-0px-0px
+            color-68748a
+            font-size-13px
+            line-height-1.7
+          ">
+            An AI that understands CSS already
+            understands the underlying language.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================================== -->
+    <!-- GRAMMAR                                           -->
+    <!-- ================================================== -->
+
+    <section class="
+      max-width-1100px
+      margin-0px-auto
+      padding-70px-24px
+    ">
+
+
+      <div class="
+        display-grid
+        grid-template-columns-0.9fr-1.1fr
+        gap-50px
+        align-items-center
+        -md-[class]-grid-template-columns-1fr
+      ">
+
+
+        <div>
+
+          <span class="
+            color-818cf8
+            font-size-11px
+            font-weight-700
+            letter-spacing-1px
+          ">
+            THE GRAMMAR
+          </span>
+
+          <h2 class="
+            margin-10px-0px-0px
+            font-size-38px
+            line-height-1.15
+            font-weight-750
+            -sm-[class]-font-size-28px
+          ">
+            Complex CSS stays readable.
+          </h2>
+
+          <p class="
+            margin-16px-0px-0px
+            color-748096
+            font-size-14px
+            line-height-1.8
+          ">
+            AliasCSS adds a small set of predictable
+            grammar rules while keeping the underlying
+            CSS concepts familiar.
+          </p>
+
+        </div>
+
+
+        <div class="
+          display-grid
+          gap-10px
+        ">
+
+
+          <div class="
+            padding-17px
+            background-color-0d1220
+            border-1px-solid-202a3d
+            border-radius-11px
+          ">
+
+            <div class="
+              color-59657c
+              font-size-10px
+              margin-bottom-8px
+            ">
+              NEGATIVE VALUE
+            </div>
+
+            <code class="
+              color-dbeafe
+              font-size-13px
+            ">
+              transform-rotateY--90deg
+            </code>
+
+          </div>
+
+
+          <div class="
+            padding-17px
+            background-color-0d1220
+            border-1px-solid-202a3d
+            border-radius-11px
+          ">
+
+            <div class="
+              color-59657c
+              font-size-10px
+              margin-bottom-8px
+            ">
+              CSS VARIABLE
+            </div>
+
+            <code class="
+              color-dbeafe
+              font-size-13px
+            ">
+              color--fg-color
+            </code>
+
+          </div>
+
+
+          <div class="
+            padding-17px
+            background-color-0d1220
+            border-1px-solid-202a3d
+            border-radius-11px
+          ">
+
+            <div class="
+              color-59657c
+              font-size-10px
+              margin-bottom-8px
+            ">
+              MULTIPLE FUNCTIONS
+            </div>
+
+            <code class="
+              color-dbeafe
+              font-size-13px
+            ">
+              transform-rotateY-90deg__translateZ-70px
+            </code>
+
+          </div>
+
+
+          <div class="
+            padding-17px
+            background-color-0d1220
+            border-1px-solid-202a3d
+            border-radius-11px
+          ">
+
+            <div class="
+              color-59657c
+              font-size-10px
+              margin-bottom-8px
+            ">
+              ATTRIBUTE SELECTOR
+            </div>
+
+            <code class="
+              color-dbeafe
+              font-size-13px
+            ">
+              [data-state=open]-display-none
+            </code>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================================== -->
+    <!-- COMPONENT SYSTEM                                  -->
+    <!-- ================================================== -->
+
+    <section class="
+      max-width-1100px
+      margin-0px-auto
+      padding-70px-24px
+    ">
+
+
+      <div class="
+        text-align-center
+        margin-bottom-45px
+      ">
+
+        <span class="
+          color-818cf8
+          font-size-11px
+          font-weight-700
+          letter-spacing-1px
+        ">
+          YOUR DESIGN SYSTEM
+        </span>
+
+        <h2 class="
+          margin-10px-0px-0px
+          font-size-36px
+          font-weight-750
+          -sm-[class]-font-size-28px
+        ">
+          Atomic. Component. Hybrid.
+        </h2>
+
+        <p class="
+          max-width-620px
+          margin-14px-auto-0px
+          color-748096
+          font-size-14px
+          line-height-1.7
+        ">
+          AliasCSS doesn't force a design-system methodology.
+          Choose the level of abstraction that works for you.
+        </p>
+
+      </div>
+
+
+      <div class="
+        display-grid
+        grid-template-columns-repeat-3-1fr
+        gap-14px
+        -md-[class]-grid-template-columns-1fr
+      ">
+
+
+        <!-- ATOMIC -->
+
+        <article class="
+          padding-22px
+          background-color-0d1220
+          border-1px-solid-202a3d
+          border-radius-14px
+        ">
+
+          <span class="
+            color-818cf8
+            font-size-10px
+            font-weight-700
+          ">
+            ATOMIC
+          </span>
+
+          <h3 class="
+            margin-9px-0px-14px
+            font-size-17px
+          ">
+            Compose directly
+          </h3>
+
+          <pre class="
+            margin-0px
+            padding-14px
+            background-color-080b14
+            border-radius-9px
+            color-cbd5e1
+            font-size-11px
+            line-height-1.8
+            overflow-auto
+          "><code>display-flex
+align-items-center
+padding-20px
+border-radius-12px</code></pre>
+
+        </article>
+
+
+        <!-- COMPONENT -->
+
+        <article class="
+          padding-22px
+          background-color-0d1220
+          border-1px-solid-202a3d
+          border-radius-14px
+        ">
+
+          <span class="
+            color-a78bfa
+            font-size-10px
+            font-weight-700
+          ">
+            COMPONENT
+          </span>
+
+          <h3 class="
+            margin-9px-0px-14px
+            font-size-17px
+          ">
+            Define once
+          </h3>
+
+          <pre class="
+            margin-0px
+            padding-14px
+            background-color-080b14
+            border-radius-9px
+            color-cbd5e1
+            font-size-11px
+            line-height-1.8
+            overflow-auto
+          "><code>[padding-20px,
+border-radius-12px,
+background-color-fff]--as-card</code></pre>
+
+        </article>
+
+
+        <!-- HYBRID -->
+
+        <article class="
+          padding-22px
+          background-color-0d1220
+          border-1px-solid-202a3d
+          border-radius-14px
+        ">
+
+          <span class="
+            color-f472b6
+            font-size-10px
+            font-weight-700
+          ">
+            HYBRID
+          </span>
+
+          <h3 class="
+            margin-9px-0px-14px
+            font-size-17px
+          ">
+            Compose and customize
+          </h3>
+
+          <pre class="
+            margin-0px
+            padding-14px
+            background-color-080b14
+            border-radius-9px
+            color-cbd5e1
+            font-size-11px
+            line-height-1.8
+            overflow-auto
+          "><code>card
+padding-32px
+background-color-6366f1/0.08</code></pre>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================================== -->
+    <!-- ANIMATION                                         -->
+    <!-- ================================================== -->
+
+    <section class="
+      max-width-1100px
+      margin-0px-auto
+      padding-70px-24px
+    ">
+
+
+      <div class="
+        padding-40px
+        background-color-0d1220
+        border-1px-solid-202a3d
+        border-radius-20px
+        display-grid
+        grid-template-columns-1fr-1fr
+        gap-40px
+        align-items-center
+        -md-[class]-grid-template-columns-1fr
+        -md-[class]-padding-24px
+      ">
+
+
+        <div>
+
+          <span class="
+            color-a5b4fc
+            font-size-10px
+            font-weight-700
+            letter-spacing-1px
+          ">
+            ANIMATION
+          </span>
+
+          <h2 class="
+            margin-10px-0px-0px
+            font-size-32px
+            font-weight-750
+          ">
+            Same grammar.
+            <br>
+            Even for motion.
+          </h2>
+
+          <p class="
+            margin-14px-0px-0px
+            color-748096
+            font-size-13px
+            line-height-1.8
+          ">
+            Define global keyframes using the same
+            AliasCSS declarations you already know.
+          </p>
+
+        </div>
+
+
+        <pre class="
+          margin-0px
+          padding-20px
+          background-color-080b14
+          border-1px-solid-27304a
+          border-radius-12px
+          overflow-auto
+          color-dbeafe
+          font-size-11px
+          line-height-1.8
+        "><code>keyframes-fadeUp="
+  @0-[opacity-0,
+       transform-translateY-20px]
+
+  @100-[opacity-1,
+         transform-translateY-0px]
+"
+
+animation-name-fadeUp
+animation-duration-500ms</code></pre>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================================== -->
+    <!-- AI SECTION                                        -->
+    <!-- ================================================== -->
+
+    <section class="
+      max-width-900px
+      margin-0px-auto
+      padding-90px-24px
+      text-align-center
+    ">
+
+      <span class="
+        color-818cf8
+        font-size-11px
+        font-weight-700
+        letter-spacing-1px
+      ">
+        HUMAN + AI
+      </span>
+
+      <h2 class="
+        margin-10px-0px-0px
+        font-size-44px
+        line-height-1.15
+        font-weight-800
+        -sm-[class]-font-size-32px
+      ">
+        Readable by humans.
+        <br>
+        Predictable for AI.
+      </h2>
+
+      <p class="
+        max-width-650px
+        margin-18px-auto-0px
+        color-748096
+        font-size-15px
+        line-height-1.8
+      ">
+        An AI that understands CSS doesn't need to learn
+        an unrelated vocabulary to generate AliasCSS.
+        The underlying concepts remain familiar.
+      </p>
+
+
+      <div class="
+        margin-top-35px
+        padding-22px
+        text-align-left
+        background-color-0d1220
+        border-1px-solid-6366f1/0.20
+        border-radius-14px
+      ">
+
+        <div class="
+          color-59657c
+          font-size-10px
+          margin-bottom-12px
+        ">
+          CSS
+        </div>
+
+        <code class="
+          color-cbd5e1
+          font-size-13px
+        ">
+          transform: rotateY(-90deg) translateZ(70px);
+        </code>
+
+        <div class="
+          margin-20px-0px
+          height-1px
+          background-color-202a3d
+        "></div>
+
+        <div class="
+          color-a5b4fc
+          font-size-10px
+          margin-bottom-12px
+        ">
+          ALIASCSS
+        </div>
+
+        <code class="
+          color-dbeafe
+          font-size-13px
+        ">
+          transform-rotateY--90deg__translateZ-70px
+        </code>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================================== -->
+    <!-- FINAL CTA                                          -->
+    <!-- ================================================== -->
+
+    <section class="
+      max-width-900px
+      margin-0px-auto
+      padding-50px-24px-120px
+      text-align-center
+    ">
+
+      <div class="
+        padding-60px-30px
+        background-color-6366f1/0.08
+        border-1px-solid-6366f1/0.18
+        border-radius-24px
+      ">
+
+        <h2 class="
+          margin-0px
+          font-size-38px
+          font-weight-800
+          -sm-[class]-font-size-28px
+        ">
+          Start with the CSS you already know.
+        </h2>
+
+        <p class="
+          max-width-550px
+          margin-14px-auto-0px
+          color-8d98ac
+          font-size-14px
+          line-height-1.7
+        ">
+          Write it atomically. Compose it into components.
+          Build a hybrid system when you need one.
+        </p>
+
+        <a class="
+          display-inline-block
+          margin-top-25px
+          padding-14px-22px
+          background-color-6366f1
+          color-fff
+          border-radius-10px
+          text-decoration-none
+          font-size-13px
+          font-weight-700
+          box-shadow-0px-12px-35px-6366f1/0.30
+          --hover-background-color-818cf8
+        ">
+          Try AliasCSS
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================================================== -->
+  <!-- FOOTER                                             -->
+  <!-- ================================================== -->
+
+  <footer class="
+    padding-25px-6%
+    border-top-1px-solid-ffffff/0.06
+    color-4f5a6d
+    font-size-11px
+    text-align-center
+  ">
+
+    AliasCSS — CSS-native styling for humans and AI.
+
+  </footer>
+
+
+</body>
+
+</html>

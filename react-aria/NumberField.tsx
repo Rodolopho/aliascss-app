@@ -27,7 +27,7 @@ const labelClassName = String`
 `;
 
 const groupClassName = String`
-  inset dif aic w-100p h-10 br-8px oh
+  inset dif aic w-100p h-10 br-8px pr [data-focus-within]--after[cont,pa,inset-1px,zi-2,pen,br-inherit,ol-2px-solid--focus-ring-color]    
 `;
 
 const inputClassName = String`
@@ -41,7 +41,7 @@ const stepperClassName = String`
   c-grayRATheme1200 cur-pointer
   bl-1px-s-grayRATheme300
   b-0 br-0
-  --hover[bgc-grayRATheme100]
+[data-pressed][bgc-grayRATheme100,scale-0.95]
   [data-disabled][c-grayRATheme600,cna,bgc-grayRATheme100]
 `;
 

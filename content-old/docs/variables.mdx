@@ -1,0 +1,340 @@
+import { Callout, Tabs } from 'nextra/components'
+
+# CSS Variables
+
+AliasCSS lets you use CSS variables in any utility class.
+
+You can reference variables with either `--name` or `--var--name`, depending on how the variable name is written.
+
+This is useful when a value needs to be dynamic, themeable, reusable, or controlled by state.
+
+<Callout type="info" emoji="💡">
+Use CSS variables when the value should stay flexible. Use normal utilities when the value is fixed.
+</Callout>
+
+---
+
+## Quick start
+
+```html
+<div class="--header-color:skyBlue">
+  <h3 class="color--header-color --hover--header-color:blue">
+    Hello World
+  </h3>
+</div>
+```
+
+### What happens
+
+- `--header-color:skyBlue` defines a CSS variable
+- `color--header-color` reads it as `var(--header-color)`
+- `--hover--header-color:blue` updates the variable on hover
+
+This pattern works well for theming, state-based styling, and reusable component tokens.
+
+---
+
+## Two variable formats
+
+AliasCSS supports two ways to reference a CSS variable inside a class name.
+
+### 1. `--name`
+
+Use this for normal variable names.
+
+```html
+<div class="color--header-color"></div>
+```
+
+Compiled CSS:
+
+```css
+color: var(--header-color);
+```
+
+### 2. `--var--name`
+
+Use this when the variable name starts with a numeric character, or when you want to force variable interpretation.
+
+```html
+<div class="width--var--24x"></div>
+```
+
+Compiled CSS:
+
+```css
+width: var(--24x);
+```
+
+<Callout type="warning" emoji="⚠️">
+Use `--var--` when the variable name starts with a number, such as `--24x`. Without `--var--`, AliasCSS may interpret it as a normal value instead of a CSS variable.
+</Callout>
+
+---
+
+## Syntax
+
+### Define a variable
+
+```text
+--variable-name:value
+```
+
+Example:
+
+```html
+<div class="--header-color:skyBlue"></div>
+```
+
+### Use a variable
+
+```text
+property--variable-name
+property--var--variable-name
+```
+
+Examples:
+
+```html
+<div class="color--header-color"></div>
+<div class="width--var--24x"></div>
+```
+
+### Use a variable with fallback
+
+```text
+property--variable-name:fallback
+property--var--variable-name:fallback
+```
+
+Examples:
+
+```html
+<div class="color--header-color:skyBlue"></div>
+<div class="width--var--side-bar-width:200px"></div>
+```
+
+Compiled CSS:
+
+```css
+color: var(--header-color, skyBlue);
+width: var(--side-bar-width, 200px);
+```
+
+---
+
+## Defining variables
+
+You can define CSS variables directly in class names.
+
+### Example
+
+```html
+<div class="--header-color:skyBlue">
+  ...
+</div>
+```
+
+Compiled CSS:
+
+```css
+--header-color: skyBlue;
+```
+
+### Example with descendant usage
+
+```html
+<div class="--header-color:skyBlue">
+  <h3 class="color--header-color">Hello World</h3>
+</div>
+```
+
+This behaves like:
+
+```css
+.parent {
+  --header-color: skyBlue;
+}
+
+.parent h3 {
+  color: var(--header-color);
+}
+```
+
+---
+
+## Updating variables by state
+
+Variables become especially useful when combined with states like `hover`, `focus`, or dark mode.
+
+### Example
+
+```html
+<div class="--header-color:skyBlue">
+  <h3 class="color--header-color --hover--header-color:blue">
+    Hello World
+  </h3>
+</div>
+```
+
+This means:
+
+- default variable value is `skyBlue`
+- on hover, the variable changes to `blue`
+- the text color updates automatically because it uses that variable
+
+---
+
+## Default fallback values
+
+You can define a fallback value while using a variable.
+
+### Example
+
+```html
+<h1 class="color--header-color:skyBlue bg--display-bg">
+  Hello World
+</h1>
+```
+
+### Meaning
+
+- `color--header-color:skyBlue` → `color: var(--header-color, skyBlue)`
+- `bg--display-bg` → `background: var(--display-bg)`
+
+<Callout type="info" emoji="ℹ️">
+Fallback values are useful when a variable may not be defined in the current context.
+</Callout>
+
+---
+
+## Smart value hinting
+
+AliasCSS can infer how to process a variable value based on the variable name.
+
+### Rule
+
+If the variable name ends with a valid CSS property name or AliasCSS property alias, AliasCSS tries to process the value using that property’s value compiler.
+
+If the variable name does not end with a recognized property or alias, AliasCSS leaves the value as-is.
+
+---
+
+## Value hinting examples
+
+| Class | Result | Notes |
+| --- | --- | --- |
+| `--country-text:united_kingdom` | `--country-text:"united kingdom"` | `text` hints string processing |
+| `--country-content:united_kingdom` | `--country-content:"united kingdom"` | `content` hints string processing |
+| `--country-name:united_kingdom` | `--country-name:united_kingdom` | no hinting |
+| `--panel-color:rgb-225-225-0` | `--panel-color:rgb(225 225 0)` | `color` hints color parsing |
+| `--panel-col:rgb-225-225-0` | `--panel-col:rgb-225-225-0` | no hinting |
+| `--color-panel:rgb-225-225-0` | `--color-panel:rgb-225-225-0` | suffix is not a color alias |
+| `--transform-rotate-half:rotate--180deg` | `--transform-rotate-half:rotate--180deg` | no hinting |
+| `--rotate-half-transform:rotate--180deg` | `--rotate-half-transform:rotate(-180deg)` | `transform` hints transform parsing |
+| `--rotate-half-tf:rotate-90deg` | `--rotate-half-tf:rotate(90deg)` | `tf` hints transform parsing |
+
+<Callout type="warning" emoji="⚠️">
+If you do not want AliasCSS to transform the value, use a variable name that does not end with a recognized property name or alias.
+</Callout>
+
+---
+
+## Reference examples
+
+| Classname | Shorthand | CSS output | Notes |
+| --- | --- | --- | --- |
+| `background-color--var--main-bg` | `bgc--var--main-bg` | `background-color: var(--main-bg)` | force variable mode |
+| `background-color--main-bg` | `bgc--main-bg` | `background-color: var(--main-bg)` | normal variable |
+| `background-color--main-bg:blue` | `bgc--main-bg:blue` | `background-color: var(--main-bg, blue)` | with fallback |
+| `color--name` | `c--name` | `color: var(--name)` | basic usage |
+| `width--var--side-bar-width:200px` | `w--var--side-bar-width:200px` | `width: var(--side-bar-width, 200px)` | forced variable + fallback |
+| `width--side-bar-width` | `w--side-bar-width` | `width: var(--side-bar-width)` | standard variable |
+| `width--var--24x` | `w--var--24x` | `width: var(--24x)` | numeric-start variable name |
+| `width--24x` | `w--24x` | `width: -24x` | use `--var--` if this is a CSS variable |
+
+---
+
+## When to use `--var--`
+
+Use `--var--` in these cases:
+
+- the variable name starts with a number
+- the value could be misread as a normal AliasCSS value
+- you want to make variable usage explicit
+
+### Example
+
+```html
+<div class="width--var--24x"></div>
+```
+
+Without `--var--`, AliasCSS may parse `--24x` as a negative value rather than `var(--24x)`.
+
+---
+
+## Good use cases
+
+CSS variables work especially well for:
+
+- theme colors
+- spacing tokens
+- animation timing values
+- dynamic widths and heights
+- component-level overrides
+- dark mode or state-based token switching
+
+---
+
+## Best practices
+
+- Use semantic variable names such as `--header-color`, `--card-bg`, or `--sidebar-width`.
+- Use fallback values when a token may be optional.
+- Use `--var--` for numeric-leading variable names.
+- Keep property-hinted variable names intentional.
+- Prefer variables for tokens and reusable values, not for every fixed style.
+- Define shared variables high in the tree when many descendants need them.
+
+---
+
+## Common pitfalls
+
+- Using `--24x` as if it were automatically a variable reference
+- Forgetting that suffixes such as `color`, `content`, `text`, or `tf` may trigger value hinting
+- Using unintentional variable names like `--panel-color` when raw string storage was intended
+- Skipping fallback values in components that may be used outside a tokenized theme context
+
+---
+
+## Cheat sheet
+
+```text
+--header-color:skyBlue
+-> define a CSS variable
+
+color--header-color
+-> color: var(--header-color)
+
+color--header-color:blue
+-> color: var(--header-color, blue)
+
+width--var--24x
+-> width: var(--24x)
+
+--country-text:united_kingdom
+-> --country-text:"united kingdom"
+
+--panel-color:rgb-225-225-0
+-> --panel-color:rgb(225 225 0)
+
+--rotate-half-tf:rotate-90deg
+-> --rotate-half-tf:rotate(90deg)
+```
+
+## See also
+
+- Basic Usage
+- States and Selectors
+- Attribute Selectors
+- Keyframes
+- Theming

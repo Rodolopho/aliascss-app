@@ -62,12 +62,14 @@ export function SearchField(props: SearchFieldProps) {
   return (
     <RACSearchField {...searchFieldProps} className={rootClassName}>
       {label ? <Label className={labelClassName}>{label}</Label> : null}
-      <div className={fieldClassName}>
+      <div className={fieldClassName} 
+          data-raw-css=".removeCancelButton{&::-webkit-search-cancel-button,&::-webkit-search-decoration {-webkit-appearance: none;}}"
+  >
         <svg viewBox="0 0 20 20" aria-hidden="true" className={iconClassName}>
           <circle cx="9" cy="9" r="5.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
           <path d="M13.5 13.5L17 17" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
-        <Input className={inputClassName} />
+        <Input className={inputClassName + " removeCancelButton"} />
         <Button className={clearButtonClassName} aria-label="Clear search">
           <svg viewBox="0 0 20 20" aria-hidden="true" className={iconClassName}>
             <path d="M6 6L14 14M14 6L6 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />

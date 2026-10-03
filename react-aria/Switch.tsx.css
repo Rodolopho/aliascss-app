@@ -16,7 +16,7 @@
 .tn-all-200ms{transition:all 200ms}
 .db{display: block}
 .x-square-0\.857rem{width:calc(0.857rem - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(0.857rem - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(0.857rem - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
-.bgc--field-background{background-color: var(--field-background)}
+.bgc--field-background{background-color:var(--field-background)}
 .tn-transform-200ms{transition:transform 200ms}
 .lh-1\.4{line-height: 1.4}
 .tf-tx-0\.857rem{transform:translateX(0.857rem)}

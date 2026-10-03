@@ -1,0 +1,342 @@
+
+
+import Callout from 'nextra/components/Callout';
+
+# Selectors, States & Combinators
+
+In AliasCSS, selectors form **Tier 2** of the Right-to-Left grammar pipeline. They modify *under what condition* or *on which target* the rightmost property-value declaration applies:
+
+```text
+┌───────────────────────────┬───────────────────────────┬───────────────────────────┐
+│          Tier 1           │          Tier 2           │          Tier 3           │
+│     Block-Level Scopes    │    Selectors & States     │   Property-Value Anchor   │
+│   (@media, @container)    │   (--hover, _, __, &)     │    (bgc-blue, fs-16px)    │
+├───────────────────────────┼───────────────────────────┼───────────────────────────┤
+│ @media (min-width: 768px) │ :hover                    │ background-color: #6366f1 │
+│ @starting-style           │ > li                      │ opacity: 0                │
+│ @container (min-width: md)│ [disabled]                │ cursor: not-allowed       │
+└───────────────────────────┴───────────────────────────┴───────────────────────────┘
+◄────────────────────────────────────────────────────────────────────────────────────
+                            READ & PARSE: RIGHT TO LEFT
+
+```
+
+---
+
+## 1. Pseudo-Classes & Interactive States (`--`)
+
+All pseudo-classes use a **double-hyphen prefix (`--`)** preceding the state name:
+
+```html
+<button class="
+  background-color-6366f1
+  color-ffffff
+  --hover-background-color-4f46e5
+  --focus-visible-outline-2px-solid-6366f1
+  --active-transform-scale-0.98
+">
+  Interactive Button
+</button>
+
+```
+
+Compiled Output:
+
+```css
+.background-color-6366f1 { background-color: #6366f1; }
+.color-ffffff { color: #ffffff; }
+.--hover-background-color-4f46e5:hover { background-color: #4f46e5; }
+.--focus-visible-outline-2px-solid-6366f1:focus-visible { outline: 2px solid #6366f1; }
+.--active-transform-scale-0\.98:active { transform: scale(0.98); }
+
+```
+
+### Grouped Pseudo-States (`--state[...]`)
+
+When multiple declarations apply to a single state, bundle them inside brackets `[...]`:
+
+```html
+<a href="#" class="
+  color-94a3b8
+  --hover-[color-ffffff,text-decoration-underline,transform-translateX-4px]
+">
+  Hover Navigation Link
+</a>
+
+```
+
+Compiled Output:
+
+```css
+.color-94a3b8 { color: #94a3b8; }
+.--hover-\[color-ffffff\,text-decoration-underline\,transform-translateX-4px\]:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  transform: translateX(4px);
+}
+
+```
+
+---
+
+## 2. Functional Pseudo-Classes (`--is`, `--has`, `--not`, `--where`)
+
+AliasCSS supports modern CSS functional pseudo-selectors:
+
+```html
+<!-- :is() matching -->
+<div class="--is(_button,_a)-cursor-pointer"></div>
+
+<!-- :has() parent awareness -->
+<div class="--has(_input--checked)-border-color-6366f1"></div>
+
+<!-- :not() exclusion -->
+<li class="--not(--last-child)-border-bottom-1px-solid-ffffff/0.08"></li>
+
+```
+
+Compiled Output:
+
+```css
+.--is\(_button\,_a\)-cursor-pointer:is(button, a) { cursor: pointer; }
+.--has\(_input--checked\)-border-color-6366f1:has(input:checked) { border-color: #6366f1; }
+.--not\(--last-child\)-border-bottom-1px-solid-ffffff\/0\.08:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+```
+
+---
+
+## 3. Pseudo-Elements (`--before`, `--after`, `--selection`)
+
+Target pseudo-elements by prefixing them with `--`:
+
+```html
+<!-- Custom tooltip pointer via ::after -->
+<div class="
+  position-relative
+  --after-content-empty
+  --after-position-absolute
+  --after-top-100%
+  --after-left-50%
+  --after-border-8px-solid-transparent
+  --after-border-top-color-111827
+">
+  Tooltip Anchor
+</div>
+
+<!-- Highlight styling via ::selection -->
+<body class="--selection[background-color-6366f1,color-ffffff]">
+  Selected text adopts brand colors
+</body>
+
+```
+
+Compiled Output:
+
+```css
+.--after-content-empty::after { content: ""; }
+.--after-position-absolute::after { position: absolute; }
+.--after-top-100\%::after { top: 100%; }
+.--after-border-top-color-111827::after { border-top-color: #111827; }
+.--selection\[background-color-6366f1\,color-ffffff\]::selection {
+  background-color: #6366f1;
+  color: #ffffff;
+}
+
+```
+
+---
+
+## 4. The Underscore Combinator Ladder
+
+To style downstream DOM nodes without writing separate CSS selectors, use the **Underscore Distance Ladder**:
+
+```text
+_      ->  Descendant Combinator (Space: " ")
+__     ->  Direct Child Combinator (">")
+___    ->  Adjacent Sibling Combinator ("+")
+____   ->  General Sibling Combinator ("~")
+
+```
+
+---
+
+### A. Descendant Combinator (`_`)
+
+Targets any matching element inside the ancestor container, regardless of depth:
+
+```html
+<article class="_h2-font-size-28px _p-line-height-1.6">
+  <h2>Article Title</h2>
+  <div>
+    <p>This nested paragraph inherits the line height declaration.</p>
+  </div>
+</article>
+
+```
+
+Compiled Output:
+
+```css
+._h2-font-size-28px h2 { font-size: 28px; }
+._p-line-height-1\.6 p { line-height: 1.6; }
+
+```
+
+---
+
+### B. Direct Child Combinator (`__`)
+
+Restricts targeting strictly to direct children:
+
+```html
+<ul class="__li-padding-12px __li-border-bottom-1px-solid-ffffff/0.08">
+  <li>Direct child (receives padding and border)</li>
+  <li>
+    <div><span>Nested elements are not matched</span></div>
+  </li>
+</ul>
+
+```
+
+Compiled Output:
+
+```css
+.__li-padding-12px > li { padding: 12px; }
+.__li-border-bottom-1px-solid-ffffff\/0\.08 > li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+```
+
+---
+
+### C. Direct Bracket Attachment (`_tag[...]`)
+
+To apply multiple declarations to a combinator target, attach brackets directly to the tag identifier (both `_h3[...]` and `_h3-[...]` parse cleanly):
+
+```html
+<div class="_h3[font-size-20px,font-weight-700,color-ffffff,margin-bottom-12px]">
+  <h3>Direct Bracket Grouping</h3>
+</div>
+
+```
+
+Compiled Output:
+
+```css
+._h3\[font-size-20px\,font-weight-700\,color-ffffff\,margin-bottom-12px\] h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+```
+
+---
+
+## 5. Attribute Selectors & State Guards (`[...]`)
+
+Target attributes such as `[disabled]`, `[required]`, or custom data attributes (`[data-state=open]`) by wrapping the selector in square brackets:
+
+```html
+<!-- Form Control Guards -->
+<input 
+  type="text" 
+  class="
+    border-1px-solid-e2e8f0
+    padding-8px-16px
+    [disabled]-[background-color-f1f5f9,color-94a3b8,cursor-not-allowed]
+    [required]-border-left-3px-solid-6366f1
+  "
+/>
+
+<!-- Accordion / Dropdown State Guard -->
+<div class="
+  height-0 overflow-hidden
+  [data-state=open]-[height-auto,opacity-1,padding-16px]
+">
+  Collapsible Content
+</div>
+
+```
+
+Compiled Output:
+
+```css
+.\[disabled\]-\[background-color-f1f5f9\,color-94a3b8\,cursor-not-allowed\][disabled] {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+.\[required\]-border-left-3px-solid-6366f1[required] {
+  border-left: 3px solid #6366f1;
+}
+.\[data-state\=open\]-\[height-auto\,opacity-1\,padding-16px\][data-state="open"] {
+  height: auto;
+  opacity: 1;
+  padding: 16px;
+}
+
+```
+
+---
+
+## 6. Structural Selectors (`--nth-child`, `--first-of-type`)
+
+Apply structural formula patterns directly without leaving your markup:
+
+```html
+<div class="
+  --first-child-margin-top-0
+  --last-child-border-bottom-none
+  --nth-child(even)-background-color-ffffff/0.02
+">
+  Stripe Table Rows
+</div>
+
+```
+
+Compiled Output:
+
+```css
+.--first-child-margin-top-0:first-child { margin-top: 0; }
+.--last-child-border-bottom-none:last-child { border-bottom: none; }
+.--nth-child\(even\)-background-color-ffffff\/0\.02:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+```
+
+---
+
+## 7. Atomic Cascade Deduplication
+
+When grouped selectors or combinators are compiled, AliasCSS splits them into atomic declarations or groups them into optimized rule clusters based on target efficiency:
+
+```html
+<div class="_p[margin-0,color-94a3b8] _h2[margin-0,color-ffffff]">
+  <h2>Header</h2>
+  <p>Paragraph</p>
+</div>
+
+```
+
+The compiler deduplicates declarations across the stylesheet:
+
+```css
+._p\[margin-0\,color-94a3b8\] p {
+  margin: 0;
+  color: #94a3b8;
+}
+._h2\[margin-0\,color-ffffff\] h2 {
+  margin: 0;
+  color: #ffffff;
+}
+
+```
+
+

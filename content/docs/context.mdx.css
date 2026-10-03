@@ -1,0 +1,18 @@
+@layer xs{@media (max-width: 575.99px){@layer base{ .\@\[xs\,base\]\[border-0\,color-fff\,bgc-blue\]{color:#fff}}}} 
+@layer xs{@media (max-width: 575.99px){@layer base{ .\@\[xs\,base\]\[border-0\,color-fff\,bgc-blue\]{background-color:blue}}}} 
+
+.opacity-1{opacity: 1}
+.transform-scale-1{transform:scale(1)}
+.transition-all-200ms{transition:all 200ms}
+@starting-style{ .\@starting-style\[opacity-0\,tf-scale-0\.9\]{opacity: 0}} 
+@starting-style{ .\@starting-style\[opacity-0\,tf-scale-0\.9\]{transform:scale(0.9)}} 
+
+.container-type-inline-size{container-type:inline-size}
+.width-100\%{width: 100%}
+.display-flex{display:flex}
+.flex-direction-column{flex-direction:column}
+@container (min-width: 768px){ .\@container-md\[flex-direction-row\,align-items-center\]{flex-direction:row}} 
+@container (min-width: 768px){ .\@container-md\[flex-direction-row\,align-items-center\]{align-items:center}}
+@supports(display:grid){ @layer base{ .\@\[supports\(display\:grid\)\,base\]-display-grid{display:grid}}}
+@container_sidebar(min-width:400px){ .\@\[container_sidebar\(min-width\:400px\)\]-display-none{display:none}}
+@media (768px<=width<=1024px){ .\@\[media\(768px\<\=width\<\=1024px\)\]-display-none{display:none}}

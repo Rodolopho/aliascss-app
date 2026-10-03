@@ -26,7 +26,7 @@ const labelClassName = String`
 `;
 
 const inputClassName = String`
-  inset
+  InsetRA
   h-10 px-3 w-100p
   bn br-8px ol-none
   fs--font-size ff-inherit c-grayRATheme1400

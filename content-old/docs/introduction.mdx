@@ -1,0 +1,620 @@
+import { Callout, Image } from 'nextra/components'
+import './introduction.mdx.css';
+
+<Image src="/SVG/full-whiteAsset 3.svg"  className="xw-200px w-100px mt-32px @xs-dn lg-db lg-mla lg-mra " alt="AliasCSS" style={{width:'auto'}} width={200} height={100} />
+| "AliasCSS is closer to native css, easy to learn and build for both human and AI."
+
+## A CSS language for modern web development
+
+AliasCSS is a CSS language that lets you write CSS directly in your HTML, JSX, TSX, and component markup.
+
+If you already know CSS, you already understand the foundation of AliasCSS.
+
+```html
+<div class="display-flex width-100px">
+```
+
+AliasCSS can also provide shorter aliases:
+
+```html
+<div class="d-flex w-100px">
+```
+
+And when you need the actual CSS property and value directly:
+
+```html
+<div class="display(flex) width(100px)">
+```
+
+The goal is not to replace CSS with a completely different styling model.
+
+**AliasCSS gives you different ways to express CSS while keeping the underlying CSS concepts visible.**
+
+---
+
+# 1. Your First AliasCSS
+
+Start with ordinary CSS.
+
+### Vanilla CSS
+
+```html
+<div class="card">
+  <h2>Hello AliasCSS</h2>
+  <p>Build interfaces using CSS concepts directly.</p>
+</div>
+```
+
+```css
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  padding: 24px;
+  border-radius: 12px;
+}
+```
+
+The HTML describes the component.
+
+The CSS describes how the component looks.
+
+---
+
+## The same component with Tailwind
+
+```html
+<div class="
+  flex
+  flex-col
+  w-full
+  max-w-[400px]
+  p-6
+  rounded-xl
+">
+  <h2>Hello AliasCSS</h2>
+  <p>Build interfaces using CSS concepts directly.</p>
+</div>
+```
+
+Tailwind uses a predefined utility vocabulary to represent CSS properties and values.
+
+---
+
+## The same component with AliasCSS
+
+AliasCSS can express the same styling directly:
+
+```html
+<div class="
+  display-flex
+  flex-direction-column
+  width-100p
+  max-width-400px
+  padding-24px
+  border-radius-12px
+">
+  <h2>Hello AliasCSS</h2>
+  <p>Build interfaces using CSS concepts directly.</p>
+</div>
+```
+
+If you know CSS, the relationship is immediately visible:
+
+```text
+display-flex
+      ↓
+display: flex
+
+width-100p
+      ↓
+width: 100%
+
+padding-24px
+      ↓
+padding: 24px
+```
+
+---
+
+# 2. Three Ways to Write a Property
+
+One of the fundamental ideas in AliasCSS is that you are not forced to use only one syntax.
+
+For example, `width: 100px` can be expressed in different ways.
+
+### Semantic form
+
+```html
+<div class="width-100px">
+```
+
+### Shorthand form
+
+```html
+<div class="w-100px">
+```
+
+### Property function
+
+```html
+<div class="width(100px)">
+```
+
+All three represent the same CSS declaration:
+
+```css
+width: 100px;
+```
+
+The difference is how you want to express it.
+
+---
+
+# 3. Semantic Property Names
+
+The semantic form uses the CSS property name directly.
+
+```html
+<div class="
+  display-flex
+  width-100px
+  height-100px
+  padding-20px
+  margin-10px
+">
+```
+
+This is useful when:
+
+* you are learning AliasCSS
+* readability is more important than brevity
+* a property does not have a commonly used shorthand
+* you want the code to remain close to standard CSS terminology
+
+Think of it as:
+
+```text
+CSS property + value
+```
+
+```text
+width-100px
+```
+
+rather than learning a completely unrelated utility name.
+
+---
+
+# 4. Shorthand Aliases
+
+When a property has a popular AliasCSS shorthand, you can use it instead.
+
+```html
+<div class="
+  d-flex
+  w-100px
+  h-100px
+  p-20px
+  m-10px
+">
+```
+
+For example:
+
+| CSS             | Semantic       | Alias     |
+| --------------- | -------------- | --------- |
+| `display: flex` | `display-flex` | `d-flex`  |
+| `width: 100px`  | `width-100px`  | `w-100px` |
+| `height: 100px` | `height-100px` | `h-100px` |
+| `padding: 20px` | `padding-20px` | `p-20px`  |
+| `margin: 10px`  | `margin-10px`  | `m-10px`  |
+
+AliasCSS keeps the full semantic representation available while allowing commonly used properties to have shorter forms.
+
+---
+
+# 5. Property Functions
+
+Sometimes you don't need to provide raw css value.
+
+AliasCSS provides a direct property function:
+
+```text
+property(value)
+Note: The value is raw css value, however property can have alias form.
+```
+
+For example:
+
+```html
+<div class="
+  width(100px)
+  height(100px)
+  display(flex)
+  d(flex)
+  m(10px,-10px)
+  font(inter,sans-serif,System-ui)_
+">
+```
+
+This maps directly to:
+
+```css
+width: 100px;
+height: 100px;
+display: flex;
+margin:10px -10px;
+font:inter, sans-serif, System-ui;
+```
+
+This becomes particularly useful for complex CSS values. Note: using _ at the end will preserve ',' in muliple value.
+
+---
+
+## Complex values
+
+Consider:
+
+```css
+grid-template-columns: repeat(3, minmax(280px, 1fr));
+```
+
+Instead of creating a special utility for this value, AliasCSS can express the actual CSS:
+
+```html
+<div class="
+  grid-template-columns(repeat(3,minmax(280px,1fr)))_
+">
+```
+`_` at the end will preserve the `,` in property function classnames.
+This is one of the important principles of AliasCSS:
+
+> **You should not need a predefined utility for every possible CSS value.**
+
+When a shorthand exists, use it.
+
+When a semantic property representation is clearer, use it.
+
+When you need the exact CSS property and value, use:
+
+```text
+property(value) or property(value)_
+```
+
+---
+
+# 6. CSS Variables
+
+AliasCSS also works with CSS custom properties.
+
+Suppose your project defines:
+
+```css
+:root {
+  --container-width: 1180px;
+}
+```
+
+You can reference the variable from AliasCSS:
+
+```html
+<div class="width--container-width">
+```
+
+Or using the shorthand:
+
+```html
+<div class="w--container-width">
+```
+
+Conceptually:
+
+```text
+width--container-width
+        ↓
+width: var(--container-width)
+```
+
+This lets the class describe the relationship:
+
+```text
+width → container-width
+```
+
+rather than embedding the value:
+
+```text
+width-1180px
+```
+
+---
+
+# 7. When Should You Use Each Form?
+
+There is no requirement to choose one style everywhere.
+
+### Use semantic names when clarity matters
+
+```html
+<div class="display-flex flex-direction-column">
+```
+
+### Use shorthand when writing common styles
+
+```html
+<div class="d-flex fd-column">
+```
+
+### Use variables when the value belongs to a design system
+
+```html
+<div class="w--container-width">
+```
+
+### Use `property(value)` when you need the exact CSS
+
+```html
+<div class="grid-template-columns(repeat(3,minmax(280px,1fr)))_">
+```
+
+The result is still CSS.
+
+AliasCSS simply gives you several ways to express it.
+
+---
+
+# 8. A Real Example
+
+Let's build a responsive card layout.
+
+### Vanilla CSS
+
+```css
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  gap: 16px;
+  width: 100%;
+  overflow: auto;
+  position: relative;
+}
+```
+
+### Tailwind
+
+```html
+<div class="
+  grid
+  grid-cols-[repeat(3,minmax(280px,1fr))]
+  gap-4
+  w-full
+  overflow-auto
+  relative
+">
+```
+
+### AliasCSS — semantic
+
+```html
+<div class="
+  display-grid
+  grid-template-columns(repeat(3,minmax(280px,1fr)))_
+  gap-16px
+  width-100p
+  overflow-auto
+  position-relative
+">
+```
+
+### AliasCSS — shorthand
+
+```html
+<div class="
+  d-grid
+  gtc(repeat(3,minmax(280px,1fr)))_
+  g-16px
+  w-100p
+  oa
+  pr
+">
+```
+
+Notice something important:
+
+```text
+Tailwind:
+grid-cols-[...]
+
+AliasCSS:
+grid-template-columns(...)
+```
+
+AliasCSS doesn't need to invent a special vocabulary for the complex value.
+
+The CSS property remains visible.
+
+---
+
+# 9. Responsive Styles
+
+AliasCSS allows a declaration to be associated with a responsive context.
+
+For example:
+
+```html
+<div class="
+  d-grid
+  g-16px
+  @md-jc-center
+">
+```
+
+The normal declarations apply normally.
+
+The `@md-` prefix places the declaration in the `md` responsive context.
+
+Conceptually:
+
+```text
+d-grid
+g-16px
+
+@md-jc-center
+```
+
+means:
+
+```text
+normal
+├── display: grid
+└── gap: 16px
+
+md
+└── justify-content: center
+```
+
+This gives AliasCSS a consistent model:
+
+```text
+property
+@context-property
+```
+
+---
+
+# 10. States
+
+AliasCSS can group declarations belonging to a state.
+
+For example:
+```html
+<button class="
+  --hover-bgc-000 --hover-c-fff
+">
+  Submit
+</button>
+```
+
+Using grouping
+
+```html
+<button class="
+  --hover[bgc-000,c-fff]
+">
+  Submit
+</button>
+```
+
+Conceptually:
+
+```css
+button:hover {
+  background-color: #000;
+  color: #fff;
+}
+```
+
+Instead of repeating:
+
+```text
+--hover...
+--hover...
+```
+
+the declarations belonging to the same state can be grouped:
+
+```text
+--hover[bgc-000,c-fff]
+```
+
+---
+
+# 11. Combining Context and State
+
+Contexts and states can be combined.
+
+For example:
+
+```html
+<div class="
+  --selected[bgc(#dcfce7),bc(#22c55e)]
+  @dark--selected[bgc(#14532d),bc(#16a34a)]
+">
+```
+
+This can be read as:
+
+```text
+selected
+├── background
+└── border
+
+dark + selected
+├── background
+└── border
+```
+
+The syntax keeps the relationship between the context, selector, and declarations visible.
+
+---
+
+# 12. Grouping and Reusable Classes
+
+Grouping can also be used to create reusable semantic classes.
+
+```html
+<div class="
+  [d-grid,jc-center,g-16px]--as-card
+">
+```
+
+The grouped declarations are exported as:
+
+```text
+card
+```
+
+The resulting component can then be used normally:
+
+```html
+<div class="card">
+  ...
+</div>
+
+<div class="card">
+  ...
+</div>
+```
+
+This creates a progression:
+
+```text
+Atomic
+↓
+Grouped
+↓
+Semantic
+```
+
+You can start with:
+
+```html
+<div class="d-grid g-16px jc-center">
+```
+
+then recognize a repeated pattern:
+
+```html
+<div class="[d-grid,g-16px,jc-center]--as-card">
+```
+
+and subsequently use:
+
+```html
+<div class="card">
+```
+
+---
+

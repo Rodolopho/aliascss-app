@@ -9,7 +9,15 @@
 .w-100p{width: 100%}
 .h-10{height:var(--space-10,2.5rem)}
 .br-8px{border-radius: 8px}
-.oh{overflow: hidden}
+.pr{position: relative}
+.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{content:""} 
+.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{position: absolute} 
+.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{inset: 1px} 
+.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{z-index:2} 
+.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{pointer-events: none} 
+.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{border-radius:inherit} 
+.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{outline:2px solid var(--focus-ring-color)} 
+
 @layer base{ .\@base-au{all: unset}}
 .fg-1{flex-grow: 1}
 .h-100p{height: 100%}
@@ -28,7 +36,8 @@
 .cur-pointer{cursor:pointer}
 .bl-1px-s-grayRATheme300{border-left:1px solid light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 91.1434% calc(l * c * 0.7) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% calc(l * c * 0.7) h))}
 .br-0{border-radius: 0}
-.--hover\[bgc-grayRATheme100\]:hover{background-color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 98.1187% calc(l * c * 0.5) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 29.6725% calc(l * c * 0.5) h))} 
+.\[data-pressed\]\[bgc-grayRATheme100\,scale-0\.95\][data-pressed]{background-color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 98.1187% calc(l * c * 0.5) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 29.6725% calc(l * c * 0.5) h))} 
+.\[data-pressed\]\[bgc-grayRATheme100\,scale-0\.95\][data-pressed]{scale: 0.95} 
 
 .\[data-disabled\]\[c-grayRATheme600\,cna\,bgc-grayRATheme100\][data-disabled]{color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 72.3297% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 57.9699% c h))} 
 .\[data-disabled\]\[c-grayRATheme600\,cna\,bgc-grayRATheme100\][data-disabled]{cursor: not-allowed} 

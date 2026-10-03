@@ -3,7 +3,8 @@
 .bgc-2552552550d8{background-color:rgba(255,255,255,0.8)}
 .w-150px{width: 150px}
 .pf{position: fixed}
-@media (min-width : 768px){ .md-dn{display: none}}
+@layer md{
+@media (min-width: 768px){.md-dn{display: none}}}
 .zi-1234{z-index:1234}
 .btm-0px{bottom: 0px}
 .r-32px{right: 32px}
@@ -25,7 +26,8 @@
 ._all-bsbb *{box-sizing: border-box}
 .pr{position: relative}
 .dn{display: none}
-@media (min-width : 768px){ .md-df-i{display: flex !important}}
+@layer md{
+@media (min-width: 768px){.md-df-i{display: flex !important}}}
 .fb--var--aside-width{flex-basis: var(--aside-width)}
 .flex-shrink-0{flex-shrink: 0}
 .t--var--aside-top{top: var(--aside-top)}
@@ -52,12 +54,16 @@
 .jcc{justify-content: center}
 .br-8px{border-radius: 8px}
 .p-10px{padding: 10px}
-@media (min-width : 768px){ .md-m-10px{margin: 10px}}
-@media (min-width : 768px){ .md-g-8px{gap: 8px}}
+@layer md{
+@media (min-width: 768px){.md-m-10px{margin: 10px}}}
+@layer md{
+@media (min-width: 768px){.md-g-8px{gap: 8px}}}
 .w-72px{width: 72px}
 .h-72px{height: 72px}
 .br9px{border-radius:9px}
-@media (min-width : 768px){ .md-w-100px{width: 100px}}
-@media (min-width : 768px){ .md-h-100px{height: 100px}}
+@layer md{
+@media (min-width: 768px){.md-w-100px{width: 100px}}}
+@layer md{
+@media (min-width: 768px){.md-h-100px{height: 100px}}}
 .x-text-xs{font-size: var(--text-xs,0.75rem); line-height: 1.125rem}
 .fw5{font-weight: 500}

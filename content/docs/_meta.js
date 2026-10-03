@@ -1,4 +1,5 @@
 export default {
+  'introduction':"Introduction",
   'getting_started': {
     'title':'Getting Started',
     
@@ -7,8 +8,13 @@ export default {
     //   sidebar: false // Hide navbar on this page
     // }
   },
-  "quick-dev-handbook":'Summarized Cheat-sheet Doc',
-  "basic": "Basic",
+  "quick-dev-handbook":{
+    display:'hidden'
+  },
+  "property-value": "Property and Value/s",
+  "selectors": "Selectors",
+  "context": "Media, Layers & Containers",
+
   "guide":'Guide:AliasCSS Style ',
   "StaticClassNames": "Static ClassNames",
   "stateAndSelector":"CSS State & Element Selector",
@@ -20,6 +26,7 @@ export default {
   "layer":"@layer",
   "keyframes-guide":"keyframes Guide /Animation",
   "npm-guide":"Npm Guide",
+  "escape-hatch":"Escape Hatch",
   "advance-customization":"Advanced Customization"
  
 }

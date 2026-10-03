@@ -1,0 +1,34 @@
+
+# AlertDialog
+
+import AlertDialog from './../../../radix-ui/AlertDialog/index';
+import content from '!!raw-loader!../../../radix-ui/AlertDialog/index';
+import './alert-dialog.mdx.css';
+import { compileMdx } from 'nextra/compile'
+import { MDXRemote } from 'nextra/mdx-remote'
+
+ 
+
+
+
+export const Wrapper=()=>{
+return(
+    <div className="w-100p p-100px mt-32px flex-center mh-200px b1px-s-grayA6">
+        <AlertDialog/>
+    </div>
+)
+}
+
+<Wrapper/>
+<MDXRemote
+  compiledSource={await compileMdx('```jsx  showLineNumbers copy filename="Component.jsx" '+ '\n'+content+'\n'+'```')}
+  components={{ MyComponent: () => <div>My Component</div> }}
+  scope={{ myVariable: content }}
+/>
+{/* <ShowCodeBox theme='light' content={content}/> */}
+
+
+
+
+
+

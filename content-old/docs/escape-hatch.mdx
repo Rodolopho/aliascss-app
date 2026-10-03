@@ -1,0 +1,343 @@
+
+# Escape Hatches
+
+AliasCSS provides a strict grammar for expressing CSS declarations, selectors, scopes, states, combinators, animations, transforms, and other styling behavior.
+
+However, CSS is an evolving platform and there will always be cases where a project needs to express something that does not fit cleanly into the normal AliasCSS grammar.
+
+AliasCSS therefore provides **escape hatches**.
+
+Escape hatches allow native CSS to be introduced without abandoning the AliasCSS compiler model.
+
+There are two documented mechanisms:
+
+1. **Raw In-Markup CSS** using `data-raw-css`
+2. **CSS Custom Property Bridging** using CSS variables
+
+---
+
+## Why Escape Hatches Exist
+
+AliasCSS is designed to provide a deterministic grammar rather than attempting to create a dedicated AliasCSS token for every possible CSS expression.
+
+Some CSS features may require:
+
+- vendor-specific selectors
+- browser-specific pseudo-elements
+- complex native CSS syntax
+- runtime calculations
+- CSS functions that require values unavailable at compile time
+- emerging CSS capabilities
+- expressions that are more appropriate as native CSS
+
+Instead of expanding the core grammar for every edge case, AliasCSS provides controlled escape mechanisms.
+
+The principle is:
+
+```text
+Normal CSS requirement
+        │
+        ▼
+Can AliasCSS express it directly?
+        │
+   ┌────┴────┐
+   │         │
+  Yes       No
+   │         │
+   ▼         ▼
+AliasCSS   Escape Hatch
+Grammar
+```
+
+Escape hatches are therefore **fallback mechanisms**, not replacements for the normal AliasCSS grammar.
+
+---
+
+# Raw In-Markup CSS
+
+The `data-raw-css` attribute allows raw CSS to be declared directly in markup.
+
+This is useful when a selector or CSS construct cannot be represented conveniently using the normal AliasCSS selector grammar.
+
+The compiler can inject the supplied CSS into the generated stylesheet.
+
+## Basic Syntax
+
+```html
+<div
+  class="removeCancelButton"
+  data-raw-css="
+    .removeCancelButton {
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+    }
+  "
+>
+  <input type="search" class="removeCancelButton" />
+</div>
+```
+
+The AliasCSS classes remain responsible for normal styling, while `data-raw-css` provides the additional native CSS required by the component.
+
+---
+
+## Vendor-Specific Selectors
+
+One of the primary use cases for `data-raw-css` is vendor-specific pseudo-elements.
+
+For example, WebKit-specific search input controls may require selectors such as:
+
+```css
+::-webkit-search-cancel-button
+::-webkit-search-decoration
+```
+
+These selectors are not ordinary application-level utility declarations.
+
+Rather than introducing special-purpose AliasCSS tokens for every vendor selector, raw CSS can express the requirement directly.
+
+```html
+<div
+  class="removeCancelButton"
+  data-raw-css="
+    .removeCancelButton {
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+    }
+  "
+>
+  <input type="search" class="removeCancelButton" />
+</div>
+```
+
+This keeps the vendor-specific implementation local to the element that requires it.
+
+---
+
+# CSS Custom Property Bridging
+
+The second escape hatch uses **CSS custom properties**.
+
+CSS custom properties allow values that cannot be resolved statically by the AliasCSS compiler to be calculated or supplied at runtime by the browser.
+
+The AliasCSS declaration can reference the custom property while the actual value is provided elsewhere.
+
+Conceptually:
+
+```text
+AliasCSS declaration
+        │
+        ▼
+CSS custom property
+        │
+        ▼
+Runtime CSS value
+```
+
+---
+
+## Runtime Calculations
+
+Some CSS functions depend on information that is only available during layout or rendering.
+
+For example, the CSS `sibling-index()` function can be used to calculate a staggered transition delay.
+
+The value can be stored in a custom property:
+
+```html
+<li
+  class="transition-delay--stagger"
+  style="--stagger: calc(0.1s * (sibling-index() - 1))"
+>
+  Staggered List Element
+</li>
+```
+
+The AliasCSS declaration:
+
+```text
+transition-delay--stagger
+```
+
+can resolve through the custom property:
+
+```css
+.transition-delay--stagger {
+  transition-delay: var(--stagger);
+}
+```
+
+The browser then evaluates the runtime calculation:
+
+```css
+calc(0.1s * (sibling-index() - 1))
+```
+
+This creates a bridge between AliasCSS's compile-time declaration system and CSS's runtime capabilities.
+
+---
+
+# Compile Time vs Runtime
+
+The two systems have different responsibilities.
+
+### AliasCSS
+
+AliasCSS is responsible for compiling the declaration structure:
+
+```text
+transition-delay--stagger
+```
+
+into:
+
+```css
+transition-delay: var(--stagger);
+```
+
+### The Browser
+
+The browser is responsible for resolving:
+
+```css
+var(--stagger)
+```
+
+and evaluating its runtime value.
+
+For example:
+
+```css
+calc(0.1s * (sibling-index() - 1))
+```
+
+This distinction is important.
+
+AliasCSS does not need to understand every possible runtime CSS calculation.
+
+It only needs to produce valid native CSS that references the value.
+
+---
+
+# When to Use an Escape Hatch
+
+Use normal AliasCSS syntax whenever the required styling can be expressed through the documented grammar.
+
+Use an escape hatch when the requirement falls outside that grammar or when native CSS is the more appropriate representation.
+
+### Use AliasCSS for
+
+- properties and values
+- shorthands
+- selectors supported by the grammar
+- states
+- combinators
+- attribute guards
+- responsive scopes
+- container queries
+- transitions
+- transforms
+- filters
+- keyframes
+- component exports
+- custom compiler extensions
+
+### Consider `data-raw-css` for
+
+- vendor-specific selectors
+- unusual pseudo-elements
+- CSS syntax that does not map cleanly to the selector grammar
+- localized raw CSS requirements
+
+### Consider CSS custom properties for
+
+- runtime calculations
+- browser-evaluated CSS functions
+- values that cannot be determined during compilation
+- dynamic values supplied by application code
+- bridging AliasCSS declarations with native CSS calculations
+
+---
+
+# Escape Hatches Do Not Replace the Grammar
+
+Escape hatches should not be used simply because writing raw CSS is familiar.
+
+For example, if a declaration can already be expressed directly:
+
+```html
+<div class="padding-24px"></div>
+```
+
+there is no reason to replace it with:
+
+```html
+<div data-raw-css="
+  .some-class {
+    padding: 24px;
+  }
+"></div>
+```
+
+The first form is part of the AliasCSS grammar and should remain the preferred representation.
+
+Escape hatches exist for cases where the normal grammar is insufficient.
+
+---
+
+# A Controlled Boundary
+
+The escape-hatch model creates a clear boundary between AliasCSS and native CSS:
+
+```text
+┌───────────────────────────────────┐
+│           AliasCSS Grammar        │
+│                                   │
+│ Properties                        │
+│ Values                            │
+│ Selectors                         │
+│ States                            │
+│ Combinators                       │
+│ Scopes                            │
+│ Grouping                          │
+│ Animations                        │
+│ Components                        │
+└─────────────────┬─────────────────┘
+                  │
+                  │ when necessary
+                  ▼
+┌───────────────────────────────────┐
+│          Escape Hatches           │
+│                                   │
+│ data-raw-css                      │
+│ CSS Custom Properties             │
+└─────────────────┬─────────────────┘
+                  │
+                  ▼
+┌───────────────────────────────────┐
+│             Native CSS            │
+└───────────────────────────────────┘
+```
+
+This allows AliasCSS to maintain a strict and deterministic grammar without attempting to encode every possible CSS edge case into the language itself.
+
+---
+
+# Summary
+
+AliasCSS provides two documented escape mechanisms:
+
+| Mechanism | Purpose |
+| --- | --- |
+| `data-raw-css` | Inject raw CSS for requirements outside the normal selector/style grammar |
+| CSS custom properties | Bridge AliasCSS declarations with runtime CSS values and calculations |
+
+The guiding principle is simple:
+
+> **Use AliasCSS when the grammar expresses the requirement. Use an escape hatch when native CSS provides the capability that the grammar intentionally does not encode.**
+
+Escape hatches keep AliasCSS extensible without requiring the core grammar to grow for every vendor-specific, runtime, or emerging CSS feature.

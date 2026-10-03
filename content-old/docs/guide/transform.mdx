@@ -1,0 +1,156 @@
+import { Callout } from 'nextra/components'
+import './transform.mdx.css'
+
+# Transform
+---------
+
+
+
+### Transform and transform related classNames examples
+| Classname | Shorthand | Compiled Style |
+| :------------ | :---------: | ----------: |
+| `transform-matrix3d-1-0-0-0-0-1-0-0-0-0-1-0-0-0-0-1` | `tf-matrix3d-1-0-0-0-0-1-0-0-0-0-1-0-0-0-0-1` | `transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)` |
+| `transform-perspective-17px` | `tf-p-17px` | `transform:perspective(17px)` |
+| `transform-rotate-0.5turn` | `tf-r-0.5turn` | `transform:rotate(0.5turn)` |
+| `transform-rotate3d-1-2-3-10deg` | `tf-r3d-1-2-3-10deg` | `transform:rotate3d(1, 2, 3, 10deg)` |
+| `transform-rotateX-10deg` | `tf-rx-10deg` | `transform:rotateX(10deg)` |
+| `transform-rotateY-10deg` | `tf-ry-10deg` | `transform:rotateY(10deg)` |
+| `transform-rotateZ-10deg` | `tf-rz-10deg` | `transform:rotateZ(10deg)` |
+| `transform-translate-12px-50%` | `tf-t-12px-50%` | `transform:translate(12px, 50%)` |
+| `transform-translate3d-12px-50%-3em` | `tf-t3d-12px-50%-3em` | `transform:translate3d(12px, 50%, 3em)` |
+| `transform-translateX-2em` | `tf-tx-2em` | `transform:translateX(2em)` |
+| `transform-translateY-3in` | `tf-ty-3in` | `transform:translateY(3in)` |
+| `transform-translateZ-2px` | `tf-tz-2px` | `transform:translateZ(2px)` |
+| `transform-scale-2-0.5` | `tf-s-2-0.5` | `transform:scale(2, 0.5)` |
+| `transform-scale3d-2.5-1.2-0.3` | `tf-s3d-2.5-1.2-0.3` | `transform:scale3d(2.5, 1.2, 0.3)` |
+| `transform-scaleX-2` | `tf-sx-2` | `transform:scaleX(2)` |
+| `transform-scaleY-0.5` | `tf-sy-0.5` | `transform:scaleY(0.5)` |
+| `transform-scaleZ-0.3` | `tf-sz-0.3` | `transform:scaleZ(0.3)` |
+| `transform-skew-30deg-20deg` | `tf-sk-30deg-20deg` | `transform:skew(30deg, 20deg)` |
+| `transform-skewX-30deg` | `tf-skx-30deg` | `transform:skewX(30deg)` |
+| `transform-skewY-1.07rad` | `tf-sky-1.07rad` | `transform:skewY(1.07rad)` |
+| `transform-translateX-10px__rotate-10deg__translateY-5px` | `tf-tx-10px__r-10deg__ty-5px ` | `transform:translateX(10px) rotate(10deg) translateY(5px)` |
+| `transform-perspective-500px__translate-10px-0-20px__rotateY-3deg` | `tf-p-500px__t-10px-0-20px__ry-3deg` | `transform:perspective(500px) translate(10px, 0, 20px) rotateY(3deg)` |
+
+
+
+###### Usage Eg:-  Creating a Spinning Cube Example.
+-------
+
+<Cube/>
+
+```html copy showLineNumbers
+<div class="
+  mh-50vh
+  d-flex ai-center jc-center
+  bgc-0f0c29
+" style="background: linear-gradient(135deg, #0f0c29, #302b63, #24243e)">
+ 
+  <!-- Scene wrapper: enables 3D perspective -->
+  <div class="
+    w-200px h-200px
+    d-flex ai-center jc-center
+    perspective-600px
+  ">
+ 
+    <!-- Cube root: preserve-3d + spin animation -->
+    <div
+      keyframes-spin="@0-[tf-rotateX-20deg__rotateY-0deg] @100-[tf-rotateX-20deg__rotateY-360deg]"
+      class="pr w-120px h-120px transform-style-preserve-3d an-spin adu-8s atf-linear aici"
+      >
+      <!-- 6 Faces via child selector: .cube > div -->
+      <!-- Front -->
+      <div class="
+        [pa,w-120px,h-120px,bgc-rgb-255-255-255-0.15,b-1px-s-rgba-255-255-255-0.35,br-6px,bf-blur-6px]--as-cube-face
+        cube-face
+        tf-translateZ-60px
+      "></div>
+ 
+      <!-- Back -->
+      <div class="cube-face tf-rotateY-180deg__translateZ-60px"></div>
+ 
+      <!-- Left -->
+      <div class="cube-face tf-rotateY--90deg__translateZ-60px "></div>
+ 
+      <!-- Right -->
+      <div class="cube-face tf-rotateY-90deg__translateZ-60px"></div>
+ 
+      <!-- Top -->
+      <div class="cube-face tf-rx-90deg__tz-60px"></div>
+ 
+      <!-- Bottom -->
+      <div class="cube-face tf-rotateX--90deg__translateZ-60px"></div>
+ 
+    </div>
+  </div>
+ 
+</div>
+```
+
+
+
+export const Cube=()=>{
+    return(
+        <>
+
+
+<div
+  className="
+  mh-50vh
+  d-flex ai-center jc-center
+  bgc-0f0c29
+"
+  style={{ background: "linear-gradient(135deg, #0f0c29, #302b63, #24243e)" }}
+>
+  {/* Scene wrapper: enables 3D perspective */}
+  <div
+    className="
+    w-200px h-200px
+    d-flex ai-center jc-center
+    perspective-600px
+  "
+  >
+    {/* Cube root: preserve-3d + spin animation */}
+    <div
+      keyframes-spins="@0-[tf-rotateX-20deg__rotateY-0deg] @100-[tf-rotateX-20deg__rotateY-360deg]"
+      className="pr w-120px h-120px transform-style-preserve-3d an-spins adu-8s atf-linear aici"
+    >
+      {/* 6 Faces via child selector: .cube > div */}
+      {/* Front */}
+      <div
+        className="
+  [pa,w-120px,h-120px,bgc-rgb-255-255-255-0.15,b-1px-s-rgba-255-255-255-0.35,br-6px,bf-blur-6px]--as-cube-faced
+  cube-faced
+  tf-translateZ-60px
+"
+      />
+      {/* Back */}
+      <div className="cube-faced tf-rotateY-180deg__translateZ-60px" />
+      {/* Left */}
+      <div className="cube-faced tf-rotateY--90deg__translateZ-60px " />
+      {/* Right */}
+      <div className="cube-faced tf-rotateY-90deg__translateZ-60px" />
+      {/* Top */}
+      <div className="cube-faced tf-rx-90deg__tz-60px" />
+      {/* Bottom */}
+      <div className="cube-faced tf-rotateX--90deg__translateZ-60px" />
+    </div>
+  </div>
+</div>
+      
+        </>
+    )
+}
+
+
+    
+
+            
+
+    
+
+            
+
+
+
+

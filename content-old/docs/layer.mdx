@@ -1,0 +1,347 @@
+import { Callout, Tabs } from 'nextra/components'
+
+# Layer Prefixes
+
+AliasCSS provides built-in scope wrapper prefixes for CSS layers.
+
+These prefixes let you place generated utilities inside `@layer` blocks such as `base`, `components`, `utilities`, and `theme`.
+
+This is useful when you want better control over cascade order, organize utilities by intent, or generate classes directly into a specific layer.
+
+---
+
+## Quick start
+
+```html
+<button class="@base-all-unset">Label</button>
+```
+
+Compiled idea:
+
+```css
+@layer base {
+  .\@base-all-unset {
+    all: unset;
+  }
+}
+```
+
+<Callout type="info" emoji="💡">
+Layer prefixes are scope wrappers. That means they can be used alone as a single scope prefix or combined with other scope wrappers using `@[...]`.
+</Callout>
+
+---
+
+## Built-in layer prefixes
+
+AliasCSS includes these default layer prefixes:
+
+| Layer prefix | Compiled CSS |
+| --- | --- |
+| `@base` | `@layer base` |
+| `@components` | `@layer components` |
+| `@comps` | `@layer components` |
+| `@utils` | `@layer utilities` |
+| `@utilities` | `@layer utilities` |
+| `@theme` | `@layer theme` |
+
+---
+
+## Single layer usage
+
+Use a layer prefix at the beginning of the class name when you want one AliasCSS utility to be generated inside that layer.
+
+### Example
+
+```html
+<button class="@base-all-unset">Label</button>
+```
+
+Compiled idea:
+
+```css
+@layer base {
+  .\@base-all-unset {
+    all: unset;
+  }
+}
+```
+
+### Another example
+
+```html
+<div class="@theme-c-gray"></div>
+```
+
+Compiled idea:
+
+```css
+@layer theme {
+  .\@theme-c-gray {
+    color: gray;
+  }
+}
+```
+
+---
+
+## Grouping utilities inside a layer
+
+You can group multiple AliasCSS utilities under the same layer scope.
+
+### Example
+
+```html
+<button class="b-0 color-fff bgc-blue @theme-[c-gray,border-radius-4px,bgc-skyBlue]">
+  Label
+</button>
+```
+
+This means:
+
+- `b-0`, `color-fff`, and `bgc-blue` are applied normally
+- `@theme-[...]` places the grouped utilities inside the `theme` layer
+
+### Conceptual output
+
+```css
+.b-0 { border: 0; }
+.color-fff { color: #fff; }
+.bgc-blue { background-color: blue; }
+
+@layer theme {
+  .\@theme-\[c-gray\,border-radius-4px\,bgc-skyBlue\] {
+    color: gray;
+    border-radius: 4px;
+    background-color: skyblue;
+  }
+}
+```
+
+<Callout type="info" emoji="ℹ️">
+Use layer grouping when multiple declarations should live in the same CSS layer.
+</Callout>
+
+---
+
+## Grouping layer with selector logic
+
+Layer prefixes also work with selectors.
+
+### Example
+
+```html
+<div class="@base-[data-state=open][display-flex,left-0]">...</div>
+```
+
+This means:
+
+- apply the selector `[data-state=open]`
+- place the generated declarations inside `@layer base`
+- emit `display: flex` and `left: 0` for that selector
+
+### Mental model
+
+```css
+@layer base {
+  [data-state="open"] {
+    display: flex;
+    left: 0;
+  }
+}
+```
+
+This pattern is useful when state-driven selectors should belong to a specific layer.
+
+---
+
+## Combining layer with other scope wrappers
+
+Because layers are scope wrappers, they can be combined with media or container scopes using `@[...]`.
+
+### Example
+
+```html
+<button class="@[base,xs][b-0,color-fff,bgc-blue]--as-btn --hover-[c-gray,border-radius-4px,bgc-skyBlue]--as-btn btn">
+  Label
+</button>
+```
+
+### Example with selector + layer + breakpoint
+
+```html
+<div class="@[xs,base][data-state=open][display-flex,left-0]--as-active active">...</div>
+```
+
+In grouped scope syntax:
+
+- `@[base,xs]` means layer + responsive scope
+- `@[xs,base]` means responsive scope + layer
+- order matters because AliasCSS respects the grouping order when generating nested CSS
+
+<Callout type="warning" emoji="⚠️">
+The order inside `@[...]` affects wrapper nesting. `@[base,xs]` and `@[xs,base]` are not always the same.
+</Callout>
+
+---
+
+## Order and precedence
+
+Layer prefixes follow the same grouped scope grammar as other scope wrappers.
+
+### Example
+
+```html
+<div class="@[base,xs]-d-flex"></div>
+```
+
+Conceptual output:
+
+```css
+@layer base {
+  @media (max-width: 576px) {
+    .class {
+      display: flex;
+    }
+  }
+}
+```
+
+### Reversed order
+
+```html
+<div class="@[xs,base]-d-flex"></div>
+```
+
+Conceptual output:
+
+```css
+@media (max-width: 576px) {
+  @layer base {
+    .class {
+      display: flex;
+    }
+  }
+}
+```
+
+### Rule
+
+```text
+AliasCSS respects the order of scope keys inside @[...].
+```
+
+That order determines which wrapper becomes outermost and which becomes innermost.
+
+---
+
+## Using `--as` with layered groups
+
+Layer grouping works well with the `--as` export system.
+
+### Example
+
+```html
+<button class="@[base,xs][b-0,color-fff,bgc-blue]--as-btn btn">Label</button>
+```
+
+This pattern allows you to:
+
+- define grouped utilities under a chosen scope structure
+- export them into a reusable class name
+- apply that reusable class normally in markup
+
+It is especially useful when you want a component class to be generated inside a controlled layer or breakpoint scope.
+
+---
+
+## Creating custom layers
+
+You can create custom layer prefixes through `aliascss.config.js`.
+
+### Example config
+
+```js filename="aliascss.config.js"
+const config = {
+  ...,
+  media: {
+    prefix: {
+      '@customLayer': '@layer customLayer',
+    }
+  },
+  ...
+}
+
+export default config
+```
+
+After that, you can use your custom layer prefix like any other scope wrapper.
+
+### Example
+
+```html
+<div class="@customLayer-c-red"></div>
+```
+
+Conceptual output:
+
+```css
+@layer customLayer {
+  .\@customLayer-c-red {
+    color: red;
+  }
+}
+```
+
+---
+
+## Best practices
+
+- Use layer prefixes when cascade placement matters.
+- Prefer `@base`, `@components`, `@utils`, and `@theme` explicitly instead of relying only on generation order.
+- Group utilities inside a layer when several declarations belong to the same cascade level.
+- Combine layers with breakpoints or containers using `@[...]` only when nesting is truly needed.
+- Be intentional about order in grouped scope wrappers.
+- Use custom layers sparingly and only when your design system genuinely needs another cascade level.
+
+---
+
+## Common pitfalls
+
+- Forgetting that layer prefixes are scope wrappers
+- Assuming `@[base,xs]` is identical to `@[xs,base]`
+- Overusing custom layers when built-in layers are enough
+- Mixing too many concerns into one grouped class
+- Treating layer grouping as only a formatting feature instead of a cascade control feature
+
+---
+
+## Cheat sheet
+
+```text
+@base-all-unset
+-> put all: unset inside @layer base
+
+@theme-c-gray
+-> put color: gray inside @layer theme
+
+@theme-[c-gray,border-radius-4px,bgc-skyBlue]
+-> group multiple utilities inside @layer theme
+
+@base-[data-state=open][display-flex,left-0]
+-> selector-based declarations inside @layer base
+
+@[base,xs][b-0,color-fff,bgc-blue]
+-> layer + breakpoint grouped utilities
+
+@[xs,base][data-state=open][display-flex,left-0]--as-active
+-> breakpoint + layer + selector + exported class
+```
+
+## See also
+
+- Scope Grammar
+- Targeting Screens and Devices
+- In-line Grouping
+- Component System
+- Advanced Customization

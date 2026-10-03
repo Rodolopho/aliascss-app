@@ -1,8 +1,8 @@
 .display-flex{display:flex}
 .flex-direction-row{flex-direction:row}
 .text-align-center{text-align:center}
-.color--fg1-custom-color{color: var(--fg1-custom-color)}
-.background--bg1-custom-color{background: var(--bg1-custom-color)}
+.color--fg-color{color:var(--fg-color)}
+.background--bg-color{background:var(--bg-color)}
 .font-size-3rem{font-size: 3rem}
 .color-blue{color:blue}
 .c-blue{color:blue}
@@ -17,7 +17,7 @@
 .m-1rem{margin: 1rem}
 .w-100p{width: 100%}
 .mt--20px{margin-top: -20px}
-.bg--gradient{background: var(--gradient)}
+.bg--gradient{background:var(--gradient)}
 .c-fff{color:#fff}
 .bgc-0f172a{background-color:#0f172a}
 .c-rgba-255-0-0-0\.5{color:rgba(255 0 0 / 0.5)}
@@ -41,20 +41,31 @@
 .--hover\[c-red\,bgc-blue\]:hover{color:red} 
 .--hover\[c-red\,bgc-blue\]:hover{background-color:blue} 
 
-.card div{padding: 20px} 
+.card{max-width: 380px} 
+.card{background-color:var(--bg-card)} 
+.card{border-radius: 8px} 
+.card{overflow: hidden} 
+.card{display: flex} 
+.card{flex-direction: column} 
+.card{transition:transform 0.35s ease} 
  
 
 .card{padding: 20px} 
+.card{margin: 0px} 
+.card{box-sizing: border-box} 
  
  
 .box{padding: 20px} 
+.box{margin: 0px} 
+.box{box-sizing: border-box} 
  
  
 
 .an-fade{animation-name:fade}
 .adu-1s{animation-duration: 1s}
 @layer base{ .\@base-d-flex{display:flex}}
-@media (min-width : 768px){ .md-d-flex{display:flex}}
+@layer md{
+@media (min-width: 768px){.md-d-flex{display:flex}}}
 @keyframes fade{
  0% {opacity: 1} 100% {opacity: 0}
 }

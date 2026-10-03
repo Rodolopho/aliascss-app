@@ -1,0 +1,3102 @@
+#### Quick AliasCSS Reference Guide
+
+
+
+***
+
+## AliasCSS — Quick Documentation Date: April 22, 2026
+
+
+
+# 1. INTRODUCTION & PHILOSOPHY
+
+AliasCSS is a Hybrid version of CSS DSL and utility-first CSS framework where styles are applied by writing CSS property-value pairs directly as HTML class names. If you know CSS, you already know AliasCSS.
+
+**AliasCSS is:**
+- Atomic CSS
+- Selector engine
+- Component system
+- Animation DSL
+- Runtime compiler
+- Layer architecture
+- Closer to a CSS programming language than a framework
+
+**Core Principles:**
+
+| Principle | Meaning |
+|---|---|
+| Atomic | One class = one CSS property |
+| Composable | Combine any classes freely |
+| Deterministic | Strict grammar, predictable output |
+
+***
+
+# 2. INSTALLATION
+
+### NPM
+```sh
+npm install --save-dev aliascss
+```
+
+### CDN
+```html copy showLineNumbers
+<script defer src="https://cdn.jsdelivr.net/npm/aliascss@latest/dist/aliascss.js"></script>
+```
+
+### Recommended NPM Setup
+
+**Step 1:** Install
+```sh
+npm install --save-dev aliascss
+```
+
+**Step 2:** Create `aliascss.config.js` in project root
+```js
+const config = {
+  input: ['app/**/*.(jsx|tsx)', 'components/**/*.(jsx|tsx)'],
+  output: {
+    location: 'public/css/master.css',
+    '--file': true,
+  },
+};
+export default config;
+```
+
+**Step 3:** Compile
+```sh
+npx aliascss --config
+```
+
+**Step 4:** Watch
+```sh
+npx aliascss --config --watch
+```
+
+### package.json Scripts
+```json
+"scripts": {
+  "aliascss-build": "aliascss --config",
+  "aliascss-watch": "aliascss --config --watch"
+}
+```
+
+***
+
+# 3. CORE GRAMMAR
+
+Every AliasCSS classname is parsed in this exact order:
+
+```
+(@layer and/or media) → (pseudo and/Or selector )→ property → value
+```
+
+### Examples
+```html copy showLineNumbers
+<div class="@[base,md]-d-flex"></div>
+<div class="md--hover-bgc-blue"></div>
+<div class="--hover_h3-c-red"></div>
+<div class="xs-fdc"></div>
+<div class="dark-bgc-0e0e0e"></div>
+```
+
+***
+
+# 4. BASIC USAGE & CLASSNAME RULES
+
+### Core Rule — Replace `:` with `-`
+```
+color:blue           → color-blue
+display:flex         → display-flex
+font-size:3rem       → font-size-3rem
+margin-left:32px     → margin-left-32px
+left:-100px          → left--100px
+```
+
+### Negative Values — use `--` before numeric value
+```
+margin--12px                         → margin: -12px
+left--20px                           → left: -20px
+box-shadow--1px-0px-2px-black        → box-shadow: -1px 0px 2px black
+transform-rotateY--90deg             → transform: rotateY(-90deg)
+margin-100px--100px-100px--100px     → margin: 100px -100px 100px -100px
+```
+
+### Decimal Values
+Always use `0.1rem` not `.1rem`
+
+### Multi-Value Properties — separate with `-`  especially for length based values.
+```
+margin-10px-20px                  → margin: 10px 20px
+border-1px-solid-red              → border: 1px solid red
+padding-10px-20px-10px-20px       → padding: 10px 20px 10px 20px
+grid-column-1/2                   → grid-column: 1 / 2
+grid-column-1/--2                 → grid-column: 1 / -2
+```
+
+### Multi-Layer Values — use `__` double underscore
+```
+bxs-1px-1px-red__2px-2px-blue    → box-shadow: 1px 1px red, 2px 2px blue
+txs-1px-1px-red__2px-2px-blue    → text-shadow: 1px 1px red, 2px 2px blue
+ff-Inter__Segoe_UI__sans-serif   → font-family: Inter, "Segoe UI", sans-serif
+```
+
+### Font Family Rules
+```
+_  = space within a font name    → Times_New_Roman = "Times New Roman"
+__ = comma separator             → Inter__Arial = Inter, Arial
+```
+
+### Numeric Shorthand 1–10
+For `padding`, `margin`, `gap` — compiles to `n × 0.25rem`:
+```
+m-4   → margin: 1rem
+p-8   → padding: 2rem
+g-2   → gap: 0.5rem
+mx-4  → margin-left: 1rem; margin-right: 1rem
+```
+
+### CSS Variables
+```
+bgc--main-bg         → background-color: var(--main-bg)
+bgc--main-bg:blue    → background-color: var(--main-bg, blue)
+w--var--24x          → width: var(--24x)  [use --var-- for numeric names]
+w--24x               → width: -24x        [WRONG - treated as negative]
+```
+
+### Non-Numeric Length Values
+```
+w-fc    → width: fit-content
+w-xc    → width: max-content
+w-mc    → width: min-content
+w-min(40%,400px)           → width: min(40%, 400px)
+w-max(40%,400px)           → width: max(40%, 400px)
+w-clamp(20rem,30vw,70rem)  → width: clamp(20rem, 30vw, 70rem)
+```
+
+***
+
+# 5. STATIC VS DYNAMIC CLASSNAMES
+
+### Static Classnames
+```
+display-flex, font-weight-900, align-items-center,
+text-decoration-underline, position-relative,
+flex-direction-column, justify-content-center
+```
+
+### Dynamic Classnames
+```
+margin-200px, color-green, font-size-1.2em,
+border-1px-solid-e3e3e3, background-linear-gradient-135deg-blue-red,
+width-clamp(20rem,30vw,70rem), box-shadow-0px-4px-12px-black/3
+```
+
+***
+
+# 6. SHORTHAND SYSTEMS
+
+### Method 1 — Generic (Fast Prototyping)
+
+| CSS | Shorthand |
+|---|---|
+| `display:flex` | `df` |
+| `display:inline-flex` | `dif` |
+| `display:grid` | `dg` |
+| `display:block` | `db` |
+| `display:none` | `dn` |
+| `flex-direction:row` | `fdr` |
+| `flex-direction:column` | `fdc` |
+| `flex-direction:row-reverse` | `fdrr` |
+| `flex-direction:column-reverse` | `fdcr` |
+| `text-align:center` | `tac` |
+| `text-align:right` | `tar` |
+| `text-align:left` | `tal` |
+| `font-weight:900` | `fw9` |
+| `font-weight:800` | `fw8` |
+| `font-weight:700` | `fw7` |
+| `font-weight:bold` | `fwb` |
+| `justify-content:space-between` | `jcsb` |
+| `justify-content:center` | `jcc` |
+| `align-items:center` | `aic` |
+| `align-items:stretch` | `ais` |
+| `overflow:hidden` | `oh` |
+| `overflow:auto` | `oa` |
+| `list-style:none` | `lsn` |
+| `border:none` | `bn` |
+| `font-style:italic` | `fsi` |
+| `font-style:normal` | `fsnl` |
+| `font-weight:lighter` | `fwl` |
+| `font-weight:thin` | `fw-thin` |
+
+### Method 2 — Alias-Based (Recommended for Production)
+
+| CSS | Options |
+|---|---|
+| `display:flex` | `d-flex` / `d-f` / `display-f` |
+| `align-items:center` | `ai-c` / `ai-center` / `align-items-c` |
+| `flex-direction:column` | `fd-c` / `fd-column` / `flex-direction-c` |
+| `background-color:red` | `bgc-red` / `background-color-red` |
+| `font-size:16px` | `fs-16px` / `font-size-16px` |
+| `margin-left:32px` | `ml-32px` / `margin-left-32px` |
+| `padding-top:16px` | `pt-16px` / `padding-top-16px` |
+| `border-radius:8px` | `br-8px` / `border-radius-8px` |
+
+***
+
+
+
+# 7. PROPERTY ALIAS — COMPLETE REFERENCE
+
+### Accent & Appearance
+| Alias | Property |
+|---|---|
+| `accent` | `accent-color` |
+| `ap` | `appearance` |
+
+### Animation
+| Alias | Property |
+|---|---|
+| `a` | `animation` |
+| `anc` | `animation-composition` |
+| `adl` | `animation-delay` |
+| `ad` | `animation-direction` |
+| `adu` | `animation-duration` |
+| `afm` | `animation-fill-mode` |
+| `aic` | `animation-iteration-count` |
+| `an` | `animation-name` |
+| `aps` | `animation-play-state` |
+| `atf` | `animation-timing-function` |
+| `at` | `animation-timeline` |
+| `ar2` | `animation-range` |
+| `are` | `animation-range-end` |
+| `ars` | `animation-range-start` |
+
+### Alignment & Justify
+| Alias | Property |
+|---|---|
+| `ac` | `align-content` |
+| `ai` | `align-items` |
+| `as` | `align-self` |
+| `ab` | `alignment-baseline` |
+| `jc` | `justify-content` |
+| `ji` | `justify-items` |
+| `js` | `justify-self` |
+| `pc` | `place-content` |
+| `ps` | `place-self` |
+
+### Aspect & Size
+| Alias | Property |
+|---|---|
+| `ar` | `aspect-ratio` |
+| `w` | `width` |
+| `h` | `height` |
+| `xw` | `max-width` |
+| `mw` | `min-width` |
+| `xh` | `max-height` |
+| `mh` | `min-height` |
+| `is` | `inline-size` |
+| `xbs` | `max-block-size` |
+| `xis` | `max-inline-size` |
+
+### Background
+| Alias | Property |
+|---|---|
+| `bg` | `background` |
+| `bga` | `background-attachment` |
+| `bgbm` | `background-blend-mode` |
+| `bgcl` | `background-clip` |
+| `bgc` | `background-color` |
+| `bgi` | `background-image` |
+| `bgo` | `background-origin` |
+| `bgp` | `background-position` |
+| `bgpx` | `background-position-x` |
+| `bgpy` | `background-position-y` |
+| `bgr` | `background-repeat` |
+| `bgs` | `background-size` |
+
+### Border
+| Alias | Property |
+|---|---|
+| `b` | `border` |
+| `bb` | `border-bottom` |
+| `bbc` | `border-bottom-color` |
+| `bblr` | `border-bottom-left-radius` |
+| `bbrr` | `border-bottom-right-radius` |
+| `bbs` | `border-bottom-style` |
+| `bbw` | `border-bottom-width` |
+| `bbec` | `border-block-end-color` |
+| `bbes` | `border-block-end-style` |
+| `bbew` | `border-block-end-width` |
+| `bbsc` | `border-block-start-color` |
+| `bbss` | `border-block-start-style` |
+| `bbsw` | `border-block-start-width` |
+| `bc` | `border-color` |
+| `beer` | `border-end-end-radius` |
+| `besr` | `border-end-start-radius` |
+| `bi` | `border-inline` |
+| `bic` | `border-inline-color` |
+| `biec` | `border-inline-end-color` |
+| `bies` | `border-inline-end-style` |
+| `biew` | `border-inline-end-width` |
+| `bisc` | `border-inline-start-color` |
+| `biss` | `border-inline-start-style` |
+| `bisw` | `border-inline-start-width` |
+| `bis` | `border-inline-style` |
+| `biw` | `border-inline-width` |
+| `bir` | `border-image-repeat` |
+| `bl` | `border-left` |
+| `blc` | `border-left-color` |
+| `bls` | `border-left-style` |
+| `blw` | `border-left-width` |
+| `br` | `border-radius` |
+| `brt` | `border-right` |
+| `brc` | `border-right-color` |
+| `brs` | `border-right-style` |
+| `brw` | `border-right-width` |
+| `bs` | `border-style` |
+| `bser` | `border-start-end-radius` |
+| `bssr` | `border-start-start-radius` |
+| `bt` | `border-top` |
+| `btc` | `border-top-color` |
+| `btlr` | `border-top-left-radius` |
+| `btrr` | `border-top-right-radius` |
+| `bts` | `border-top-style` |
+| `btw` | `border-top-width` |
+| `bw` | `border-width` |
+| `bdb` | `box-decoration-break` |
+| `bxr` | `box-reflect` |
+| `bxs` | `box-shadow` |
+| `bsc` | `border-spacing` |
+| `bcp` | `border-collapse` |
+
+### Color & Content
+| Alias | Property |
+|---|---|
+| `c` | `color` |
+| `lc` | `lighting-color` |
+| `cont` | `content` |
+| `cv` | `content-visibility` |
+| `ci` | `counter-increment` |
+
+
+### Columns
+| Alias | Property |
+|---|---|
+| `cc` | `column-count` |
+| `cf` | `column-fill` |
+| `cg` | `column-gap` |
+| `cr` | `column-rule` |
+| `crc` | `column-rule-color` |
+| `crs` | `column-rule-style` |
+| `crw` | `column-rule-width` |
+| `cs` | `column-span` |
+| `cw` | `column-width` |
+| `cols` | `columns` |
+
+### Cursor & Interaction
+| Alias | Property |
+|---|---|
+| `cur` | `cursor` |
+| `pe` | `pointer-events` |
+| `toa` | `touch-action` |
+| `us` | `user-select` |
+| `rs` | `resize` |
+| `wc` | `will-change` |
+
+### Display & Visibility
+| Alias | Property |
+|---|---|
+| `d` | `display` |
+| `v` | `visibility` |
+| `ec` | `empty-cells` |
+| `dir` | `direction` |
+
+### Effects & Filters
+| Alias | Property |
+|---|---|
+| `bf` | `backdrop-filter` |
+| `bv` | `backface-visibility` |
+| `fl` | `filter` |
+| `cp` | `clip-path` |
+| `mbm` | `mix-blend-mode` |
+| `o` | `opacity` |
+
+### Flexbox
+| Alias | Property |
+|---|---|
+| `fx` | `flex` |
+| `fb` | `flex-basis` |
+| `fd` | `flex-direction` |
+| `ffl` | `flex-flow` |
+| `fg` | `flex-grow` |
+| `fsk` | `flex-shrink` |
+| `fwp` | `flex-wrap` |
+| `f` | `float` |
+| `ord` | `order` |
+| `g` | `gap` |
+| `rg` | `row-gap` |
+
+### Font & Typography
+| Alias | Property |
+|---|---|
+| `ff` | `font-family` |
+| `ffs` | `font-feature-settings` |
+| `fk` | `font-kerning` |
+| `flo` | `font-language-override` |
+| `fs` | `font-size` |
+| `fsa` | `font-size-adjust` |
+| `fst` | `font-style` |
+| `fv` | `font-variant` |
+| `fva` | `font-variant-alternates` |
+| `fvc` | `font-variant-caps` |
+| `fvea` | `font-variant-east-asian` |
+| `fvl` | `font-variant-ligatures` |
+| `fvn` | `font-variant-numeric` |
+| `fvp` | `font-variant-position` |
+| `fve` | `font-variant-emoji` |
+| `fw` | `font-weight` |
+| `fca` | `forced-color-adjust` |
+| `hp` | `hanging-punctuation` |
+
+### Grid
+| Alias | Property |
+|---|---|
+| `gd` | `grid` |
+| `ga` | `grid-area` |
+| `gac` | `grid-auto-columns` |
+| `gaf` | `grid-auto-flow` |
+| `gar` | `grid-auto-rows` |
+| `gc` | `grid-column` |
+| `gce` | `grid-column-end` |
+| `gcg` | `grid-column-gap` |
+| `gcs` | `grid-column-start` |
+| `gg` | `grid-gap` |
+| `gr` | `grid-row` |
+| `gre` | `grid-row-end` |
+| `grg` | `grid-row-gap` |
+| `grs` | `grid-row-start` |
+| `gt` | `grid-template` |
+| `gta` | `grid-template-areas` |
+| `gtc` | `grid-template-columns` |
+| `gtr` | `grid-template-rows` |
+
+### Image & Media
+| Alias | Property |
+|---|---|
+| `io` | `image-orientation` |
+| `ir` | `image-rendering` |
+| `il` | `initial-letter` |
+| `so` | `shape-outside` |
+| `sit` | `shape-image-threshold` |
+
+### Inset & Position
+| Alias | Property |
+|---|---|
+| `i` | `inset` |
+| `ia` | `inset-area` |
+| `ib` | `inset-block` |
+| `ibe` | `inset-block-end` |
+| `ibs` | `inset-block-start` |
+| `ii` | `inset-inline` |
+| `iie` | `inset-inline-end` |
+| `iis` | `inset-inline-start` |
+| `pos` | `position` |
+| `pa` | `position-anchor` |
+| `t` | `top` |
+| `r` | `right` |
+| `btm` | `bottom` |
+| `l` | `left` |
+| `zi` | `z-index` |
+
+### Letter, Line & Text
+| Alias | Property |
+|---|---|
+| `les` | `letter-spacing` |
+| `lb` | `line-break` |
+| `lh` | `line-height` |
+| `ls` | `list-style` |
+| `lsi` | `list-style-image` |
+| `lsp` | `list-style-position` |
+| `lst` | `list-style-type` |
+| `ta` | `text-align` |
+| `tal` | `text-align-last` |
+| `td` | `text-decoration` |
+| `tdc` | `text-decoration-color` |
+| `tdln` | `text-decoration-line` |
+| `tds` | `text-decoration-style` |
+| `tdt` | `text-decoration-thickness` |
+| `te` | `text-emphasis` |
+| `tec` | `text-emphasis-color` |
+| `ti` | `text-indent` |
+| `tj` | `text-justify` |
+| `to` | `text-overflow` |
+| `txs` | `text-shadow` |
+| `tt` | `text-transform` |
+| `tup` | `text-underline-offset` |
+| `tw` | `text-wrap` |
+| `twm` | `text-wrap-mode` |
+| `tws` | `text-wrap-style` |
+
+### Margin
+| Alias | Property |
+|---|---|
+| `m` | `margin` |
+| `mbe` | `margin-block-end` |
+| `mbs` | `margin-block-start` |
+| `mb` | `margin-bottom` |
+| `mi` | `margin-inline` |
+| `mie` | `margin-inline-end` |
+| `mis` | `margin-inline-start` |
+| `ml` | `margin-left` |
+| `mr` | `margin-right` |
+| `mt` | `margin-top` |
+
+### Offset & Motion Path
+| Alias | Property |
+|---|---|
+| `ofa` | `offset-anchor` |
+| `ofd` | `offset-distance` |
+| `ofp` | `offset-path` |
+| `ofpos` | `offset-position` |
+| `ofr` | `offset-rotate` |
+| `rt` | `rotate` |
+| `s` | `scale` |
+
+### Outline
+| Alias | Property |
+|---|---|
+| `ol` | `outline` |
+| `olc` | `outline-color` |
+| `olo` | `outline-offset` |
+| `ols` | `outline-style` |
+| `olw` | `outline-width` |
+
+### Overflow & Overscroll
+| Alias | Property |
+|---|---|
+| `of` | `overflow` |
+| `ocm` | `overflow-clip-margin` |
+| `oa` | `overflow-anchor` |
+| `ow` | `overflow-wrap` |
+| `ox` | `overflow-x` |
+| `oy` | `overflow-y` |
+| `olay` | `overlay` |
+| `ob` | `overscroll-behavior` |
+| `obb` | `overscroll-behavior-block` |
+| `obi` | `overscroll-behavior-inline` |
+| `obx` | `overscroll-behavior-x` |
+| `oby` | `overscroll-behavior-y` |
+
+### Padding
+| Alias | Property |
+|---|---|
+| `p` | `padding` |
+| `pbe` | `padding-block-end` |
+| `pbs` | `padding-block-start` |
+| `pb` | `padding-bottom` |
+| `pi` | `padding-inline` |
+| `pie` | `padding-inline-end` |
+| `pis` | `padding-inline-start` |
+| `pl` | `padding-left` |
+| `pr` | `padding-right` |
+| `pt` | `padding-top` |
+
+### Page & Print
+| Alias | Property |
+|---|---|
+| `pg` | `page` |
+| `pba` | `page-break-after` |
+| `pbb` | `page-break-before` |
+| `pbi` | `page-break-inside` |
+| `po` | `paint-order` |
+| `pca` | `print-color-adjust` |
+| `orp` | `orphans` |
+| `wid` | `widows` |
+| `q` | `quotes` |
+
+### Perspective & Transform
+| Alias | Property |
+|---|---|
+| `pers` | `perspective` |
+| `perso` | `perspective-origin` |
+| `tf` | `transform` |
+| `tfb` | `transform-box` |
+| `tfo` | `transform-origin` |
+| `tfs` | `transform-style` |
+
+### Transition
+| Alias | Property |
+|---|---|
+| `tn` | `transition` |
+| `tb` | `transition-behavior` |
+| `tdl` | `transition-delay` |
+| `tdu` | `transition-duration` |
+| `tp` | `transition-property` |
+| `ttf` | `transition-timing-function` |
+
+### Scroll
+| Alias | Property |
+|---|---|
+| `sb` | `scroll-behavior` |
+| `sm` | `scroll-margin` |
+| `smbe` | `scroll-margin-block-end` |
+| `smbs` | `scroll-margin-block-start` |
+| `smb` | `scroll-margin-bottom` |
+| `smi` | `scroll-margin-inline` |
+| `smie` | `scroll-margin-inline-end` |
+| `smis` | `scroll-margin-inline-start` |
+| `sml` | `scroll-margin-left` |
+| `smr` | `scroll-margin-right` |
+| `smt` | `scroll-margin-top` |
+| `sp` | `scroll-padding` |
+| `spbe` | `scroll-padding-block-end` |
+| `spbs` | `scroll-padding-block-start` |
+| `spb` | `scroll-padding-bottom` |
+| `spi` | `scroll-padding-inline` |
+| `spie` | `scroll-padding-inline-end` |
+| `spis` | `scroll-padding-inline-start` |
+| `spl` | `scroll-padding-left` |
+| `spr` | `scroll-padding-right` |
+| `spt` | `scroll-padding-top` |
+| `ssa` | `scroll-snap-align` |
+| `sss` | `scroll-snap-stop` |
+| `sst` | `scroll-snap-type` |
+| `st` | `scroll-timeline` |
+| `sta` | `scroll-timeline-axis` |
+| `stn` | `scroll-timeline-name` |
+
+### Scrollbar
+| Alias | Property |
+|---|---|
+| `sbc` | `scrollbar-color` |
+| `sbg` | `scrollbar-gutter` |
+| `sbw` | `scrollbar-width` |
+
+### Table & Misc
+| Alias | Property |
+|---|---|
+| `ts` | `tab-size` |
+| `tl` | `table-layout` |
+| `tls` | `timeline-scope` |
+| `ub` | `unicode-bidi` |
+| `va` | `vertical-align` |
+| `wos` | `word-spacing` |
+| `ws` | `white-space` |
+| `wsc` | `white-space-collapse` |
+| `wb` | `word-break` |
+| `ww` | `word-wrap` |
+| `wm` | `writing-mode` |
+| `zo` | `zoom` |
+
+### View & Scroll Timeline
+| Alias | Property |
+|---|---|
+| `vt` | `view-timeline` |
+| `vtn` | `view-timeline-name` |
+| `vta` | `view-timeline-axis` |
+| `vti` | `view-timeline-inset` |
+| `vtn2` | `view-transition-name` |
+
+### SVG
+| Alias | Property |
+|---|---|
+| `str` | `stroke` |
+| `fo` | `fill-opacity` |
+| `fr` | `fill-rule` |
+| `sda` | `stroke-dasharray` |
+| `sdo` | `stroke-dashoffset` |
+| `sw` | `stroke-width` |
+| `slc` | `stroke-linecap` |
+| `slj` | `stroke-linejoin` |
+| `ve` | `vector-effect` |
+
+***
+
+
+
+# 8. COLOR SYSTEM
+
+### Named Colors
+```html copy showLineNumbers
+<div class="c-red bgc-skyBlue bc-blue"></div>
+```
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `color-red` | `c-red` | `color: red` |
+| `background-color-skyBlue` | `bgc-skyBlue` | `background-color: skyBlue` |
+| `border-color-blue` | `bc-blue` | `border-color: blue` |
+| `border-1px-solid-black` | `b-1px-s-black` | `border: 1px solid black` |
+| `box-shadow-0px--2px-2px-orange` | `bxs-0px--2px-2px-orange` | `box-shadow: 0px -2px 2px orange` |
+
+
+### Hex Colors — without `#` (3, 6, or 8 digits)
+
+| Classname | Compiled |
+|---|---|
+| `c-ff0000` | `color: #ff0000` |
+| `bgc-0f172a` | `background-color: #0f172a` |
+| `bc-ccc` | `border-color: #ccc` |
+| `c-e3e3e3` | `color: #e3e3e3` |
+| `bgc-01010e55` | `background-color: #01010e55` (8-digit with alpha) |
+| `b-1px-s-ff0000` | `border: 1px solid #ff0000` |
+| `bxs-0px--2px-2px-ff0000` | `box-shadow: 0px -2px 2px #ff0000` |
+
+***
+
+### RGB / RGBA / HSL / HSLA / HWB
+
+All color functions follow the same syntax — function name followed by values separated by `-`:
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `color-rgb-255-0-0` | `c-rgb-255-0-0` | `color: rgb(255 0 0)` |
+| `color-rgba-255-0-0-0.4` | `c-rgba-255-0-0-0.4` | `color: rgba(255 0 0 / 0.4)` |
+| `background-color-hsl-0-100%-50%` | `bgc-hsl-0-100%-50%` | `background-color: hsl(0 100% 50%)` |
+| `border-color-hwb-0-0%-0%` | `bc-hwb-0-0%-0%` | `border-color: hwb(0 0% 0%)` |
+| `border-1px-solid-hsl-0-100%-50%-0.5` | `b-1px-s-hsl-0-100%-50%-0.5` | `border: 1px solid hsl(0 100% 50% / 0.5)` |
+| `box-shadow-0px--2px-2px-rgba-255-0-0-0.8` | `bxs-0px--2px-2px-rgba-255-0-0-0.8` | `box-shadow: 0px -2px 2px rgba(255 0 0 / 0.8)` |
+| `background-color-rgb--primary-color` | `bgc-rgb--primary-color` | `background-color: rgb(var(--primary-color))` |
+
+***
+
+### LAB / OKLAB / LCH / OKLCH
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `color-lab-54.3-106.83-40.85` | `c-lab-54.3-106.83-40.85` | `color: lab(54.3 106.83 40.85)` |
+| `color-oklab-0.63-0.22-0.13` | `c-oklab-0.63-0.22-0.13` | `color: oklab(0.63 0.22 0.13)` |
+| `background-color-lch-54.3-106.83-40.85` | `bgc-lch-54.3-106.83-40.85` | `background-color: lch(54.3 106.83 40.85)` |
+| `border-color-oklch-0.628-0.2577-29.23` | `bc-oklch-0.628-0.2577-29.23` | `border-color: oklch(0.628 0.2577 29.23)` |
+| `background-color-oklch--primary-color` | `bgc-oklch--primary-color` | `background-color: oklch(var(--primary-color))` |
+
+***
+
+### Alpha Shorthand `/0–9`
+
+Append `/digit` to named colors, hex, CSS variables, or custom colors.
+Uses oklch color space to modify the alpha channel.
+Cannot be used with color functions like `rgb()`, `hsl()` etc.
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `color-red/9` | `c-red/9` | `color: oklch(from red l c h / 0.9)` |
+| `color-red/8` | `c-red/8` | `color: oklch(from red l c h / 0.8)` |
+| `color-red/7` | `c-red/7` | `color: oklch(from red l c h / 0.7)` |
+| `color-red/5` | `c-red/5` | `color: oklch(from red l c h / 0.5)` |
+| `color-red/3` | `c-red/3` | `color: oklch(from red l c h / 0.3)` |
+| `color-red/1` | `c-red/1` | `color: oklch(from red l c h / 0.1)` |
+| `color-ffffff/1` | `c-ffffff/1` | `color: oklch(from #ffffff l c h / 0.1)` |
+| `color-primary600/5` | `c-primary600/5` | `color: oklch(from var(--primary600,#7F56D9) l c h / 0.5)` |
+| `color--bg-color/7` | `c--bg-color/7` | `color: oklch(from var(--bg-color) l c h / 0.7)` |
+| `bgc-blue/3` | `bgc-blue/3` | `background-color: oklch(from blue l c h / 0.3)` |
+| `b-1px-s-black/5` | `b-1px-s-black/5` | `border: 1px solid oklch(from black l c h / 0.5)` |
+
+***
+
+### CSS Variables for Complex Colors
+
+```html copy showLineNumbers
+<h1
+  class="c--fg-color bg--bg-color fs-3rem"
+  style="
+    --fg-color: color-mix(in srgb, red, white 20%);
+    --bg-color: hsl(from var(--primary) h s calc(l - 20%));
+  "
+>
+  Hello, World
+</h1>
+```
+
+***
+
+# 9. LAYOUT
+
+### Length-Based Properties Reference
+
+```
+padding(p), margin(m), gap(g), width(w), height(h),
+border-width(bw), line-height(lh), letter-spacing(les),
+border-radius(br), text-indent(ti), text-shadow(txs),
+box-shadow(bxs), top(t), bottom(btm), right(r), left(l),
+outline-width(olw), background-size(bgs), background-position(bgp),
+inline-size(is), block-size, margin-block, padding-block
+```
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `width-200px` | `w-200px` | `width: 200px` |
+| `max-width-960px` | `xw-960px` | `max-width: 960px` |
+| `min-width-600px` | `mw-600px` | `min-width: 600px` |
+| `height-100vh` | `h-100vh` | `height: 100vh` |
+| `min-height-200px` | `mh-200px` | `min-height: 200px` |
+| `margin-2rem` | `m-2rem` | `margin: 2rem` |
+| `margin-2rem-12px` | `m-2rem-12px` | `margin: 2rem 12px` |
+| `margin--2rem-12px` | `m--2rem-12px` | `margin: -2rem 12px` |
+| `margin--2rem--12px` | `m--2rem--12px` | `margin: -2rem -12px` |
+| `margin-12px-0px-12px--8px` | `m-12px-0px-12px--8px` | `margin: 12px 0px 12px -8px` |
+| `margin-x-12px` | `mx-12px` | `margin-right: 12px; margin-left: 12px` |
+| `margin-x-4` | `mx-4` | `margin-right: 1rem; margin-left: 1rem` |
+| `padding-32px-24px` | `p-32px-24px` | `padding: 32px 24px` |
+| `padding-top-16px` | `pt-16px` | `padding-top: 16px` |
+| `border-radius-10px` | `br-10px` | `border-radius: 10px` |
+| `box-shadow--1px-0px-2px-4px-black/7` | `bxs--1px-0px-2px-4px-black/7` | `box-shadow: -1px 0px 2px 4px oklch(from black l c h / 0.7)` |
+| `text-shadow-1px-1px-4px-black` | `txs-1px-1px-4px-black` | `text-shadow: 1px 1px 4px black` |
+| `gap-16px` | `g-16px` | `gap: 16px` |
+| `z-index-100` | `zi-100` | `z-index: 100` |
+
+### Non-Numeric Length Values
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `width-max-content` | `w-xc` | `width: max-content` |
+| `width-min-content` | `w-mc` | `width: min-content` |
+| `width-fit-content` | `w-fc` | `width: fit-content` |
+| `width-min(40%,400px)` | `w-min(40%,400px)` | `width: min(40%, 400px)` |
+| `width-max(40%,400px)` | `w-max(40%,400px)` | `width: max(40%, 400px)` |
+| `width-clamp(20rem,30vw,70rem)` | `w-clamp(20rem,30vw,70rem)` | `width: clamp(20rem, 30vw, 70rem)` |
+
+Use CSS variables for complex values:
+```html copy showLineNumbers
+<div
+  class="w--header-width mx-auto"
+  style="--header-width: clamp(min(10vw,20rem), 300px, max(90vw,55rem))"
+></div>
+```
+
+### Flexbox
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `display-flex` | `df` or `d-f` | `display: flex` |
+| `display-inline-flex` | `dif` or `d-if` | `display: inline-flex` |
+| `gap-16px` | `g-16px` | `gap: 16px` |
+| `align-content-start` | `ac-s` | `align-content: start` |
+| `align-items-center` | `ai-c` | `align-items: center` |
+| `align-self-stretch` | `as-s` | `align-self: stretch` |
+| `justify-content-space-between` | `jc-sb` | `justify-content: space-between` |
+| `justify-content-center` | `jc-c` | `justify-content: center` |
+| `flex-shrink-0` | `fsk-0` | `flex-shrink: 0` |
+| `flex-basis-200px` | `fb-200px` | `flex-basis: 200px` |
+| `flex-grow-0` | `fg-0` | `flex-grow: 0` |
+| `flex-direction-row` | `fd-r` or `fdr` | `flex-direction: row` |
+| `flex-direction-row-reverse` | `fd-rr` or `fdrr` | `flex-direction: row-reverse` |
+| `flex-direction-column` | `fd-c` or `fdc` | `flex-direction: column` |
+| `flex-direction-column-reverse` | `fd-cr` or `fdcr` | `flex-direction: column-reverse` |
+| `flex-wrap-wrap` | `fwp-wrap` | `flex-wrap: wrap` |
+| `flex-wrap-nowrap` | `fwp-nowrap` | `flex-wrap: nowrap` |
+| `order-1` | `ord-1` | `order: 1` |
+
+### Grid
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `display-grid` | `dg` or `d-g` | `display: grid` |
+| `display-inline-grid` | `dig` or `d-ig` | `display: inline-grid` |
+| `grid-template-columns-repeat-3-1fr` | `gtc-repeat-3-1fr` | `grid-template-columns: repeat(3, 1fr)` |
+| `grid-template-rows-repeat-3-1fr` | `gtr-repeat-3-1fr` | `grid-template-rows: repeat(3, 1fr)` |
+| `grid-template-rows-200px-1fr` | `gtr-200px-1fr` | `grid-template-rows: 200px 1fr` |
+| `grid-template-columns-repeat-auto-fill-200px` | `gtc-repeat-auto-fill-200px` | `grid-template-columns: repeat(auto-fill, 200px)` |
+| `grid-auto-rows-200px` | `gar-200px` | `grid-auto-rows: 200px` |
+| `grid-auto-rows-minmax-100px-auto` | `gar-minmax-100px-auto` | `grid-auto-rows: minmax(100px, auto)` |
+| `grid-column-start-2` | `gcs-2` | `grid-column-start: 2` |
+| `grid-column-end-4` | `gce-4` | `grid-column-end: 4` |
+| `grid-row-start-1` | `grs-1` | `grid-row-start: 1` |
+| `grid-row-end-span-3` | `gre-span-3` | `grid-row-end: span 3` |
+| `grid-column-1/2` | `gc-1/2` | `grid-column: 1 / 2` |
+| `grid-column-1/--2` | `gc-1/--2` | `grid-column: 1 / -2` |
+| `grid-row-1/4` | `gr-1/4` | `grid-row: 1 / 4` |
+| `grid-area-1/1/4/2` | `ga-1/1/4/2` | `grid-area: 1 / 1 / 4 / 2` |
+
+Grid with CSS variables:
+```html copy showLineNumbers
+<section
+  class="gtc--panel-layout gta--named-areas"
+  style='
+    --panel-layout: repeat(3, [col-start] 1fr [col-end]);
+    --named-areas: "header header header" "sidebar main main" "footer footer footer"
+  '
+></section>
+```
+
+
+### Display
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `display-block` | `db` or `d-b` | `display: block` |
+| `display-inline-block` | `dib` or `d-ib` | `display: inline-block` |
+| `display-inline` | `di` or `d-i` | `display: inline` |
+| `display-none` | `dn` or `d-n` | `display: none` |
+| `display-contents` | `dc` or `d-c` | `display: contents` |
+| `display-table` | `dt` or `d-t` | `display: table` |
+| `display-list-item` | `dli` or `d-li` | `display: list-item` |
+
+### Positioning
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `position-absolute` | `pa` | `position: absolute` |
+| `position-relative` | `pr` | `position: relative` |
+| `position-fixed` | `pf` | `position: fixed` |
+| `position-static` | `ps` | `position: static` |
+| `position-sticky` | `pst` | `position: sticky` |
+| `top-20px` | `t-20px` | `top: 20px` |
+| `right-20px` | `r-20px` | `right: 20px` |
+| `bottom-20px` | `btm-20px` | `bottom: 20px` |
+| `left--20px` | `l--20px` | `left: -20px` |
+| `inset-0` | `i-0` | `inset: 0` |
+| `inset-0px` | `i-0px` | `inset: 0px` |
+| `z-index-10` | `zi-10` | `z-index: 10` |
+| `z-index-100` | `zi-100` | `z-index: 100` |
+| `z-index--1` | `zi--1` | `z-index: -1` |
+
+### Overflow
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `overflow-hidden` | `oh` | `overflow: hidden` |
+| `overflow-auto` | `oa` | `overflow: auto` |
+| `overflow-scroll` | `os` | `overflow: scroll` |
+| `overflow-visible` | `ov` | `overflow: visible` |
+| `overflow-y-auto` | `oya` | `overflow-y: auto` |
+| `overflow-x-auto` | `oxa` | `overflow-x: auto` |
+| `overflow-y-scroll` | `oys` | `overflow-y: scroll` |
+| `overflow-x-scroll` | `oxs` | `overflow-x: scroll` |
+| `overflow-y-hidden` | `oyh` | `overflow-y: hidden` |
+| `overflow-x-hidden` | `oxh` | `overflow-x: hidden` |
+
+### Float & Clear
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `float-right` | `fr` | `float: right` |
+| `float-left` | `fl` | `float: left` |
+| `float-none` | `fn` | `float: none` |
+| `clear-left` | `cl` | `clear: left` |
+| `clear-right` | `cr` | `clear: right` |
+| `clear-both` | `cb` | `clear: both` |
+
+***
+
+# 10. BORDER & SHADOW
+
+### Border
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `border-none` | `bn` | `border: none` |
+| `border-radius-12px` | `br-12px` | `border-radius: 12px` |
+| `border-radius-50%` | `br-50%` | `border-radius: 50%` |
+| `border-width-1px` | `bw-1px` | `border-width: 1px` |
+| `border-width-1px-2px` | `bw-1px-2px` | `border-width: 1px 2px` |
+| `border-1px-solid-red` | `b-1px-s-red` | `border: 1px solid red` |
+| `border-1px-dashed--border-color` | `b-1px-d--border-color` | `border: 1px dashed var(--border-color)` |
+| `border-right-1px-solid-red` | `brt-1px-s-red` | `border-right: 1px solid red` |
+| `border-top-1px-solid-red` | `bt-1px-s-red` | `border-top: 1px solid red` |
+| `border-left-1px-solid-red` | `bl-1px-s-red` | `border-left: 1px solid red` |
+| `border-bottom-1px-solid-red` | `bb-1px-s-red` | `border-bottom: 1px solid red` |
+| `border-color-red` | `bc-red` | `border-color: red` |
+| `border-color-ccc` | `bc-ccc` | `border-color: #ccc` |
+| `border-bottom-color-red` | `bbc-red` | `border-bottom-color: red` |
+| `border-top-left-radius-8px` | `btlr-8px` | `border-top-left-radius: 8px` |
+| `border-top-right-radius-8px` | `btrr-8px` | `border-top-right-radius: 8px` |
+| `border-bottom-left-radius-8px` | `bblr-8px` | `border-bottom-left-radius: 8px` |
+| `border-bottom-right-radius-8px` | `bbrr-8px` | `border-bottom-right-radius: 8px` |
+| `border-style-solid` | `bss` | `border-style: solid` |
+| `border-style-dashed` | `bsd` | `border-style: dashed` |
+| `border-style-dotted` | `bsdt` | `border-style: dotted` |
+| `border-style-double` | `bsdb` | `border-style: double` |
+| `border-style-groove` | `bsg` | `border-style: groove` |
+| `border-style-inset` | `bsi` | `border-style: inset` |
+| `border-style-none` | `bsn` | `border-style: none` |
+| `border-collapse-collapse` | `bcp-collapse` | `border-collapse: collapse` |
+| `border-collapse-separate` | `bcp-separate` | `border-collapse: separate` |
+
+### Box Shadow
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `box-shadow-1px-1px-1px-red` | `bxs-1px-1px-1px-red` | `box-shadow: 1px 1px 1px red` |
+| `box-shadow-inset-5em-1em-blue200` | `bxs-i-5em-1em-blue200` | `box-shadow: inset 5em 1em var(--blue200,#B2DDFF)` |
+| `box-shadow-2px-2px-2px-2px-rgb-231-0-0-0.4` | `bxs-2px-2px-2px-2px-rgb-231-0-0-0.4` | `box-shadow: 2px 2px 2px 2px rgb(231 0 0 / 0.4)` |
+| `box-shadow-2px-2px-red__1px-1px-4px-skyBlue` | `bxs-2px-2px-red__1px-1px-4px-skyBlue` | `box-shadow: 2px 2px red, 1px 1px 4px skyBlue` |
+| `box-shadow--1px-0px-2px-black/7` | `bxs--1px-0px-2px-black/7` | `box-shadow: -1px 0px 2px oklch(from black l c h / 0.7)` |
+
+CSS variables for complex shadows:
+```html copy showLineNumbers
+<button
+  class="d-if b-1px-s-primary600 bxs--shadow-sm"
+  style="--shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)"
+>
+  Button
+</button>
+```
+
+***
+
+# 11. FONT & TEXT
+
+### Font Properties
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `font-size-16px` | `fs-16px` | `font-size: 16px` |
+| `font-size-1.2em` | `fs-1.2em` | `font-size: 1.2em` |
+| `font-size-2rem` | `fs-2rem` | `font-size: 2rem` |
+| `font-family-inter` | `ff-inter` | `font-family: inter` |
+| `font-family-Inter__Segoe_UI__Arial__sans-serif` | `ff-Inter__Segoe_UI__Arial__sans-serif` | `font-family: Inter, "Segoe UI", Arial, sans-serif` |
+| `font-family--apple-system__BlinkMacSystemFont__sans-serif` | `ff--apple-system__BlinkMacSystemFont__sans-serif` | `font-family: -apple-system, BlinkMacSystemFont, sans-serif` |
+| `font-family-Georgia__Times_New_Roman__serif` | `ff-Georgia__Times_New_Roman__serif` | `font-family: Georgia, "Times New Roman", serif` |
+| `font-style-italic` | `fsi` | `font-style: italic` |
+| `font-style-oblique` | `fso` | `font-style: oblique` |
+| `font-style-normal` | `fsnl` | `font-style: normal` |
+| `font-weight-900` | `fw9` | `font-weight: 900` |
+| `font-weight-800` | `fw8` | `font-weight: 800` |
+| `font-weight-700` | `fw7` | `font-weight: 700` |
+| `font-weight-600` | `fw6` or `fw-600` | `font-weight: 600` |
+| `font-weight-500` | `fw5` or `fw-500` | `font-weight: 500` |
+| `font-weight-400` | `fw4` or `fw-400` | `font-weight: 400` |
+| `font-weight-thin` | `fw-thin` | `font-weight: 100` |
+| `font-weight-bold` | `fwb` | `font-weight: bold` |
+| `font-weight-lighter` | `fwl` | `font-weight: lighter` |
+| `line-height-1.5` | `lh-1.5` | `line-height: 1.5` |
+| `line-height-24px` | `lh-24px` | `line-height: 24px` |
+| `letter-spacing-0.05em` | `les-0.05em` | `letter-spacing: 0.05em` |
+
+Font family rules:
+- Use `_` for spaces within a font name: `Times_New_Roman` → `"Times New Roman"`
+- Use `__` as comma separator between entries: `Inter__Arial` → `Inter, Arial`
+
+### Text Properties
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `text-align-center` | `tac` | `text-align: center` |
+| `text-align-right` | `tar` | `text-align: right` |
+| `text-align-left` | `tal` | `text-align: left` |
+| `text-align-justify` | `taj` | `text-align: justify` |
+| `text-align-last-left` | `tall` | `text-align-last: left` |
+| `text-decoration-underline` | `tdu` | `text-decoration: underline` |
+| `text-decoration-none` | `tdn` | `text-decoration: none` |
+| `text-decoration-line-through` | `tdlt` | `text-decoration: line-through` |
+| `text-transform-uppercase` | `ttu` | `text-transform: uppercase` |
+| `text-transform-capitalize` | `ttc` | `text-transform: capitalize` |
+| `text-transform-lowercase` | `ttl` | `text-transform: lowercase` |
+| `text-transform-none` | `ttn` | `text-transform: none` |
+| `text-overflow-ellipsis` | `to-ellipsis` | `text-overflow: ellipsis` |
+| `text-overflow-clip` | `to-clip` | `text-overflow: clip` |
+| `text-indent-16px` | `ti-16px` | `text-indent: 16px` |
+| `text-wrap-balance` | — | `text-wrap: balance` |
+| `text-wrap-wrap` | — | `text-wrap: wrap` |
+| `text-wrap-nowrap` | — | `text-wrap: nowrap` |
+| `text-wrap-pretty` | — | `text-wrap: pretty` |
+| `text-wrap-stable` | — | `text-wrap: stable` |
+| `white-space-nowrap` | `ws-nowrap` | `white-space: nowrap` |
+| `white-space-pre` | `ws-pre` | `white-space: pre` |
+| `white-space-pre-wrap` | `ws-pw` | `white-space: pre-wrap` |
+| `word-break-break-all` | `wb-ba` | `word-break: break-all` |
+| `word-wrap-break-word` | `ww-bw` | `word-wrap: break-word` |
+| `vertical-align-middle` | `va-m` | `vertical-align: middle` |
+| `vertical-align-top` | `va-t` | `vertical-align: top` |
+| `vertical-align-bottom` | `va-b` | `vertical-align: bottom` |
+
+### Text Shadow
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `text-shadow-1px-1px-1px-red` | `txs-1px-1px-1px-red` | `text-shadow: 1px 1px 1px red` |
+| `text-shadow-2px-2px-rgb-231-0-0-0.4` | `txs-2px-2px-rgb-231-0-0-0.4` | `text-shadow: 2px 2px rgb(231 0 0 / 0.4)` |
+| `text-shadow-2px-2px-1px-red__1px-1px-4px-skyBlue` | `txs-2px-2px-1px-red__1px-1px-4px-skyBlue` | `text-shadow: 2px 2px 1px red, 1px 1px 4px skyBlue` |
+
+
+***
+
+# 12. TRANSFORM
+
+### Transform Function Reference
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `transform-matrix3d-1-0-0-0-0-1-0-0-0-0-1-0-0-0-0-1` | `tf-matrix3d-1-0-0-0-0-1-0-0-0-0-1-0-0-0-0-1` | `transform: matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)` |
+| `transform-perspective-17px` | `tf-p-17px` | `transform: perspective(17px)` |
+| `transform-rotate-0.5turn` | `tf-r-0.5turn` | `transform: rotate(0.5turn)` |
+| `transform-rotate3d-1-2-3-10deg` | `tf-r3d-1-2-3-10deg` | `transform: rotate3d(1, 2, 3, 10deg)` |
+| `transform-rotateX-10deg` | `tf-rx-10deg` | `transform: rotateX(10deg)` |
+| `transform-rotateY-10deg` | `tf-ry-10deg` | `transform: rotateY(10deg)` |
+| `transform-rotateZ-10deg` | `tf-rz-10deg` | `transform: rotateZ(10deg)` |
+| `transform-translate-12px-50%` | `tf-t-12px-50%` | `transform: translate(12px, 50%)` |
+| `transform-translate3d-12px-50%-3em` | `tf-t3d-12px-50%-3em` | `transform: translate3d(12px, 50%, 3em)` |
+| `transform-translateX-2em` | `tf-tx-2em` | `transform: translateX(2em)` |
+| `transform-translateY-3in` | `tf-ty-3in` | `transform: translateY(3in)` |
+| `transform-translateZ-2px` | `tf-tz-2px` | `transform: translateZ(2px)` |
+| `transform-scale-2-0.5` | `tf-s-2-0.5` | `transform: scale(2, 0.5)` |
+| `transform-scale3d-2.5-1.2-0.3` | `tf-s3d-2.5-1.2-0.3` | `transform: scale3d(2.5, 1.2, 0.3)` |
+| `transform-scaleX-2` | `tf-sx-2` | `transform: scaleX(2)` |
+| `transform-scaleY-0.5` | `tf-sy-0.5` | `transform: scaleY(0.5)` |
+| `transform-scaleZ-0.3` | `tf-sz-0.3` | `transform: scaleZ(0.3)` |
+| `transform-skew-30deg-20deg` | `tf-sk-30deg-20deg` | `transform: skew(30deg, 20deg)` |
+| `transform-skewX-30deg` | `tf-skx-30deg` | `transform: skewX(30deg)` |
+| `transform-skewY-1.07rad` | `tf-sky-1.07rad` | `transform: skewY(1.07rad)` |
+
+### Chaining Multiple Transforms — use `__`
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `transform-translateX-10px__rotate-10deg__translateY-5px` | `tf-tx-10px__r-10deg__ty-5px` | `transform: translateX(10px) rotate(10deg) translateY(5px)` |
+| `transform-perspective-500px__rotateY-3deg` | `tf-p-500px__ry-3deg` | `transform: perspective(500px) rotateY(3deg)` |
+| `tf-rotateY-180deg__translateZ-60px` | same | `transform: rotateY(180deg) translateZ(60px)` |
+| `tf-rotateY--90deg__translateZ-60px` | same | `transform: rotateY(-90deg) translateZ(60px)` |
+| `tf-rx-90deg__tz-60px` | same | `transform: rotateX(90deg) translateZ(60px)` |
+
+### 3D Properties
+
+| Classname | Compiled |
+|---|---|
+| `transform-style-preserve-3d` | `transform-style: preserve-3d` |
+| `transform-style-flat` | `transform-style: flat` |
+| `perspective-600px` | `perspective: 600px` |
+| `backface-visibility-hidden` | `backface-visibility: hidden` |
+| `backface-visibility-visible` | `backface-visibility: visible` |
+| `transform-origin-center` | `transform-origin: center` |
+| `transform-origin-50%-50%` | `transform-origin: 50% 50%` |
+
+### Spinning 3D Cube Example
+
+```html copy showLineNumbers
+<div class="
+  mh-50vh
+  d-flex ai-center jc-center
+  bgc-0f0c29
+" style="background: linear-gradient(135deg, #0f0c29, #302b63, #24243e)">
+ 
+  <!-- Scene wrapper: enables 3D perspective -->
+  <div class="
+    w-200px h-200px
+    d-flex ai-center jc-center
+    perspective-600px
+  ">
+ 
+    <!-- Cube root: preserve-3d + spin animation -->
+    <div
+      keyframes-spin="@0-[tf-rotateX-20deg__rotateY-0deg] @100-[tf-rotateX-20deg__rotateY-360deg]"
+      class="pr w-120px h-120px transform-style-preserve-3d an-spin adu-8s atf-linear aici"
+      >
+      <!-- 6 Faces via child selector: .cube > div -->
+      <!-- Front -->
+      <div class="
+        [pa,w-120px,h-120px,bgc-rgb-255-255-255-0.15,b-1px-s-rgba-255-255-255-0.35,br-6px,bf-blur-6px]--as-cube-face
+        cube-face
+        tf-translateZ-60px
+      "></div>
+ 
+      <!-- Back -->
+      <div class="cube-face tf-rotateY-180deg__translateZ-60px"></div>
+ 
+      <!-- Left -->
+      <div class="cube-face tf-rotateY--90deg__translateZ-60px "></div>
+ 
+      <!-- Right -->
+      <div class="cube-face tf-rotateY-90deg__translateZ-60px"></div>
+ 
+      <!-- Top -->
+      <div class="cube-face tf-rx-90deg__tz-60px"></div>
+ 
+      <!-- Bottom -->
+      <div class="cube-face tf-rotateX--90deg__translateZ-60px"></div>
+ 
+    </div>
+  </div>
+ 
+</div>
+```
+
+***
+
+# 13. CSS SELECTORS
+
+## Pseudo Selectors & States
+
+Add `--flag` prefix to target pseudo-selectors and states:
+
+```html copy showLineNumbers
+<div class="bgc-ccc --hover-bgc-yellow --h-bgc-yellow"></div>
+<button class="bgc-blue --focus-outline-none --disabled-o-0.5"></button>
+<input class="b-1px-s-gray --focus-b-1px-s-blue --invalid-b-1px-s-red">
+```
+
+### Complete Pseudo Flag Reference
+
+| Flag | Short Flag | CSS Selector |
+|---|---|---|
+| `--active` | `--a` / `--ac` | `:active` |
+| `--after` | `--af` | `::after` |
+| `--after-hover` | `--afh` | `::after:hover` |
+| `--autofill` | `--atf` | `:-webkit-autofill` |
+| `--anylink` | `--al` | `:-webkit-anylink` |
+| `--backdrop` | `--bd` | `::backdrop` |
+| `--before` | `--bf` | `::before` |
+| `--before-hover` | `--bfh` | `::before:hover` |
+| `--blank` | `--bl` | `:blank` |
+| `--checked` | `--ch` | `:checked` |
+| `--cue` | `--cu` | `::cue` |
+| `--current` | `--cur` | `:current` |
+| `--default` | `--de` | `:default` |
+| `--disabled` | `--di` | `:disabled` |
+| `--empty` | `--em` | `:empty` |
+| `--enabled` | `--en` | `:enabled` |
+| `--first-child` | `--fc` | `:first-child` |
+| `--first-letter` | `--fl` | `::first-letter` |
+| `--first-line` | `--fln` | `::first-line` |
+| `--first-of-type` | `--fot` | `:first-of-type` |
+| `--focus` | `--f` / `--fo` | `:focus` |
+| `--focus-within` | `--fw` | `:focus-within` |
+| `--focus-visible` | `--fv` | `:focus-visible` |
+| `--file-selector-button` | `--fsb` | `::file-selector-button` |
+| `--fullscreen` | `--fs` | `::fullscreen` |
+| `--hover` | `--h` / `--ho` | `:hover` |
+| `--has` | `--hs` | `:has` |
+| `--hover-after` | `--haf` | `:hover::after` |
+| `--hover-before` | `--hbf` | `:hover::before` |
+| `--hover-target` | `--htg` | `:hover:target` |
+| `--in-range` | `--ir` | `:in-range` |
+| `--indeterminate` | `--ind` | `:indeterminate` |
+| `--invalid` | `--inv` | `:invalid` |
+| `--is` | `--is` | `:is` |
+| `--lang` | `--lan` | `:lang` |
+| `--last-child` | `--lc` | `:last-child` |
+| `--last-of-type` | `--lot` | `:last-of-type` |
+| `--link` | `--ln` / `--l` | `:link` |
+| `--not-` | `--n-` | `:not()` |
+| `--nth-child-` | `--nc-` | `:nth-child()` |
+| `--nth-last-child-` | `--nlc-` | `:nth-last-child()` |
+| `--nth-last-of-type-` | `--nlot-` | `:nth-last-of-type()` |
+| `--nth-of-type-` | `--nthot-` | `:nth-of-type()` |
+| `--marker` | `--m` | `::marker` |
+| `--only-of-type` | `--oot` | `:only-of-type` |
+| `--only-child` | `--oc` | `:only-child` |
+| `--optional` | `--op` | `:optional` |
+| `--out-of-range` | `--oor` | `:out-of-range` |
+| `--placeholder` | `--ph` | `::placeholder` |
+| `--placeholder-shadow` | `--phs` | `::placeholder-shadow` |
+| `--popover-open` | `--po` | `:popover-open` |
+| `--read-only` | `--ro` | `:read-only` |
+| `--read-write` | `--rw` | `:read-write` |
+| `--required` | `--rq` | `:required` |
+| `--root` | `--rt` | `:root` |
+| `--selection` | `--s` | `::selection` |
+| `--scrollbar` / `--webkit-scrollbar` | `--sb` | `::-webkit-scrollbar` |
+| `--scrollbar-track` / `--webkit-scrollbar-track` | `--st` | `::-webkit-scrollbar-track` |
+| `--scrollbar-thumb` / `--webkit-scrollbar-thumb` | `--stm` | `::-webkit-scrollbar-thumb` |
+| `--spelling-error` | `--se` | `::spelling-error` |
+| `--target` | `--tg` | `:target` |
+| `--user-invalid` | `--ui` | `:user-invalid` |
+| `--valid` | `--va` | `:valid` |
+| `--visited` | `--vi` / `--v` | `:visited` |
+| `--where` | `--w` | `:where` |
+
+### Pseudo Examples
+
+| Classname | Shorthand | Compiled |
+|---|---|---|
+| `--hover-display-flex` | `--h-df` | `:hover { display: flex }` |
+| `--focus-list-style-none` | `--fo-lsn` | `:focus { list-style: none }` |
+| `--nth-child-2n-margin-left-20px` | `--nc-2n-ml-20px` | `:nth-child(2n) { margin-left: 20px }` |
+| `--placeholder-color-gray400` | `--ph-c-gray400` | `::placeholder { color: var(--gray400) }` |
+| `--hover-background-color-blue` | `--h-bgc-blue` | `:hover { background-color: blue }` |
+| `--focus-outline-none` | `--fo-oln` | `:focus { outline: none }` |
+| `--disabled-opacity-0.5` | `--di-o-0.5` | `:disabled { opacity: 0.5 }` |
+| `--checked-background-color-blue` | `--ch-bgc-blue` | `:checked { background-color: blue }` |
+| `--first-child-margin-top-0` | `--fc-mt-0` | `:first-child { margin-top: 0 }` |
+| `--last-child-margin-bottom-0` | `--lc-mb-0` | `:last-child { margin-bottom: 0 }` |
+| `--before-content-empty` | `--bf-cont-empty` | `::before { content: "" }` |
+| `--selection-bgc-blue` | `--s-bgc-blue` | `::selection { background-color: blue }` |
+
+***
+
+## Element Selector
+
+Use `_` prefix to target child elements:
+
+```html copy showLineNumbers
+<div class="_h3-c-white _p-fs-14px _span-fw-600">
+  <h3>Hello</h3>
+  <p>World</p>
+  <span>Text</span>
+</div>
+```
+
+Compiles to:
+```css
+._h3-c-white h3 { color: white; }
+._p-fs-14px p { font-size: 14px; }
+._span-fw-600 span { font-weight: 600; }
+```
+
+
+***
+
+### Combinator Selectors
+
+| Classname | Compiled | Type |
+|---|---|---|
+| `_div-df` | `._div-df div { }` | Descendant |
+| `__div-df` | `.__div-df > div { }` | Direct child |
+| `___div-df` | `.___div-df + div { }` | Adjacent sibling |
+| `____div-df` | `.____div-df ~ div { }` | General sibling |
+| `_all-c-red` | `._all-c-red * { }` | All descendants |
+| `_child_div-df` | `._child_div-df > div { }` | Direct child (named) |
+| `_next_div-df` | `._next_div-df + div { }` | Adjacent sibling (named) |
+| `_siblings_div-df` | `._siblings_div-df ~ div { }` | General sibling (named) |
+
+### Nested Selectors
+
+```html copy showLineNumbers
+<div class="_div_h4-fs-20px"></div>
+<!-- ._div_h4-fs-20px div h4 { font-size: 20px } -->
+
+<div class="_ul_li-c-red"></div>
+<!-- ._ul_li-c-red ul li { color: red } -->
+
+<div class="_nav_ul_li-d-f"></div>
+<!-- ._nav_ul_li-d-f nav ul li { display: flex } -->
+```
+
+***
+
+# 14. ATTRIBUTE SELECTOR
+
+Use `[attribute=value]` directly in classnames:
+
+```html copy showLineNumbers
+<div class="[data-state=open]-d-flex"></div>
+<div class="[data-state=close]-d-n"></div>
+<div class="[aria-hidden=true]-v-hidden"></div>
+<div class="[disabled]-o-0.5"></div>
+<div class="[class~=code]-ff-mono"></div>
+<div class="[type=checkbox]-cur-pointer"></div>
+```
+
+Compiles to:
+```css
+[data-state="open"] { display: flex; }
+[data-state="close"] { display: none; }
+[aria-hidden="true"] { visibility: hidden; }
+[disabled] { opacity: 0.5; }
+[class~="code"] { font-family: monospace; }
+[type="checkbox"] { cursor: pointer; }
+```
+
+Rules:
+- Quotes `'` and `"` inside attribute selector classnames are NOT allowed — AliasCSS adds them automatically
+- Attribute selectors follow the standard grammar order: `@layer → media → pseudo → selector → property → value`
+
+***
+
+# 15. FUNCTIONAL SELECTORS
+
+### :is(), :has(), :not(), :where()
+
+These accept valid AliasCSS selectors inside their parentheses — NOT raw CSS selectors.
+
+| Prefix | Alias | CSS Output | Behavior |
+|---|---|---|---|
+| `--is()` | `--is()` | `:is()` | Adds space before selector |
+| `--has()` | `--hs()` | `:has()` | — |
+| `--not()` | `--n()` | `:not()` | — |
+| `--where()` | `--w()` | `:where()` | Adds space before selector |
+| `--Is()` | `--Is()` | `:is()` | Removes space before selector |
+| `--Has()` | — | `:has()` | Adds space before selector |
+| `--Where()` | `--W()` | `:where()` | Removes space before selector |
+
+```html copy showLineNumbers
+<div class="--is(_h3,_p)-c-black/8 --Is(--hover)-bgc-black/2">
+  <h3>Hello</h3>
+  <p>World</p>
+</div>
+```
+
+Compiles to:
+```css
+.--is\(_h3\,_p\)-c-black\/8 :is(h3, p) {
+  color: oklch(from black l c h / 0.8);
+}
+.--Is\(--hover\)-bgc-black\/2:is(:hover) {
+  background-color: oklch(from black l c h / 0.2);
+}
+```
+
+***
+
+# 16. MAGIC `&` IDENTIFIER
+
+By default, element selectors are placed AFTER the classname:
+```css
+._div-bgc-red div { background-color: red; }
+```
+
+Use `&` to insert the classname at a specific position — everything before `&` becomes a parent selector:
+
+```html copy showLineNumbers
+<!-- Default behavior -->
+<div class="_div-bgc-red"></div>
+<!-- ._div-bgc-red div { background-color: red } -->
+
+<!-- With & -->
+<div class="_div&-bgc-red"></div>
+<!-- div ._div\&-bgc-red { background-color: red } -->
+
+<!-- Class scope -->
+<div class="_.card&-c-blue"></div>
+<!-- .card ._.card\&-c-blue { color: blue } -->
+
+<!-- Dark mode scoping -->
+<div class="--is(_html[class~=dark])&-bgc--dark-bg"></div>
+<!-- :is(html[class~="dark"]) .class { background-color: var(--dark-bg) } -->
+```
+
+### & Summary Table
+
+| Classname | Compiled Selector | Behavior |
+|---|---|---|
+| `_div-bgc-red` | `._div-bgc-red div { }` | Default — selector after class |
+| `_div&-bgc-red` | `div ._div\&-bgc-red { }` | Class inserted after div |
+| `_.card&-bgc-blue` | `.card ._.card\&-bgc-blue { }` | Class scoped inside .card |
+| `--is(_html[class~=dark])&-c-white` | `:is(html[class~="dark"]) .class { }` | Dark mode parent scope |
+
+***
+
+# 17. CSS VARIABLES
+
+### Referencing Variables
+
+| Classname | Shorthand | Compiled | Notes |
+|---|---|---|---|
+| `background-color--var--main-bg` | `bgc--var--main-bg` | `background-color: var(--main-bg)` | Numeric-safe |
+| `background-color--main-bg` | `bgc--main-bg` | `background-color: var(--main-bg)` | Standard |
+| `background-color--main-bg:blue` | `bgc--main-bg:blue` | `background-color: var(--main-bg, blue)` | With fallback |
+| `color--name` | `c--name` | `color: var(--name)` | |
+| `width--var--side-bar-width:200px` | `w--var--side-bar-width:200px` | `width: var(--side-bar-width, 200px)` | |
+| `width--side-bar-width` | `w--side-bar-width` | `width: var(--side-bar-width)` | |
+| `width--var--24x` | `w--var--24x` | `width: var(--24x)` | Numeric name |
+| `width--24x` | `w--24x` | `width: -24x` | WRONG — negative value |
+| `font-size--text-xl` | `fs--text-xl` | `font-size: var(--text-xl)` | |
+| `background--gradient` | `bg--gradient` | `background: var(--gradient)` | |
+
+### Declaring Variables via Classname
+
+Format: `--var-name:value`
+
+```html copy showLineNumbers
+<div
+  class="c--grey-alt --grey:--grey-default"
+  style="
+    --grey-default: rgba(210,213,217,1);
+    --grey-alt: rgba(186,189,194,1)
+  "
+>
+  <h3 class="c--grey --hover-c--grey-hover --grey-hover:black">
+    Hello World
+  </h3>
+</div>
+```
+
+Special naming rules:
+- Variable names ending in `-color` → value treated as color identifier
+- Variable names ending in `-text` → value treated as plain string
+
+### Variable Rules Summary
+
+- Use `--` for standard variable names: `bgc--main-color`
+- Use `--var--` when variable name starts with a digit: `w--var--24x`
+- Add `:value` for fallback: `bgc--main-color:blue`
+- CSS variables work with ALL AliasCSS properties
+
+### Complex Values via Variables
+
+```html copy showLineNumbers
+<h1
+  class="c--fg-color bg--bg-color fs-3rem"
+  style="
+    --fg-color: color-mix(in srgb, red, white 20%);
+    --bg-color: hsl(from var(--primary) h s calc(l - 20%));
+  "
+>Hello World</h1>
+
+<div
+  class="gtc--panel-grid gta--named-areas"
+  style='
+    --panel-grid: repeat(3, [col-start] 1fr [col-end]);
+    --named-areas: "header header header" "sidebar main main" "footer footer footer"
+  '
+></div>
+```
+
+***
+
+# 18. MEDIA & RESPONSIVE PREFIXES
+
+Add prefix at the very beginning of any classname:
+
+| Prefix | CSS Output |
+|---|---|
+| `xs` | `@media (max-width: 576px)` |
+| `sm` | `@media (min-width: 576px)` |
+| `md` | `@media (min-width: 768px)` |
+| `lg` | `@media (min-width: 992px)` |
+| `xl` | `@media (min-width: 1200px)` |
+| `2xl` | `@media (min-width: 1408px)` |
+| `-xs` | `@media (min-width: 576px)` |
+| `-sm` | `@media (max-width: 576px)` |
+| `-md` | `@media (max-width: 768px)` |
+| `-lg` | `@media (max-width: 992px)` |
+| `-xl` | `@media (max-width: 1200px)` |
+| `-2xl` | `@media (max-width: 1408px)` |
+| `dark` / `@dark` | `@media (prefers-color-scheme: dark)` |
+| `light` / `@light` | `@media (prefers-color-scheme: light)` |
+| `@hover` | `@media screen and (hover: hover)` |
+| `@print` / `print` | `@media print` |
+| `@landscape` | `@media (orientation: landscape)` |
+| `@portrait` | `@media (orientation: portrait)` |
+| `@container-xs` | `@container (max-width: 576px)` |
+| `@container-sm` | `@container (min-width: 576px)` |
+| `@container-md` | `@container (min-width: 768px)` |
+| `@container-lg` | `@container (min-width: 992px)` |
+| `@container-xl` | `@container (min-width: 1200px)` |
+| `@container-2xl` | `@container (min-width: 1408px)` |
+
+### Responsive Examples
+
+```html copy showLineNumbers
+<!-- Basic responsive -->
+<div class="xs-fdc md-w-500px lg-d-g dark-bgc-0e0e0e">...</div>
+
+<!-- Media + element selector -->
+<div class="xs_p-fs-14px md_h3-fs-24px">...</div>
+<!-- @media(max-width:576px) { .xs_p-fs-14px p { font-size:14px } } -->
+
+<!-- Media + pseudo -->
+<div class="md---hover-bgc-blue xs---focus-b-1px-s-red">...</div>
+
+<!-- Responsive display -->
+<div class="xs-dn md-df lg-dg">...</div>
+```
+
+Compiles:
+```css
+@media (max-width: 576px) {
+  .xs-fdc { flex-direction: column; }
+}
+@media (min-width: 768px) {
+  .md-w-500px { width: 500px; }
+}
+@media (min-width: 992px) {
+  .lg-d-g { display: grid; }
+}
+@media (prefers-color-scheme: dark) {
+  .dark-bgc-0e0e0e { background-color: #0e0e0e; }
+}
+```
+
+### Customize Breakpoints
+
+```js
+// aliascss.config.js
+const config = {
+  media: {
+    prefix: {
+      xs: '@media (max-width: 600px)',
+      sm: '@media (min-width: 600px)',
+      md: '@media (min-width: 900px)',
+      lg: '@media (min-width: 1200px)',
+      xl: '@media (min-width: 1536px)',
+    },
+  },
+};
+export default config;
+```
+
+***
+
+# 19. LAYER SYSTEM
+
+| Prefix | CSS Output |
+|---|---|
+| `@base` | `@layer base` |
+| `@components` / `@comps` | `@layer components` |
+| `@utils` / `@utilities` | `@layer utilities` |
+| `@theme` | `@layer theme` |
+
+```html copy showLineNumbers
+<button class="@base-all-unset">Label</button>
+<!-- @layer base { .\@base-all-unset { all: unset } } -->
+
+<div class="@theme-bgc-primary500">...</div>
+<!-- @layer theme { .\@theme-bgc-primary500 { background-color: var(--primary500) } } -->
+```
+
+### Layer + Grouping
+
+```html copy showLineNumbers
+<button class="b-0 c-fff bgc-blue @theme-[c-gray,br-4px,bgc-skyBlue]">
+  Label
+</button>
+
+<div class="@base-[data-state=open][d-flex,l-0]">...</div>
+```
+
+### Multiple Query Prefixes
+
+Combine layer + media in one classname using `@[layer,media]`:
+
+```html copy showLineNumbers
+<button class="@[base,xs][b-0,c-fff,bgc-blue]--as-btn btn">Label</button>
+<div class="@[xs,base][data-state=open][d-flex,l-0]--as-active active">...</div>
+```
+
+Order `@[base,xs]` compiles to:
+```css
+@layer base {
+  @media (max-width: 576px) {
+    .btn { border: 0; color: #fff; background-color: blue; }
+  }
+}
+```
+
+### Custom Layer
+
+```js
+// aliascss.config.js
+const config = {
+  media: {
+    prefix: {
+      '@customLayer': '@layer customLayer',
+      '@reset': '@layer reset',
+    },
+  },
+};
+export default config;
+```
+
+Usage:
+```html copy showLineNumbers
+<div class="@customLayer-d-flex @reset-m-0px-p-0px">...</div>
+```
+
+***
+
+
+
+# 20. GROUPING SYSTEM
+
+### Inline Grouping
+
+Avoid repeating prefixes with `[class1,class2,class3]`:
+
+
+```html copy showLineNumbers
+<!-- Attribute selector grouping -->
+<div class="[data-state=open]-[d-flex,l-0,t-0]">...</div>
+
+<!-- Media grouping -->
+<div class="xs-[fdc,p-16px,fs-14px]">...</div>
+
+<!-- Layer grouping -->
+<div class="@theme-[bgc-primary500,c-white,br-8px]">...</div>
+
+<!-- Multiple pseudo grouping -->
+<input class="b-1px-s-gray --focus-[b-1px-s-blue,outline-none] --invalid-[b-1px-s-red,bgc-red/1]">
+
+<!-- Dark mode grouping -->
+<div class="bgc-white dark-[bgc-gray900,c-white,b-1px-s-gray700]">...</div>
+```
+
+All group examples compile each item individually:
+```css
+[data-state="open"] { display: flex; }
+[data-state="open"] { left: 0; }
+[data-state="open"] { top: 0; }
+```
+
+***
+
+### Component Classnames with `--as-`
+
+Bundle grouped AliasCSS classnames into a reusable component class:
+
+```html copy showLineNumbers
+<!-- Single component -->
+<button class="[b-0,c-fff,bgc-blue,p-8px-16px,br-6px]--as-btn btn">
+  Label
+</button>
+
+<!-- Component with state -->
+<button class="[b-0,c-fff,bgc-blue]--as-btn --hover-[bgc-blue/8,c-white]--as-btn btn">
+  Label
+</button>
+
+<!-- Multiple component names -->
+<div class="[p-20px,bgc-white,br-8px]--as-[card,box]">...</div>
+
+<!-- Attribute + component -->
+<div class="[data-state=open]-[d-flex,l-0]--as-active active">...</div>
+
+<!-- Layer + component -->
+<div class="@[base,xs]-[b-0,c-fff,bgc-blue]--as-btn btn">...</div>
+```
+
+Compiles to:
+```css
+.btn { border: 0; color: #fff; background-color: blue; padding: 8px 16px; border-radius: 6px; }
+.card { padding: 20px; background-color: white; border-radius: 8px; }
+.box { padding: 20px; background-color: white; border-radius: 8px; }
+```
+
+***
+
+# 21. GLOBAL CLASSNAMES
+
+### `class-[name]` Attribute
+
+Define reusable global classnames by grouping valid AliasCSS utilities on any element. Once defined, the classname is available throughout the entire page:
+
+```html copy showLineNumbers
+<!-- Define and use container -->
+<div
+  class="container"
+  class-container="df bgc--main-color oh w-100p h-100p pa t-0 l-0 aic jcc zi-100"
+>
+  ...
+</div>
+
+<!-- Use anywhere on same page -->
+<section class="container">...</section>
+<header class="container">...</header>
+```
+
+### Global Classnames with Selectors
+
+Extend a global classname with selector suffix `[--pseudo]`:
+
+```html copy showLineNumbers
+<div
+  class="error"
+  class-error="c-error500 b-1px-s-error500"
+  class-error[--after]="bgc-error100 c-error700 b-1px-s-error700"
+  class-error[--hover]="bgc-error50"
+  class-error[--focus]="outline-none b-2px-s-error600"
+>
+  Error message
+</div>
+```
+
+Compiles to:
+```css
+.error { color: var(--error500); border: 1px solid var(--error500); }
+.error::after { background-color: var(--error100); color: var(--error700); border: 1px solid var(--error700); }
+.error:hover { background-color: var(--error50); }
+.error:focus { outline: none; border: 2px solid var(--error600); }
+```
+
+***
+
+# 22. KEYFRAMES & ANIMATION
+
+### Syntax
+
+```
+keyframes-[animation-name]="@[percentage]-aliascss @[percentage]-aliascss"
+```
+
+### Basic Examples
+
+```html copy showLineNumbers
+<!-- Fade out -->
+<div keyframes-fadeOut="@0-o-1 @100-o-0" class="an-fadeOut adu-1s">
+  Fade Out
+</div>
+
+<!-- Fade in -->
+<div keyframes-fadeIn="@0-o-0 @100-o-1" class="an-fadeIn adu-1s">
+  Fade In
+</div>
+
+<!-- Flash -->
+<h1 keyframes-flash="@[0,50,100]-o-1 @[25,75]-o-0" class="an-flash adu-2s">
+  Flash!
+</h1>
+
+<!-- Slide in from left -->
+<div keyframes-slideIn="@0-[o-0,tf-tx--100%] @100-[o-1,tf-tx-0]"
+  class="an-slideIn adu-0.5s atf-eio">
+  Slide In
+</div>
+
+<!-- Bounce -->
+<div keyframes-bounce="@[0,100]-tf-ty-0 @50-tf-ty--20px"
+  class="an-bounce adu-1s atf-eio aici">
+  Bounce
+</div>
+
+<!-- Pulse -->
+<div keyframes-pulse="@0-o-1 @50-o-0.5 @100-o-1"
+  class="an-pulse adu-2s aici">
+  Pulse
+</div>
+
+<!-- Spin -->
+<div keyframes-spin="@0-tf-r-0deg @100-tf-r-360deg"
+  class="an-spin adu-1s atf-linear aici">
+  Spin
+</div>
+```
+
+### Multiple Percentages with `@[p1,p2,p3]`
+
+```html copy showLineNumbers
+<!-- Same style applied to 0%, 50%, 100% -->
+<div keyframes-blink="@[0,100]-o-1 @50-o-0" class="an-blink adu-1s aici">...</div>
+
+<!-- Complex multi-step -->
+<div keyframes-wave="@[0,100]-tf-r-0deg @25-tf-r-20deg @75-tf-r--20deg"
+  class="an-wave adu-1s aici">...</div>
+```
+
+### Grouping Properties at a Step with `[...]`
+
+```html copy showLineNumbers
+<!-- Multiple properties at each step -->
+<div
+  keyframes-pop-up="
+    @0-[tf-ty-0,tfo-50p-50p,bxs--shadow-down]
+    @100-[tf-ty--50px,tfo-50p-50p,bxs--shadow-up]
+  "
+  class="an-pop-up adu-1.5s ada atf--timing-func aici afmbo"
+  style="
+    --shadow-up: 0 50px 3px -20px rgba(0,0,0,0.3);
+    --shadow-down: 0 50px 3px -5px rgba(0,0,0,0.3);
+    --timing-func: cubic-bezier(0.250, 0.460, 0.450, 0.940)
+  "
+></div>
+
+<!-- Loading dots -->
+<div
+  class="d-flex ai-center jc-center gap-8px"
+  keyframes-loading="@[0,100]-tf-s-1 @50-tf-s-1.5"
+>
+  <span class="dot"
+    class-dot="br-100p b-5px-solid-555 m-10px an-loading adu-0.6s atf-eio ada aici"
+  ></span>
+  <span class="dot adl-0.2s"></span>
+  <span class="dot adl-0.4s"></span>
+</div>
+```
+
+### Animation Property Reference
+
+| Alias | Property | Example Value |
+|---|---|---|
+| `an` | `animation-name` | `an-fadeOut` |
+| `adu` | `animation-duration` | `adu-1s` / `adu-0.6s` |
+| `adl` | `animation-delay` | `adl-0.2s` / `adl-0.5s` |
+| `atf` | `animation-timing-function` | `atf-linear` / `atf-eio` |
+| `ad` | `animation-direction` | `ad-normal` / `ad-reverse` |
+| `ada` | `animation-direction-alternate` | `ada` |
+| `aic` | `animation-iteration-count` | `aic-3` / `aic-infinite` |
+| `afm` | `animation-fill-mode` | `afm-both` / `afm-forwards` |
+| `afmbo` | `animation-fill-mode-both` | `afmbo` |
+| `aps` | `animation-play-state` | `aps-paused` |
+
+Duration decimal separator: use `d` for `.` in durations:
+```
+adu-0d6s  → animation-duration: 0.6s
+adu-1d5s  → animation-duration: 1.5s
+adl-0d2s  → animation-delay: 0.2s
+```
+
+### Timing Function Shorthands
+
+| Classname | Compiled |
+|---|---|
+| `atf-linear` | `animation-timing-function: linear` |
+| `atf-ease` | `animation-timing-function: ease` |
+| `atf-eio` | `animation-timing-function: ease-in-out` |
+| `atf-ei` | `animation-timing-function: ease-in` |
+| `atf-eo` | `animation-timing-function: ease-out` |
+| `atf--timing-func` | `animation-timing-function: var(--timing-func)` |
+
+***
+
+# 23. NPM WORKFLOW & CONFIG
+
+### Quick Start Without Config
+
+```sh
+# Compile once
+npx aliascss 'public/*.html' 'public/css/acss.css'
+
+# Watch mode
+npx aliascss 'app/**/*.(tsx|jsx)' 'public/css/acss.css' --watch
+```
+
+Output CSS file must exist before running — create it manually if it does not.
+
+### package.json Scripts (No Config)
+
+```json
+"scripts": {
+  "aliascss-build": "aliascss 'public/*.html' 'public/css/aliascss.css'",
+  "aliascss-watch": "aliascss-build --watch"
+}
+```
+
+### Full `aliascss.config.js`
+
+```js
+const config = {
+
+  // Input: glob pattern or array of glob patterns
+  input: [
+    'app/**/*.(tsx|jsx)',
+    'components/**/*.(tsx|jsx)',
+    'public/*.html'
+  ],
+
+  // Output: master CSS file — must exist or be created manually
+  output: {
+    location: './public/css/acss.css',
+    '--file': true, // also generate per-file .css alongside each source file
+  },
+
+  // Customize media/breakpoint prefixes
+  media: {
+    prefix: {
+      xs: '@media (max-width: 600px)',
+      sm: '@media (min-width: 600px)',
+      md: '@media (min-width: 900px)',
+      lg: '@media (min-width: 1200px)',
+      xl: '@media (min-width: 1536px)',
+      '@customLayer': '@layer customLayer',
+    },
+  },
+
+  // CSS Modules support
+  '--module': true,
+  importModuleAs: 'x', // import x from 'file.module.css'
+
+  // Minify output via cssnano
+  // minify: true,
+
+  // Name of extractor function
+  extractorFunction: 'x',
+
+  // Global classname prefix: ac-bgc-red, ac--hover-c-red
+  // prefix: 'ac',
+
+  // Truncate output on each rebuild (recommended: true)
+  truncate: true,
+
+  // Custom color tokens — use camelCase, no hyphens or underscores
+  custom: {
+    colors: {
+      main: 'rgb(12,23,45)',
+      theme: '#c6c6c6',
+      themeTextColor: 'var(--theme-text-color, #c3c3c3)',
+      themeBgColor: 'var(--theme-bg-color, #0e0e0e)',
+      primary: 'rgba(124,143,234,1)',
+    },
+  },
+
+  // Extend the compiler with custom properties and aliases
+  extend: {
+    // Override existing property compiler
+    'background-color': {
+      alias: 'bgc',
+      values: ['transparent:t:no-color'],
+      compiler: (value) => value.replace(/^-/, ''),
+    },
+
+    // Custom property mapped to real CSS property
+    shadow: {
+      property: 'box-shadow',
+      compiler: (value) => {
+        value = value.slice(1);
+        const values = {
+          '3xl': '0px 32px 64px -12px var(--shadow-color, rgba(16,24,40,0.14))',
+          '2xl': '0px 24px 48px -12px var(--shadow-color, rgba(16,24,40,0.14))',
+          'xl':  '0px 20px 24px -4px var(--shadow-color, rgba(16,24,40,0.14))',
+          'lg':  '0px 12px 16px -4px var(--shadow-color, rgba(16,24,40,0.14))',
+          'md':  '0px 4px 8px -2px var(--shadow-color, rgba(16,24,40,0.14))',
+          'sm':  '0px 1px 3px var(--shadow-color, rgba(16,24,40,0.14))',
+          'xs':  '0px 1px 2px var(--shadow-color, rgba(16,24,40,0.14))',
+        };
+        if (values.hasOwnProperty(value)) return values[value];
+      },
+    },
+
+    // Group compiler: text-xl → font-size + line-height + letter-spacing
+    text: {
+      type: 'group',
+      groups: {
+        'xs':  'font-size:12px;letter-spacing:0.0025em;line-height:16px',
+        'sm':  'font-size:14px;letter-spacing:0em;line-height:20px',
+        'md':  'font-size:16px;letter-spacing:0em;line-height:24px',
+        'lg':  'font-size:18px;letter-spacing:-0.0025em;line-height:26px',
+        'xl':  'font-size:20px;letter-spacing:-0.005em;line-height:28px',
+        '2xl': 'font-size:24px;letter-spacing:-0.00625em;line-height:30px',
+        '3xl': 'font-size:28px;letter-spacing:-0.0075em;line-height:36px',
+        '4xl': 'font-size:35px;letter-spacing:-0.01em;line-height:40px',
+        '5xl': 'font-size:60px;letter-spacing:-0.025em;line-height:60px',
+      },
+    },
+   
+    // box-[width]-[height]-[padding]
+    box: {
+      type: 'group',
+      compiler: (value) => {
+        let result = '';
+        const match = /-([-]?[\w\.]+)/;
+        const property = ['width', 'height', 'padding'];
+        value.match(new RegExp(match, 'g')).forEach((e, i) => {
+          if (i < property.length) {
+            result += `${property[i]}:${e.replace(match, '$1')
+              .replace(/(\d)d(\d)/, '$1.$2')
+              .replace(/([\d])p([\s]|$)/, '$1%$2')};`;
+          }
+        });
+        return result;
+      },
+    },
+
+    // placement-[position]-[top]-[right]-[bottom]-[left]
+    placement: {
+      type: 'group',
+      compiler: (value) => {
+        let result = '';
+        const match = /-([-]?[\w\.]+)/;
+        const property = ['position', 'top', 'right', 'bottom', 'left'];
+        value.match(new RegExp(match, 'g')).forEach((e, i) => {
+          if (i < property.length) {
+            result += `${property[i]}:${e.replace(match, '$1')
+              .replace(/(\d)d(\d)/, '$1.$2')
+              .replace(/([\d])p([\s]|$)/, '$1%$2')};`;
+          }
+        });
+        return result;
+      },
+    },
+
+    // colorize-[bg]-[border]-[text]
+    colorize: {
+      type: 'group',
+      compiler: (value, custom) => {
+        let result = '';
+        const match = /-([-]?[\w\.]+)/;
+        const property = ['background-color', 'border-color', 'color'];
+        value.match(new RegExp(match, 'g')).forEach((e, i) => {
+          if (i < property.length) {
+            if (e.match(/^--[a-zA-Z]/)) {
+              result += `${property[i]}:var(${e});`;
+            } else {
+              result += `${property[i]}:${getCompiler('color').compiler(e, custom)};`;
+            }
+          }
+        });
+        return result;
+      },
+    },
+
+    // Responsive container widths
+    container: {
+      type: 'group',
+      compiler: (value) => value,
+      groups: {
+        'xs': 'display:block;margin:auto;width:var(--container-xs,448px)',
+        'sm': 'display:block;margin:auto;width:var(--container-sm,688px)',
+        'md': 'display:block;margin:auto;width:var(--container-md,880px)',
+        'lg': 'display:block;margin:auto;width:var(--container-lg,1136px)',
+        '1':  'display:block;margin:auto;width:var(--container-1,448px)',
+        '2':  'display:block;margin:auto;width:var(--container-2,688px)',
+        '3':  'display:block;margin:auto;width:var(--container-3,880px)',
+        '4':  'display:block;margin:auto;width:var(--container-4,1136px)',
+      },
+    },
+
+    // Responsive section padding
+    section: {
+      type: 'group',
+      compiler: (value) => value,
+      groups: {
+        'xs': 'display:block;padding:var(--section-padding-xs,24px) auto',
+        'sm': 'display:block;padding:var(--section-padding-sm,40px) auto',
+        'md': 'display:block;padding:var(--section-padding-md,64px) auto',
+        'lg': 'display:block;padding:var(--section-padding-lg,80px) auto',
+      },
+    },
+
+    // import-var: inject CSS variable groups
+    'import-var': {
+      type: 'group',
+      groups: {
+        spacing: `
+          --space-1:4px; --space-2:8px; --space-3:12px;
+          --space-4:16px; --space-5:24px; --space-6:32px;
+          --space-7:40px; --space-8:48px; --space-9:64px;
+        `,
+      },
+    },
+  },
+
+  // Prebuilt semantic classnames with raw CSS output
+  prebuild: {
+    'text-xl':      'font-size:20px;line-height:30px',
+    'text-lg':      'font-size:18px;line-height:28px',
+    'text-md':      'font-size:16px;line-height:24px',
+    'text-sm':      'font-size:14px;line-height:20px',
+    'text-xs':      'font-size:12px;line-height:18px',
+    'radius-xs':    'border-radius:4px',
+    'radius-sm':    'border-radius:6px',
+    'radius-md':    'border-radius:8px',
+    'radius-lg':    'border-radius:12px',
+    'radius-xl':    'border-radius:16px',
+    'radius-full':  'border-radius:9999px',
+    'flex-center':  'display:flex;align-items:center;justify-content:center',
+    'flex-between': 'display:flex;align-items:center;justify-content:space-between',
+    'flex-col':     'display:flex;flex-direction:column',
+    'absolute-fill':'position:absolute;top:0;left:0;width:100%;height:100%',
+    'sr-only':      'position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0',
+  },
+
+  // Inject static CSS into every compiled output file
+  statement: `
+    :root {
+      --bg-dark-color: rgba(111,111,111,1);
+      --bg-light-color: rgba(21,21,21,1);
+      --outline-color: blue;
+    }
+    body {
+      font-family: BlinkMacSystemFont, -apple-system, "Segoe UI";
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+  `,
+
+  // Pre-group AliasCSS classnames under a single global classname
+  group: {
+    container:     'df fdc bsbb aic flex-shrink-1 flex-grow-1',
+    section:       'flex-shrink-0 bsbb',
+    'button-base': 'bgc-gray300 oln --hover-bgc-gray400 bn --focus-outline-none cur-pointer',
+    'card':        'bgc-white br-8px bxs-0px-2px-8px-black/1 p-24px',
+    'input-base':  'b-1px-s-gray300 br-6px p-8px-12px fs-14px w-100p --focus-b-1px-s-blue --focus-outline-none',
+  },
+
+  // Classnames to skip — avoids conflicts with Bootstrap/Tailwind/custom CSS
+  ignore: [
+    'color-primary',
+    'fs-xl',
+    'container',
+    'row',
+    'col',
+  ],
+
+};
+export default config;
+```
+
+***
+
+### `--file` Mode — Per-File CSS Generation
+
+When `output['--file']` is `true`, AliasCSS generates a `.css` file alongside every source file:
+
+Before:
+```
+app/
+├── page.jsx
+├── article.jsx
+└── about/
+    └── page.jsx
+```
+
+After running `npx aliascss --config`:
+```
+app/
+├── page.jsx
+├── page.jsx.css          ← generated
+├── article.jsx
+├── article.jsx.css       ← generated
+└── about/
+    ├── page.jsx
+    └── page.jsx.css      ← generated
+```
+
+Import in Next.js / SvelteKit:
+```jsx
+// app/page.jsx
+import './page.jsx.css'
+
+export default function Home() {
+  return <h1 className="fs-24px fw-600 c-gray900">Hello</h1>
+}
+```
+
+***
+
+### `extractorFunction` — Classnames Outside `class` Attribute
+
+```js
+// aliascss.config.js
+const config = {
+  extractorFunction: 'x',
+};
+```
+
+```tsx
+// Button.tsx
+import { useState } from 'react';
+
+const x = (y: string) => y; // simple passthrough
+
+export default function Button() {
+  const [isActive, setActive] = useState(false);
+  return (
+    <button
+      onClick={() => setActive(!isActive)}
+      className={
+        isActive
+          ? x('bgc-primary100 b-1px-s-primary700 c-primary700')
+          : x('bgc-gray200 c-gray700 b-1px-s-gray700')
+      }
+    >
+      Button
+    </button>
+  );
+}
+```
+
+***
+
+### CSS Modules with `importModuleAs`
+
+```js
+// aliascss.config.js
+const config = {
+  '--module': true,
+  importModuleAs: 'x',
+};
+```
+
+```tsx
+// Button.tsx
+import { useState } from 'react';
+import x from './Button.tsx.module.css'; // auto-generated by AliasCSS
+
+export default function Button() {
+  const [isActive, setActive] = useState(false);
+  return (
+    <button
+      className={
+        isActive
+          ? x['bgc-primary100 b-1px-s-primary700 c-primary700']
+          : x['bgc-gray200 c-gray700 b-1px-s-gray700']
+      }
+    >
+      Button
+    </button>
+  );
+}
+```
+
+***
+
+### Config Option Reference
+
+| Option | Type | Description |
+|---|---|---|
+| `input` | `string / string[]` | Glob pattern(s) for source files |
+| `output.location` | `string` | Path to master CSS output file |
+| `output['--file']` | `boolean` | Generate per-file CSS alongside source |
+| `media.prefix` | `object` | Override or add breakpoint / layer prefixes |
+| `'--module'` | `boolean` | Enable CSS Modules support |
+| `importModuleAs` | `string` | Module import identifier |
+| `minify` | `boolean` | Minify output via cssnano |
+| `extractorFunction` | `string` | Function name to scan for classnames |
+| `prefix` | `string` | Global classname prefix |
+| `truncate` | `boolean` | Clear output on each rebuild |
+| `custom.colors` | `object` | Register custom color tokens (camelCase) |
+| `extend` | `object` | Create custom property compilers |
+| `prebuild` | `object` | Prebuilt classnames with raw CSS |
+| `statement` | `string` | Static CSS injected into every output |
+| `group` | `object` | Group AliasCSS utilities under one name |
+| `ignore` | `string[]` | Classnames to skip during compilation |
+
+***
+
+
+
+# 24. ADVANCED CUSTOMIZATION
+
+## Extend Compiler Property Reference
+
+| Property | Type | Description |
+|---|---|---|
+| `alias` | `string` | Shorthand alias for property |
+| `values` | `Array` | Predefined static values |
+| `compiler` | `function` | Receives `(value, custom)` → returns compiled CSS |
+| `property` | `string` | Target CSS property when name is not a valid CSS property |
+| `groups` | `object` | Static key → CSS declaration map |
+| `type` | `string` | Set to `'group'` for multi-property output |
+
+> Compiler names cannot contain numbers or uppercase letters other than the first character.
+
+***
+
+## Complete Real-World Design System Example
+
+```js
+// aliascss.config.js — Full Design System
+import { getCompiler } from 'aliascss';
+
+const config = {
+  input: ['app/**/*.(tsx|jsx)', 'components/**/*.(tsx|jsx)'],
+  output: { location: './public/css/design-system.css', '--file': true },
+  truncate: true,
+
+  // Design tokens as CSS variables via statement
+  statement: `
+    :root {
+      /* Colors */
+      --primary-50:  #f0f9ff;
+      --primary-100: #e0f2fe;
+      --primary-200: #bae6fd;
+      --primary-300: #7dd3fc;
+      --primary-400: #38bdf8;
+      --primary-500: #0ea5e9;
+      --primary-600: #0284c7;
+      --primary-700: #0369a1;
+      --primary-800: #075985;
+      --primary-900: #0c4a6e;
+
+      --gray-50:  #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+
+      /* Spacing */
+      --space-1: 4px;   --space-2: 8px;
+      --space-3: 12px;  --space-4: 16px;
+      --space-5: 24px;  --space-6: 32px;
+      --space-7: 40px;  --space-8: 48px;
+      --space-9: 64px;
+
+      /* Typography */
+      --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+      /* Shadows */
+      --shadow-color: rgba(16,24,40,0.12);
+      --shadow-xs:  0px 1px 2px var(--shadow-color);
+      --shadow-sm:  0px 1px 3px var(--shadow-color);
+      --shadow-md:  0px 4px 8px -2px var(--shadow-color);
+      --shadow-lg:  0px 12px 16px -4px var(--shadow-color);
+      --shadow-xl:  0px 20px 24px -4px var(--shadow-color);
+
+      /* Radius */
+      --radius-sm: 4px;   --radius-md: 8px;
+      --radius-lg: 12px;  --radius-xl: 16px;
+      --radius-full: 9999px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      color: var(--gray-900);
+      background-color: var(--gray-50);
+      margin: 0; padding: 0;
+    }
+  `,
+
+  // Custom colors from tokens
+  custom: {
+    colors: {
+      primary50:   'var(--primary-50,  #f0f9ff)',
+      primary100:  'var(--primary-100, #e0f2fe)',
+      primary200:  'var(--primary-200, #bae6fd)',
+      primary300:  'var(--primary-300, #7dd3fc)',
+      primary400:  'var(--primary-400, #38bdf8)',
+      primary500:  'var(--primary-500, #0ea5e9)',
+      primary600:  'var(--primary-600, #0284c7)',
+      primary700:  'var(--primary-700, #0369a1)',
+      primary800:  'var(--primary-800, #075985)',
+      primary900:  'var(--primary-900, #0c4a6e)',
+      gray50:      'var(--gray-50,  #f9fafb)',
+      gray100:     'var(--gray-100, #f3f4f6)',
+      gray200:     'var(--gray-200, #e5e7eb)',
+      gray300:     'var(--gray-300, #d1d5db)',
+      gray400:     'var(--gray-400, #9ca3af)',
+      gray500:     'var(--gray-500, #6b7280)',
+      gray600:     'var(--gray-600, #4b5563)',
+      gray700:     'var(--gray-700, #374151)',
+      gray800:     'var(--gray-800, #1f2937)',
+      gray900:     'var(--gray-900, #111827)',
+      error50:     'var(--error-50,  #fef2f2)',
+      error500:    'var(--error-500, #ef4444)',
+      error600:    'var(--error-600, #dc2626)',
+      success50:   'var(--success-50,  #f0fdf4)',
+      success500:  'var(--success-500, #22c55e)',
+      warning50:   'var(--warning-50,  #fffbeb)',
+      warning500:  'var(--warning-500, #f59e0b)',
+    },
+  },
+
+  // Prebuild semantic tokens
+  prebuild: {
+    // Typography scale
+    'text-xs':   'font-size:12px;line-height:16px',
+    'text-sm':   'font-size:14px;line-height:20px',
+    'text-md':   'font-size:16px;line-height:24px',
+    'text-lg':   'font-size:18px;line-height:28px',
+    'text-xl':   'font-size:20px;line-height:30px',
+    'text-2xl':  'font-size:24px;line-height:32px',
+    'text-3xl':  'font-size:30px;line-height:38px',
+    'text-4xl':  'font-size:36px;line-height:44px',
+    'text-5xl':  'font-size:48px;line-height:60px',
+
+    // Radius scale
+    'radius-sm':   'border-radius:4px',
+    'radius-md':   'border-radius:8px',
+    'radius-lg':   'border-radius:12px',
+    'radius-xl':   'border-radius:16px',
+    'radius-full': 'border-radius:9999px',
+
+    // Layout helpers
+    'flex-center':   'display:flex;align-items:center;justify-content:center',
+    'flex-between':  'display:flex;align-items:center;justify-content:space-between',
+    'flex-col':      'display:flex;flex-direction:column',
+    'flex-col-center':'display:flex;flex-direction:column;align-items:center;justify-content:center',
+    'absolute-fill': 'position:absolute;top:0;left:0;width:100%;height:100%',
+    'fixed-fill':    'position:fixed;top:0;left:0;width:100%;height:100%',
+    'sr-only':       'position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0',
+    'truncate':      'overflow:hidden;text-overflow:ellipsis;white-space:nowrap',
+  },
+
+  // Global reusable groups
+  group: {
+    // Layout
+    'container':      'w-100p mw-1200px mx-auto px-24px bsbb',
+    'section':        'w-100p py-64px bsbb',
+    'grid-2':         'd-g gtc-repeat-2-1fr gap-24px',
+    'grid-3':         'd-g gtc-repeat-3-1fr gap-24px',
+    'grid-4':         'd-g gtc-repeat-4-1fr gap-24px',
+
+    // Components
+    'card':           'bgc-white br-8px bxs--shadow-sm p-24px b-1px-s-gray200',
+    'card-hover':     'bgc-white br-8px bxs--shadow-sm p-24px b-1px-s-gray200 --hover-bxs--shadow-md tn-all tdu-0.2s',
+
+    // Buttons
+    'btn':            'df aic jcc gap-8px p-10px-18px br-8px fs-14px fw-600 cur-pointer bn tn-all tdu-0.15s',
+    'btn-primary':    'bgc-primary600 c-white --hover-bgc-primary700 --focus-outline-none --focus-bxs--focus-ring',
+    'btn-secondary':  'bgc-white c-gray700 b-1px-s-gray300 --hover-bgc-gray50 --focus-outline-none',
+    'btn-ghost':      'bgc-transparent c-gray600 --hover-bgc-gray100 --focus-outline-none bn',
+    'btn-danger':     'bgc-error600 c-white --hover-bgc-error700 --focus-outline-none',
+
+    // Form inputs
+    'input':          'w-100p b-1px-s-gray300 br-8px p-10px-14px fs-16px c-gray900 bgc-white --focus-b-1px-s-primary500 --focus-outline-none --invalid-b-1px-s-error500 --placeholder-c-gray400',
+    'label':          'db fs-14px fw-500 c-gray700 mb-6px',
+    'form-group':     'df fdc gap-6px mb-16px',
+
+    // Navigation
+    'nav-link':       'df aic gap-8px p-8px-12px br-6px fs-14px fw-500 c-gray600 td-none --hover-bgc-gray100 --hover-c-gray900 tn-all tdu-0.15s',
+    'nav-link-active':'df aic gap-8px p-8px-12px br-6px fs-14px fw-500 c-primary700 bgc-primary50 td-none',
+
+    // Badges
+    'badge':          'df aic jcc p-2px-8px br-full fs-12px fw-500',
+    'badge-primary':  'bgc-primary50 c-primary700',
+    'badge-success':  'bgc-success50 c-success700',
+    'badge-error':    'bgc-error50 c-error700',
+    'badge-warning':  'bgc-warning50 c-warning700',
+
+    // Overlay / Modal
+    'overlay':        'pf t-0 l-0 w-100p h-100p bgc-black/6 df aic jcc zi-1000',
+    'modal':          'bgc-white br-12px bxs--shadow-xl p-32px w-100p mw-560px',
+
+    // Utilities
+    'divider':        'w-100p h-1px bgc-gray200 my-24px',
+    'visually-hidden':'pa w-1px h-1px p-0 m--1px oh clip-rect-0-0-0-0 ws-nowrap bw-0',
+  },
+
+  // Ignore conflicting classnames
+  ignore: ['container', 'row', 'col', 'card', 'btn', 'nav', 'badge'],
+
+  // Extend with custom compilers
+  extend: {
+    shadow: {
+      property: 'box-shadow',
+      compiler: (value) => {
+        value = value.slice(1);
+        const values = {
+          '3xl': '0px 32px 64px -12px var(--shadow-color, rgba(16,24,40,0.14))',
+          '2xl': '0px 24px 48px -12px var(--shadow-color, rgba(16,24,40,0.14))',
+          'xl':  '0px 20px 24px -4px  var(--shadow-color, rgba(16,24,40,0.14))',
+          'lg':  '0px 12px 16px -4px  var(--shadow-color, rgba(16,24,40,0.14))',
+          'md':  '0px 4px 8px -2px    var(--shadow-color, rgba(16,24,40,0.14))',
+          'sm':  '0px 1px 3px         var(--shadow-color, rgba(16,24,40,0.14))',
+          'xs':  '0px 1px 2px         var(--shadow-color, rgba(16,24,40,0.14))',
+          'inner':'inset 0px 2px 4px  var(--shadow-color, rgba(16,24,40,0.06))',
+          'none': 'none',
+        };
+        if (values.hasOwnProperty(value)) return values[value];
+      },
+    },
+
+    text: {
+      type: 'group',
+      groups: {
+        'xs':  'font-size:12px;letter-spacing:0.0025em;line-height:16px',
+        'sm':  'font-size:14px;letter-spacing:0em;line-height:20px',
+        'md':  'font-size:16px;letter-spacing:0em;line-height:24px',
+        'lg':  'font-size:18px;letter-spacing:-0.0025em;line-height:26px',
+        'xl':  'font-size:20px;letter-spacing:-0.005em;line-height:28px',
+        '2xl': 'font-size:24px;letter-spacing:-0.00625em;line-height:30px',
+        '3xl': 'font-size:28px;letter-spacing:-0.0075em;line-height:36px',
+        '4xl': 'font-size:35px;letter-spacing:-0.01em;line-height:40px',
+        '5xl': 'font-size:60px;letter-spacing:-0.025em;line-height:60px',
+      },
+    },
+
+    container: {
+      type: 'group',
+      compiler: (value) => value,
+      groups: {
+        'xs': 'display:block;margin:auto;width:var(--container-xs,448px)',
+        'sm': 'display:block;margin:auto;width:var(--container-sm,688px)',
+        'md': 'display:block;margin:auto;width:var(--container-md,880px)',
+        'lg': 'display:block;margin:auto;width:var(--container-lg,1136px)',
+        'xl': 'display:block;margin:auto;width:var(--container-xl,1280px)',
+      },
+    },
+  },
+
+  media: {
+    prefix: {
+      xs:  '@media (max-width: 576px)',
+      sm:  '@media (min-width: 576px)',
+      md:  '@media (min-width: 768px)',
+      lg:  '@media (min-width: 992px)',
+      xl:  '@media (min-width: 1200px)',
+      '2xl': '@media (min-width: 1408px)',
+      '@base':       '@layer base',
+      '@components': '@layer components',
+      '@utils':      '@layer utilities',
+      '@theme':      '@layer theme',
+    },
+  },
+};
+
+export default config;
+```
+
+***
+
+# QUICK REFERENCE CHEAT SHEET
+
+## Most Used Classnames
+
+```
+DISPLAY
+df          display:flex
+dg          display:grid
+db          display:block
+dib         display:inline-block
+dn          display:none
+di          display:inline
+
+FLEXBOX
+fdc         flex-direction:column
+fdr         flex-direction:row
+fwp-wrap    flex-wrap:wrap
+ai-c        align-items:center
+ai-s        align-items:stretch
+jc-c        justify-content:center
+jc-sb       justify-content:space-between
+jc-fe       justify-content:flex-end
+fg-1        flex-grow:1
+fsk-0       flex-shrink:0
+
+GRID
+gtc-repeat-3-1fr     grid-template-columns:repeat(3,1fr)
+gar-minmax-100px-auto grid-auto-rows:minmax(100px,auto)
+gc-1/3               grid-column:1/3
+ga-1/1/3/3           grid-area:1/1/3/3
+
+SPACING
+m-0         margin:0
+mx-auto     margin-left:auto;margin-right:auto
+mt-16px     margin-top:16px
+mb-24px     margin-bottom:24px
+p-16px      padding:16px
+pt-24px     padding-top:24px
+px-32px     padding-left:32px;padding-right:32px
+gap-16px    gap:16px
+
+SIZING
+w-100p      width:100%
+h-100vh     height:100vh
+mw-1200px   max-width:1200px
+mh-64px     min-height:64px
+
+POSITION
+pa          position:absolute
+pr          position:relative
+pf          position:fixed
+pst         position:sticky
+t-0         top:0
+l-0         left:0
+i-0         inset:0
+zi-10       z-index:10
+
+COLORS
+c-red           color:red
+c-ff0000        color:#ff0000
+bgc-blue        background-color:blue
+bgc-blue/5      background-color:oklch(from blue l c h/0.5)
+bc-gray300      border-color:var(--gray300)
+
+TYPOGRAPHY
+fs-16px     font-size:16px
+fw-600      font-weight:600
+fw9         font-weight:900
+fwb         font-weight:bold
+ff-inter    font-family:inter
+lh-1.5      line-height:1.5
+tac         text-align:center
+ttu         text-transform:uppercase
+tdn         text-decoration:none
+
+BORDER
+b-1px-s-gray300    border:1px solid var(--gray300)
+br-8px             border-radius:8px
+br-50%             border-radius:50%
+bw-0               border-width:0
+
+EFFECTS
+o-0.5           opacity:0.5
+bxs--shadow-md  box-shadow:var(--shadow-md)
+bf-blur-8px     backdrop-filter:blur(8px)
+tf-tx--50%          transform:translateX(-50%)
+tf-ty--50%          transform:translateY(-50%)
+tf-s-1.05           transform:scale(1.05)
+tf-r-45deg          transform:rotate(45deg)
+tn-all              transition:all
+tdu-0.2s            transition-duration:0.2s
+ttf-eio             transition-timing-function:ease-in-out
+
+OVERFLOW
+oh          overflow:hidden
+oa          overflow:auto
+ox-hidden   overflow-x:hidden
+oy-auto     overflow-y:auto
+
+PSEUDO STATES
+--hover-bgc-blue        :hover { background-color:blue }
+--focus-outline-none    :focus { outline:none }
+--disabled-o-0.5        :disabled { opacity:0.5 }
+--placeholder-c-gray400 ::placeholder { color:var(--gray400) }
+--checked-bgc-primary   :checked { background-color:var(--primary) }
+--first-child-mt-0      :first-child { margin-top:0 }
+--last-child-mb-0       :last-child { margin-bottom:0 }
+--before-cont-empty     ::before { content:"" }
+--after-cont-empty      ::after { content:"" }
+--selection-bgc-primary ::selection { background-color:var(--primary) }
+
+RESPONSIVE
+xs-dn           @media(max-width:576px){ display:none }
+xs-fdc          @media(max-width:576px){ flex-direction:column }
+md-df           @media(min-width:768px){ display:flex }
+md-d-g          @media(min-width:768px){ display:grid }
+lg-gtc-repeat-3-1fr  @media(min-width:992px){ grid-template-columns:repeat(3,1fr) }
+dark-bgc-gray900     @media(prefers-color-scheme:dark){ background-color:var(--gray900) }
+
+LAYER
+@base-all-unset      @layer base { all:unset }
+@theme-bgc-primary   @layer theme { background-color:var(--primary) }
+@utils-df            @layer utilities { display:flex }
+
+GROUPING
+--hover-[bgc-blue,c-white,br-8px]
+xs-[fdc,p-16px,gap-8px]
+@theme-[bgc-primary,c-white,br-8px]
+[b-0,c-fff,bgc-blue]--as-btn
+
+ANIMATION
+an-fadeIn adu-0.5s atf-eio
+an-spin adu-1s atf-linear aici
+an-bounce adu-1s atf-eio aici
+```
+
+***
+
+## Complete Real-World Component Examples
+
+### Responsive Navbar
+```html copy showLineNumbers
+<nav class="
+  w-100p h-64px
+  df ai-center jc-sb
+  px-24px
+  bgc-white
+  bb-1px-s-gray200
+  pst t-0 zi-100
+">
+  <a class="fs-20px fw-700 c-gray900 td-none" href="/">Logo</a>
+
+  <ul class="
+    df ai-center gap-4px
+    ls-none m-0 p-0
+    xs-dn md-df
+  ">
+    ><a class="
+      p-8px-12px br-6px
+      fs-14px fw-500 c-gray600 td-none
+      --hover-bgc-gray100 --hover-c-gray900
+      tn-all tdu-0.15s
+    " href="#">Home</a></li>
+    ><a class="
+      p-8px-12px br-6px
+      fs-14px fw-500 c-gray600 td-none
+      --hover-bgc-gray100 --hover-c-gray900
+      tn-all tdu-0.15s
+    " href="#">Docs</a></li>
+    ><a class="
+      p-8px-12px br-6px
+      fs-14px fw-500 c-gray600 td-none
+      --hover-bgc-gray100 --hover-c-gray900
+      tn-all tdu-0.15s
+    " href="#">Blog</a></li>
+  </ul>
+
+  <div class="df ai-center gap-8px">
+    <button class="
+      p-8px-16px br-8px
+      fs-14px fw-500
+      c-gray700 bgc-white
+      b-1px-s-gray300
+      cur-pointer
+      --hover-bgc-gray50
+      tn-all tdu-0.15s
+    ">Login</button>
+    <button class="
+      p-8px-16px br-8px
+      fs-14px fw-500
+      c-white bgc-primary600
+      bn cur-pointer
+      --hover-bgc-primary700
+      tn-all tdu-0.15s
+    ">Sign Up</button>
+  </div>
+</nav>
+```
+
+***
+
+### Hero Section
+```html copy showLineNumbers
+<section class="
+  w-100p
+  df fdc ai-center jc-center
+  py-96px px-24px
+  bgc-white
+  ta-center
+">
+  <span class="
+    df ai-center gap-6px
+    p-4px-12px br-full
+    bgc-primary50 c-primary700
+    fs-12px fw-600
+    mb-24px
+  ">
+    New Release v2.0
+  </span>
+
+  <h1 class="
+    fs-clamp(36px,5vw,72px)
+    fw-700 c-gray900
+    lh-1.1 les--0.02em
+    m-0 mb-24px
+    mw-800px
+  ">
+    Style Your UI Without Leaving HTML
+  </h1>
+
+  <p class="
+    fs-18px lh-1.6
+    c-gray500 fw-400
+    mw-600px m-0 mb-40px
+  ">
+    AliasCSS lets you apply any CSS property directly as a class name.
+    If you know CSS, you already know AliasCSS.
+  </p>
+
+  <div class="df ai-center gap-12px xs-fdc">
+    <button class="
+      p-12px-24px br-8px
+      fs-16px fw-600
+      c-white bgc-primary600
+      bn cur-pointer
+      bxs--shadow-sm
+      --hover-bgc-primary700
+      --hover-bxs--shadow-md
+      tn-all tdu-0.2s
+    ">Get Started</button>
+    <button class="
+      p-12px-24px br-8px
+      fs-16px fw-600
+      c-gray700 bgc-white
+      b-1px-s-gray300 cur-pointer
+      --hover-bgc-gray50
+      tn-all tdu-0.2s
+    ">View Docs</button>
+  </div>
+</section>
+```
+
+***
+
+### Card Grid
+```html copy showLineNumbers
+<section class="w-100p px-24px py-64px">
+  <div class="
+    d-g
+    gtc-repeat-3-1fr
+    xs-gtc-repeat-1-1fr
+    md-gtc-repeat-2-1fr
+    lg-gtc-repeat-3-1fr
+    gap-24px
+    mw-1200px mx-auto
+  ">
+
+    <!-- Card -->
+    <div class="
+      bgc-white br-12px
+      b-1px-s-gray200
+      bxs--shadow-sm
+      p-24px
+      df fdc gap-16px
+      --hover-bxs--shadow-md
+      --hover-tf-ty--2px
+      tn-all tdu-0.2s
+    ">
+      <div class="
+        w-48px h-48px br-10px
+        bgc-primary100
+        df ai-center jc-center
+        fs-24px
+      ">icon</div>
+
+      <div class="df fdc gap-8px">
+        <h3 class="fs-18px fw-600 c-gray900 m-0">Card Title</h3>
+        <p class="fs-14px lh-1.6 c-gray500 m-0">
+          Description text goes here providing context.
+        </p>
+      </div>
+
+      <a class="
+        df ai-center gap-6px
+        fs-14px fw-500 c-primary600 td-none
+        mt-auto
+        --hover-c-primary700
+        tn-all tdu-0.15s
+      " href="#">
+        Learn more →
+      </a>
+    </div>
+
+  </div>
+</section>
+```
+
+***
+
+### Form
+```html copy showLineNumbers
+<form class="
+  w-100p mw-480px
+  mx-auto p-32px
+  bgc-white br-12px
+  b-1px-s-gray200
+  bxs--shadow-sm
+  df fdc gap-20px
+">
+  <h2 class="fs-24px fw-700 c-gray900 m-0">Sign In</h2>
+
+  <div class="df fdc gap-6px">
+    <label class="fs-14px fw-500 c-gray700">Email</label>
+    <input
+      type="email"
+      class="
+        w-100p p-10px-14px
+        br-8px b-1px-s-gray300
+        fs-16px c-gray900 bgc-white
+        --focus-b-1px-s-primary500
+        --focus-outline-none
+        --placeholder-c-gray400
+      "
+      placeholder="you@example.com"
+    />
+  </div>
+
+  <div class="df fdc gap-6px">
+    <label class="fs-14px fw-500 c-gray700">Password</label>
+    <input
+      type="password"
+      class="
+        w-100p p-10px-14px
+        br-8px b-1px-s-gray300
+        fs-16px c-gray900 bgc-white
+        --focus-b-1px-s-primary500
+        --focus-outline-none
+        --placeholder-c-gray400
+      "
+      placeholder="••••••••"
+    />
+  </div>
+
+  <button class="
+    w-100p p-12px
+    br-8px bn cur-pointer
+    fs-16px fw-600
+    c-white bgc-primary600
+    --hover-bgc-primary700
+    --focus-outline-none
+    --focus-bxs-0px-0px-0px-3px-primary500/3
+    tn-all tdu-0.2s
+  ">Sign In</button>
+
+  <p class="
+    fs-14px c-gray500
+    ta-center m-0
+  ">
+    Don't have an account?
+    <a class="c-primary600 td-none --hover-c-primary700" href="#">Sign up</a>
+  </p>
+</form>
+```
+
+***
+
+### Dark Mode Toggle Pattern
+```html copy showLineNumbers
+<html class="dark">
+<body>
+  <div class="
+    bgc-white
+    dark-[bgc-gray900,c-white]
+    tn-all tdu-0.3s
+  ">
+
+    <h1 class="
+      c-gray900
+      dark-c-white
+      fs-32px fw-700
+    ">Hello World</h1>
+
+    <p class="
+      c-gray600
+      dark-c-gray400
+      fs-16px lh-1.6
+    ">Welcome to AliasCSS</p>
+
+    <button class="
+      bgc-gray100 c-gray900
+      dark-[bgc-gray800,c-white,b-1px-s-gray700]
+      p-8px-16px br-8px
+      b-1px-s-gray200
+      fs-14px fw-500 cur-pointer
+      --hover-bgc-gray200
+      dark---hover-bgc-gray700
+      tn-all tdu-0.15s
+    ">Toggle</button>
+
+  </div>
+</body>
+</html>
+```
+
+***
+
+### CSS Variable Dark Mode (Recommended)
+```html copy showLineNumbers
+<html>
+<head>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111827;
+      --surface: #f9fafb;
+      --border: #e5e7eb;
+      --primary: #0ea5e9;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --fg: #f8fafc;
+        --surface: #1e293b;
+        --border: #334155;
+        --primary: #38bdf8;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bgc--bg c--fg b-1px-s--border p-24px br-12px">
+    <h1 class="c--fg fs-32px fw-700">Hello World</h1>
+    <p class="c--fg/7 fs-16px">Adapts to system color scheme automatically.</p>
+    <button class="bgc--primary c-white p-10px-20px br-8px bn cur-pointer">
+      Click Me
+    </button>
+  </div>
+</body>
+</html>
+```
+
+***
+
+### Animated Loading Spinner
+```html copy showLineNumbers copy showLineNumbers
+<div
+  keyframes-spin="@0-tf-r-0deg @100-tf-r-360deg"
+  class="
+    w-40px h-40px
+    br-50%
+    b-4px-s-gray200
+    bt-4px-s-primary500
+    an-spin adu-0.8s atf-linear aici
+  "
+></div>
+```
+
+### Skeleton Loading
+```html copy showLineNumbers
+<div
+  keyframes-shimmer="@0-bgp--100%-0 @100-bgp-100%-0"
+  class="
+    w-100p h-20px br-4px
+    bg-linear-gradient-90deg-gray200-gray100-gray200
+    bgs-200%-100%
+    an-shimmer adu-1.5s atf-linear aici
+  "
+></div>
+```
+
+***
+

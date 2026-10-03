@@ -1,6 +1,5 @@
 .bn{border:none}
-.--accent\:--tint{--accent: var(--tint)}
-.--tint\:--purple{--tint: var(--purple)}
+.--accentColor\:purpleRA{--accentColor:var(--purpleColor,oklch(0.7 .223324 302))}
 .br-8px{border-radius: 8px}
 .appearance-none{appearance:none}
 .fs-16px{font-size: 16px}
@@ -24,5 +23,135 @@
 .--has\(__svg--oc\)\[p-0px\,br-9999px\,flex-shrink-0\,w-2rem\]:has( > svg:only-child){width: 2rem} 
 
 .\[data-pressed\]-scale-0\.9[data-pressed]{scale: 0.9}
+.ButtonRA{
+            
+            --border-color: var(--accentColor,oklch(1 .25049 284.23));
+            --button-background: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 98.1187% calc(l * c * 0.5) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 29.6725% calc(l * c * 0.5) h));
+            --button-gradient:light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 35.3616% calc(l * c * 0.6) h));
+            --button-border: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 91.1434% calc(l * c * 0.7) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 41.0821% calc(l * c * 0.7) h));
+            --button-highlight: rgb(255 255 255 / 0.8);
+            --button-shadow: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 85.1751% calc(l * c * 0.8) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 46.9058% calc(l * c * 0.8) h));
+            --button-border-size: 1px;
+            --button-text: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 29.6725% c h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 91.1434% c h));
+            --button-gradient-size: 8px;
+            --text-color: var(--gray-1200,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 79.1773% c h)));
+            --text-color-hover: var(--gray-1300,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 35.3616% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 85.1751% c h)));
+            --text-color-disabled: var(--gray-600,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 72.3297% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 57.9699% c h)));
+    
+    background:var(--button-background);
+    display:inline-flex;align-items:center;justify-content:center;
+    color: var(--button-text);
+    box-shadow: 
+      inset 0 -1px 0 var(--button-shadow), /* bottom shadow */
+      inset 0 0 0 var(--button-border-size) var(--button-border), /* border */
+      inset 0px calc(var(--button-border-size) + 1px) 0px var(--button-highlight), /* top specular highlight */
+      inset 0px calc(-1 * var(--button-gradient-size)) var(--button-gradient-size) -2px var(--button-gradient); /* inner gradient */
+    outline: none;
+    transition-property: background, color, scale, box-shadow;
+    transition-duration: 200ms;
+    will-change: scale;
+    forced-color-adjust: none;
+    -webkit-tap-highlight-color: transparent;
+
+    &:where([data-pressed]) {
+      --button-background: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 35.3616% calc(l * c * 0.6) h));
+    }
+
+    &:where([data-focus-visible]) {
+      outline: 2px solid var(--focus-ring-color,light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 51.9076% c h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 67.0121% c h)));
+      outline-offset: 2px;
+    }
+
+    &:where([data-variant=secondary]) {
+      --button-color: var(--grayColor,oklch(0.5 0 0));
+    }
+
+    &:where([data-variant=quiet]) {
+      --button-background: none;
+      --button-text: var(--text-color);
+      box-shadow: 0 0 0 1px transparent;
+
+      &:where([data-hovered], [data-pressed]) {
+        --button-background: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 35.3616% calc(l * c * 0.6) h));
+        --button-text: var(--tint-1400);
+        box-shadow: 0 0 0 1px light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 35.3616% calc(l * c * 0.6) h));
+      }
+    }
+
+    &:where([data-selected]) {
+      --button-background: oklch(from var(--button-color) 55% c h);
+      --button-border: oklch(from var(--button-color) 50% c h);
+      --button-gradient: var(--button-border);
+      --button-highlight: rgb(255 255 255 / 0.2);
+      --button-shadow: oklch(from var(--button-color) 30% c h);
+      --button-text: var(--highlight-foreground);
+
+      box-shadow:
+        inset 0 -1px 0 var(--button-shadow), /* bottom shadow */
+        inset 0 0 0 1px var(--button-border), /* border */
+        inset 0 2px 0 var(--button-highlight), /* top specular highlight */
+        inset 0 calc(-1 * var(--button-gradient-size)) var(--button-gradient-size) var(--button-gradient); /* inner gradient */
+
+      &:where([data-pressed]) {
+        --button-background: oklch(from var(--button-color) 50% c h);
+      }
+
+      @media (prefers-color-scheme: dark){
+        --button-highlight: rgb(255 255 255 / 0.4);
+        --button-gradient: rgb(255 255 255 / 0.2);
+        --button-shadow: var(--button-border);
+        box-shadow:
+          inset 0 1px 0 var(--button-highlight), /* top specular highlight */
+          inset 0 var(--button-gradient-size) var(--button-gradient-size) var(--button-gradient), /* inner gradient */
+          inset 0 0 0 1px var(--button-border) /* border */}
+    }
+
+    &:where([data-disabled]) {
+      box-shadow: none;
+      --button-background: var(--border-color-disabled);
+      --button-text: var(--text-color-disabled);
+
+      &:where([data-variant=quiet]) {
+        --button-background: none;
+      }
+    }
+
+    @media (forced-colors: active){
+      --button-background: ButtonFace;
+      --button-text: ButtonText;
+      --button-border: ButtonBorder;
+      box-shadow: inset 0 0 0 var(--button-border-size) var(--button-border);
+
+      &:where([data-variant=quiet]) {
+        --button-border: transparent;
+        &:where([data-hovered], [data-pressed]) {
+          --button-border: ButtonBorder;
+        }
+      }
+
+      &:where([data-selected]) {
+        --button-background: Highlight;
+        --button-text: HighlightText;
+        --button-border: Highlight;
+      }
+
+      &:where([data-disabled]) {
+        --button-background: ButtonFace;
+        --button-text: GrayText;
+        --button-border: GrayText;
+
+        &:where([data-variant=quiet]) {
+          --button-border: transparent;
+        }
+      }}
+
+    @media (prefers-color-scheme: dark){
+      --button-shadow: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 35.3616% calc(l * c * 0.6) h));;
+      --button-highlight: rgb(255 255 255 / 0.15);
+      box-shadow:
+        inset 0 var(--button-border-size) 0 var(--button-highlight), /* top specular highlight */
+        inset 0 calc(-1 * var(--button-border-size)) 0 var(--button-shadow), /* bottom shadow */
+        inset 0 0 0 var(--button-border-size) var(--button-border), /* border */
+        inset 0 var(--button-gradient-size) var(--button-gradient-size) -2px var(--button-gradient) /* inner gradient */}}
 @media (prefers-color-scheme: dark){ .dark\[--highlight-background\:--gray-1600\]{--highlight-background: var(--gray-1600)}} 
 

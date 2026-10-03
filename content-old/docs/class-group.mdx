@@ -1,0 +1,388 @@
+import { Callout, Tabs } from 'nextra/components'
+
+# In-line Grouping
+
+AliasCSS lets you group multiple utilities into a single expression when they share the same selector, state, or condition.
+
+This makes class names shorter, reduces repetition, and keeps related styles together.
+
+---
+
+## Why grouping exists
+
+Without grouping, repeated selectors can make markup noisy.
+
+### Without grouping
+
+```html
+<button
+  class="b-0 color-fff bgc-blue --hover-c-gray --hover-border-radius-4px --hover-bgc-skyBlue"
+>
+  Label
+</button>
+```
+
+In this example, the `--hover` selector is repeated three times.
+
+### With grouping
+
+```html
+<button
+  class="b-0 color-fff bgc-blue --hover-[c-gray,border-radius-4px,bgc-skyBlue]"
+>
+  Label
+</button>
+```
+
+This version is easier to read because the shared `--hover` state is declared once, and all related utilities are grouped together.
+
+<Callout type="info" emoji="💡">
+Use grouping whenever multiple utilities share the same selector prefix, such as `--hover`, `_div`, or `[data-state=open]`.
+</Callout>
+
+---
+
+## Basic syntax
+
+```text
+selector-[utility,utility,utility]
+```
+
+Examples:
+
+- `--hover-[c-gray,border-radius-4px,bgc-skyBlue]`
+- `[data-state=open][display-flex,left-0]`
+- `_h3-[c-white,font-size-20px]`
+
+---
+
+## Grouping by state
+
+You can group multiple utilities under a pseudo state such as `hover`, `focus`, or `active`.
+
+### Example
+
+```html
+<button
+  class="b-0 color-fff bgc-blue --hover-[c-gray,border-radius-4px,bgc-skyBlue]"
+>
+  Label
+</button>
+```
+
+### Meaning
+
+This is equivalent to writing:
+
+```html
+<button
+  class="b-0 color-fff bgc-blue --hover-c-gray --hover-border-radius-4px --hover-bgc-skyBlue"
+>
+  Label
+</button>
+```
+
+All three grouped utilities apply only on `:hover`.
+
+---
+
+## Grouping by attribute selector
+
+Grouping also works with attribute selectors.
+
+### Example
+
+```html
+<div class="[data-state=open][display-flex,left-0]">
+  ...
+</div>
+```
+
+### Meaning
+
+This groups multiple utilities under the same attribute condition:
+
+- `display-flex`
+- `left-0`
+
+Both are applied only when `data-state="open"`.
+
+<Callout type="warning" emoji="⚠️">
+When using attribute selectors, keep the selector condition outside the utility group and place the utilities inside the second pair of brackets.
+</Callout>
+
+---
+
+## Grouping by element selector
+
+You can also group utilities for targeted elements.
+
+### Example
+
+```html
+<div class="_h3-[c-white,font-size-20px] _p-[c-gray,line-height-1.6]">
+  <h3>Hello</h3>
+  <p>Welcome to AliasCSS</p>
+</div>
+```
+
+This helps when a single parent element needs to style multiple descendant selectors cleanly.
+
+---
+
+## Using `--as-` to create reusable classes
+
+Grouping becomes much more powerful when combined with the `--as-` suffix.
+
+The `--as-` suffix lets you export a grouped utility block as a reusable class name.
+
+### Basic syntax
+
+```text
+[grouped-utilities]--as-class-name
+```
+
+### Example
+
+```html
+<button
+  class="[b-0,color-fff,bgc-blue]--as-btn --hover-[c-gray,border-radius-4px,bgc-skyBlue]--as-btn btn"
+>
+  Label
+</button>
+```
+
+### Meaning
+
+This creates a reusable `.btn` class from the grouped utilities.
+
+It allows you to define styles once and then reuse them with a semantic class:
+
+```html
+<button class="btn">Save</button>
+<button class="btn">Submit</button>
+<button class="btn">Continue</button>
+```
+
+You can do the same with attribute-based groups:
+
+```html
+<div class="[data-state=open][display-flex,left-0]--as-active active">
+  ...
+</div>
+```
+
+In this case, `active` becomes a reusable semantic class for that grouped condition.
+
+---
+
+## Why this matters
+
+Grouping is not just a shorter syntax. It changes how AliasCSS can be used at scale.
+
+Atomic utilities are great because they are small, explicit, and composable.[web:45][web:48] Component classes are great because they are reusable, semantic, and easier to standardize across teams.[web:34][web:42]
+
+AliasCSS grouping helps connect both ideas:
+
+- use atomic utilities when building quickly,
+- group repeated utilities when patterns start to emerge,
+- export those groups with `--as-` when they become reusable components.
+
+That makes AliasCSS a **hybrid design system**: atomic at the authoring level, component-oriented at the reuse level.[web:41][web:47]
+
+---
+
+## From atomic to component
+
+A good mental model is:
+
+1. Start with atomic utilities.
+2. Group repeated patterns.
+3. Export stable patterns with `--as-`.
+4. Reuse semantic classes where consistency matters.
+
+### Example progression
+
+#### Step 1: Raw atomic utilities
+
+```html
+<button class="px-12px py-8px bgc-blue color-fff border-radius-4px">
+  Save
+</button>
+```
+
+#### Step 2: Group repeated utilities
+
+```html
+<button class="[px-12px,py-8px,bgc-blue,color-fff,border-radius-4px]">
+  Save
+</button>
+```
+
+#### Step 3: Export as a semantic component
+
+```html
+<button class="[px-12px,py-8px,bgc-blue,color-fff,border-radius-4px]--as-btn btn">
+  Save
+</button>
+```
+
+#### Step 4: Reuse the component
+
+```html
+<button class="btn">Save</button>
+<button class="btn">Update</button>
+<button class="btn">Continue</button>
+```
+
+This workflow gives you fast prototyping first, then semantic reuse later.
+
+<Callout type="info" emoji="ℹ️">
+You do not have to choose between utility classes and components. AliasCSS lets you move naturally from one to the other.
+</Callout>
+
+---
+
+## Building a button library with `--as-`
+
+One practical use of grouping is creating a lightweight button library directly from AliasCSS.
+
+### Base button
+
+```html
+<button
+  class="[b-0,px-12px,py-8px,border-radius-4px,font-weight-600,cursor-pointer]--as-btn btn"
+>
+  Button
+</button>
+```
+
+### Primary button
+
+```html
+<button
+  class="[bgc-blue,color-fff]--as-btn-primary btn btn-primary"
+>
+  Save
+</button>
+```
+
+### Secondary button
+
+```html
+<button
+  class="[bgc-gray,color-black]--as-btn-secondary btn btn-secondary"
+>
+  Cancel
+</button>
+```
+
+### Hover states
+
+```html
+<button
+  class="btn btn-primary --hover-[bgc-skyBlue,color-white]"
+>
+  Save
+</button>
+```
+
+### Why this pattern works
+
+- `btn` stores the shared button structure.
+- `btn-primary` and `btn-secondary` store visual variants.
+- inline utilities still let you override one-off cases when needed.
+
+This gives you a small component API without losing atomic flexibility.
+
+---
+
+### Extending existing CSS (Bootstrap, Bulma, etc.)
+
+`--as` can export into class names that already exist.
+
+This lets AliasCSS:
+
+- extend internal components without touching existing CSS files
+- augment third‑party frameworks such as Bootstrap or Bulma
+
+Examples:
+
+```html
+<!-- Extend internal .card -->
+<div class="[bgc-fff,br-12px,p-16px]--as-card card">
+  ...
+</div>
+
+
+<!-- Extend Bootstrap .btn -->
+<button class="[fs-0d9rem,ls-0d04em]--as-btn btn btn-primary">
+  Save
+</button>
+```
+
+AliasCSS will merge the generated declarations with whatever CSS is already
+attached to those class names.
+
+### Controlled specificity bump
+
+You can increase specificity for exported components by combining grouping
+selectors with `--as`.
+
+```html
+<!-- Override existing .card defaults -->
+<div class="[class][bgc-fff,br-12px,p-16px]--as-card card">
+  ...
+</div>
+```
+
+This pattern generates a selector with higher specificity (for example,
+`.card[class]` instead of `.card`), which will override default values
+defined in third‑party stylesheets.
+
+Use this when you need AliasCSS to reliably win over existing framework
+styles without using `!important`.
+
+## Recommended pattern
+
+A practical team-friendly pattern is:
+
+- use **atomic utilities** for one-off layout and spacing,
+- use **grouping** for repeated selector/state patterns,
+- use **`--as-` exports** for stable UI primitives such as buttons, badges, alerts, and cards.
+
+That keeps your system flexible early on and maintainable later.[web:34][web:42]
+
+---
+
+## Best practices
+
+- Group utilities only when they clearly share the same selector or condition.
+- Use grouping to reduce repetition, not to hide too much logic in one line.
+- Export with `--as-` only when a pattern is reused more than once.
+- Keep exported class names semantic, such as `btn`, `card`, `alert-success`, or `input-error`.
+- Continue using atomic utilities for local overrides instead of creating too many component variants.
+
+---
+
+## Cheat sheet
+
+```text
+--hover-[c-gray,border-radius-4px,bgc-skyBlue]
+-> group multiple hover utilities
+
+[data-state=open][display-flex,left-0]
+-> apply multiple utilities under one attribute selector
+
+_h3-[c-white,font-size-20px]
+-> group multiple utilities for descendant h3 elements
+
+[b-0,color-fff,bgc-blue]--as-btn
+-> export grouped utilities as reusable class "btn"
+
+[bgc-blue,color-fff]--as-btn-primary
+-> create a reusable variant class
+
+btn btn-primary --hover-[bgc-skyBlue,color-white]
+-> combine semantic component classes with atomic state overrides
+```

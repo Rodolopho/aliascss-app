@@ -1,239 +1,251 @@
-import { Callout, Tabs } from 'nextra/components'
+import { Callout, Tabs } from 'nextra/components'; 
 
-# Keyframes
+import './keyframes-guide.mdx.css';
+import {Cube,Orbital} from "../components/helper/animation.jsx";
 
-AliasCSS lets you define CSS keyframes directly in markup with a custom `keyframes-[name]` attribute.
 
-This is useful when you want to keep animation logic close to the element it affects, reuse the same AliasCSS utility grammar for motion, and avoid jumping back and forth between HTML and handwritten `@keyframes` blocks.
+<Orbital/>
+---
+# Keyframes & Animations
 
-<Callout type="info" emoji="💡">
-Think of `keyframes-[name]` as an inline animation DSL built on top of normal AliasCSS utilities.
-</Callout>
+AliasCSS provides an in-markup domain-specific language (DSL) for defining native CSS animations without touching external stylesheets or configuration files. Through the `keyframes-[name]` attribute and modular animation utilities, complex multi-step timelines, multi-axis 3D transforms, and accessible reduced-motion fallbacks are authored directly on the element.
 
 ---
 
-## Quick start
+## In-Line Keyframe Definition (`keyframes-[name]`)
 
-If you only remember one pattern, remember this:
-
-```html
-<div
-  keyframes-fadeOut="@0-opacity-1 @100-opacity-0"
-  class="an-fadeOut adu-1s"
->
-  Fade Out
-</div>
-```
-
-This does two things:
-
-- defines an animation named `fadeOut`
-- applies it using `an-fadeOut` and `adu-1s`
-
----
-
-## Basic syntax
-
-```text
-keyframes-[animation-name]="@[percentage]-utility @[percentage]-utility"
-```
-
-### Example
+Keyframe timelines are authored directly in markup using the `keyframes-[name]` attribute. Inside this attribute, timeline steps are defined with atomic utilities or grouped utility bundles (`[...]`):
 
 ```html
 <div
-  keyframes-fadeOut="@0-opacity-1 @100-opacity-0"
-  class="an-fadeOut adu-1s"
+  keyframes-pulseGlow="
+    @0-[transform-scale-1,box-shadow-0px-0px-0px-000000/0]
+    @50-[transform-scale-1.05,box-shadow-0px-0px-30px-6366f1/0.4]
+    @100-[transform-scale-1,box-shadow-0px-0px-0px-000000/0]
+  "
+  class="an-pulseGlow adu-3s atf-linear aici @motion-reduce-an-none"
 >
-  Fade Out
+  Pulsing Glow Surface
 </div>
+
 ```
 
-### Compiled idea
+### Compiled CSS Output
 
 ```css
-@keyframes fadeOut {
+@keyframes pulseGlow {
   0% {
-    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 30px rgba(99, 102, 241, 0.4);
   }
   100% {
-    opacity: 0;
+    transform: scale(1);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
   }
 }
 
-.an-fadeOut {
-  animation-name: fadeOut;
+.an-pulseGlow { animation-name: pulseGlow; }
+.adu-3s { animation-duration: 3s; }
+.atf-linear { animation-timing-function: linear; }
+.aici { animation-iteration-count: infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .\@motion-reduce-an-none {
+    animation-name: none;
+  }
 }
-```
 
-<Callout type="info" emoji="ℹ️">
-`keyframes-[name]` defines the animation. Utilities such as `an-*`, `adu-*`, `adl-*`, and `atf-*` control how that animation runs.
-</Callout>
+```
 
 ---
 
-## Why this feature matters
+## Timeline Step Grammar
 
-AliasCSS keyframes are powerful because they let motion follow the same authoring model as the rest of the system.
+Inside the `keyframes-[name]` attribute, timeline steps accept single declarations, grouped brackets, or grouped percentage steps:
 
-### Benefits
+| Pattern | Rule Emitted | Concrete Example | Native CSS Equivalent |
+| --- | --- | --- | --- |
+| `@step-utility` | Single property at single step | `@0-opacity-0`<br/> | `0% { opacity: 0; }`<br/> |
+| `@step-[u1, u2]` | Grouped properties at single step | `@0-[tf-ty-0,opacity-0]`<br/> | `0% { transform: translateY(0); opacity: 0; }`<br/> |
+| `@[s1, s2]-utility` | Single property at multiple steps | `@[0,100]-opacity-1`<br/> | `0%, 100% { opacity: 1; }`<br/> |
+| `@[s1, s2]-[u1, u2]` | Grouped properties at multiple steps | `@[25,75]-[display-none,transform-scale-0.5]`<br/> | `25%, 75% { display: none; transform: scale(0.5); }`<br/> |
 
-- **Faster prototyping**: define animation without leaving the markup.
-- **Better locality**: animation logic stays close to the component it affects.
-- **Consistent grammar**: the same utility rules used for layout, color, spacing, and transforms also work inside keyframe steps.
-- **Easy composition**: combine keyframes with CSS variables, grouped utilities, timing utilities, and reusable component classes.
-- **Hybrid workflow**: keep atomic flexibility while still authoring custom animations.
-
-That makes keyframes feel like a natural extension of the framework instead of a separate motion system. Utility-based systems are valued for their composability and visibility at the point of use, and this feature extends that same strength into animation authoring.[web:45][web:48]
-
----
-
-## Usage
-
-### Minimal example
-
-```html
-<h1
-  keyframes-flash="@0-o-1 @100-o-0"
-  class="an-flash adu-2s"
->
-  Flash!
-</h1>
-```
-
-### Full semantic version
-
-```html
-<h1
-  keyframes-flash="@0-opacity-1 @100-opacity-0"
-  class="animation-name-flash animation-duration-2s"
->
-  Flash!
-</h1>
-```
-
-Both examples define the same animation. The difference is only whether you prefer shorthand utilities or full semantic class names.
-
----
-
-## Grouped steps
-
-When a single keyframe step needs multiple declarations, group them with `[]`.
-
-### Syntax
-
-```text
-@[percentage]-[utility,utility,utility]
-```
-
-### Example
+### Multi-Percentage Grouping Example
 
 ```html
 <div
-  keyframes-pop-up="
-    @0-[tf-ty-0,tfo-50p-50p,bxs--shadow-down]
-    @100-[tf-ty--50px,tfo-50p-50p,bxs--shadow-up]
+  keyframes-flash="
+    @[0,50,100]-display-flex
+    @[25,75]-[display-none,transform-scale-0.5]
   "
-  class="bg-rg-gray300-gray600 w-64px h-64px br-50p an-pop-up adu-1d5s ada atf--timing-func aici afmbo"
-  style="
-    --shadow-up: 0 50px 3px -20px rgba(0,0,0,0.3);
-    --shadow-down: 0 50px 3px -5px rgba(0,0,0,0.3);
-    --timing-func: cubic-bezier(0.250, 0.460, 0.450, 0.940);
-  "
-></div>
+  class="an-flash adu-2s aici"
+>
+  Flash Indicator
+</div>
+
 ```
-
-Grouped steps make complex animations much easier to read because each percentage block stays visually together.
-
-<Callout type="warning" emoji="⚠️">
-Use grouped steps when multiple properties change at the same time. Without grouping, complex animations become hard to scan and maintain.
-</Callout>
 
 ---
 
+## Animation Control Utilities
+
+AliasCSS provides both semantic and shorthand utility classes to bind and configure animation playback:
+
+| Shorthand | Semantic Utility | Compiled CSS Declaration |
+| --- | --- | --- |
+| `an-[name]`<br/> | `animation-name-[name]`<br/> | `animation-name: [name];`<br/> |
+| `adu-[time]`<br/> | `animation-duration-[time]`<br/> | `animation-duration: [time];`<br/> |
+| `adl-[time]`<br/> | `animation-delay-[time]`<br/> | `animation-delay: [time];`<br/> |
+| `atf-[easing]`<br/> | `animation-timing-function-[easing]`<br/> | `animation-timing-function: [easing];`<br/> |
+| `atf-linear`<br/> | `animation-timing-function-linear`<br/> | `animation-timing-function: linear;`<br/> |
+| `atf-eio`<br/> | `animation-timing-function-ease-in-out`<br/> | `animation-timing-function: ease-in-out;`<br/> |
+| `aici`<br/> | `animation-iteration-count-infinite`<br/> | `animation-iteration-count: infinite;`<br/> |
+| `ada`<br/> | `animation-direction-alternate`<br/> | `animation-direction: alternate;`<br/> |
+| `afmbo`<br/> | `animation-fill-mode-both`<br/> | `animation-fill-mode: both;`<br/> |
+| `afm-forwards`<br/> | `animation-fill-mode-forwards`<br/> | `animation-fill-mode: forwards;`<br/> |
+| `aps-paused`<br/> | `animation-play-state-paused`<br/> | `animation-play-state: paused;`<br/> |
+| `aps-running`<br/> | `animation-play-state-running`<br/> | `animation-play-state: running;`<br/> |
 
 ---
 
-## Grouping percentages
+## 3D Transform Chaining inside Keyframes (`__`)
 
-AliasCSS can also group **multiple percentages** for the same keyframe step.
-
-This is useful when the same declaration or declaration group should be reused across several points in the animation timeline.
-
-### Syntax
-
-```text
-@[p1,p2,p3]-utility
-@[p1,p2,p3]-[utility,utility,utility]
-```
-
-### Single utility across multiple percentages
+Combine 2D and 3D transform functions inside timeline steps using the double underscore (`__`) delimiter. Negative angles or translation coordinates use a double hyphen (`--`):
 
 ```html
-<h1
-  keyframes-flash="@[0,50,100]-display-flex"
-  class="an-flash adu-2s"
+<div
+  keyframes-orbit="
+    @0-[tf-rotateX-65deg__rotateY-0deg__rotateZ-0deg]
+    @100-[tf-rotateX-65deg__rotateY-0deg__rotateZ-360deg]
+  "
+  class="an-orbit adu-10s atf-linear aici"
 >
-  Flash
-</h1>
+  Orbiting Node
+</div>
+
 ```
 
-Compiled idea:
+---
 
-```css
-@keyframes flash {
-  0%, 50%, 100% {
-    display: flex;
-  }
-}
-```
+## Accessibility: Reduced Motion Scope
 
-### Grouped utilities across multiple percentages
+To comply with WCAG accessibility requirements, attach the `@motion-reduce-` scope wrapper to override active animations when a user has enabled motion reduction in their system settings:
 
 ```html
-<h1
-  keyframes-flash="@[0,50,100]-display-flex @[25,75]-[display-none,transform-scale-0.5]"
-  class="an-flash adu-2s"
+<div
+  keyframes-spin="@0-transform-rotate-0 @100-transform-rotate-360deg"
+  class="an-spin adu-1s atf-linear aici @motion-reduce-an-none"
 >
-  Flash
-</h1>
+  Spinning Progress Ring
+</div>
+
 ```
 
-Compiled idea:
+Compiled CSS output:
 
 ```css
-@keyframes flash {
-  0%, 50%, 100% {
-    display: flex;
-  }
+.an-spin {
+  animation-name: spin;
+}
 
-  25%, 75% {
-    display: none;
-    transform: scale(0.5);
+@media (prefers-reduced-motion: reduce) {
+  .\@motion-reduce-an-none {
+    animation-name: none;
   }
 }
+
 ```
 
-This pattern is great for blinking, pulsing, flashing, or multi-phase motion where several percentages share the same visual state.
+---
 
-<Callout type="info" emoji="💡">
-Grouping percentages and grouping declarations can be combined. That gives you a compact way to express repeated animation states without duplicating keyframe steps.
-</Callout>
+## Modern Extensions: Scroll-Driven Animations
+
+For scroll-driven animations, bind timeline progression directly to document or container scroll offsets using standard property-value utilities:
+
+```html
+<div class="an-progress animation-timeline-scroll-root animation-range-entry-0%-exit-100%">
+  Scroll Progress Bar
+</div>
+
+```
+
+Compiled CSS output:
+
+```css
+.animation-timeline-scroll-root {
+  animation-timeline: scroll(root);
+}
+.animation-range-entry-0\%-exit-100\% {
+  animation-range: entry 0% exit 100%;
+}
+
+```
+
+
+---
+
+<Cube/>
+---
+
+```html copy showLineNumbers
+<div class="mh-50vh d-flex ai-center jc-center bgc-0f0c29 background(linear-gradient(135deg,#0f0c29,#302b63,#24243e))_">
+
+    <!-- Scene wrapper: enables 3D perspective -->
+    <div class="w-200px h-200px d-flex ai-center jc-center perspective-600px">
+
+        <!-- Cube root: preserve-3d + spin animation -->
+        <div keyframes-spin="@0-[tf-rotateX-20deg__rotateY-0deg] @100-[tf-rotateX-20deg__rotateY-360deg]" class="pr w-120px h-120px transform-style-preserve-3d an-spin adu-8s atf-linear aici">
+      
+            <!-- Front -->
+            <div class="
+              [pa,w-120px,h-120px,bgc-white/0.06,b-1px-s-white/0.35,br-6px,bf-blur-6px]--as-cube-face
+              cube-face
+              tf-translateZ-60px
+            "></div>
+
+            <!-- Back -->
+            <div class="cube-face tf-rotateY-180deg__translateZ-60px"></div>
+
+            <!-- Left -->
+            <div class="cube-face tf-rotateY--90deg__translateZ-60px "></div>
+
+            <!-- Right -->
+            <div class="cube-face tf-rotateY-90deg__translateZ-60px"></div>
+
+            <!-- Top -->
+            <div class="cube-face tf-rx-90deg__tz-60px"></div>
+
+            <!-- Bottom -->
+            <div class="cube-face tf-rotateX--90deg__translateZ-60px"></div>
+
+        </div>
+    </div>
+
+</div>
+```
+
 
 ---
 
 ## Live pattern example
 
-```html
+```html copy
 <div
   class="bgc-ecf0f1 oh w-100p h-100px pa t-0 l-0 df aic acc jcc"
   keyframes-loading="@100-transform-scale-2 @100-border-color-gray600"
 >
-  <span class="dot" class-dot="br-100p b-5px-solid-555 m-10px an-loading adu-0d6s atf-eio ada aici"></span>
-  <span class="dot adl-0d2s"></span>
-  <span class="dot adl-0d4s"></span>
+  <span class="[br-100%,b-5px-solid-555,m-10px,an-loading,adu-0.6s,atf-eio,ada,aici]--as-dot dot"></span>
+  <span class="dot adl-0.2s"></span>
+  <span class="dot adl-0.4s"></span>
 </div>
 ```
+
+
+{/* <Loading/> */}
 
 This pattern works well for loaders because you can define the motion once, then create variation through standard animation utilities such as delay and duration.
 
@@ -242,6 +254,7 @@ This pattern works well for loaders because you can define the motion once, then
 ## 20 useful animations
 
 <Tabs items={['Fade', 'Slide', 'Scale', 'Motion', 'Attention']}>
+ <Tabs.Tab>
 
 ### Fade
 
@@ -283,7 +296,8 @@ class="an-blink adu-1s">
   Blink
 </div>
 ```
-
+ </Tabs.Tab> 
+ <Tabs.Tab>
 ### Slide
 
 #### 5. Slide up
@@ -335,7 +349,8 @@ class="an-dropIn adu-400ms">
   Drop In
 </div>
 ```
-
+</Tabs.Tab> 
+ <Tabs.Tab>
 ### Scale
 
 #### 10. Scale in
@@ -387,7 +402,8 @@ class="an-heartbeat adu-1s">
   Heartbeat
 </div>
 ```
-
+</Tabs.Tab> 
+ <Tabs.Tab>
 ### Motion
 
 #### 15. Bounce
@@ -429,7 +445,8 @@ class="an-rotateIn adu-400ms">
   Rotate In
 </div>
 ```
-
+</Tabs.Tab> 
+ <Tabs.Tab>
 ### Attention
 
 #### 19. Shake
@@ -444,13 +461,14 @@ class="an-shake adu-400ms">
 
 #### 20. Wiggle
 
-```html
+```html copy
 <div keyframes-wiggle="@0-transform-rotate-0 @25-transform-rotate--6deg @50-transform-rotate-6deg @75-transform-rotate--3deg @100-transform-rotate-0" 
 class="an-wiggle adu-600ms">
   Wiggle
 </div>
 ```
-
+</Tabs.Tab> 
+ 
 </Tabs>
 
 ---
@@ -492,49 +510,6 @@ These utilities commonly work well with `keyframes-[name]`:
 | `aici` | likely animation iteration count, depending on your AliasCSS mapping |
 | `afmbo` | likely animation fill mode, depending on your AliasCSS mapping |
 
-<Callout type="info" emoji="ℹ️">
-If your docs site already defines shorthand animation utilities such as `adu`, `adl`, or `atf`, link this page to that reference so developers can move from defining keyframes to controlling playback.
-</Callout>
 
----
 
-## Best practices
 
-- Start with simple two-step animations before building multi-step motion.
-- Use grouped steps when several properties change together.
-- Prefer CSS variables for complex shadow, transform-origin, or timing values.
-- Keep interaction animations fast; reserve longer animations for onboarding, empty states, or decorative motion.
-- Reuse animation names across components only when the motion behavior is actually the same.
-
-Good utility-based documentation emphasizes clarity, scannability, and practical examples, so keep the most common patterns near the top of the page and move rare cases lower in the reference.[web:12][web:13]
-
----
-
-## Common pitfalls
-
-- Writing very long ungrouped keyframe steps that are hard to read.
-- Using unclear animation names that do not describe behavior.
-- Mixing too many moving properties in one animation without grouping.
-- Creating decorative motion for basic UI interactions where a simpler transition would be clearer.
-
----
-
-## Cheat sheet
-
-```text
-keyframes-fadeOut="@0-opacity-1 @100-opacity-0"
-keyframes-slideUp="@0-tf-ty-20px @100-tf-ty-0"
-keyframes-pop="@0-[transform-scale-0.8,opacity-0] @100-[transform-scale-1,opacity-1]"
-keyframes-shake="@0-tf-tx-0 @25-tf-tx--4px @50-tf-tx-4px"
-keyframes-loading="@100-transform-scale-2 @100-border-color-gray600"
-```
-
-## See also
-
-- Pair this page with your **Basic Usage** page so readers understand utility syntax first.
-- Link to your **Animation Utilities** page for `an-*`, `adu-*`, `adl-*`, and `atf-*`.
-- If this page grows further, split it into:
-  - `Keyframes Basics`
-  - `Grouped Keyframes`
-  - `Animation Recipes`
-  - `Animation Utility Reference`

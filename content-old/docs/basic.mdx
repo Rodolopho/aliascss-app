@@ -1,12 +1,12 @@
 import { Callout } from 'nextra/components'
-// export const metadata = {
-//   title: 'Introduction About AliasCSS',
-//   description: 'AliasCSS is a css-post processor ',
-// }
 
-# Basic Usage
 
-If you already know CSS, you already understand the core idea behind **AliasCSS**. AliasCSS lets you write CSS through class names directly in your markup, so you can style elements without switching back and forth between HTML and a separate stylesheet.
+# Core Idea 
+
+If you know css then, you already kind a know **AliasCSS**. 
+AliasCSS lets you create/write classnames that is created out of the CSS property and value you want to apply ,that means
+your are not creating some arbitary classnames, every aliascss class name hold predictable and in most case exact property and value
+you want to apply. Just by looking classnames you will know underlying css declaration.
 
 In AliasCSS, a class name represents a CSS property-value pair. You can use it on its own, alongside custom CSS, or together with other frameworks such as Bootstrap.
 
@@ -67,7 +67,9 @@ AliasCSS supports two shorthand approaches.
 This method is mainly useful for rapid prototyping. It works best with static class names.
 
 Rule:
-Take the first character of each word in the property and value, then combine them.
+- Take the first character of each word in the property and value, then combine them.
+- Never create alias out of global css values such as `inherit`, `initial`, `unset`, `revert` and `revert-layer` 
+  instead use full sematic when you want to use them.
 
 Examples:
 
@@ -75,6 +77,7 @@ Examples:
 - `flex-direction: row` → `fdr`
 - `text-align: center` → `tac`
 - `font-weight: 900` → `fw9`
+- `display: inherit` → `display-inherit` ```\\ dont create alias for global css values such as `inherit`, `initial`, `unset`, `revert` and `revert-layer` ```.
 
 If two declarations produce the same shorthand, AliasCSS resolves the conflict by appending a number such as `2`, `3`, or `4`. 
 Or better provide value that clears the inteneded classname you want to build  by uisng `/`( only applicable for conflicted shorthand classNames).
@@ -90,24 +93,25 @@ Use this method when speed matters more than readability.
 
 #### Method 2: Alias-based shorthand
 
-This is the recommended shorthand style for production because it is easier to read and maintain. It also works for many dynamic class names.
+Use this method for easier to read and maintain. It also works for many dynamic class names.
 
 Rule:
-Use a short alias for the property, the value, or both.
+- Use a short alias for the property, the value, or both.
+- Use a dash `-` to separate the property and value.
+- you can use  alias for either property or value or both but never use alias for global css values such as `inherit`, `initial`, `unset`, `revert` and `revert-layer`.
 
 Examples:
 
 - `display: flex` → `display-f`, `d-flex`, `d-f`
+- `display: inherit` → `display-inherit`,`d-inherit`,
 - `align-items: center` → `align-items-c`, `ai-center`, `ai-c`
 - `flex-direction: column` → `flex-direction-c`, `fd-column`, `fd-c`
 
-<Callout type="info" emoji="💡">
-Prefer alias-based shorthand in production. Use generic shorthand mainly for quick testing and prototyping.
-</Callout>
+
 
 ## Dynamic class names
 
-Dynamic class names follow the same general pattern, but the value is written directly into the class name.
+Dynamic class names follow the same  pattern, but the value is written as it without aliasing.
 
 Examples:
 
@@ -122,7 +126,7 @@ For complex values such as shadows, gradients, and custom colors, AliasCSS uses 
 1. Use `--` before a numeric value to make it negative.
 2. Keep decimal points between digits, for example `0.1rem` instead of `.1rem`.
 3. Prefer `0px`, `0rem`, or another explicit unit instead of bare `0` when writing multi-value utilities.
-4. Every property can use CSS variables.
+4. Every property can use CSS variables. `property--variable-name` will be compiled as `property: var(--variable-name)`.
 
 Examples:
 
@@ -133,19 +137,19 @@ Examples:
 
 ```html
 <h1
-  class="color--fg1-custom-color background--bg1-custom-color font-size-3rem"
+  class="color--fg-color background--bg-color font-size-3rem"
   style="
-    --fg1-custom-color: color-mix(in srgb, red, white 20%);
-    --bg1-custom-color: hsl(from var(--primary) h s calc(l - 20%));
+    --fg-color: color-mix(in srgb, red, white 20%);
+    --bg-color: hsl(from var(--primary) h s calc(l - 20%));
   "
 >
   Hello, World
 </h1>
 ```
 
-## First example
+## Example
 
-Suppose you want an `h1` with blue text and a font size of `3rem`.
+Suppose you want a `h1` element with blue text and a font size of `3rem`.
 
 ```html
 <h1 class="color-blue font-size-3rem">Hello, World</h1>
@@ -182,10 +186,10 @@ When you place `--` before a numeric or length value, AliasCSS treats it as nega
 These map to:
 
 ```css
-margin: 100px;
-margin: -100px;
-margin: 100px -100px 100px -100px;
-box-shadow: 1px -1px 2px 3px red;
+.m-100px{margin: 100px;}
+.m--100px{margin: -100px;}
+.m-100px--100px-100px--100px{margin: 100px -100px 100px -100px;}
+.bxs-1px--1px-2px-3px-red{box-shadow: 1px -1px 2px 3px red;}
 ```
 
 <Callout type="info" emoji="💡">
@@ -469,26 +473,41 @@ Conceptually, AliasCSS expands grouped values into separate utilities internally
 Example:
 
 ```html
-<div class="_div[p-20px]--as-card"></div>
+<div class="[xw-380px,bgc--bg-card,br-8px,oh,df,fdc,transition-transform-0.35s-ease]--as-card"></div>
 ```
 
 Compiled CSS:
 
 ```css
-.card div {
-  padding: 20px;
+.card{
+	max-width:380px;
+	background-color:var(--bg-card);
+	border-radius:8px;
+	overflow:hidden;
+	display:flex;
+	flex-direction:column;
+	transition:transform .35s ease
 }
 ```
 
 Multi-export example:
 
 ```html
-<div class="[p-20px]--as-[card,box]"></div>
+<div class="[p-20px,m-0px,bsbb]--as-[card,box]"></div>
 ```
 
 ```css
-.card { padding: 20px; }
-.box { padding: 20px; }
+.card{
+  padding: 20px;
+  margin: 0px;
+  box-sizing: border-box
+   } 
+ 
+.box{
+  padding: 20px;
+  margin: 0px;
+  box-sizing: border-box 
+} 
 ```
 
 Rule:

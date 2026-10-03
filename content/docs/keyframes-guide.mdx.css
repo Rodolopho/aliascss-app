@@ -1,28 +1,45 @@
-.dot{border-radius: 100%} 
-.dot{border:5px solid #555} 
-.dot{margin: 10px} 
-.dot{animation-name:loading} 
-.dot{animation-duration: 0.6s} 
-.dot{animation-timing-function:ease-in-out} 
-.dot{animation-direction: alternate} 
-.dot{animation-iteration-count: infinite} 
-
-.an-fadeOut{animation-name:fadeOut}
-.adu-1s{animation-duration: 1s}
+.an-pulseGlow{animation-name:pulseGlow}
+.adu-3s{animation-duration: 3s}
+.atf-linear{animation-timing-function:linear}
+.aici{animation-iteration-count: infinite}
 .an-flash{animation-name:flash}
 .adu-2s{animation-duration: 2s}
-.animation-name-flash{animation-name:flash}
-.animation-duration-2s{animation-duration: 2s}
-.bg-rg-gray300-gray600{background:radial-gradient( var(--gray300,#D0D5DD), var(--gray600,#475467) )}
-.w-64px{width: 64px}
-.h-64px{height: 64px}
-.br-50p{border-radius: 50%}
-.an-pop-up{animation-name:pop-up}
-.adu-1d5s{animation-duration: 1.5s}
-.ada{animation-direction: alternate}
-.atf--timing-func{animation-timing-function: var(--timing-func)}
-.aici{animation-iteration-count: infinite}
-.afmbo{animation-fill-mode: both}
+.an-orbit{animation-name:orbit}
+.adu-10s{animation-duration: 10s}
+.an-spin{animation-name:spin}
+.adu-1s{animation-duration: 1s}
+.an-progress{animation-name:progress}
+.animation-timeline-scroll-root{animation-timeline:scroll(root)}
+.animation-range-entry-0\%-exit-100\%{animation-range: entry 0% exit 100%}
+.mh-50vh{min-height: 50vh}
+.d-flex{display:flex}
+.ai-center{align-items:center}
+.jc-center{justify-content:center}
+.bgc-0f0c29{background-color:#0f0c29}
+.background\(linear-gradient\(135deg\,\#0f0c29\,\#302b63\,\#24243e\)\)_{background:linear-gradient(135deg, #0f0c29, #302b63, #24243e)}
+.w-200px{width: 200px}
+.h-200px{height: 200px}
+.perspective-600px{perspective: 600px}
+.pr{position: relative}
+.w-120px{width: 120px}
+.h-120px{height: 120px}
+.transform-style-preserve-3d{transform-style:preserve-3d}
+.adu-8s{animation-duration: 8s}
+.cube-face{position: absolute} 
+.cube-face{width: 120px} 
+.cube-face{height: 120px} 
+.cube-face{background-color:oklch(from white l c h/0.06 )} 
+.cube-face{border:1px solid oklch(from white l c h/0.35 )} 
+.cube-face{border-radius: 6px} 
+.cube-face{backdrop-filter:blur(6px)} 
+ 
+
+.tf-translateZ-60px{transform:translateZ(60px)}
+.tf-rotateY-180deg__translateZ-60px{transform:rotateY(180deg) translateZ(60px)}
+.tf-rotateY--90deg__translateZ-60px{transform:rotateY(-90deg) translateZ(60px)}
+.tf-rotateY-90deg__translateZ-60px{transform:rotateY(90deg) translateZ(60px)}
+.tf-rx-90deg__tz-60px{transform:rotateX(90deg) translateZ(60px)}
+.tf-rotateX--90deg__translateZ-60px{transform:rotateX(-90deg) translateZ(60px)}
 .bgc-ecf0f1{background-color:#ecf0f1}
 .oh{overflow: hidden}
 .w-100p{width: 100%}
@@ -34,10 +51,21 @@
 .aic{align-items: center}
 .acc{align-content: center}
 .jcc{justify-content: center}
-.adl-0d2s{animation-delay: 0.2s}
-.adl-0d4s{animation-delay: 0.4s}
+.dot{border-radius: 100%} 
+.dot{border:5px solid #555} 
+.dot{margin: 10px} 
+.dot{animation-name:loading} 
+.dot{animation-duration: 0.6s} 
+.dot{animation-timing-function:ease-in-out} 
+.dot{animation-direction: alternate} 
+.dot{animation-iteration-count: infinite} 
+ 
+
+.adl-0\.2s{animation-delay: 0.2s}
+.adl-0\.4s{animation-delay: 0.4s}
 .an-fadeIn{animation-name:fadeIn}
 .adu-300ms{animation-duration: 300ms}
+.an-fadeOut{animation-name:fadeOut}
 .an-blink{animation-name:blink}
 .an-slideUp{animation-name:slideUp}
 .adu-400ms{animation-duration: 400ms}
@@ -55,29 +83,35 @@
 .an-bounce{animation-name:bounce}
 .adu-700ms{animation-duration: 700ms}
 .an-float{animation-name:float}
-.an-spin{animation-name:spin}
 .an-rotateIn{animation-name:rotateIn}
 .an-shake{animation-name:shake}
 .an-wiggle{animation-name:wiggle}
 .adu-600ms{animation-duration: 600ms}
-@keyframes fadeOut{
- 0% {opacity: 1} 100% {opacity: 0} 0% {opacity: 1} 100% {opacity: 0} 0% {opacity: 1} 100% {opacity: 0} 0% {opacity: 1} 100% {opacity: 0}
+@keyframes pulseGlow{
+ 0% {transform:scale(1);box-shadow:0px 0px 0px} 50% {transform:scale(1.05);box-shadow:0px 0px 30px oklch(from #6366f1 l c h/0.4 )} 100% {transform:scale(1);box-shadow:0px 0px 0px}
 }
 
 @keyframes flash{
- 0% {opacity: 1} 100% {opacity: 0} 0% {opacity: 1} 100% {opacity: 0} 0%,50%,100% {display:flex} 0%,50%,100% {display:flex} 25%,75% {display:none;transform:scale(0.5)} 0% {opacity: 1} 100% {opacity: 0}
+ 0%,50%,100% {display:flex} 25%,75% {display:none;transform:scale(0.5)} 0% {opacity: 1} 100% {opacity: 0}
 }
 
-@keyframes pop-up{
- 0% {transform:translateY(0);transform-origin: 50% 50%;box-shadow: var(--shadow-down)} 100% {transform:translateY(-50px);transform-origin: 50% 50%;box-shadow: var(--shadow-up)}
+@keyframes orbit{
+ 0% {transform:rotateX(65deg) rotateY(0deg) rotateZ(0deg)} 100% {transform:rotateX(65deg) rotateY(0deg) rotateZ(360deg)}
+}
+
+@keyframes spin{ 0% {transform:rotateX(20deg) rotateY(0deg)} 100% {transform:rotateX(20deg) rotateY(360deg)} 0% {transform:rotate(0)} 100% {transform:rotate(360deg)}
 }
 
 @keyframes loading{
- 100% {transform:scale(2)} 100% {border-color:var(--gray600,#475467)} 100% {transform:scale(2)} 100% {border-color:var(--gray600,#475467)}
+ 100% {transform:scale(2)} 100% {border-color:var(--gray600,#475467)}
 }
 
 @keyframes fadeIn{
  0% {opacity: 0} 100% {opacity: 1}
+}
+
+@keyframes fadeOut{
+ 0% {opacity: 1} 100% {opacity: 0}
 }
 
 @keyframes blink{
@@ -85,7 +119,7 @@
 }
 
 @keyframes slideUp{
- 0% {transform:translateY(20px)} 100% {transform:translateY(0)} 0% {transform:translateY(20px)} 100% {transform:translateY(0)}
+ 0% {transform:translateY(20px)} 100% {transform:translateY(0)}
 }
 
 @keyframes slideDown{
@@ -113,7 +147,7 @@
 }
 
 @keyframes pop{
- 0% {transform:scale(0.8);opacity: 0} 80% {transform:scale(1.05);opacity: 1} 100% {transform:scale(1);opacity: 1} 0% {transform:scale(0.8);opacity: 0} 100% {transform:scale(1);opacity: 1}
+ 0% {transform:scale(0.8);opacity: 0} 80% {transform:scale(1.05);opacity: 1} 100% {transform:scale(1);opacity: 1}
 }
 
 @keyframes pulse{
@@ -132,19 +166,17 @@
  0% {transform:translateY(0)} 50% {transform:translateY(-8px)} 100% {transform:translateY(0)}
 }
 
-@keyframes spin{
- 0% {transform:rotate(0)} 100% {transform:rotate(360deg)}
-}
-
 @keyframes rotateIn{
  0% {transform:rotate(-12deg);opacity: 0} 100% {transform:rotate(0);opacity: 1}
 }
 
 @keyframes shake{
- 0% {transform:translateX(0)} 25% {transform:translateX(-4px)} 50% {transform:translateX(4px)} 75% {transform:translateX(-4px)} 100% {transform:translateX(0)} 0% {transform:translateX(0)} 25% {transform:translateX(-4px)} 50% {transform:translateX(4px)}
+ 0% {transform:translateX(0)} 25% {transform:translateX(-4px)} 50% {transform:translateX(4px)} 75% {transform:translateX(-4px)} 100% {transform:translateX(0)}
 }
 
 @keyframes wiggle{
  0% {transform:rotate(0)} 25% {transform:rotate(-6deg)} 50% {transform:rotate(6deg)} 75% {transform:rotate(-3deg)} 100% {transform:rotate(0)}
 }
+
+@media (prefers-reduced-motion: reduce){ .\@motion-reduce-an-none{animation-name:none}}
 

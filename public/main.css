@@ -1,4 +1,5 @@
-
+@layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
 /* Start :-----------ACSS app/components/codify.jsx------------------------*/
 .df{display: flex}
 .jcsb{justify-content: space-between}
@@ -13,6 +14,7 @@
             
 /* End :-----------ACSS app/components/codify.jsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/color.jsx------------------------*/
 .p-0px-32px{padding: 0px 32px}
@@ -20,7 +22,8 @@
 .bgc-2552552550d8{background-color:rgba(255,255,255,0.8)}
 .w-150px{width: 150px}
 .pf{position: fixed}
-@media (min-width : 768px){ .md-dn{display: none}}
+@layer md{
+@media (min-width: 768px){.md-dn{display: none}}}
 .zi-1234{z-index:1234}
 .btm-0px{bottom: 0px}
 .r-32px{right: 32px}
@@ -41,7 +44,8 @@
 ._all-bsbb *{box-sizing: border-box}
 .pr{position: relative}
 .dn{display: none}
-@media (min-width : 768px){ .md-df-i{display: flex !important}}
+@layer md{
+@media (min-width: 768px){.md-df-i{display: flex !important}}}
 .fb--var--aside-width{flex-basis: var(--aside-width)}
 .flex-shrink-0{flex-shrink: 0}
 .t--var--aside-top{top: var(--aside-top)}
@@ -68,31 +72,38 @@
 .jcc{justify-content: center}
 .br-8px{border-radius: 8px}
 .p-10px{padding: 10px}
-@media (min-width : 768px){ .md-m-10px{margin: 10px}}
-@media (min-width : 768px){ .md-g-8px{gap: 8px}}
+@layer md{
+@media (min-width: 768px){.md-m-10px{margin: 10px}}}
+@layer md{
+@media (min-width: 768px){.md-g-8px{gap: 8px}}}
 .w-72px{width: 72px}
 .h-72px{height: 72px}
 .br9px{border-radius:9px}
-@media (min-width : 768px){ .md-w-100px{width: 100px}}
-@media (min-width : 768px){ .md-h-100px{height: 100px}}
+@layer md{
+@media (min-width: 768px){.md-w-100px{width: 100px}}}
+@layer md{
+@media (min-width: 768px){.md-h-100px{height: 100px}}}
 .x-text-xs{font-size: var(--text-xs,0.75rem); line-height: 1.125rem}
 .fw5{font-weight: 500}
 
             
 /* End :-----------ACSS app/components/color.jsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/css-highlighter.jsx------------------------*/
 
             
 /* End :-----------ACSS app/components/css-highlighter.jsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/custom-editor.jsx------------------------*/
 
             
 /* End :-----------ACSS app/components/custom-editor.jsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/editor.jsx------------------------*/
 .h100vh{height:100vh}
@@ -113,6 +124,7 @@
             
 /* End :-----------ACSS app/components/editor.jsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/extactor.demo.tsx------------------------*/
 .bgc-primary100{background-color:var(--primary100,#F4EBFF)}
@@ -125,6 +137,7 @@
             
 /* End :-----------ACSS app/components/extactor.demo.tsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/inputClassName.jsx------------------------*/
 .d-f{display:flex}
@@ -156,6 +169,7 @@
             
 /* End :-----------ACSS app/components/inputClassName.jsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/logo.jsx------------------------*/
 .pl-32px{padding-left: 32px}
@@ -164,6 +178,7 @@
             
 /* End :-----------ACSS app/components/logo.jsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/modalSearch.jsx------------------------*/
 .cursor-pointer{cursor:pointer}
@@ -190,6 +205,7 @@
             
 /* End :-----------ACSS app/components/modalSearch.jsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/playGround.jsx------------------------*/
 .mb-12px{margin-bottom: 12px}
@@ -212,6 +228,7 @@
             
 /* End :-----------ACSS app/components/playGround.jsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/quickCompiler.jsx------------------------*/
 .g-16px{gap: 16px}
@@ -265,12 +282,14 @@
             
 /* End :-----------ACSS app/components/quickCompiler.jsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/showCodeBox.jsx------------------------*/
 
             
 /* End :-----------ACSS app/components/showCodeBox.jsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/staticClassNames.jsx------------------------*/
 .w100fr{width:100fr}
@@ -303,6 +322,7 @@
             
 /* End :-----------ACSS app/components/staticClassNames.jsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/partials/aside.jsx------------------------*/
 .is-active span{color:var(--blue600,#1570EF)} 
@@ -317,170 +337,44 @@
             
 /* End :-----------ACSS app/components/partials/aside.jsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/index.mdx------------------------*/
-.an{appearance:none}
-.order\.{order:.}
 .mt-16px{margin-top: 16px}
-@media (min-width : 768px){ .md-fdr-i{flex-direction: row !important}}
+@layer md{
+@media (min-width: 768px){.md-fdr-i{flex-direction: row !important}}}
 .__div\[flex-basis-50\%\] > div{flex-basis: 50%} 
 
 .mw-50p{min-width: 50%}
-@media (min-width : 768px){ .md-mt-80px{margin-top: 80px}}
+@layer md{
+@media (min-width: 768px){.md-mt-80px{margin-top: 80px}}}
 .xw-200px{max-width: 200px}
 .w-100px{width: 100px}
-@media (min-width : 992px){ .lg-db{display: block}}
-@media (min-width : 992px){ .lg-mla{margin-left: auto}}
-@media (min-width : 992px){ .lg-mra{margin-right: auto}}
+@layer xs{
+@media (max-width: 575.99px){.\@xs-dn{display: none}}}
+@layer lg{
+@media (min-width: 992px){.lg-db{display: block}}}
+@layer lg{
+@media (min-width: 992px){.lg-mla{margin-left: auto}}}
+@layer lg{
+@media (min-width: 992px){.lg-mra{margin-right: auto}}}
 .font-size-12px{font-size: 12px}
 .display-inline-block{display:inline-block}
 .c-red{color:red}
 .fs-12px{font-size: 12px}
 .dib{display: inline-block}
-.my-card{display: flex} 
-.my-card{padding: 20px} 
-.my-card{border-radius: 8px} 
- 
-
-.my-card{margin-top:card;margin-bottom:card}
-@layer base{ .action-btn{font-size: 14px}} 
-@layer base{ .action-btn{border:none}} 
-@layer base{ .action-btn{border-radius: 6px}} 
-@layer base{ .action-btn{padding: 10px 20px}} 
-@layer base{ .action-btn{transition:all 0.2s}} 
- 
-
-.--hover-bgc-gray200:hover{background-color:var(--gray200,#EAECF0)}
-.vab\/baseline{vertical-align: baseline}
-.c-white{color:white}
-.bgc-blue{background-color:blue}
-.box-shadow-0px-4px-12px-rgba\(59\,130\,246\,0\.3\){box-shadow:0px 4px 12px rgba(59,130,246,0.3)}
-.--hover-transform-scale\(1\.02\):hover{transform:scale(1.02)}
-.vab2{vertical-align: bottom}
-.ff-inter{font-family:inter}
-.mh-100vh{min-height: 100vh}
-.d-flex{display:flex}
-.ai-center{align-items:center}
-.jc-center{justify-content:center}
-.p-24px{padding: 24px}
-.bgc-f6f7fb{background-color:#f6f7fb}
-.auth-card{width: 100%} 
-.auth-card{min-width: 420px} 
-.auth-card{padding: 32px} 
-.auth-card{background-color:#fff} 
-.auth-card{border-radius: 24px} 
-.auth-card{box-shadow:0px 20px 60px var(--blue200,#B2DDFF)} 
-.auth-card{display:flex} 
-.auth-card{flex-direction:column} 
-.auth-card{gap: 20px} 
- 
-
-.fd-column{flex-direction:column}
-.gap-8px{gap: 8px}
-.ta-center{text-align:center}
-.badge{display:inline-flex} 
-.badge{align-items:center} 
-.badge{justify-content:center} 
-.badge{width:fit-content} 
-.badge{padding-left:12px;padding-right:12px} 
-.badge{padding-top:6px;padding-bottom:6px} 
-.badge{margin-left:auto;margin-right:auto} 
-.badge{font-size: 12px} 
-.badge{font-weight:700} 
-.badge{text-transform:uppercase} 
-.badge{background-color:#eef2ff} 
-.badge{color:#4338ca} 
-.badge{border-radius: 999px} 
- 
-
-.m-0{margin: 0}
-.fs-32px{font-size: 32px}
-.fw-800{font-weight:800}
-.lh-1\.1{line-height: 1.1}
-.color-0f172a{color:#0f172a}
-.fs-15px{font-size: 15px}
-.lh-1\.7{line-height: 1.7}
-.color-64748b{color:#64748b}
-.gap-16px{gap: 16px}
-.fs-14px{font-size: 14px}
-.fw-700{font-weight:700}
-.color-334155{color:#334155} 
- 
-
-.--focus-bc-4f46e5:focus{border-color:#4f46e5}
-.jc-space-between{justify-content:space-between}
-.gap-12px{gap: 12px}
-.fs-13px{font-size: 13px}
-.fw-600{font-weight:600}
-.td-none{text-decoration:none}
-.color-4f46e5{color:#4f46e5}
-.--hover-tdu:hover{text-decoration: underline}
-.pos-relative{position:relative}
-.input{width: 100pct} 
-.input{height: 52px} 
-.input{padding-left:14px;padding-right:14px} 
-.input{padding-right: 72px} 
-.input{font-size: 15px} 
-.input{background-color:#fff} 
-.input{border:1px solid #e2e8f0} 
-.input{border-radius: 14px} 
-.input{color:#0f172a} 
-.input{outline:none} 
- 
-
-.pos-absolute{position:absolute}
-.r-10px{right: 10px}
-.t-50p{top: 50%}
-.translateY--50p{translate:Y -50%}
-.h-36px{height: 36px}
-.px-12px{padding-left:12px;padding-right:12px}
-.bgc-f8fafc{background-color:#f8fafc}
-.b-1px-solid-e2e8f0{border:1px solid #e2e8f0}
-.br-10px{border-radius: 10px}
-.d-inline-flex{display:inline-flex}
-.color-475569{color:#475569}
-.cur-pointer{cursor:pointer}
-.accent-4f46e5{accent-color:#4f46e5}
-.color-94a3b8{color:#94a3b8}
-.btn{width: 100%} 
-.btn{height: 54px} 
-.btn{font-size: 15px} 
-.btn{font-weight:800} 
-.btn{background-color:#4f46e5} 
-.btn{border-radius: 14px} 
-.btn{border:none} 
- 
-
-.--hover-bgc-4338ca:hover{background-color:#4338ca}
-.py-4px{padding-top:4px;padding-bottom:4px}
-.h-1px{height: 1px}
-.bgc-e2e8f0{background-color:#e2e8f0}
-.l-50p{left: 50%}
-.translate--50p--50p{translate: -50% -50%}
-.tt-uppercase{text-transform:uppercase}
-.d-grid{display:grid}
-.gtc-1fr-1fr{grid-template-columns: 1fr 1fr}
-.social-btn{height: 48px} 
-.social-btn{font-size: 14px} 
-.social-btn{font-weight:700} 
-.social-btn{background-color:#fff} 
-.social-btn{color:#0f172a} 
-.social-btn{border:1px solid #e2e8f0} 
-.social-btn{border-radius: 14px} 
- 
-
-.--hover-bgc-f8fafc:hover{background-color:#f8fafc}
-.pt-4px{padding-top: 4px}
 
             
 /* End :-----------ACSS content/index.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/color/index.mdx------------------------*/
 
             
 /* End :-----------ACSS content/color/index.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/AttributeSelector.mdx------------------------*/
 .\[data-state\=close\]-display-none[data-state="close"]{display:none}
@@ -489,6 +383,7 @@
             
 /* End :-----------ACSS content/docs/AttributeSelector.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/StaticClassNames.mdx------------------------*/
 .font-family-system-ui{font-family:system-ui}
@@ -500,11 +395,15 @@
 .align-items-center{align-items:center}
 .justify-content-space-between{justify-content:space-between}
 .fdr{flex-direction: row}
+.d-flex{display:flex}
 .fd-row{flex-direction:row}
+.ai-center{align-items:center}
+.jc-space-between{justify-content:space-between}
 
             
 /* End :-----------ACSS content/docs/StaticClassNames.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/advance-customization.mdx------------------------*/
 .border-1px-s-primary700{border:1px solid var(--primary700,#6941C6)}
@@ -512,72 +411,21 @@
             
 /* End :-----------ACSS content/docs/advance-customization.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/andIndentifier.mdx------------------------*/
 ._div-bgc-red div{background-color:red}
  div ._div\&-bgc-red{background-color:red}
- :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc--dark-bg-color{background-color: var(--dark-bg-color)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc--dark-bg-color{background-color:var(--dark-bg-color)}
 
             
 /* End :-----------ACSS content/docs/andIndentifier.mdx----------------------------*/
 
-            
-/* Start :-----------ACSS content/docs/basic.mdx------------------------*/
-.text-align-center{text-align:center}
-.color--fg1-custom-color{color: var(--fg1-custom-color)}
-.background--bg1-custom-color{background: var(--bg1-custom-color)}
-.font-size-3rem{font-size: 3rem}
-.color-blue{color:blue}
-.fs-3rem{font-size: 3rem}
-.m-100px{margin: 100px}
-.m--100px{margin: -100px}
-.m-100px--100px-100px--100px{margin: 100px -100px 100px -100px}
-.bxs-1px--1px-2px-3px-red{box-shadow:1px -1px 2px 3px red}
-.p-20px{padding: 20px}
-.m-1rem{margin: 1rem}
-.mt--20px{margin-top: -20px}
-.bg--gradient{background: var(--gradient)}
-.bgc-0f172a{background-color:#0f172a}
-.c-rgba-255-0-0-0\.5{color:rgba(255 0 0 / 0.5)}
-.b-1px-solid-e3e3e3{border:1px solid #e3e3e3}
-.fs-16px{font-size: 16px}
-.bgc-red{background-color:red}
-.padding-20px{padding: 20px}
-.font-size-16px{font-size: 16px}
-.background-color-red{background-color:red}
-._div-c-red div{color:red}
-._div_h4-fs-20px div h4{font-size: 20px}
-._div__h4-c-red div > h4{color:red}
-._div___h4-c-blue div + h4{color:blue}
-._div____h4-c-green div ~ h4{color:green}
-.\[data-state\=open\]-d-flex[data-state="open"]{display:flex}
-.--hover-bg-blue:hover{background:blue}
-.--hover--focus-c-red:hover:focus{color:red}
-.\[p-20px\,c-red\]{padding: 20px} 
-.\[p-20px\,c-red\]{color:red} 
-
-.--hover\[c-red\,bgc-blue\]:hover{color:red} 
-.--hover\[c-red\,bgc-blue\]:hover{background-color:blue} 
-
-.card div{padding: 20px} 
- 
- 
-
-.an-fade{animation-name:fade}
-.adu-1s{animation-duration: 1s}
-@layer base{ .\@base-d-flex{display:flex}}
-@media (min-width : 768px){ .md-d-flex{display:flex}}
-@keyframes fade{
- 0% {opacity: 1} 100% {opacity: 0}
-}
-
-
-            
-/* End :-----------ACSS content/docs/basic.mdx----------------------------*/
-
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/class-group.mdx------------------------*/
 .color-fff{color:#fff}
+.bgc-blue{background-color:blue}
 .--hover-c-gray:hover{color:gray}
 .--hover-border-radius-4px:hover{border-radius: 4px}
 .--hover-bgc-skyBlue:hover{background-color:skyBlue}
@@ -600,6 +448,7 @@
 .btn:hover{background-color:skyBlue} 
  
 
+.px-12px{padding-left:12px;padding-right:12px}
 .py-8px{padding-top:8px;padding-bottom:8px}
 .border-radius-4px{border-radius: 4px}
 .\[px-12px\,py-8px\,bgc-blue\,color-fff\,border-radius-4px\]{padding-left:12px;padding-right:12px} 
@@ -612,8 +461,6 @@
 .btn{padding-left:12px;padding-right:12px} 
 .btn{padding-top:8px;padding-bottom:8px} 
 .btn{border-radius: 4px} 
-.btn{font-weight:600} 
-.btn{cursor:pointer} 
  
 
 .btn-primary{background-color:blue} 
@@ -644,6 +491,63 @@
             
 /* End :-----------ACSS content/docs/class-group.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS content/docs/context.mdx------------------------*/
+@layer xs{
+@media (max-width: 575.99px){@layer base{ .\@\[xs\,base\]\[border-0\,color-fff\,bgc-blue\]{color:#fff}}}} 
+@layer xs{
+@media (max-width: 575.99px){@layer base{ .\@\[xs\,base\]\[border-0\,color-fff\,bgc-blue\]{background-color:blue}}}} 
+
+.opacity-1{opacity: 1}
+.transform-scale-1{transform:scale(1)}
+.transition-all-200ms{transition:all 200ms}
+@starting-style{ .\@starting-style\[opacity-0\,tf-scale-0\.9\]{opacity: 0}} 
+@starting-style{ .\@starting-style\[opacity-0\,tf-scale-0\.9\]{transform:scale(0.9)}} 
+
+.container-type-inline-size{container-type:inline-size}
+.width-100\%{width: 100%}
+.flex-direction-column{flex-direction:column}
+@container (min-width: 768px){ .\@container-md\[flex-direction-row\,align-items-center\]{flex-direction:row}} 
+@container (min-width: 768px){ .\@container-md\[flex-direction-row\,align-items-center\]{align-items:center}}
+@supports(display:grid){ @layer base{ .\@\[supports\(display\:grid\)\,base\]-display-grid{display:grid}}}
+@container_sidebar(min-width:400px){ .\@\[container_sidebar\(min-width\:400px\)\]-display-none{display:none}}
+
+            
+/* End :-----------ACSS content/docs/context.mdx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS content/docs/escape-hatch.mdx------------------------*/
+
+    .removeCancelButton {
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+    }
+  
+
+    .removeCancelButton {
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+    }
+  
+
+  .some-class {
+    padding: 24px;
+  }
+
+
+.transition-delay--stagger{transition-delay: var(--stagger)}
+.padding-24px{padding: 24px}
+
+            
+/* End :-----------ACSS content/docs/escape-hatch.mdx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/getting_started.mdx------------------------*/
 .color-gray500{color:var(--gray500,#667085)}
@@ -651,34 +555,98 @@
             
 /* End :-----------ACSS content/docs/getting_started.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
-/* Start :-----------ACSS content/docs/keyframes-guide.mdx------------------------*/ 
+/* Start :-----------ACSS content/docs/introduction.mdx------------------------*/
+.justify-content-center{justify-content:center}
+.background-color-0b0f19{background-color:#0b0f19}
+.bgc-0b0f19{background-color:#0b0f19}
+.p-24px{padding: 24px}
+.display\(flex\){display:flex}
+.justify-content\(center\){justify-content:center}
+.align-items\(center\){align-items:center}
+.background-color\(\#0b0f19\){background-color:#0b0f19}
+.padding\(24px\){padding:24px}
+.d\(flex\){display:flex}
+.jc\(center\){justify-content:center}
+.ai\(center\){align-items:center}
+.bgc\(\#0b0f19\){background-color:#0b0f19}
+.p\(24px\){padding:24px}
+.background\(linear-gradient\(135deg\,\#0f172a\,rgba\(99\,102\,241\,0\.2\)\,transparent\)\)_{background:linear-gradient(135deg, #0f172a, rgba(99, 102, 241, 0.2), transparent)}
+.min-height-300px{min-height: 300px}
+.border-radius-16px{border-radius: 16px}
+.background\(radial-gradient\(circle_at_top\,\#6366f1\/0\.25\,transparent_70\%\)\)_{background:radial-gradient(circle at top, #6366f1/0.25, transparent 70%)}
+.position-absolute{position:absolute}
+.top-0{top: 0}
+.height-500px{height: 500px}
+._h2-font-size-24px h2{font-size: 24px}
+.__p-color-64748b > p{color:#64748b}
+.background-color-ffffff{background-color:#ffffff}
+.color-000000{color:#000000}
+ .dark ._\.dark\&-\[background-color-0b0f19\,color-f8fafc\]{background-color:#0b0f19} 
+ .dark ._\.dark\&-\[background-color-0b0f19\,color-f8fafc\]{color:#f8fafc} 
+.btn{font-weight:600} 
+.btn{cursor:pointer} 
+ 
 
-.an-fadeOut{animation-name:fadeOut}
-.an-flash{animation-name:flash}
+.tf-rotateX-20deg__rotateY-45deg__translateZ-60px{transform:rotateX(20deg) rotateY(45deg) translateZ(60px)}
+.tn-transform-0\.2s-ease__box-shadow-0\.2s-ease{transition:transform 0.2s ease,box-shadow 0.2s ease}
+.an-pulse{animation-name:pulse}
 .adu-2s{animation-duration: 2s}
-.animation-name-flash{animation-name:flash}
-.animation-duration-2s{animation-duration: 2s}
-.bg-rg-gray300-gray600{background:radial-gradient( var(--gray300,#D0D5DD), var(--gray600,#475467) )}
-.w-64px{width: 64px}
-.h-64px{height: 64px}
-.br-50p{border-radius: 50%}
-.an-pop-up{animation-name:pop-up}
-.adu-1d5s{animation-duration: 1.5s}
-.ada{animation-direction: alternate}
-.atf--timing-func{animation-timing-function: var(--timing-func)}
+.atf-linear{animation-timing-function:linear}
 .aici{animation-iteration-count: infinite}
-.afmbo{animation-fill-mode: both}
+
+
+            
+/* End :-----------ACSS content/docs/introduction.mdx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS content/docs/keyframes-guide.mdx------------------------*/
+.an-pulseGlow{animation-name:pulseGlow}
+.adu-3s{animation-duration: 3s}
+.an-flash{animation-name:flash}
+.an-orbit{animation-name:orbit}
+.adu-10s{animation-duration: 10s}
+.an-spin{animation-name:spin}
+.adu-1s{animation-duration: 1s}
+.an-progress{animation-name:progress}
+.animation-timeline-scroll-root{animation-timeline:scroll(root)}
+.animation-range-entry-0\%-exit-100\%{animation-range: entry 0% exit 100%}
+.mh-50vh{min-height: 50vh}
+.jc-center{justify-content:center}
+.bgc-0f0c29{background-color:#0f0c29}
+.background\(linear-gradient\(135deg\,\#0f0c29\,\#302b63\,\#24243e\)\)_{background:linear-gradient(135deg, #0f0c29, #302b63, #24243e)}
+.w-200px{width: 200px}
+.h-200px{height: 200px}
+.perspective-600px{perspective: 600px}
+.w-120px{width: 120px}
+.h-120px{height: 120px}
+.transform-style-preserve-3d{transform-style:preserve-3d}
+.adu-8s{animation-duration: 8s} 
+.cube-face{background-color:oklch(from white l c h/0.06 )} 
+.cube-face{border:1px solid oklch(from white l c h/0.35 )} 
+ 
+
+.tf-translateZ-60px{transform:translateZ(60px)}
+.tf-rotateY-180deg__translateZ-60px{transform:rotateY(180deg) translateZ(60px)}
+.tf-rotateY--90deg__translateZ-60px{transform:rotateY(-90deg) translateZ(60px)}
+.tf-rotateY-90deg__translateZ-60px{transform:rotateY(90deg) translateZ(60px)}
+.tf-rx-90deg__tz-60px{transform:rotateX(90deg) translateZ(60px)}
+.tf-rotateX--90deg__translateZ-60px{transform:rotateX(-90deg) translateZ(60px)}
 .bgc-ecf0f1{background-color:#ecf0f1}
 .oh{overflow: hidden}
 .h-100px{height: 100px}
 .t-0{top: 0}
 .l-0{left: 0}
-.acc{align-content: center}
-.adl-0d2s{animation-delay: 0.2s}
-.adl-0d4s{animation-delay: 0.4s}
+.acc{align-content: center} 
+ 
+
+.adl-0\.2s{animation-delay: 0.2s}
+.adl-0\.4s{animation-delay: 0.4s}
 .an-fadeIn{animation-name:fadeIn}
 .adu-300ms{animation-duration: 300ms}
+.an-fadeOut{animation-name:fadeOut}
 .an-blink{animation-name:blink}
 .an-slideUp{animation-name:slideUp}
 .adu-400ms{animation-duration: 400ms}
@@ -691,30 +659,39 @@
 .an-scaleOut{animation-name:scaleOut}
 .an-pop{animation-name:pop}
 .adu-350ms{animation-duration: 350ms}
-.an-pulse{animation-name:pulse}
 .an-heartbeat{animation-name:heartbeat}
 .an-bounce{animation-name:bounce}
 .adu-700ms{animation-duration: 700ms}
 .an-float{animation-name:float}
-.an-spin{animation-name:spin}
 .an-rotateIn{animation-name:rotateIn}
 .an-shake{animation-name:shake}
 .an-wiggle{animation-name:wiggle}
 .adu-600ms{animation-duration: 600ms}
-@keyframes fadeOut{ 0% {opacity: 1} 100% {opacity: 0}
+@keyframes pulseGlow{
+ 0% {transform:scale(1);box-shadow:0px 0px 0px} 50% {transform:scale(1.05);box-shadow:0px 0px 30px oklch(from #6366f1 l c h/0.4 )} 100% {transform:scale(1);box-shadow:0px 0px 0px}
 }
 
-@keyframes flash{ 0%,50%,100% {display:flex} 25%,75% {display:none;transform:scale(0.5)} 0% {opacity: 1} 100% {opacity: 0}
+@keyframes flash{
+ 0%,50%,100% {display:flex} 25%,75% {display:none;transform:scale(0.5)} 0% {opacity: 1} 100% {opacity: 0}
 }
 
-@keyframes loading{ 100% {transform:scale(2)} 100% {border-color:var(--gray600,#475467)}
+@keyframes orbit{
+ 0% {transform:rotateX(65deg) rotateY(0deg) rotateZ(0deg)} 100% {transform:rotateX(65deg) rotateY(0deg) rotateZ(360deg)}
+}
+
+@keyframes spin{ 0% {transform:rotateX(20deg) rotateY(0deg)} 100% {transform:rotateX(20deg) rotateY(360deg)} 0% {transform:rotate(0)} 100% {transform:rotate(360deg)}
+}
+
+@keyframes loading{
+ 100% {transform:scale(2)} 100% {border-color:var(--gray600,#475467)}
 }
 
 @keyframes blink{
  0% {opacity: 1} 50% {opacity: 0} 100% {opacity: 1}
 }
 
-@keyframes slideUp{ 0% {transform:translateY(20px)} 100% {transform:translateY(0)}
+@keyframes slideUp{
+ 0% {transform:translateY(20px)} 100% {transform:translateY(0)}
 }
 
 @keyframes slideDown{
@@ -741,7 +718,8 @@
  0% {transform:scale(1)} 100% {transform:scale(0.9)}
 }
 
-@keyframes pop{ 80% {transform:scale(1.05);opacity: 1} 0% {transform:scale(0.8);opacity: 0} 100% {transform:scale(1);opacity: 1}
+@keyframes pop{
+ 0% {transform:scale(0.8);opacity: 0} 80% {transform:scale(1.05);opacity: 1} 100% {transform:scale(1);opacity: 1}
 }
 
 @keyframes pulse{
@@ -760,15 +738,12 @@
  0% {transform:translateY(0)} 50% {transform:translateY(-8px)} 100% {transform:translateY(0)}
 }
 
-@keyframes spin{
- 0% {transform:rotate(0)} 100% {transform:rotate(360deg)}
-}
-
 @keyframes rotateIn{
  0% {transform:rotate(-12deg);opacity: 0} 100% {transform:rotate(0);opacity: 1}
 }
 
-@keyframes shake{ 75% {transform:translateX(-4px)} 100% {transform:translateX(0)} 0% {transform:translateX(0)} 25% {transform:translateX(-4px)} 50% {transform:translateX(4px)}
+@keyframes shake{
+ 0% {transform:translateX(0)} 25% {transform:translateX(-4px)} 50% {transform:translateX(4px)} 75% {transform:translateX(-4px)} 100% {transform:translateX(0)}
 }
 
 @keyframes wiggle{
@@ -779,6 +754,7 @@
             
 /* End :-----------ACSS content/docs/keyframes-guide.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/layer.mdx------------------------*/
 @layer base{ .\@base-all-unset{all:unset}}
@@ -790,26 +766,67 @@
 @layer base{ .\@base-\[data-state\=open\]\[display-flex\,left-0\][data-state="open"]{display:flex}} 
 @layer base{ .\@base-\[data-state\=open\]\[display-flex\,left-0\][data-state="open"]{left: 0}} 
 
-@layer base{ @media (max-width : 576px){ .btn{color:#fff}}} 
-@layer base{ @media (max-width : 576px){ .btn{background-color:blue}}} 
+@layer base{ @layer xs{
+@media (max-width: 575.99px){.btn{color:#fff}}}} 
+@layer base{ @layer xs{
+@media (max-width: 575.99px){.btn{background-color:blue}}}} 
  
 
-@layer base{ @media (max-width : 576px){ .\@\[base\,xs\]-d-flex{display:flex}}}
-@media (max-width : 576px){ @layer base{ .\@\[xs\,base\]-d-flex{display:flex}}}
+@layer xs{
+@media (max-width: 575.99px){@layer base{ .active[data-state="open"]{display:flex}}}} 
+@layer xs{
+@media (max-width: 575.99px){@layer base{ .active[data-state="open"]{left: 0}}}} 
+ 
+
+@layer base{ @layer xs{
+@media (max-width: 575.99px){.\@\[base\,xs\]-d-flex{display:flex}}}}
+@layer xs{
+@media (max-width: 575.99px){@layer base{ .\@\[xs\,base\]-d-flex{display:flex}}}}
 
             
 /* End :-----------ACSS content/docs/layer.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/npm-guide.mdx------------------------*/
 
             
 /* End :-----------ACSS content/docs/npm-guide.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS content/docs/property-value.mdx------------------------*/
+.margin-top-16px{margin-top: 16px}
+.margin-top--16px{margin-top: -16px}
+.top--40px{top: -40px}
+.left--20px{left: -20px}
+.transform-translateY--50\%{transform:translateY(-50%)}
+.font-size-1\.5rem{font-size: 1.5rem}
+.line-height-1\.4{line-height: 1.4}
+.font-size-1d5rem{font-size: 1.5rem}
+.line-height-1d4{line-height: 1.4}
+.background-color-ffffff\/0\.1{background-color:oklch(from #ffffff l c h/0.1 )}
+.background-color-6366f1\/0\.85{background-color:oklch(from #6366f1 l c h/0.85 )}
+.background-color-black\/0\.5{background-color:oklch(from black l c h/0.5 )}
+.border-1px-solid-ffffff\/0\.08{border:1px solid oklch(from #ffffff l c h/0.08 )}
+.padding-12px-24px{padding: 12px 24px}
+.margin-10px-20px-15px-5px{margin: 10px 20px 15px 5px}
+.border-1px-solid-e2e8f0{border:1px solid #e2e8f0}
+.box-shadow-0px-4px-12px-000000\/0\.1{box-shadow:0px 4px 12px oklch(from #000000 l c h/0.1 )}
+.transition\(transform\,0\.2s\,ease-in-out\){transition:transform 0.2s ease-in-out}
+.font-size\(clamp\(2rem\,5vw\+1rem\,4\.5rem\)\)_{font-size:clamp(2rem, 5vw+1rem, 4.5rem)}
+.grid-template-columns\(repeat\(auto-fit\,minmax\(280px\,1fr\)\)\)_{grid-template-columns:repeat(auto-fit, minmax(280px, 1fr))}
+.transition-timing-function\(cubic-bezier\(0\.34\,1\.56\,0\.64\,1\)\)_{transition-timing-function:cubic-bezier(0.34, 1.56, 0.64, 1)}
+.padding---spacing-base{padding:---spacing-base}
+
+            
+/* End :-----------ACSS content/docs/property-value.mdx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/quick-dev-handbook.mdx------------------------*/
 .container{display: flex} 
-.container{background-color: var(--main-color)} 
+.container{background-color:var(--main-color)} 
 .container{overflow: hidden} 
 .container{width: 100%} 
 .container{height: 100%} 
@@ -840,15 +857,18 @@
 
 .b-1px-s-primary700{border:1px solid var(--primary700,#6941C6)}
 .b-1px-s-gray700{border:1px solid var(--gray700,#344054)}
-@layer base{ @media (min-width : 768px){ .\@\[base\,md\]-d-flex{display:flex}}}
-@media (min-width : 768px){ .md--hover-bgc-blue:hover{background-color:blue}}
+@layer base{ @layer md{
+@media (min-width: 768px){.\@\[base\,md\]-d-flex{display:flex}}}}
+@layer md{
+@media (min-width: 768px){.md--hover-bgc-blue:hover{background-color:blue}}}
 .--hover_h3-c-red:hover h3{color:red}
-@media (max-width : 576px){ .xs-fdc{flex-direction: column}}
-@media (prefers-color-scheme: dark){ .dark-bgc-0e0e0e{background-color:#0e0e0e}}
+@layer xs{
+@media (max-width: 575.99px){.xs-fdc{flex-direction: column}}}
 .bgc-skyBlue{background-color:skyBlue}
 .bc-blue{border-color:blue}
-.c--fg-color{color: var(--fg-color)}
-.bg--bg-color{background: var(--bg-color)}
+.c--fg-color{color:var(--fg-color)}
+.bg--bg-color{background:var(--bg-color)}
+.fs-3rem{font-size: 3rem}
 .w--header-width{width: var(--header-width)}
 .mx-auto{margin-left:auto;margin-right:auto}
 .gtc--panel-layout{grid-template-columns: var(--panel-layout)}
@@ -856,16 +876,6 @@
 .d-if{display:inline-flex}
 .b-1px-s-primary600{border:1px solid var(--primary600,#7F56D9)}
 .bxs--shadow-sm{box-shadow: var(--shadow-sm)}
-.mh-50vh{min-height: 50vh}
-.bgc-0f0c29{background-color:#0f0c29}
-.w-200px{width: 200px}
-.h-200px{height: 200px}
-.perspective-600px{perspective: 600px}
-.w-120px{width: 120px}
-.h-120px{height: 120px}
-.transform-style-preserve-3d{transform-style:preserve-3d}
-.adu-8s{animation-duration: 8s}
-.atf-linear{animation-timing-function:linear}
 .cube-face{position: absolute} 
 .cube-face{width: 120px} 
 .cube-face{height: 120px} 
@@ -875,12 +885,6 @@
 .cube-face{backdrop-filter:blur(6px)} 
  
 
-.tf-translateZ-60px{transform:translateZ(60px)}
-.tf-rotateY-180deg__translateZ-60px{transform:rotateY(180deg) translateZ(60px)}
-.tf-rotateY--90deg__translateZ-60px{transform:rotateY(-90deg) translateZ(60px)}
-.tf-rotateY-90deg__translateZ-60px{transform:rotateY(90deg) translateZ(60px)}
-.tf-rx-90deg__tz-60px{transform:rotateX(90deg) translateZ(60px)}
-.tf-rotateX--90deg__translateZ-60px{transform:rotateX(-90deg) translateZ(60px)}
 .bgc-ccc{background-color:#ccc}
 .--hover-bgc-yellow:hover{background-color:yellow}
 .--h-bgc-yellow:hover{background-color:yellow}
@@ -892,30 +896,37 @@
 ._h3-c-white h3{color:white}
 ._p-fs-14px p{font-size: 14px}
 ._span-fw-600 span{font-weight:600}
+._div_h4-fs-20px div h4{font-size: 20px}
 ._ul_li-c-red ul li{color:red}
 ._nav_ul_li-d-f nav ul li{display:flex}
+.\[data-state\=open\]-d-flex[data-state="open"]{display:flex}
 .\[data-state\=close\]-d-n[data-state="close"]{display:none}
 .\[aria-hidden\=true\]-v-hidden[aria-hidden="true"]{visibility:hidden}
 .\[disabled\]-o-0\.5[disabled]{opacity: 0.5}
 .\[class\~\=code\]-ff-mono[class~="code"]{font-family:mono}
 .\[type\=checkbox\]-cur-pointer[type="checkbox"]{cursor:pointer}
-.--is\(_h3\,_p\)-c-black\/8 :is( h3, p){color:oklch(from black l c h/0.8 )}
-.--Is\(--hover\)-bgc-black\/2:is(:hover){background-color:oklch(from black l c h/0.2 )}
  .card ._\.card\&-c-blue{color:blue}
- :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc--dark-bg{background-color: var(--dark-bg)}
-.c--grey-alt{color: var(--grey-alt)}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-bgc--dark-bg{background-color:var(--dark-bg)}
+.c--grey-alt{color:var(--grey-alt)}
 .--grey\:--grey-default{--grey: var(--grey-default)}
-.c--grey{color: var(--grey)}
-.--hover-c--grey-hover:hover{color: var(--grey-hover)}
+.c--grey{color:var(--grey)}
+.--hover-c--grey-hover:hover{color:var(--grey-hover)}
 .--grey-hover\:black{--grey-hover:black}
 .gtc--panel-grid{grid-template-columns: var(--panel-grid)}
-@media (min-width : 768px){ .md-w-500px{width: 500px}}
-@media (min-width : 992px){ .lg-d-g{display:grid}}
-@media (max-width : 576px){ .xs_p-fs-14px p{font-size: 14px}}
-@media (min-width : 768px){ .md_h3-fs-24px h3{font-size: 24px}}
-@media (max-width : 576px){ .xs-dn{display: none}}
-@media (min-width : 768px){ .md-df{display: flex}}
-@media (min-width : 992px){ .lg-dg{display: grid}}
+@layer md{
+@media (min-width: 768px){.md-w-500px{width: 500px}}}
+@layer lg{
+@media (min-width: 992px){.lg-d-g{display:grid}}}
+@layer xs{
+@media (max-width: 575.99px){.xs_p-fs-14px p{font-size: 14px}}}
+@layer md{
+@media (min-width: 768px){.md_h3-fs-24px h3{font-size: 24px}}}
+@layer xs{
+@media (max-width: 575.99px){.xs-dn{display: none}}}
+@layer md{
+@media (min-width: 768px){.md-df{display: flex}}}
+@layer lg{
+@media (min-width: 992px){.lg-dg{display: grid}}}
 @layer theme{ .\@theme-bgc-primary500{background-color:var(--primary500,#9E77ED)}}
 @layer theme{ .\@theme-\[c-gray\,br-4px\,bgc-skyBlue\]{color:gray}} 
 @layer theme{ .\@theme-\[c-gray\,br-4px\,bgc-skyBlue\]{border-radius: 4px}} 
@@ -924,21 +935,29 @@
 @layer base{ .\@base-\[data-state\=open\]\[d-flex\,l-0\][data-state="open"]{display:flex}} 
 @layer base{ .\@base-\[data-state\=open\]\[d-flex\,l-0\][data-state="open"]{left: 0}} 
 
-@layer base{ @media (max-width : 576px){ .btn{color:#fff}}} 
-@layer base{ @media (max-width : 576px){ .btn{background-color:blue}}} 
+@layer base{ @layer xs{
+@media (max-width: 575.99px){.btn{color:#fff}}}} 
+@layer base{ @layer xs{
+@media (max-width: 575.99px){.btn{background-color:blue}}}} 
  
 
-@media (max-width : 576px){ @layer base{ .active[data-state="open"]{display:flex}}} 
-@media (max-width : 576px){ @layer base{ .active[data-state="open"]{left: 0}}} 
+@layer xs{
+@media (max-width: 575.99px){@layer base{ .active[data-state="open"]{display:flex}}}} 
+@layer xs{
+@media (max-width: 575.99px){@layer base{ .active[data-state="open"]{left: 0}}}} 
  
 
+@layer reset{ .\@reset-m-0px-p-0px{margin: 0px-p 0px}}
 .\[data-state\=open\]-\[d-flex\,l-0\,t-0\][data-state="open"]{display:flex} 
 .\[data-state\=open\]-\[d-flex\,l-0\,t-0\][data-state="open"]{left: 0} 
 .\[data-state\=open\]-\[d-flex\,l-0\,t-0\][data-state="open"]{top: 0} 
 
-@media (max-width : 576px){ .xs-\[fdc\,p-16px\,fs-14px\]{flex-direction: column}} 
-@media (max-width : 576px){ .xs-\[fdc\,p-16px\,fs-14px\]{padding: 16px}} 
-@media (max-width : 576px){ .xs-\[fdc\,p-16px\,fs-14px\]{font-size: 14px}} 
+@layer xs{
+@media (max-width: 575.99px){.xs-\[fdc\,p-16px\,fs-14px\]{flex-direction: column}}} 
+@layer xs{
+@media (max-width: 575.99px){.xs-\[fdc\,p-16px\,fs-14px\]{padding: 16px}}} 
+@layer xs{
+@media (max-width: 575.99px){.xs-\[fdc\,p-16px\,fs-14px\]{font-size: 14px}}} 
 
 @layer theme{ .\@theme-\[bgc-primary500\,c-white\,br-8px\]{background-color:var(--primary500,#9E77ED)}} 
 @layer theme{ .\@theme-\[bgc-primary500\,c-white\,br-8px\]{color:white}} 
@@ -948,12 +967,9 @@
 .--focus-\[b-1px-s-blue\,outline-none\]:focus{outline:none} 
 
 .--invalid-\[b-1px-s-red\,bgc-red\/1\]:invalid{border:1px solid red} 
-.--invalid-\[b-1px-s-red\,bgc-red\/1\]:invalid{background-color:oklch(from red l c h/0.1 )} 
+.--invalid-\[b-1px-s-red\,bgc-red\/1\]:invalid{background-color:oklch(from red l c h/1 )} 
 
-.bgc-white{background-color:white}
-@media (prefers-color-scheme: dark){ .dark-\[bgc-gray900\,c-white\,b-1px-s-gray700\]{background-color:var(--gray900,#101828)}} 
-@media (prefers-color-scheme: dark){ .dark-\[bgc-gray900\,c-white\,b-1px-s-gray700\]{color:white}} 
-@media (prefers-color-scheme: dark){ .dark-\[bgc-gray900\,c-white\,b-1px-s-gray700\]{border:1px solid var(--gray700,#344054)}} 
+.bgc-white{background-color:white} 
 .btn{padding: 8px 16px} 
 .btn{border-radius: 6px} 
  
@@ -962,7 +978,6 @@
 .btn{background-color:blue} 
  
 
-.btn:hover{background-color:oklch(from blue l c h/0.8 )} 
 .btn:hover{color:white} 
  
 
@@ -981,39 +996,54 @@
 .active[data-state="open"]{left: 0} 
  
 
-@layer base{ @media (max-width : 576px){ .btn{color:#fff}}} 
-@layer base{ @media (max-width : 576px){ .btn{background-color:blue}}} 
+@layer base{ @layer xs{
+@media (max-width: 575.99px){.btn{color:#fff}}}} 
+@layer base{ @layer xs{
+@media (max-width: 575.99px){.btn{background-color:blue}}}} 
  
 
 .an-slideIn{animation-name:slideIn}
 .adu-0\.5s{animation-duration: 0.5s}
 .atf-eio{animation-timing-function:ease-in-out}
 .an-wave{animation-name:wave}
+.an-pop-up{animation-name:pop-up}
 .adu-1\.5s{animation-duration: 1.5s}
-.adl-0\.2s{animation-delay: 0.2s}
-.adl-0\.4s{animation-delay: 0.4s}
+.ada{animation-direction: alternate}
+.atf--timing-func{animation-timing-function: var(--timing-func)}
+.afmbo{animation-fill-mode: both}
+.gap-8px{gap: 8px}
 .fs-24px{font-size: 24px}
+.fw-600{font-weight:600}
 .c-gray900{color:var(--gray900,#101828)}
+.h-64px{height: 64px}
 .px-24px{padding-left:24px;padding-right:24px}
 .bb-1px-s-gray200{border-bottom:1px solid var(--gray200,#EAECF0)}
 .zi-100{z-index:100}
 .fs-20px{font-size: 20px}
+.fw-700{font-weight:700}
+.td-none{text-decoration:none}
 .ls-none{list-style:none}
+.m-0{margin: 0}
 .p-0{padding: 0}
 .br-6px{border-radius: 6px}
+.fs-14px{font-size: 14px}
 .fw-500{font-weight:500}
 .--hover-bgc-gray100:hover{background-color:var(--gray100,#F2F4F7)}
 .--hover-c-gray900:hover{color:var(--gray900,#101828)}
 .tdu-0\.15s{transition-duration: 0.15s}
+.cur-pointer{cursor:pointer}
 .--hover-bgc-gray50:hover{background-color:var(--gray50,#F9FAFB)}
+.c-white{color:white}
 .--hover-bgc-primary700:hover{background-color:var(--primary700,#6941C6)}
 .py-96px{padding-top:96px;padding-bottom:96px}
+.ta-center{text-align:center}
 .gap-6px{gap: 6px}
 .p-4px-12px{padding: 4px 12px}
 .br-full{border-radius:var(--radius-full,9999px)}
 .bgc-primary50{background-color:var(--primary50,#F9F5FF)}
 .mb-24px{margin-bottom: 24px}
 .fs-clamp\(36px\,5vw\,72px\){font-size:clamp(36px , 5vw , 72px)}
+.lh-1\.1{line-height: 1.1}
 .les--0\.02em{letter-spacing: -0.02em}
 .mw-800px{min-width: 800px}
 .fs-18px{font-size: 18px}
@@ -1021,21 +1051,28 @@
 .fw-400{font-weight:400}
 .mw-600px{min-width: 600px}
 .mb-40px{margin-bottom: 40px}
+.gap-12px{gap: 12px}
 .p-12px-24px{padding: 12px 24px}
+.fs-16px{font-size: 16px}
 .--hover-bxs--shadow-md:hover{box-shadow: var(--shadow-md)}
 .tdu-0\.2s{transition-duration: 0.2s}
 .py-64px{padding-top:64px;padding-bottom:64px}
 .d-g{display:grid}
 .gtc-repeat-3-1fr{grid-template-columns: repeat(3, 1fr)}
-@media (max-width : 576px){ .xs-gtc-repeat-1-1fr{grid-template-columns: repeat(1, 1fr)}}
-@media (min-width : 768px){ .md-gtc-repeat-2-1fr{grid-template-columns: repeat(2, 1fr)}}
-@media (min-width : 992px){ .lg-gtc-repeat-3-1fr{grid-template-columns: repeat(3, 1fr)}}
+@layer xs{
+@media (max-width: 575.99px){.xs-gtc-repeat-1-1fr{grid-template-columns: repeat(1, 1fr)}}}
+@layer md{
+@media (min-width: 768px){.md-gtc-repeat-2-1fr{grid-template-columns: repeat(2, 1fr)}}}
+@layer lg{
+@media (min-width: 992px){.lg-gtc-repeat-3-1fr{grid-template-columns: repeat(3, 1fr)}}}
 .gap-24px{gap: 24px}
 .mw-1200px{min-width: 1200px}
 .b-1px-s-gray200{border:1px solid var(--gray200,#EAECF0)}
+.gap-16px{gap: 16px}
 .--hover-tf-ty--2px:hover{transform:translateY(-2px)}
 .w-48px{width: 48px}
 .h-48px{height: 48px}
+.br-10px{border-radius: 10px}
 .c-primary600{color:var(--primary600,#7F56D9)}
 .mt-auto{margin-top:auto}
 .--hover-c-primary700:hover{color:var(--primary700,#6941C6)}
@@ -1045,22 +1082,17 @@
 .--focus-b-1px-s-primary500:focus{border:1px solid var(--primary500,#9E77ED)}
 .--placeholder-c-gray400::placeholder{color:var(--gray400,#98A2B3)}
 .p-12px{padding: 12px}
-.--focus-bxs-0px-0px-0px-3px-primary500\/3:focus{box-shadow:0px 0px 0px 3px oklch(from var(--primary500,#9E77ED) l c h/0.3 )}
-@media (prefers-color-scheme: dark){ .dark-\[bgc-gray900\,c-white\]{background-color:var(--gray900,#101828)}} 
-@media (prefers-color-scheme: dark){ .dark-\[bgc-gray900\,c-white\]{color:white}} 
+.--focus-bxs-0px-0px-0px-3px-primary500\/3:focus{box-shadow:0px 0px 0px 3px} 
 
 .tdu-0\.3s{transition-duration: 0.3s}
-@media (prefers-color-scheme: dark){ .dark-c-white{color:white}}
-@media (prefers-color-scheme: dark){ .dark-c-gray400{color:var(--gray400,#98A2B3)}}
-@media (prefers-color-scheme: dark){ .dark-\[bgc-gray800\,c-white\,b-1px-s-gray700\]{background-color:var(--gray800,#1D2939)}} 
-@media (prefers-color-scheme: dark){ .dark-\[bgc-gray800\,c-white\,b-1px-s-gray700\]{color:white}} 
-@media (prefers-color-scheme: dark){ .dark-\[bgc-gray800\,c-white\,b-1px-s-gray700\]{border:1px solid var(--gray700,#344054)}} 
+.fs-32px{font-size: 32px} 
 
-.bgc--bg{background-color: var(--bg)}
-.c--fg{color: var(--fg)}
+.--hover-bgc-gray200:hover{background-color:var(--gray200,#EAECF0)}
+.bgc--bg{background-color:var(--bg)}
+.c--fg{color:var(--fg)}
 .b-1px-s--border{border:1px solid var(--border)}
-.c--fg\/7{color: var(--fg/7)}
-.bgc--primary{background-color: var(--primary)}
+.c--fg\/7{color:var(--fg/7)}
+.bgc--primary{background-color:var(--primary)}
 .p-10px-20px{padding: 10px 20px}
 .w-40px{width: 40px}
 .h-40px{height: 40px}
@@ -1125,32 +1157,95 @@
             
 /* End :-----------ACSS content/docs/quick-dev-handbook.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/screens.mdx------------------------*/
-@media (min-width : 768px){ .\@md-d-flex{display:flex}}
-@container (min-width : 768px){ .\@container-md-grid-template-columns-2{grid-template-columns: 2}}
-@media (prefers-color-scheme: dark){ .\@dark-c-white{color:white}}
-@media (min-width : 768px){ @layer base{ .\@\[md\,base\]-d-flex{display:flex}}}
-@container (min-width : 768px){ @layer base{ .\@\[container-md\,base\]-grid-template-columns-2{grid-template-columns: 2}}}
-@media (min-width : 768px){ @container (min-width : 768px){ .\@\[md\,container-md\]\[d-flex\,gap-16px\]{display:flex}}} 
-@media (min-width : 768px){ @container (min-width : 768px){ .\@\[md\,container-md\]\[d-flex\,gap-16px\]{gap: 16px}}} 
+@layer md{
+@media (min-width: 768px){.\@md-d-flex{display:flex}}}
+@layer base{ .\@base-d-flex{display:flex}}
+@container (min-width: 768px){ .\@container-md-grid-template-columns-2{grid-template-columns: 2}}
+@layer md{
+@media (min-width: 768px){@layer base{ .\@\[md\,base\]-d-flex{display:flex}}}}
+@container (min-width: 768px){ @layer base{ .\@\[container-md\,base\]-grid-template-columns-2{grid-template-columns: 2}}}
+@layer md{
+@media (min-width: 768px){@container (min-width: 768px){ .\@\[md\,container-md\]\[d-flex\,gap-16px\]{display:flex}}}} 
+@layer md{
+@media (min-width: 768px){@container (min-width: 768px){ .\@\[md\,container-md\]\[d-flex\,gap-16px\]{gap: 16px}}}} 
 
-@media (prefers-reduced-motion: reduce){ .\@motion-reduce-an-none{animation-name:none}}
-@media (prefers-color-scheme: dark){ @layer base{ .\@\[dark\,base\]\[c-white\,bgc-black\]{color:white}}} 
-@media (prefers-color-scheme: dark){ @layer base{ .\@\[dark\,base\]\[c-white\,bgc-black\]{background-color:black}}} 
+@layer md{
+@media (min-width: 768px){.md-d-flex{display:flex}}} 
 
-@media (max-width : 576px){ .\@xs-dn{display: none}}
-@media print{ .print-display-none{display:none}}
-@media (prefers-color-scheme: dark){ @media (min-width : 768px){ .\@\[dark\,md\]\[c-white\,bgc-black\]{color:white}}} 
-@media (prefers-color-scheme: dark){ @media (min-width : 768px){ .\@\[dark\,md\]\[c-white\,bgc-black\]{background-color:black}}} 
-
-@media (min-width : 768px){ @layer base{ .\@\[md\,\@base\]-d-flex{display:flex}}}
-@media (min-width : 768px){ @layer base{ .\@\[md\,base\]_p-c-red p{color:red}}}
-@media (min-width : 768px){ .\@md-w-500px{width: 500px}}
+@layer md{
+@media (min-width: 768px){@layer base{ .\@\[md\,\@base\]-d-flex{display:flex}}}}
+@layer md{
+@media (min-width: 768px){@layer base{ .\@\[md\,base\]_p-c-red p{color:red}}}}
+@layer md{
+@media (min-width: 768px){.\@md-w-500px{width: 500px}}}
 
             
 /* End :-----------ACSS content/docs/screens.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS content/docs/selectors.mdx------------------------*/
+.background-color-6366f1{background-color:#6366f1}
+.color-ffffff{color:#ffffff}
+.--hover-background-color-4f46e5:hover{background-color:#4f46e5}
+.--focus-visible-outline-2px-solid-6366f1:focus-visible{outline:2px solid #6366f1}
+.--active-transform-scale-0\.98:active{transform:scale(0.98)}
+.color-94a3b8{color:#94a3b8}
+.--hover-\[color-ffffff\,text-decoration-underline\,transform-translateX-4px\]:hover{color:#ffffff} 
+.--hover-\[color-ffffff\,text-decoration-underline\,transform-translateX-4px\]:hover{text-decoration:underline} 
+.--hover-\[color-ffffff\,text-decoration-underline\,transform-translateX-4px\]:hover{transform:translateX(4px)} 
+
+.--is\(_button\,_a\)-cursor-pointer :is( button, a){cursor:pointer}
+.--has\(_input--checked\)-border-color-6366f1:has( input:checked){border-color:#6366f1}
+.--not\(--last-child\)-border-bottom-1px-solid-ffffff\/0\.08:not(:last-child){border-bottom:1px solid oklch(from #ffffff l c h/0.08 )}
+.position-relative{position:relative}
+.--after-content-empty::after{content:"empty"}
+.--after-position-absolute::after{position:absolute}
+.--after-top-100\%::after{top: 100%}
+.--after-left-50\%::after{left: 50%}
+.--after-border-8px-solid-transparent::after{border:8px solid transparent}
+.--after-border-top-color-111827::after{border-top-color:#111827}
+.--selection\[background-color-6366f1\,color-ffffff\]::selection{background-color:#6366f1} 
+.--selection\[background-color-6366f1\,color-ffffff\]::selection{color:#ffffff} 
+
+._h2-font-size-28px h2{font-size: 28px}
+._p-line-height-1\.6 p{line-height: 1.6}
+.__li-padding-12px > li{padding: 12px}
+.__li-border-bottom-1px-solid-ffffff\/0\.08 > li{border-bottom:1px solid oklch(from #ffffff l c h/0.08 )}
+._h3\[font-size-20px\,font-weight-700\,color-ffffff\,margin-bottom-12px\] h3{font-size: 20px} 
+._h3\[font-size-20px\,font-weight-700\,color-ffffff\,margin-bottom-12px\] h3{font-weight:700} 
+._h3\[font-size-20px\,font-weight-700\,color-ffffff\,margin-bottom-12px\] h3{color:#ffffff} 
+._h3\[font-size-20px\,font-weight-700\,color-ffffff\,margin-bottom-12px\] h3{margin-bottom: 12px} 
+
+.padding-8px-16px{padding: 8px 16px}
+.\[disabled\]-\[background-color-f1f5f9\,color-94a3b8\,cursor-not-allowed\][disabled]{background-color:#f1f5f9} 
+.\[disabled\]-\[background-color-f1f5f9\,color-94a3b8\,cursor-not-allowed\][disabled]{color:#94a3b8} 
+.\[disabled\]-\[background-color-f1f5f9\,color-94a3b8\,cursor-not-allowed\][disabled]{cursor:not-allowed} 
+
+.\[required\]-border-left-3px-solid-6366f1[required]{border-left:3px solid #6366f1}
+.height-0{height: 0}
+.overflow-hidden{overflow:hidden}
+.\[data-state\=open\]-\[height-auto\,opacity-1\,padding-16px\][data-state="open"]{height:auto} 
+.\[data-state\=open\]-\[height-auto\,opacity-1\,padding-16px\][data-state="open"]{opacity: 1} 
+.\[data-state\=open\]-\[height-auto\,opacity-1\,padding-16px\][data-state="open"]{padding: 16px} 
+
+.--first-child-margin-top-0:first-child{margin-top: 0}
+.--last-child-border-bottom-none:last-child{border-bottom:none}
+.--nth-child\(even\)-background-color-ffffff\/0\.02:nth-child(even){background-color:oklch(from #ffffff l c h/0.02 )}
+._p\[margin-0\,color-94a3b8\] p{margin: 0} 
+._p\[margin-0\,color-94a3b8\] p{color:#94a3b8} 
+
+._h2\[margin-0\,color-ffffff\] h2{margin: 0} 
+._h2\[margin-0\,color-ffffff\] h2{color:#ffffff} 
+
+
+            
+/* End :-----------ACSS content/docs/selectors.mdx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/stateAndSelector.mdx------------------------*/
 .on{outline:none}
@@ -1159,25 +1254,28 @@
             
 /* End :-----------ACSS content/docs/stateAndSelector.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/variables.mdx------------------------*/
 .--header-color\:skyBlue{--header-color:skyBlue}
-.color--header-color{color: var(--header-color)}
+.color--header-color{color:var(--header-color)}
 .--hover--header-color\:blue:hover{--header-color:blue}
 .width--var--24x{width: var(--24x)}
 .color--header-color\:skyBlue{color: var(--header-color,skyBlue)}
 .width--var--side-bar-width\:200px{width: var(--side-bar-width,200px)}
-.bg--display-bg{background: var(--display-bg)}
+.bg--display-bg{background:var(--display-bg)}
 
             
 /* End :-----------ACSS content/docs/variables.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/playground/index.mdx------------------------*/
 
             
 /* End :-----------ACSS content/playground/index.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/Base/button.mdx------------------------*/
 .mh-200px{min-height: 200px}
@@ -1187,12 +1285,119 @@
             
 /* End :-----------ACSS content/components/Base/button.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/Base/input.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/Base/input.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS content/components/helper/animation.jsx------------------------*/
+.an-spins{animation-name:spins} 
+.cube-faced{background-color:oklch(from white l c h/0.06 )} 
+.cube-faced{border:1px solid oklch(from white l c h/0.35 )} 
+ 
+
+.tf-rotateX-90deg__translateZ-60px{transform:rotateX(90deg) translateZ(60px)}
+.min-height-600px{min-height: 600px}
+.perspective-1200px{perspective: 1200px}
+.max-width-440px{max-width: 440px}
+.padding-48px-32px{padding: 48px 32px}
+.border-radius-32px{border-radius: 32px}
+.background-color-111827\/0\.8{background-color:oklch(from #111827 l c h/0.8 )}
+.backdrop-filter-blur-20px{backdrop-filter:blur(20px)}
+.border-1px-solid-ffffff\/0\.1{border:1px solid oklch(from #ffffff l c h/0.1 )}
+.an-hullGlow{animation-name:hullGlow}
+.adu-6s{animation-duration: 6s}
+.tf-rotateX-10deg__rotateY-0deg{transform:rotateX(10deg) rotateY(0deg)}
+.tn-transform-0\.4s-ease__box-shadow-0\.4s-ease{transition:transform 0.4s ease,box-shadow 0.4s ease}
+.--hover-\[tf-rotateX-0deg__rotateY-0deg\,box-shadow-0px-30px-80px-6366f1\/0\.4\]:hover{transform:rotateX(0deg) rotateY(0deg)} 
+.--hover-\[tf-rotateX-0deg__rotateY-0deg\,box-shadow-0px-30px-80px-6366f1\/0\.4\]:hover{box-shadow:0px 30px 80px oklch(from #6366f1 l c h/0.4 )} 
+
+.top--100px{top: -100px}
+.left--100px{left: -100px}
+.width-300px{width: 300px}
+.height-300px{height: 300px}
+.border-radius-50\%{border-radius: 50%}
+.background-color-6366f1\/0\.2{background-color:oklch(from #6366f1 l c h/0.2 )}
+.filter-blur-80px{filter:blur(80px)}
+.pointer-events-none{pointer-events:none}
+.width-260px{width: 260px}
+.height-260px{height: 260px}
+.margin-block-20px{margin-block: 20px}
+.width-240px{width: 240px}
+.height-240px{height: 240px}
+.border-2px-dashed-818cf8\/0\.7{border:2px dashed oklch(from #818cf8 l c h/0.7 )}
+.an-orbitAlpha{animation-name:orbitAlpha}
+.adu-14s{animation-duration: 14s}
+.top--6px{top: -6px}
+.left-50\%{left: 50%}
+.width-12px{width: 12px}
+.height-12px{height: 12px}
+.background-color-818cf8{background-color:#818cf8}
+.box-shadow-0px-0px-14px-818cf8{box-shadow:0px 0px 14px #818cf8}
+.transform-translateX--50\%{transform:translateX(-50%)}
+.width-180px{width: 180px}
+.height-180px{height: 180px}
+.border-2px-solid-ec4899\/0\.6{border:2px solid oklch(from #ec4899 l c h/0.6 )}
+.box-shadow-0px-0px-24px-ec4899\/0\.2{box-shadow:0px 0px 24px oklch(from #ec4899 l c h/0.2 )}
+.an-orbitBeta{animation-name:orbitBeta}
+.adu-9s{animation-duration: 9s}
+.bottom--5px{bottom: -5px}
+.width-10px{width: 10px}
+.height-10px{height: 10px}
+.background-color-ec4899{background-color:#ec4899}
+.box-shadow-0px-0px-12px-ec4899{box-shadow:0px 0px 12px #ec4899}
+.width-120px{width: 120px}
+.height-120px{height: 120px}
+.border-2px-dotted-06b6d4\/0\.8{border:2px dotted oklch(from #06b6d4 l c h/0.8 )}
+.an-orbitGamma{animation-name:orbitGamma}
+.adu-5s{animation-duration: 5s}
+.width-48px{width: 48px}
+.height-48px{height: 48px}
+.box-shadow-0px-0px-30px-a855f7{box-shadow:0px 0px 30px #a855f7}
+.an-plasmaSingularity{animation-name:plasmaSingularity}
+.adu-2\.4s{animation-duration: 2.4s}
+.atf-ease-in-out{animation-timing-function:ease-in-out}
+.width-24px{width: 24px}
+.height-24px{height: 24px}
+.background-color-4f46e5{background-color:#4f46e5}
+.filter-blur-2px{filter:blur(2px)}
+.text-align-center{text-align:center}
+.margin-top-12px{margin-top: 12px}
+.font-size-22px{font-size: 22px}
+.font-weight-700{font-weight:700}
+.margin-0{margin: 0}
+.letter-spacing--0\.02em{letter-spacing: -0.02em}
+.font-size-13px{font-size: 13px}
+
+@keyframes hullGlow{
+ 0% {box-shadow:0px 20px 50px oklch(from #000000 l c h/0.6 )} 50% {box-shadow:0px 25px 70px oklch(from #6366f1 l c h/0.3 )} 100% {box-shadow:0px 20px 50px oklch(from #000000 l c h/0.6 )}
+}
+
+@keyframes orbitAlpha{
+ 0% {transform:rotateX(65deg) rotateY(0deg) rotateZ(0deg)} 100% {transform:rotateX(65deg) rotateY(0deg) rotateZ(360deg)}
+}
+
+@keyframes orbitBeta{
+ 0% {transform:rotateX(-50deg) rotateY(45deg) rotateZ(0deg)} 100% {transform:rotateX(-50deg) rotateY(45deg) rotateZ(-360deg)}
+}
+
+@keyframes orbitGamma{
+ 0% {transform:rotateX(15deg) rotateY(-60deg) rotateZ(0deg)} 100% {transform:rotateX(15deg) rotateY(-60deg) rotateZ(360deg)}
+}
+
+@keyframes plasmaSingularity{
+ 0%,100% {transform:scale(0.9);box-shadow:0px 0px 20px oklch(from #6366f1 l c h/0.6 )} 50% {transform:scale(1.2);box-shadow:0px 0px 50px oklch(from #a855f7 l c h/0.9 )}
+}
+
+
+            
+/* End :-----------ACSS content/components/helper/animation.jsx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/radix-ui/accordion.mdx------------------------*/
 .p-100px{padding: 100px}
@@ -1200,12 +1405,14 @@
             
 /* End :-----------ACSS content/components/radix-ui/accordion.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/radix-ui/alert-dialog.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/radix-ui/alert-dialog.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/react-aria/react-aria-button.mdx------------------------*/
 .g-24px{gap: 24px}
@@ -1213,60 +1420,71 @@
             
 /* End :-----------ACSS content/components/react-aria/react-aria-button.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/react-aria/react-aria-checkbox.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/react-aria/react-aria-checkbox.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/react-aria/react-aria-number-field.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/react-aria/react-aria-number-field.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/react-aria/react-aria-progress-bar.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/react-aria/react-aria-progress-bar.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/react-aria/react-aria-radio-group.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/react-aria/react-aria-radio-group.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/react-aria/react-aria-search-field.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/react-aria/react-aria-search-field.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/react-aria/react-aria-switch.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/react-aria/react-aria-switch.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/react-aria/react-aria-text-field.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/react-aria/react-aria-text-field.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/guide/border-and-shadow.mdx------------------------*/
 .b-1px-s-e3e3e3{border:1px solid #e3e3e3}
 .mh-64px{min-height: 64px}
-.bxs-1px--1px-2px-2px--black\/7{box-shadow:1px -1px 2px 2px oklch(from var(--black) l c h/0.7 )}
+.bxs-1px--1px-2px-2px--black\/0\.7{box-shadow:1px -1px 2px 2px oklch(from var(--black) l c h/0.7 )}
 .display-inline-flex{display:inline-flex}
 
             
 /* End :-----------ACSS content/docs/guide/border-and-shadow.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/guide/color.mdx------------------------*/
+.color-blue{color:blue}
+.font-size-3rem{font-size: 3rem}
 .color-e3e3e3{color:#e3e3e3}
 .bgc-01010e55{background-color:#01010e55}
 .color-rgb-255-0-0{color:rgb(255 0 0)}
@@ -1275,40 +1493,47 @@
 .background-color-lch-54\.3-106\.83-40\.85{background-color:lch(54.3 106.83 40.85)}
 .color-primary200{color:var(--primary200,#E9D7FE)}
 .background-color-primary800{background-color:var(--primary800,#53389E)}
-.color-primary200\/6{color:oklch(from var(--primary200,#E9D7FE) l c h/0.6 )}
-.background-color-blue\/3{background-color:oklch(from blue l c h/0.3 )}
+.color-primary200\/0\.6{color:oklch(from var(--primary200,#E9D7FE) l c h/0.6 )}
+.background-color-blue\/0\.3{background-color:oklch(from blue l c h/0.3 )}
+.color--fg-color{color:var(--fg-color)}
+.background--bg-color{background:var(--bg-color)}
 
             
 /* End :-----------ACSS content/docs/guide/color.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/guide/font-and-text.mdx------------------------*/
-.txs-1px-1px-2px--black\/7{text-shadow:1px 1px 2px oklch(from var(--black) l c h/0.7 )}
+.txs-1px-1px-2px--black\/7{text-shadow:1px 1px 2px var(--black/7)}
 .txs--text-shadow-sm{text-shadow: var(--text-shadow-sm)}
 
             
 /* End :-----------ACSS content/docs/guide/font-and-text.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/guide/layout-css.mdx------------------------*/
 .mx-4{margin-right:var(--space-4,1rem);margin-left:var(--space-4,1rem)}
 .p-32px-24px{padding: 32px 24px}
 .w-100\%{width: 100%}
-.bgc-primary600\/7{background-color:oklch(from var(--primary600,#7F56D9) l c h/0.7 )}
-.c--text-color{color: var(--text-color)}
+.c--text-color{color:var(--text-color)}
 .gtc-repeat-auto-fit-minmax-280px-1fr{grid-template-columns: repeat(auto-fit,  minmax(280px , 1fr ) )}
 .g-20px{gap: 20px}
 .p-8px{padding: 8px}
+.ff-inter{font-family:inter}
+.p-20px{padding: 20px}
 .br-20px{border-radius: 20px}
-.b-1px-s-black\/1{border:1px solid oklch(from black l c h/0.1 )}
-.bxs-0px-12px-32px--8px-black\/1{box-shadow:0px 12px 32px -8px oklch(from black l c h/0.1 )}
+.b-1px-s-black\/1{border:1px solid oklch(from black l c h/1 )}
+.bxs-0px-12px-32px--8px-black\/1{box-shadow:0px 12px 32px -8px oklch(from black l c h/1 )}
 .d-ib{display:inline-block}
 .p-6px-12px{padding: 6px 12px}
 .br-999px{border-radius: 999px}
-.bgc-blue\/1{background-color:oklch(from blue l c h/0.1 )}
+.bgc-blue\/1{background-color:oklch(from blue l c h/1 )}
 .les-0\.02em{letter-spacing: 0.02em}
+.fs-13px{font-size: 13px}
 .g-8px{gap: 8px}
 .lh-28px{line-height: 28px}
+.fs-15px{font-size: 15px}
 .lh-24px{line-height: 24px}
 .g-10px{gap: 10px}
 .p-16px{padding: 16px}
@@ -1318,6 +1543,7 @@
 .h-8px{height: 8px}
 .w-87\%{width: 87%}
 .h-100\%{height: 100%}
+.pt-4px{padding-top: 4px}
 .w-10px{width: 10px}
 .h-10px{height: 10px}
 .bgc-green{background-color:green}
@@ -1336,15 +1562,16 @@
             
 /* End :-----------ACSS content/docs/guide/layout-css.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/guide/property-alias.mdx------------------------*/
 
             
 /* End :-----------ACSS content/docs/guide/property-alias.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/guide/transform.mdx------------------------*/
-.an-spins{animation-name:spins}
 .cube-faced{position: absolute} 
 .cube-faced{width: 120px} 
 .cube-faced{height: 120px} 
@@ -1366,10 +1593,10 @@
             
 /* End :-----------ACSS content/docs/guide/transform.mdx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS react-aria/Button.tsx------------------------*/
-.--accent\:--tint{--accent: var(--tint)}
-.--tint\:--purple{--tint: var(--purple)}
+.--accentColor\:purpleRA{--accentColor:var(--purpleColor,oklch(0.7 .223324 302))}
 .appearance-none{appearance:none}
 .h-2rem{height: 2rem}
 .py-0{padding-top:0;padding-bottom:0}
@@ -1387,12 +1614,142 @@
 .--has\(__svg--oc\)\[p-0px\,br-9999px\,flex-shrink-0\,w-2rem\]:has( > svg:only-child){width: 2rem} 
 
 .\[data-pressed\]-scale-0\.9[data-pressed]{scale: 0.9}
-@media (prefers-color-scheme: dark){ .dark\[--highlight-background\:--gray-1600\]{--highlight-background: var(--gray-1600)}} 
+.ButtonRA{
+            
+            --border-color: var(--accentColor,oklch(1 .25049 284.23));
+            --button-background: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 98.1187% calc(l * c * 0.5) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 29.6725% calc(l * c * 0.5) h));
+            --button-gradient:light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 35.3616% calc(l * c * 0.6) h));
+            --button-border: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 91.1434% calc(l * c * 0.7) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 41.0821% calc(l * c * 0.7) h));
+            --button-highlight: rgb(255 255 255 / 0.8);
+            --button-shadow: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 85.1751% calc(l * c * 0.8) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 46.9058% calc(l * c * 0.8) h));
+            --button-border-size: 1px;
+            --button-text: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 29.6725% c h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 91.1434% c h));
+            --button-gradient-size: 8px;
+            --text-color: var(--gray-1200,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 79.1773% c h)));
+            --text-color-hover: var(--gray-1300,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 35.3616% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 85.1751% c h)));
+            --text-color-disabled: var(--gray-600,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 72.3297% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 57.9699% c h)));
+    
+    background:var(--button-background);
+    display:inline-flex;align-items:center;justify-content:center;
+    color: var(--button-text);
+    box-shadow: 
+      inset 0 -1px 0 var(--button-shadow), /* bottom shadow */
+      inset 0 0 0 var(--button-border-size) var(--button-border), /* border */
+      inset 0px calc(var(--button-border-size) + 1px) 0px var(--button-highlight), /* top specular highlight */
+      inset 0px calc(-1 * var(--button-gradient-size)) var(--button-gradient-size) -2px var(--button-gradient); /* inner gradient */
+    outline: none;
+    transition-property: background, color, scale, box-shadow;
+    transition-duration: 200ms;
+    will-change: scale;
+    forced-color-adjust: none;
+    -webkit-tap-highlight-color: transparent;
+
+    &:where([data-pressed]) {
+      --button-background: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 35.3616% calc(l * c * 0.6) h));
+    }
+
+    &:where([data-focus-visible]) {
+      outline: 2px solid var(--focus-ring-color,light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 51.9076% c h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 67.0121% c h)));
+      outline-offset: 2px;
+    }
+
+    &:where([data-variant=secondary]) {
+      --button-color: var(--grayColor,oklch(0.5 0 0));
+    }
+
+    &:where([data-variant=quiet]) {
+      --button-background: none;
+      --button-text: var(--text-color);
+      box-shadow: 0 0 0 1px transparent;
+
+      &:where([data-hovered], [data-pressed]) {
+        --button-background: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 35.3616% calc(l * c * 0.6) h));
+        --button-text: var(--tint-1400);
+        box-shadow: 0 0 0 1px light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 35.3616% calc(l * c * 0.6) h));
+      }
+    }
+
+    &:where([data-selected]) {
+      --button-background: oklch(from var(--button-color) 55% c h);
+      --button-border: oklch(from var(--button-color) 50% c h);
+      --button-gradient: var(--button-border);
+      --button-highlight: rgb(255 255 255 / 0.2);
+      --button-shadow: oklch(from var(--button-color) 30% c h);
+      --button-text: var(--highlight-foreground);
+
+      box-shadow:
+        inset 0 -1px 0 var(--button-shadow), /* bottom shadow */
+        inset 0 0 0 1px var(--button-border), /* border */
+        inset 0 2px 0 var(--button-highlight), /* top specular highlight */
+        inset 0 calc(-1 * var(--button-gradient-size)) var(--button-gradient-size) var(--button-gradient); /* inner gradient */
+
+      &:where([data-pressed]) {
+        --button-background: oklch(from var(--button-color) 50% c h);
+      }
+
+      @media (prefers-color-scheme: dark){
+        --button-highlight: rgb(255 255 255 / 0.4);
+        --button-gradient: rgb(255 255 255 / 0.2);
+        --button-shadow: var(--button-border);
+        box-shadow:
+          inset 0 1px 0 var(--button-highlight), /* top specular highlight */
+          inset 0 var(--button-gradient-size) var(--button-gradient-size) var(--button-gradient), /* inner gradient */
+          inset 0 0 0 1px var(--button-border) /* border */}
+    }
+
+    &:where([data-disabled]) {
+      box-shadow: none;
+      --button-background: var(--border-color-disabled);
+      --button-text: var(--text-color-disabled);
+
+      &:where([data-variant=quiet]) {
+        --button-background: none;
+      }
+    }
+
+    @media (forced-colors: active){
+      --button-background: ButtonFace;
+      --button-text: ButtonText;
+      --button-border: ButtonBorder;
+      box-shadow: inset 0 0 0 var(--button-border-size) var(--button-border);
+
+      &:where([data-variant=quiet]) {
+        --button-border: transparent;
+        &:where([data-hovered], [data-pressed]) {
+          --button-border: ButtonBorder;
+        }
+      }
+
+      &:where([data-selected]) {
+        --button-background: Highlight;
+        --button-text: HighlightText;
+        --button-border: Highlight;
+      }
+
+      &:where([data-disabled]) {
+        --button-background: ButtonFace;
+        --button-text: GrayText;
+        --button-border: GrayText;
+
+        &:where([data-variant=quiet]) {
+          --button-border: transparent;
+        }
+      }}
+
+    @media (prefers-color-scheme: dark){
+      --button-shadow: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 35.3616% calc(l * c * 0.6) h));;
+      --button-highlight: rgb(255 255 255 / 0.15);
+      box-shadow:
+        inset 0 var(--button-border-size) 0 var(--button-highlight), /* top specular highlight */
+        inset 0 calc(-1 * var(--button-border-size)) 0 var(--button-shadow), /* bottom shadow */
+        inset 0 0 0 var(--button-border-size) var(--button-border), /* border */
+        inset 0 var(--button-gradient-size) var(--button-gradient-size) -2px var(--button-gradient) /* inner gradient */}} 
 
 
             
 /* End :-----------ACSS react-aria/Button.tsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS react-aria/Checkbox.tsx------------------------*/
 .w-4{width:var(--space-4,1rem)}
@@ -1414,10 +1771,19 @@
             
 /* End :-----------ACSS react-aria/Checkbox.tsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS react-aria/NumberField.tsx------------------------*/
 .fs--font-size{font-size: var(--font-size)}
 .h-10{height:var(--space-10,2.5rem)}
+.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{content:""} 
+.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{position: absolute} 
+.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{inset: 1px} 
+.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{z-index:2} 
+.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{pointer-events: none} 
+.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{border-radius:inherit} 
+.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{outline:2px solid var(--focus-ring-color)} 
+
 @layer base{ .\@base-au{all: unset}}
 .fg-1{flex-grow: 1}
 .h-100p{height: 100%}
@@ -1432,7 +1798,8 @@
 .flex-0-0-40px{flex: 0 0 40px}
 .bl-1px-s-grayRATheme300{border-left:1px solid light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 91.1434% calc(l * c * 0.7) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% calc(l * c * 0.7) h))}
 .br-0{border-radius: 0}
-.--hover\[bgc-grayRATheme100\]:hover{background-color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 98.1187% calc(l * c * 0.5) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 29.6725% calc(l * c * 0.5) h))} 
+.\[data-pressed\]\[bgc-grayRATheme100\,scale-0\.95\][data-pressed]{background-color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 98.1187% calc(l * c * 0.5) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 29.6725% calc(l * c * 0.5) h))} 
+.\[data-pressed\]\[bgc-grayRATheme100\,scale-0\.95\][data-pressed]{scale: 0.95} 
 
 .\[data-disabled\]\[c-grayRATheme600\,cna\,bgc-grayRATheme100\][data-disabled]{color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 72.3297% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 57.9699% c h))} 
 .\[data-disabled\]\[c-grayRATheme600\,cna\,bgc-grayRATheme100\][data-disabled]{cursor: not-allowed} 
@@ -1446,6 +1813,7 @@
             
 /* End :-----------ACSS react-aria/NumberField.tsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS react-aria/ProgressBar.tsx------------------------*/
 .h-2{height:var(--space-2,0.5rem)}
@@ -1463,12 +1831,14 @@
             
 /* End :-----------ACSS react-aria/ProgressBar.tsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS react-aria/ProgressCircle.tsx------------------------*/
 
             
 /* End :-----------ACSS react-aria/ProgressCircle.tsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS react-aria/RadioGroup.tsx------------------------*/
 .g-3{gap:var(--space-3,0.75rem)}
@@ -1478,8 +1848,11 @@
             
 /* End :-----------ACSS react-aria/RadioGroup.tsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS react-aria/SearchField.tsx------------------------*/
+.removeCancelButton{&::-webkit-search-cancel-button,&::-webkit-search-decoration {-webkit-appearance: none;}}
+
 .--hover\[bgc-grayRATheme200\,c-grayRATheme1200\]:hover{background-color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 35.3616% calc(l * c * 0.6) h))} 
 .--hover\[bgc-grayRATheme200\,c-grayRATheme1200\]:hover{color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 79.1773% c h))} 
 
@@ -1489,6 +1862,7 @@
             
 /* End :-----------ACSS react-aria/SearchField.tsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS react-aria/Switch.tsx------------------------*/
 .w-2rem{width: 2rem}
@@ -1497,18 +1871,101 @@
 .tn-all-200ms{transition:all 200ms}
 .db{display: block}
 .x-square-0\.857rem{width:calc(0.857rem - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(0.857rem - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(0.857rem - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
-.bgc--field-background{background-color: var(--field-background)}
+.bgc--field-background{background-color:var(--field-background)}
 .tn-transform-200ms{transition:transform 200ms}
 .tf-tx-0\.857rem{transform:translateX(0.857rem)}
 
             
 /* End :-----------ACSS react-aria/Switch.tsx----------------------------*/
 
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS react-aria/TextField.tsx------------------------*/
+.InsetRA{
+    --lightness-1000: 67.0121%;
+    --border-color-disabled: var(--gray-300,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 91.1434% calc(l * c * 0.7) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% calc(l * c * 0.7) h)));
+    --border-color-hover: var(--gray-500,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 79.1773% calc(l * c * 0.9) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 51.9076% calc(l * c * 0.9) h)));
+    --invalid-color: oklch(from var(--redColor,oklch(0.6 .181447 27.0726)) var(--lightness-1000) c h);
+    --gray-50: #ffffff;
+    --field-background: var(--gray-50);
+    --inset-background: var(--field-background);
+    --inset-border: var(--border-color);
+    --inset-border-size: 1px;
+    --inset-shadow-offset: 2px;
+    --inset-shadow-size: 4px;
+
+
+    background: var(--inset-background);
+    box-shadow:
+      inset 0 0 0 var(--inset-border-size) var(--inset-border),
+      /* border */ inset 0 var(--inset-shadow-offset) var(--inset-shadow-size) rgb(0 0 0 / 0.15),
+      /* inner shadow */ 0 1px 0 var(--gray-50); /* bottom specular highlight */
+    transition: box-shadow 200ms;
+    forced-color-adjust: none;
+
+    &:where([data-hovered], [data-pressed]) {
+      --inset-border: var(--border-color-hover);
+    }
+
+    &:where([data-invalid]) {
+      --inset-border: var(--invalid-color);
+      --inset-highlight: var(--inset-border);
+    }
+
+    &:where([data-disabled]) {
+      box-shadow: inset 0 0 0 1px var(--border-color-disabled);
+    }
+
+    &.track {
+      --inset-shadow-offset: 1px;
+      --inset-shadow-size: 3px;
+      @media (forced-colors: active){
+        --field-background: Field;
+        --border-color-disabled: GrayText;
+        --border-color-hover: ButtonBorder; 
+        --inset-background: Field;
+        --inset-border: ButtonBorder;
+        --inset-border-size: 1px;
+        --invalid-color: LinkText}
+      @media (prefers-color-scheme: light){
+        --inset-background: var(--gray-300,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 91.1434% calc(l * c * 0.7) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% calc(l * c * 0.7) h)));
+        --inset-border: var(--gray-500,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 79.1773% calc(l * c * 0.9) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 51.9076% calc(l * c * 0.9) h)));
+        --inset-border-size: 0.5px}
+    }
+
+    @media (forced-colors: active){
+      --inset-border: ButtonBorder;
+      box-shadow: inset 0 0 0 var(--inset-border-size) var(--inset-border)}
+
+    @media (prefers-color-scheme: dark){
+      --inset-border: var(--gray-200,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 35.3616% calc(l * c * 0.6) h)));
+      --border-color-hover: var(--gray-300,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 91.1434% calc(l * c * 0.7) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% calc(l * c * 0.7) h)));
+      --inset-highlight: var(--gray-400,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 85.1751% calc(l * c * 0.8) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 46.9058% calc(l * c * 0.8) h)));
+      --inset-shadow-size: 6px;
+     --gray-50: oklch(22% 0 0);
+
+      box-shadow:
+        inset 0 calc(-1 * var(--inset-border-size)) 0 var(--inset-highlight),
+        /* bottom specular highlight */ inset 0 0 0 var(--inset-border-size) var(--inset-border),
+        /* border */ inset 0 1px var(--inset-shadow-size) rgb(0 0 0) /* inner shadow */}
+  }
 .ol-none{outline:none}
 
             
 /* End :-----------ACSS react-aria/TextField.tsx----------------------------*/
+
+            
+@media (768px<=width<=1024px){ .\@\[media\(768px\<\=width\<\=1024px\)\]-display-none{display:none}}
+
+            
+@media (prefers-color-scheme: dark){ .dark-bgc-0e0e0e{background-color:#0e0e0e} .dark-\[bgc-gray900\,c-white\,b-1px-s-gray700\]{background-color:var(--gray900,#101828)} .dark-\[bgc-gray900\,c-white\,b-1px-s-gray700\]{color:white} .dark-\[bgc-gray900\,c-white\,b-1px-s-gray700\]{border:1px solid var(--gray700,#344054)} .dark-\[bgc-gray900\,c-white\]{background-color:var(--gray900,#101828)} .dark-\[bgc-gray900\,c-white\]{color:white} .dark-c-white{color:white} .dark-c-gray400{color:var(--gray400,#98A2B3)} .dark-\[bgc-gray800\,c-white\,b-1px-s-gray700\]{background-color:var(--gray800,#1D2939)} .dark-\[bgc-gray800\,c-white\,b-1px-s-gray700\]{color:white} .dark-\[bgc-gray800\,c-white\,b-1px-s-gray700\]{border:1px solid var(--gray700,#344054)} .\@dark-c-white{color:white} @layer base{ .\@\[dark\,base\]\[c-white\,bgc-black\]{color:white}} @layer base{ .\@\[dark\,base\]\[c-white\,bgc-black\]{background-color:black}} @layer md{
+@media (min-width: 768px){.\@\[dark\,md\]\[c-white\,bgc-black\]{color:white}}} @layer md{
+@media (min-width: 768px){.\@\[dark\,md\]\[c-white\,bgc-black\]{background-color:black}}} .dark\[--highlight-background\:--gray-1600\]{--highlight-background: var(--gray-1600)}}
+
+            
+@media (prefers-reduced-motion: reduce){ .\@motion-reduce-an-none{animation-name:none}}
+
+            
+@media print{ .print-display-none{display:none}}
 
             

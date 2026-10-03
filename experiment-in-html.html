@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/aliascss@latest/dist/aliascss.js">
+    </script>
+</head>
+
+<body class="
+  m-0px
+  min-height-100vh
+  background-color-080b14
+  color-fff
+  font-family-system-ui
+  display-flex
+  align-items-center
+  justify-content-center
+  overflow-hidden
+">
+
+    <!-- CUBE SCENE -->
+
+    <div class="
+    position-relative
+    width-320px
+    height-320px
+    display-flex
+    align-items-center
+    justify-content-center
+    perspective-800px
+  ">
+
+        <!-- GLOW -->
+
+        <div class="
+        position-absolute
+        width-260px
+        height-260px
+        border-radius-50p
+        background-color-6366f1
+        opacity-0.18
+        pointer-events-none
+        animation-name-cubeglow
+        animation-duration-4s
+        animation-iteration-count-infinite
+      " keyframes-cubeGlow="
+        @0-[opacity-0.12,transform-scale-0.85]
+        @50-[opacity-0.28,transform-scale-1.1]
+        @100-[opacity-0.12,transform-scale-0.85]
+      "></div>
+
+
+        <!-- CUBE -->
+
+        <div class="
+        position-relative
+        width-140px
+        height-140px
+        transform-style-preserve-3d
+        animation-name-cubeRotate
+        animation-duration-8s
+        animation-timing-function-linear
+        animation-iteration-count-infinite
+      " keyframes-cubeRotate="
+        @0-[transform-rotateX--20deg__rotateY-35deg]
+        @25-[transform-rotateX-72deg__rotateY-90deg]
+        @50-[transform-rotateX-162deg__rotateY-180deg]
+        @75-[transform-rotateX-252deg__rotateY-270deg]
+        @100-[transform-rotateX-340deg__rotateY-360deg]
+      ">
+
+            <!-- FRONT -->
+
+            <div class="
+        position-absolute
+        top-0px
+        left-0px
+        width-140px
+        height-140px
+        display-flex
+        align-items-center
+        justify-content-center
+        background-color-6366f1
+        border-1px-solid-818cf8
+        border-radius-16px
+        font-size-24px
+        font-weight-700
+        backface-visibility-hidden
+        transform-translateZ-70px
+      ">
+                A
+            </div>
+
+
+            <!-- BACK -->
+
+            <div class="
+        position-absolute
+        top-0px
+        left-0px
+        width-140px
+        height-140px
+        display-flex
+        align-items-center
+        justify-content-center
+        background-color-8b5cf6
+        border-1px-solid-a78bfa
+        border-radius-16px
+        font-size-24px
+        font-weight-700
+        backface-visibility-hidden
+        transform-rotateY-180deg__translateZ-70px
+      ">
+                B
+            </div>
+
+
+            <!-- RIGHT -->
+
+            <div class="
+        position-absolute
+        top-0px
+        left-0px
+        width-140px
+        height-140px
+        display-flex
+        align-items-center
+        justify-content-center
+        background-color-ec4899
+        border-1px-solid-f472b6
+        border-radius-16px
+        font-size-24px
+        font-weight-700
+        backface-visibility-hidden
+        transform-rotateY-90deg__translateZ-70px
+      ">
+                C
+            </div>
+
+
+            <!-- LEFT -->
+
+            <div class="
+        position-absolute
+        top-0px
+        left-0px
+        width-140px
+        height-140px
+        display-flex
+        align-items-center
+        justify-content-center
+        background-color-14b8a6
+        border-1px-solid-5eead4
+        border-radius-16px
+        font-size-24px
+        font-weight-700
+        backface-visibility-hidden
+        transform-rotateY--90deg__translateZ-70px
+      ">
+                D
+            </div>
+
+
+            <!-- TOP -->
+
+            <div class="
+        position-absolute
+        top-0px
+        left-0px
+        width-140px
+        height-140px
+        display-flex
+        align-items-center
+        justify-content-center
+        background-color-3b82f6
+        border-1px-solid-60a5fa
+        border-radius-16px
+        font-size-24px
+        font-weight-700
+        backface-visibility-hidden
+        transform-rotateX-90deg__translateZ-70px
+      ">
+                E
+            </div>
+
+
+            <!-- BOTTOM -->
+
+            <div class="
+        position-absolute
+        top-0px
+        left-0px
+        width-140px
+        height-140px
+        display-flex
+        align-items-center
+        justify-content-center
+        background-color-f59e0b
+        border-1px-solid-fbbf24
+        border-radius-16px
+        font-size-24px
+        font-weight-700
+        backface-visibility-hidden
+        transform-rotateX--90deg__translateZ-70px
+      ">
+                F
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
