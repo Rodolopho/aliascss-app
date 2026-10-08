@@ -6,7 +6,8 @@
 		"postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build",
-		"aliascss-watch": "aliascss --config --watch"
+		"css:build": "aliascss --config ",
+		"css:watch": "aliascss --config --watch"
 	},
 	"dependencies": {
 		"@codesandbox/sandpack-react": "^2.20.0",

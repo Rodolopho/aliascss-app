@@ -13,6 +13,6 @@
 .flex-direction-column{flex-direction:column}
 @container (min-width: 768px){ .\@container-md\[flex-direction-row\,align-items-center\]{flex-direction:row}} 
 @container (min-width: 768px){ .\@container-md\[flex-direction-row\,align-items-center\]{align-items:center}}
-@supports(display:grid){ @layer base{ .\@\[supports\(display\:grid\)\,base\]-display-grid{display:grid}}}
-@container_sidebar(min-width:400px){ .\@\[container_sidebar\(min-width\:400px\)\]-display-none{display:none}}
+@supports (display:grid) { @layer base{ .\@\[supports\(display\:grid\)\,base\]-display-grid{display:grid}}}
+@container sidebar (min-width:400px) { .\@\[container_sidebar\(min-width\:400px\)\]-display-none{display:none}}
 @media (768px<=width<=1024px){ .\@\[media\(768px\<\=width\<\=1024px\)\]-display-none{display:none}}

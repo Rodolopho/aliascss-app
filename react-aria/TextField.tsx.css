@@ -6,6 +6,7 @@
 .c-grayRATheme1200{color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 79.1773% c h))}
 .InsetRA{
     --lightness-1000: 67.0121%;
+    --border-color: var(--gray-400,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 85.1751% calc(l * c * 0.8) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 46.9058% calc(l * c * 0.8) h)));
     --border-color-disabled: var(--gray-300,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 91.1434% calc(l * c * 0.7) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% calc(l * c * 0.7) h)));
     --border-color-hover: var(--gray-500,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 79.1773% calc(l * c * 0.9) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 51.9076% calc(l * c * 0.9) h)));
     --invalid-color: oklch(from var(--redColor,oklch(0.6 .181447 27.0726)) var(--lightness-1000) c h);

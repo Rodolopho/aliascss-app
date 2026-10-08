@@ -1,4 +1,21 @@
+
+/* Start :-----------ACSS:From aliasCSSConfig.Initializating @layer,------------------------*/
 @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* End :-----------ACSS aliasCSSConfig.Initializating @layer,----------------------------*/
+
+            
+/* Start :-----------ACSS app/[[...mdxPath]]/layout.tsx------------------------*/
+
+            
+/* End :-----------ACSS app/[[...mdxPath]]/layout.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS app/[[...mdxPath]]/page.jsx------------------------*/
+
+            
+/* End :-----------ACSS app/[[...mdxPath]]/page.jsx----------------------------*/
+
             
 /* Start :-----------ACSS app/components/codify.jsx------------------------*/
 .df{display: flex}
@@ -14,7 +31,6 @@
             
 /* End :-----------ACSS app/components/codify.jsx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/color.jsx------------------------*/
 .p-0px-32px{padding: 0px 32px}
@@ -89,21 +105,18 @@
             
 /* End :-----------ACSS app/components/color.jsx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/css-highlighter.jsx------------------------*/
 
             
 /* End :-----------ACSS app/components/css-highlighter.jsx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/custom-editor.jsx------------------------*/
 
             
 /* End :-----------ACSS app/components/custom-editor.jsx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/editor.jsx------------------------*/
 .h100vh{height:100vh}
@@ -124,7 +137,6 @@
             
 /* End :-----------ACSS app/components/editor.jsx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/extactor.demo.tsx------------------------*/
 .bgc-primary100{background-color:var(--primary100,#F4EBFF)}
@@ -137,7 +149,6 @@
             
 /* End :-----------ACSS app/components/extactor.demo.tsx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/inputClassName.jsx------------------------*/
 .d-f{display:flex}
@@ -169,7 +180,6 @@
             
 /* End :-----------ACSS app/components/inputClassName.jsx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/logo.jsx------------------------*/
 .pl-32px{padding-left: 32px}
@@ -178,7 +188,6 @@
             
 /* End :-----------ACSS app/components/logo.jsx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/modalSearch.jsx------------------------*/
 .cursor-pointer{cursor:pointer}
@@ -205,7 +214,6 @@
             
 /* End :-----------ACSS app/components/modalSearch.jsx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/playGround.jsx------------------------*/
 .mb-12px{margin-bottom: 12px}
@@ -228,7 +236,6 @@
             
 /* End :-----------ACSS app/components/playGround.jsx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/quickCompiler.jsx------------------------*/
 .g-16px{gap: 16px}
@@ -282,14 +289,12 @@
             
 /* End :-----------ACSS app/components/quickCompiler.jsx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/showCodeBox.jsx------------------------*/
 
             
 /* End :-----------ACSS app/components/showCodeBox.jsx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS app/components/staticClassNames.jsx------------------------*/
 .w100fr{width:100fr}
@@ -322,7 +327,343 @@
             
 /* End :-----------ACSS app/components/staticClassNames.jsx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS app/landing/layout.tsx------------------------*/
+
+            
+/* End :-----------ACSS app/landing/layout.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS app/landing/page.tsx------------------------*/
+
+            
+/* End :-----------ACSS app/landing/page.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS app/components/landing/home.jsx------------------------*/
+.color-scheme-light-dark{color-scheme:light dark}
+.scroll-behavior-smooth{scroll-behavior:smooth}
+.position-fixed{position:fixed}
+.inset-0{inset: 0}
+.width-100vw{width: 100vw}
+.height-100vh{height: 100vh}
+.z-index--10{z-index:-10}
+.pointer-events-none{pointer-events:none}
+.overflow-hidden{overflow:hidden}
+.background-color-f8fafc{background-color:#f8fafc}
+ html[class~="dark"] ._html\[class\~\=dark\]\&-background-color-090d16{background-color:#090d16}
+.transition-background-color-500ms{transition:background-color 500ms}
+.position-absolute{position:absolute}
+.top-10\%{top: 10%}
+.left-5\%{left: 5%}
+.width-550px{width: 550px}
+.height-550px{height: 550px}
+.border-radius-40\%{border-radius: 40%}
+.border-1px-solid-6366f1\/0\.3{border:1px solid oklch(from #6366f1 l c h/0.3 )}
+ html[class~="dark"] ._html\[class\~\=dark\]\&-border-1px-solid-818cf8\/0\.25{border:1px solid oklch(from #818cf8 l c h/0.25 )}
+.background-color-6366f1\/0\.06{background-color:oklch(from #6366f1 l c h/0.06 )}
+ html[class~="dark"] ._html\[class\~\=dark\]\&-background-color-6366f1\/0\.12{background-color:oklch(from #6366f1 l c h/0.12 )}
+.filter-blur-40px{filter:blur(40px)}
+.tf-perspective-1200px{transform:perspective(1200px)}
+.an-drift3d{animation-name:drift3d}
+.adu-24s{animation-duration: 24s}
+.atf-linear{animation-timing-function:linear}
+.aici{animation-iteration-count: infinite}
+.bottom-5\%{bottom: 5%}
+.right-5\%{right: 5%}
+.width-450px{width: 450px}
+.height-450px{height: 450px}
+.border-radius-50\%{border-radius: 50%}
+.background\(radial-gradient\(circle\,rgba\(236\,72\,153\,0\.18\)\,transparent_70\%\)\)_{background:radial-gradient(circle, rgba(236, 72, 153, 0.18), transparent 70%)}
+ html[class~="dark"] ._html\[class\~\=dark\]\&-background\(radial-gradient\(circle\,rgba\(244\,114\,182\,0\.25\)\,transparent_70\%\)\)_{background:radial-gradient(circle, rgba(244, 114, 182, 0.25), transparent 70%)}
+.filter-blur-60px{filter:blur(60px)}
+.an-orbDrift{animation-name:orbDrift}
+.adu-16s{animation-duration: 16s}
+.atf-ease-in-out{animation-timing-function:ease-in-out}
+.width-100\%{width: 100%}
+.height-100\%{height: 100%}
+.opacity-30{opacity: 30}
+ html[class~="dark"] ._html\[class\~\=dark\]\&-opacity-15{opacity: 15}
+.background-size-40px-40px{background-size: 40px 40px}
+.background\(linear-gradient\(to_right\,rgba\(100\,116\,139\,0\.15\)_1px\,transparent_1px\)\,linear-gradient\(to_bottom\,rgba\(100\,116\,139\,0\.15\)_1px\,transparent_1px\)\)_{background:linear-gradient(to right, rgba(100, 116, 139, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(100, 116, 139, 0.15) 1px, transparent 1px)}
+ html[class~="dark"] ._html\[class\~\=dark\]\&-background\(linear-gradient\(to_right\,rgba\(255\,255\,255\,0\.08\)_1px\,transparent_1px\)\,linear-gradient\(to_bottom\,rgba\(255\,255\,255\,0\.08\)_1px\,transparent_1px\)\)_{background:linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px)}
+.tf-perspective-600px__rotateX-65deg{transform:perspective(600px) rotateX(65deg)}
+.transform-origin-center-top{transform-origin:-center-top}
+.an-floorGrid{animation-name:floorGrid}
+.adu-5s{animation-duration: 5s}
+.position-relative{position:relative}
+.top-0{top: 0}
+.r-0{right: 0}
+.l-0{left: 0}
+.min-height-100vh{min-height: 100vh}
+.background-color-0b0f19{background-color:#0b0f19}
+.color-ffffff{color:#ffffff}
+.overflow-x-hidden{overflow-x:hidden}
+.left-50\%{left: 50%}
+.transform-translateX--50\%{transform:translateX(-50%)}
+.max-width-1200px{max-width: 1200px}
+.height-600px{height: 600px}
+.background\(radial-gradient\(ellipse_at_top\,rgba\(99\,102\,241\,0\.18\)\,transparent_70\%\)\)_{background:radial-gradient(ellipse at top, rgba(99, 102, 241, 0.18), transparent 70%)}
+.z-index-0{z-index:0}
+.top-400px{top: 400px}
+.right--200px{right: -200px}
+.width-500px{width: 500px}
+.height-500px{height: 500px}
+.background-color-ec4899\/0\.08{background-color:oklch(from #ec4899 l c h/0.08 )}
+.filter-blur-120px{filter:blur(120px)}
+.position-sticky{position:sticky}
+.z-index-50{z-index:50}
+.height-70px{height: 70px}
+.background-color-0b0f19\/0\.8{background-color:oklch(from #0b0f19 l c h/0.8 )}
+.backdrop-filter-blur-16px{backdrop-filter:blur(16px)}
+.border-bottom-1px-solid-ffffff\/0\.08{border-bottom:1px solid oklch(from #ffffff l c h/0.08 )}
+.display-flex{display:flex}
+.align-items-center{align-items:center}
+.justify-content-space-between{justify-content:space-between}
+.padding-inline-24px{padding-inline: 24px}
+@layer lg{
+@media (min-width: 992px){.\@lg-padding-inline-48px{padding-inline: 48px}}}
+.gap-10px{gap: 10px}
+.text-decoration-none{text-decoration:none}
+.font-size-22px{font-size: 22px}
+.font-weight-800{font-weight:800}
+.letter-spacing--0\.03em{letter-spacing: -0.03em}
+.color-6366f1{color:#6366f1}
+.font-size-11px{font-size: 11px}
+.font-weight-700{font-weight:700}
+.background-color-6366f1\/0\.15{background-color:oklch(from #6366f1 l c h/0.15 )}
+.color-818cf8{color:#818cf8}
+.padding-3px-8px{padding: 3px 8px}
+.border-radius-9999px{border-radius: 9999px}
+@layer base{ .\@base-display-none{display:none}}
+@layer md{
+@media (min-width: 768px){.\@md-display-flex{display:flex}}}
+.gap-28px{gap: 28px}
+.font-size-14px{font-size: 14px}
+.font-weight-500{font-weight:500}
+.color-94a3b8{color:#94a3b8}
+.--hover-color-ffffff:hover{color:#ffffff}
+.transition-color-150ms{transition:color 150ms}
+.gap-14px{gap: 14px}
+.display-inline-flex{display:inline-flex}
+.justify-content-center{justify-content:center}
+.padding-8px-18px{padding: 8px 18px}
+.border-radius-10px{border-radius: 10px}
+.font-weight-600{font-weight:600}
+.background-color-6366f1{background-color:#6366f1}
+.tn-background-color-150ms__transform-150ms{transition:background-color 150ms,transform 150ms}
+.--hover-\[background-color-4f46e5\,transform-translateY--1px\]:hover{background-color:#4f46e5} 
+.--hover-\[background-color-4f46e5\,transform-translateY--1px\]:hover{transform:translateY(-1px)} 
+
+.z-index-1{z-index:1}
+.padding-top-80px{padding-top: 80px}
+.padding-bottom-60px{padding-bottom: 60px}
+.max-width-1280px{max-width: 1280px}
+.margin-inline-auto{margin-inline:auto}
+.flex-direction-column{flex-direction:column}
+.text-align-center{text-align:center}
+.gap-8px{gap: 8px}
+.padding-6px-16px{padding: 6px 16px}
+.background-color-ffffff\/0\.05{background-color:oklch(from #ffffff l c h/0.05 )}
+.border-1px-solid-ffffff\/0\.1{border:1px solid oklch(from #ffffff l c h/0.1 )}
+.margin-bottom-24px{margin-bottom: 24px}
+.width-8px{width: 8px}
+.height-8px{height: 8px}
+.background-color-10b981{background-color:#10b981}
+.box-shadow-0px-0px-8px-10b981{box-shadow:0px 0px 8px #10b981}
+.font-size-13px{font-size: 13px}
+.color-cbd5e1{color:#cbd5e1}
+@layer base{ .\@base-font-size-44px{font-size: 44px}}
+@layer md{
+@media (min-width: 768px){.\@md-font-size-64px{font-size: 64px}}}
+@layer lg{
+@media (min-width: 992px){.\@lg-font-size-76px{font-size: 76px}}}
+.letter-spacing--0\.04em{letter-spacing: -0.04em}
+.line-height-1\.08{line-height: 1.08}
+.max-width-980px{max-width: 980px}
+.margin-0{margin: 0}
+.background\(linear-gradient\(to_right\,\#818cf8\,\#c084fc\,\#f472b6\)\)_{background:linear-gradient(to right, #818cf8, #c084fc, #f472b6)}
+.background-clip-text{background-clip:text}
+.color-transparent{color:transparent}
+@layer base{ .\@base-font-size-18px{font-size: 18px}}
+@layer md{
+@media (min-width: 768px){.\@md-font-size-20px{font-size: 20px}}}
+.line-height-1\.6{line-height: 1.6}
+.max-width-680px{max-width: 680px}
+.margin-top-24px{margin-top: 24px}
+.margin-bottom-36px{margin-bottom: 36px}
+.font-family-monospace{font-family:monospace}
+.color-a5b4fc{color:#a5b4fc}
+.background-color-ffffff\/0\.08{background-color:oklch(from #ffffff l c h/0.08 )}
+.padding-2px-6px{padding: 2px 6px}
+.border-radius-4px{border-radius: 4px}
+@layer base{ .\@base-flex-direction-row{flex-direction:row}}
+.gap-16px{gap: 16px}
+.margin-bottom-64px{margin-bottom: 64px}
+.padding-14px-32px{padding: 14px 32px}
+.border-radius-12px{border-radius: 12px}
+.font-size-16px{font-size: 16px}
+.box-shadow-0px-8px-24px-6366f1\/0\.3{box-shadow:0px 8px 24px oklch(from #6366f1 l c h/0.3 )}
+.tn-all-150ms{transition:all 150ms}
+.--hover-\[background-color-4f46e5\,transform-translateY--2px\,box-shadow-0px-12px-32px-6366f1\/0\.4\]:hover{background-color:#4f46e5} 
+.--hover-\[background-color-4f46e5\,transform-translateY--2px\,box-shadow-0px-12px-32px-6366f1\/0\.4\]:hover{transform:translateY(-2px)} 
+.--hover-\[background-color-4f46e5\,transform-translateY--2px\,box-shadow-0px-12px-32px-6366f1\/0\.4\]:hover{box-shadow:0px 12px 32px oklch(from #6366f1 l c h/0.4 )} 
+
+.gap-12px{gap: 12px}
+.padding-12px-20px{padding: 12px 20px}
+.background-color-111827{background-color:#111827}
+.border-1px-solid-ffffff\/0\.12{border:1px solid oklch(from #ffffff l c h/0.12 )}
+.tn-border-color-150ms{transition:border-color 150ms}
+.--hover-border-color-6366f1:hover{border-color:#6366f1}
+.outline-none{outline:none}
+.color-10b981{color:#10b981}
+.width-16px{width: 16px}
+.height-16px{height: 16px}
+.color-64748b{color:#64748b}
+.max-width-1100px{max-width: 1100px}
+.text-align-left{text-align:left}
+.border-radius-20px{border-radius: 20px}
+.background-color-111827\/0\.9{background-color:oklch(from #111827 l c h/0.9 )}
+.backdrop-filter-blur-20px{backdrop-filter:blur(20px)}
+.box-shadow-0px-24px-64px-000000\/0\.6{box-shadow:0px 24px 64px oklch(from #000000 l c h/0.6 )}
+.height-44px{height: 44px}
+.padding-inline-16px{padding-inline: 16px}
+.width-11px{width: 11px}
+.height-11px{height: 11px}
+.background-color-ef4444\/0\.8{background-color:oklch(from #ef4444 l c h/0.8 )}
+.background-color-f59e0b\/0\.8{background-color:oklch(from #f59e0b l c h/0.8 )}
+.background-color-10b981\/0\.8{background-color:oklch(from #10b981 l c h/0.8 )}
+.font-size-12px{font-size: 12px}
+.margin-left-10px{margin-left: 10px}
+.text-transform-uppercase{text-transform:uppercase}
+.letter-spacing-0\.08em{letter-spacing: 0.08em}
+.gap-6px{gap: 6px}
+.width-6px{width: 6px}
+.height-6px{height: 6px}
+@layer base{ .\@base-flex-direction-column{flex-direction:column}}
+@layer lg{
+@media (min-width: 992px){.\@lg-flex-direction-row{flex-direction:row}}}
+.flex-1{flex: 1}
+.padding-24px{padding: 24px}
+.line-height-1\.7{line-height: 1.7}
+@layer lg{
+@media (min-width: 992px){.\@lg-border-bottom-none{border-bottom:none}}}
+@layer lg{
+@media (min-width: 992px){.\@lg-border-right-1px-solid-ffffff\/0\.08{border-right:1px solid oklch(from #ffffff l c h/0.08 )}}}
+.overflow-x-auto{overflow-x:auto}
+.background-color-0e1320{background-color:#0e1320}
+.padding-0{padding: 0}
+.background-color-transparent{background-color:transparent}
+.color-ec4899{color:#ec4899}
+.color-fde68a{color:#fde68a}
+.padding-40px{padding: 40px}
+.perspective-1000px{perspective: 1000px}
+.hero-glass-card{padding: 32px} 
+.hero-glass-card{border-radius: 20px} 
+.hero-glass-card{background-color:oklch(from #ffffff l c h/0.05 )} 
+.hero-glass-card{backdrop-filter:blur(12px)} 
+.hero-glass-card{border:1px solid oklch(from #ffffff l c h/0.1 )} 
+ 
+
+.max-width-320px{max-width: 320px}
+.tf-rotateX-10deg__rotateY--10deg{transform:rotateX(10deg) rotateY(-10deg)}
+.tn-transform-0\.2s-ease__box-shadow-0\.2s-ease{transition:transform 0.2s ease,box-shadow 0.2s ease}
+.--hover-\[tf-rotateX-0deg__rotateY-0deg\,box-shadow-0px-20px-40px-6366f1\/0\.2\]:hover{transform:rotateX(0deg) rotateY(0deg)} 
+.--hover-\[tf-rotateX-0deg__rotateY-0deg\,box-shadow-0px-20px-40px-6366f1\/0\.2\]:hover{box-shadow:0px 20px 40px oklch(from #6366f1 l c h/0.2 )} 
+
+.an-heroPulse{animation-name:heroPulse}
+.adu-3s{animation-duration: 3s}
+.padding-4px-10px{padding: 4px 10px}
+.background-color-10b981\/0\.1{background-color:oklch(from #10b981 l c h/0.1 )}
+.border-1px-solid-10b981\/0\.3{border:1px solid oklch(from #10b981 l c h/0.3 )}
+.margin-bottom-16px{margin-bottom: 16px}
+.line-height-1\.5{line-height: 1.5}
+.margin-top-8px{margin-top: 8px}
+.margin-bottom-20px{margin-bottom: 20px}
+.mini-btn{border:none} 
+.mini-btn{outline:none} 
+.mini-btn{padding: 8px 16px} 
+.mini-btn{border-radius: 8px} 
+.mini-btn{background-color:#6366f1} 
+.mini-btn{color:#ffffff} 
+.mini-btn{font-size: 13px} 
+.mini-btn{font-weight:600} 
+ 
+
+.padding-block-80px{padding-block: 80px}
+@layer base{ .\@base-font-size-36px{font-size: 36px}}
+@layer md{
+@media (min-width: 768px){.\@md-font-size-48px{font-size: 48px}}}
+.max-width-600px{max-width: 600px}
+.display-grid{display:grid}
+@layer base{ .\@base-grid-template-columns-1{grid-template-columns: 1}}
+@layer md{
+@media (min-width: 768px){.\@md-grid-template-columns-2{grid-template-columns: 2}}}
+@layer lg{
+@media (min-width: 992px){.\@lg-grid-template-columns-3{grid-template-columns: 3}}}
+.gap-24px{gap: 24px}
+.padding-32px{padding: 32px}
+.background-color-111827\/0\.7{background-color:oklch(from #111827 l c h/0.7 )}
+.border-1px-solid-ffffff\/0\.08{border:1px solid oklch(from #ffffff l c h/0.08 )}
+.width-44px{width: 44px}
+.font-size-20px{font-size: 20px}
+.margin-bottom-12px{margin-bottom: 12px}
+.background-color-ec4899\/0\.15{background-color:oklch(from #ec4899 l c h/0.15 )}
+.color-f472b6{color:#f472b6}
+.background-color-10b981\/0\.15{background-color:oklch(from #10b981 l c h/0.15 )}
+.color-34d399{color:#34d399}
+.background-color-f59e0b\/0\.15{background-color:oklch(from #f59e0b l c h/0.15 )}
+.color-fbbf24{color:#fbbf24}
+.background-color-06b6d4\/0\.15{background-color:oklch(from #06b6d4 l c h/0.15 )}
+.color-22d3ee{color:#22d3ee}
+.background-color-8b5cf6\/0\.15{background-color:oklch(from #8b5cf6 l c h/0.15 )}
+.color-c084fc{color:#c084fc}
+.margin-bottom-48px{margin-bottom: 48px}
+.font-size-36px{font-size: 36px}
+.border-radius-16px{border-radius: 16px}
+.background-color-111827\/0\.5{background-color:oklch(from #111827 l c h/0.5 )}
+.border-collapse-collapse{border-collapse:collapse}
+.background-color-ffffff\/0\.03{background-color:oklch(from #ffffff l c h/0.03 )}
+.border-bottom-1px-solid-ffffff\/0\.1{border-bottom:1px solid oklch(from #ffffff l c h/0.1 )}
+.padding-18px-24px{padding: 18px 24px}
+.width-35\%{width: 35%}
+.width-40\%{width: 40%}
+.background-color-6366f1\/0\.05{background-color:oklch(from #6366f1 l c h/0.05 )}
+.border-bottom-1px-solid-ffffff\/0\.05{border-bottom:1px solid oklch(from #ffffff l c h/0.05 )}
+.padding-16px-24px{padding: 16px 24px}
+.color-ef4444{color:#ef4444}
+.padding-block-100px{padding-block: 100px}
+.max-width-800px{max-width: 800px}
+.font-size-18px{font-size: 18px}
+.--hover-\[background-color-4f46e5\,transform-translateY--2px\]:hover{background-color:#4f46e5} 
+.--hover-\[background-color-4f46e5\,transform-translateY--2px\]:hover{transform:translateY(-2px)} 
+
+.border-top-1px-solid-ffffff\/0\.08{border-top:1px solid oklch(from #ffffff l c h/0.08 )}
+.padding-block-32px{padding-block: 32px}
+.transition-background-color-300ms__color-300ms{transition:background-color 300ms,color 300ms}
+.transition-background-color-300ms__border-color-300ms{transition:background-color 300ms,border-color 300ms}
+.box-shadow-none{box-shadow:none}
+.tn-border-color-150ms__background-color-150ms{transition:border-color 150ms,background-color 150ms}
+@layer base{ .\@base-font-size-11px{font-size: 11px}}
+@layer xs{
+@media (max-width: 575.99px){.\@xs-fs-9px{font-size: 9px}}}
+.display-block{display:block}
+.margin-top-4px{margin-top: 4px}
+
+@keyframes orbDrift{
+ 0% {transform:translate3d(0px,0px,0px)} 50% {transform:translate3d(-100px,-90px,50px)} 100% {transform:translate3d(0px,0px,0px)}
+}
+
+@keyframes heroPulse{ 0% {box-shadow:0px 0px 0px} 50% {box-shadow:0px 0px 30px oklch(from #6366f1 l c h/0.4 )} 100% {box-shadow:0px 0px 0px}
+}
+
+@keyframes pop{ 0% {} 100% {}
+}
+
+
+            
+/* End :-----------ACSS app/components/landing/home.jsx----------------------------*/
+
             
 /* Start :-----------ACSS app/components/partials/aside.jsx------------------------*/
 .is-active span{color:var(--blue600,#1570EF)} 
@@ -337,44 +678,314 @@
             
 /* End :-----------ACSS app/components/partials/aside.jsx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS app/components/landing/quick-doc/q-doc.jsx------------------------*/
+.w-100\%{width: 100%}
+.bgc-red{background-color:red}
+.t-0{top: 0}
+.c-white{color:white}
+.ml-auto{margin-left:auto}
+.w-200px{width: 200px}
+.h-200vh{height: 200vh}
+.bg-blue{background:blue}
+.mr-auto{margin-right:auto}
+.h-80vh{height: 80vh}
+.bg-gray{background:gray}
+
+            
+/* End :-----------ACSS app/components/landing/quick-doc/q-doc.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS components/logo.tsx------------------------*/
+.filter-invert-20\%{filter:invert(20%)}
+
+            
+/* End :-----------ACSS components/logo.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS components/landing/comp-table.tsx------------------------*/
+.c-indigo500{color:var(--indigo500,#6172F3)}
+.c-ffffff{color:#ffffff}
+.backdrop-filter-blur-12px{backdrop-filter:blur(12px)}
+.bgc-ffffff\/0\.03{background-color:oklch(from #ffffff l c h/0.03 )}
+.border-b-1px-solid-ffffff\/0\.1{border:1px solid}
+.width-25\%{width: 25%}
+.c-indigo400{color:var(--indigo400,#8098F9)}
+.bgc-indigo500\/0\.05{background-color:oklch(from var(--indigo500,#6172F3) l c h/0.05 )}
+.vertical-align-top{vertical-align:top}
+.border-b-1px-solid-ffffff\/0\.05{border:1px solid}
+.margin-top-6px{margin-top: 6px}
+.c-indigo300{color:var(--indigo300,#A4BCFD)}
+.bgc-indigo500\/0\.02{background-color:oklch(from var(--indigo500,#6172F3) l c h/0.02 )}
+.border-radius-8px{border-radius: 8px}
+.padding-12px{padding: 12px}
+.max-width-440px{max-width: 440px}
+.c-38bdf8{color:#38bdf8}
+.an-spin{animation-name:spin}
+.adu-1s{animation-duration: 1s}
+.display-inline-block{display:inline-block}
+.transform-rotate-45deg__scale-1\.2__translateY-30px{transform:rotate(45deg) scale(1.2) translateY(30px)}
+ html[class~="dark"] ._html\[class\~\=dark\]\&bgc-black\/0\.8{background-color:oklch(from black l c h/0.8 )}
+:focus .--focus\&b-2px-solid-blue700\/0\.4{border:2px solid oklch(from var(--blue700,#175CD3) l c h/0.4 )}
+@layer base{ .btn{all:unset}} 
+@layer base{ .btn{padding-left:12px;padding-right:12px}} 
+@layer base{ .btn{padding-top:8px;padding-bottom:8px}} 
+@layer base{ .btn{border-radius: 4px}} 
+@layer base{ .btn{font-weight:600}} 
+@layer base{ .btn{cursor:pointer}} 
+ 
+
+.--hover-bgc-primary700:hover{background-color:var(--primary700,#6941C6)}
+@keyframes spin{
+ 0% {transform:rotate(0)} 100% {transform:rotate(360deg)}
+}
+
+
+            
+/* End :-----------ACSS components/landing/comp-table.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS components/landing/features.tsx------------------------*/
+@layer base{ .\@base-grid-template-columns-1fr{grid-template-columns: 1fr}}
+@layer md{
+@media (min-width: 768px){.\@md-grid-template-columns-1fr-1fr{grid-template-columns: 1fr 1fr}}}
+@layer lg{
+@media (min-width: 992px){.\@lg-grid-template-columns-1fr-1fr-1fr{grid-template-columns: 1fr 1fr 1fr}}}
+
+            
+/* End :-----------ACSS components/landing/features.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS components/landing/footer.tsx------------------------*/
+.--h-tdu:hover{text-decoration: underline}
+.color-inherit{color:inherit}
+
+            
+/* End :-----------ACSS components/landing/footer.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS components/landing/framework-philosophy.tsx------------------------*/
+.bg-rgb\(10\,12\,16\){background:rgb(10,12,16)}
+.c-rgb\(240\,243\,246\){color:rgb(240,243,246)}
+.p-48px_24px{padding: 48px_24px}
+.m-0_auto{margin: 0_auto}
+.m-b-48px{margin:-b 48px}
+.ta-center{text-align:center}
+.c-rgb\(56\,189\,248\){color:rgb(56,189,248)}
+.fs-14px{font-size: 14px}
+.tt-uppercase{text-transform:uppercase}
+.fw-600{font-weight:600}
+.m-b-8px{margin:-b 8px}
+.fs-36px{font-size: 36px}
+.fw-700{font-weight:700}
+.m-b-16px{margin:-b 16px}
+.fs-16px{font-size: 16px}
+.c-rgb\(148\,163\,184\){color:rgb(148,163,184)}
+.lh-1\.6{line-height: 1.6}
+.d-grid{display:grid}
+.grid-template-columns-repeat\(auto-fit\,minmax\(320px\,1fr\)\){grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.bg-rgb\(17\,21\,28\){background:rgb(17,21,28)}
+.p-28px{padding: 28px}
+.d-flex{display:flex}
+.jc-space-between{justify-content:space-between}
+.font-mono{font:mono}
+.m-b-12px{margin:-b 12px}
+.d-block{display:block}
+.fs-20px{font-size: 20px}
+.c-rgb\(248\,250\,252\){color:rgb(248,250,252)}
+.m-b-20px{margin:-b 20px}
+.br-6px{border-radius: 6px}
+.p-8px_12px{padding: 8px_12px}
+.fs-13px{font-size: 13px}
+.c-rgb\(226\,232\,240\){color:rgb(226,232,240)}
+.p-t-16px{padding:-t 16px}
+.c-rgb\(203\,213\,225\){color:rgb(203,213,225)}
+.m-b-2px{margin:-b 2px}
+.fs-12px{font-size: 12px}
+.c-rgb\(100\,116\,139\){color:rgb(100,116,139)}
+.lh-1\.5{line-height: 1.5}
+
+            
+/* End :-----------ACSS components/landing/framework-philosophy.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS components/landing/header.tsx------------------------*/
+
+            
+/* End :-----------ACSS components/landing/header.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS components/landing/hero.tsx------------------------*/
+.an-heropulse{animation-name:heropulse}
+@keyframes heropulse{
+ 0% {box-shadow:0px 0px 0px} 50% {box-shadow:0px 0px 30px oklch(from #6366f1 l c h/0.4 )} 100% {box-shadow:0px 0px 0px}
+}
+
+
+            
+/* End :-----------ACSS components/landing/hero.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS components/landing/index.tsx------------------------*/
+.an-orbdrift{animation-name:orbdrift}
+.an-floorgrid{animation-name:floorgrid}
+@keyframes drift3d{
+ 0% {transform:rotateX(15deg) rotateY(0deg) translateZ(0px)} 50% {transform:rotateX(35deg) rotateY(180deg) translateZ(80px)} 100% {transform:rotateX(15deg) rotateY(360deg) translateZ(0px)}
+}
+
+@keyframes orbdrift{
+ 0% {transform:translate3d(0px,0px,0px)} 50% {transform:translate3d(-100px,-90px,50px)} 100% {transform:translate3d(0px,0px,0px)}
+}
+
+
+            
+/* End :-----------ACSS components/landing/index.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS components/landing/test.jsx------------------------*/
+
+            
+/* End :-----------ACSS components/landing/test.jsx----------------------------*/
+
+            
+/* Start :-----------ACSS components/ui/Card.tsx------------------------*/
+
+            
+/* End :-----------ACSS components/ui/Card.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS components/ui/CodeCard.tsx------------------------*/
+
+            
+/* End :-----------ACSS components/ui/CodeCard.tsx----------------------------*/
+
+            
+/* Start :-----------ACSS content/brief-doc.mdx------------------------*/
+...
+
+.background-color-primary{background-color:primary}
+.padding-8px-16px{padding: 8px 16px}
+.background-color-gray200{background-color:var(--gray200,#EAECF0)}
+.color-gray800{color:var(--gray800,#1D2939)}
+.background-color-18181b{background-color:#18181b}
+.background-color-ffffff{background-color:#ffffff}
+.background\(linear-gradient\(135deg\,red_30\%\,blue_60\%\)\)_{background:linear-gradient(135deg, red 30%, blue 60%)}
+.grid-template-columns\(repeat\(3\,minmax\(280px\,1fr\)\)\)_{grid-template-columns:repeat(3, minmax(280px, 1fr))}
+.__h3-font-size-20px > h3{font-size: 20px}
+.__h3-font-weight-700 > h3{font-weight:700}
+.__p-color-64748b > p{color:#64748b}
+._h3\[font-size-18px\,font-weight-700\,color-ffffff\] h3{font-size: 18px} 
+._h3\[font-size-18px\,font-weight-700\,color-ffffff\] h3{font-weight:700} 
+._h3\[font-size-18px\,font-weight-700\,color-ffffff\] h3{color:#ffffff} 
+
+.color-000000{color:#000000}
+.--hover\[background-color-000000\,color-ffffff\,border-color-000000\]:hover{background-color:#000000} 
+.--hover\[background-color-000000\,color-ffffff\,border-color-000000\]:hover{color:#ffffff} 
+.--hover\[background-color-000000\,color-ffffff\,border-color-000000\]:hover{border-color:#000000} 
+
+ .card:hover  > .__\.card--hover\&-opacity-1{opacity: 1}
+.opacity-0{opacity: 0}
+ input:checked  + .___input--checked\&-color-6366f1{color:#6366f1}
+.color-0f172a{color:#0f172a}
+ html[class~="dark"] ._html\[class\~\=dark\]\&-\[background-color-0b0f19\,color-f8fafc\]{background-color:#0b0f19} 
+ html[class~="dark"] ._html\[class\~\=dark\]\&-\[background-color-0b0f19\,color-f8fafc\]{color:#f8fafc} 
+
+@layer sm{
+@media (min-width: 576px){.\@sm-width-50\%{width: 50%}}}
+@layer lg{
+@media (min-width: 992px){.\@lg-width-33\.333\%{width: 33.333%}}}
+@layer md{
+@media (min-width: 768px){.\@md\[padding-24px\,gap-20px\,display-flex\]{padding: 24px}}} 
+@layer md{
+@media (min-width: 768px){.\@md\[padding-24px\,gap-20px\,display-flex\]{gap: 20px}}} 
+@layer md{
+@media (min-width: 768px){.\@md\[padding-24px\,gap-20px\,display-flex\]{display:flex}}}
+@supports (display:grid) { @layer base{ .\@\[supports\(display\:grid\)\,base\]-display-grid{display:grid}}}
+@container sidebar (min-width:400px) { .\@\[container_sidebar\(min-width\:400px\)\]-display-none{display:none}}
+.container-type-inline-size{container-type:inline-size}
+.\[display-flex\,gap-16px\,padding-20px\]{display:flex} 
+.\[display-flex\,gap-16px\,padding-20px\]{gap: 16px} 
+.\[display-flex\,gap-16px\,padding-20px\]{padding: 20px} 
+
+.--hover-\[color-000000\,background-color-ffffff\]:hover{color:#000000} 
+.--hover-\[color-000000\,background-color-ffffff\]:hover{background-color:#ffffff} 
+
+.\[data-state\=open\]\[display-flex\,position-absolute\,left-0\,top-100\%\][data-state="open"]{display:flex} 
+.\[data-state\=open\]\[display-flex\,position-absolute\,left-0\,top-100\%\][data-state="open"]{position:absolute} 
+.\[data-state\=open\]\[display-flex\,position-absolute\,left-0\,top-100\%\][data-state="open"]{left: 0} 
+.\[data-state\=open\]\[display-flex\,position-absolute\,left-0\,top-100\%\][data-state="open"]{top: 100%} 
+
+._h3\[font-size-20px\,font-weight-700\] h3{font-size: 20px} 
+._h3\[font-size-20px\,font-weight-700\] h3{font-weight:700} 
+
+.__button\[padding-8px-16px\,background-color-6366f1\] > button{padding: 8px 16px} 
+.__button\[padding-8px-16px\,background-color-6366f1\] > button{background-color:#6366f1} 
+ 
+
+.btn{padding: 16px} 
+.btn{display:flex} 
+.btn{align-items:center} 
+.btn{justify-content:center} 
+ 
+ 
+.badge{padding: 16px} 
+.badge{display:flex} 
+.badge{align-items:center} 
+.badge{justify-content:center} 
+ 
+ 
+
+@layer md{
+@media (min-width: 768px){.card{padding: 24px}}} 
+@layer md{
+@media (min-width: 768px){.card{background-color:#6366f1}}} 
+ 
+
+.card[class]{background-color:#ffffff} 
+ 
+
+.an-fadeIn{animation-name:fadeIn}
+.an-pop{animation-name:pop}
+.adu-0\.6s{animation-duration: 0.6s}
+.atf-ease-out{animation-timing-function:ease-out}
+.opacity-1{opacity: 1}
+.transform-scale-1{transform:scale(1)}
+.transition-all-200ms{transition:all 200ms}
+@starting-style{ .\@starting-style\[opacity-0\,tf-scale-0\.9\]{opacity: 0}} 
+@starting-style{ .\@starting-style\[opacity-0\,tf-scale-0\.9\]{transform:scale(0.9)}} 
+
+.anchor-name-popover-anchor{anchor-name:--popover-anchor}
+.position-anchor-popover-anchor{position-anchor:--popover-anchor}
+.top-anchor-bottom{top:-anchor-bottom}
+.animation-timeline-scroll-root{animation-timeline:scroll(root)}
+.animation-range-entry-0\%-exit-100\%{animation-range: entry 0% exit 100%}
+
+
+            
+/* End :-----------ACSS content/brief-doc.mdx----------------------------*/
+
             
 /* Start :-----------ACSS content/index.mdx------------------------*/
-.mt-16px{margin-top: 16px}
-@layer md{
-@media (min-width: 768px){.md-fdr-i{flex-direction: row !important}}}
-.__div\[flex-basis-50\%\] > div{flex-basis: 50%} 
+...
 
-.mw-50p{min-width: 50%}
-@layer md{
-@media (min-width: 768px){.md-mt-80px{margin-top: 80px}}}
-.xw-200px{max-width: 200px}
-.w-100px{width: 100px}
-@layer xs{
-@media (max-width: 575.99px){.\@xs-dn{display: none}}}
-@layer lg{
-@media (min-width: 992px){.lg-db{display: block}}}
-@layer lg{
-@media (min-width: 992px){.lg-mla{margin-left: auto}}}
-@layer lg{
-@media (min-width: 992px){.lg-mra{margin-right: auto}}}
-.font-size-12px{font-size: 12px}
-.display-inline-block{display:inline-block}
-.c-red{color:red}
-.fs-12px{font-size: 12px}
-.dib{display: inline-block}
+@keyframes fadeIn{
+ 0% {opacity: 0} 100% {opacity: 1}
+}
+
+@keyframes pop{
+ 0% {transform:scale(0.8);opacity: 0} 100% {transform:scale(1);opacity: 1}
+}
+
 
             
 /* End :-----------ACSS content/index.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/color/index.mdx------------------------*/
 
             
 /* End :-----------ACSS content/color/index.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/AttributeSelector.mdx------------------------*/
 .\[data-state\=close\]-display-none[data-state="close"]{display:none}
@@ -383,27 +994,20 @@
             
 /* End :-----------ACSS content/docs/AttributeSelector.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/StaticClassNames.mdx------------------------*/
 .font-family-system-ui{font-family:system-ui}
 .ff-system-ui{font-family:system-ui}
 .font-f-system-ui{font:f-system-ui}
 .ff-sys{font-family:sys}
-.display-flex{display:flex}
 .flex-direction-row{flex-direction:row}
-.align-items-center{align-items:center}
-.justify-content-space-between{justify-content:space-between}
 .fdr{flex-direction: row}
-.d-flex{display:flex}
 .fd-row{flex-direction:row}
 .ai-center{align-items:center}
-.jc-space-between{justify-content:space-between}
 
             
 /* End :-----------ACSS content/docs/StaticClassNames.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/advance-customization.mdx------------------------*/
 .border-1px-s-primary700{border:1px solid var(--primary700,#6941C6)}
@@ -411,7 +1015,6 @@
             
 /* End :-----------ACSS content/docs/advance-customization.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/andIndentifier.mdx------------------------*/
 ._div-bgc-red div{background-color:red}
@@ -421,7 +1024,6 @@
             
 /* End :-----------ACSS content/docs/andIndentifier.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/class-group.mdx------------------------*/
 .color-fff{color:#fff}
@@ -450,7 +1052,6 @@
 
 .px-12px{padding-left:12px;padding-right:12px}
 .py-8px{padding-top:8px;padding-bottom:8px}
-.border-radius-4px{border-radius: 4px}
 .\[px-12px\,py-8px\,bgc-blue\,color-fff\,border-radius-4px\]{padding-left:12px;padding-right:12px} 
 .\[px-12px\,py-8px\,bgc-blue\,color-fff\,border-radius-4px\]{padding-top:8px;padding-bottom:8px} 
 .\[px-12px\,py-8px\,bgc-blue\,color-fff\,border-radius-4px\]{background-color:blue} 
@@ -461,6 +1062,8 @@
 .btn{padding-left:12px;padding-right:12px} 
 .btn{padding-top:8px;padding-bottom:8px} 
 .btn{border-radius: 4px} 
+.btn{font-weight:600} 
+.btn{cursor:pointer} 
  
 
 .btn-primary{background-color:blue} 
@@ -491,7 +1094,6 @@
             
 /* End :-----------ACSS content/docs/class-group.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/context.mdx------------------------*/
 @layer xs{
@@ -499,24 +1101,13 @@
 @layer xs{
 @media (max-width: 575.99px){@layer base{ .\@\[xs\,base\]\[border-0\,color-fff\,bgc-blue\]{background-color:blue}}}} 
 
-.opacity-1{opacity: 1}
-.transform-scale-1{transform:scale(1)}
-.transition-all-200ms{transition:all 200ms}
-@starting-style{ .\@starting-style\[opacity-0\,tf-scale-0\.9\]{opacity: 0}} 
-@starting-style{ .\@starting-style\[opacity-0\,tf-scale-0\.9\]{transform:scale(0.9)}} 
-
-.container-type-inline-size{container-type:inline-size}
-.width-100\%{width: 100%}
-.flex-direction-column{flex-direction:column}
 @container (min-width: 768px){ .\@container-md\[flex-direction-row\,align-items-center\]{flex-direction:row}} 
-@container (min-width: 768px){ .\@container-md\[flex-direction-row\,align-items-center\]{align-items:center}}
-@supports(display:grid){ @layer base{ .\@\[supports\(display\:grid\)\,base\]-display-grid{display:grid}}}
-@container_sidebar(min-width:400px){ .\@\[container_sidebar\(min-width\:400px\)\]-display-none{display:none}}
+@container (min-width: 768px){ .\@container-md\[flex-direction-row\,align-items-center\]{align-items:center}} 
+
 
             
 /* End :-----------ACSS content/docs/context.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/escape-hatch.mdx------------------------*/
 
@@ -542,12 +1133,10 @@
 
 
 .transition-delay--stagger{transition-delay: var(--stagger)}
-.padding-24px{padding: 24px}
 
             
 /* End :-----------ACSS content/docs/escape-hatch.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/getting_started.mdx------------------------*/
 .color-gray500{color:var(--gray500,#667085)}
@@ -555,11 +1144,8 @@
             
 /* End :-----------ACSS content/docs/getting_started.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/introduction.mdx------------------------*/
-.justify-content-center{justify-content:center}
-.background-color-0b0f19{background-color:#0b0f19}
 .bgc-0b0f19{background-color:#0b0f19}
 .p-24px{padding: 24px}
 .display\(flex\){display:flex}
@@ -574,50 +1160,30 @@
 .p\(24px\){padding:24px}
 .background\(linear-gradient\(135deg\,\#0f172a\,rgba\(99\,102\,241\,0\.2\)\,transparent\)\)_{background:linear-gradient(135deg, #0f172a, rgba(99, 102, 241, 0.2), transparent)}
 .min-height-300px{min-height: 300px}
-.border-radius-16px{border-radius: 16px}
 .background\(radial-gradient\(circle_at_top\,\#6366f1\/0\.25\,transparent_70\%\)\)_{background:radial-gradient(circle at top, #6366f1/0.25, transparent 70%)}
-.position-absolute{position:absolute}
-.top-0{top: 0}
-.height-500px{height: 500px}
 ._h2-font-size-24px h2{font-size: 24px}
-.__p-color-64748b > p{color:#64748b}
-.background-color-ffffff{background-color:#ffffff}
-.color-000000{color:#000000}
  .dark ._\.dark\&-\[background-color-0b0f19\,color-f8fafc\]{background-color:#0b0f19} 
  .dark ._\.dark\&-\[background-color-0b0f19\,color-f8fafc\]{color:#f8fafc} 
-.btn{font-weight:600} 
-.btn{cursor:pointer} 
- 
 
 .tf-rotateX-20deg__rotateY-45deg__translateZ-60px{transform:rotateX(20deg) rotateY(45deg) translateZ(60px)}
-.tn-transform-0\.2s-ease__box-shadow-0\.2s-ease{transition:transform 0.2s ease,box-shadow 0.2s ease}
 .an-pulse{animation-name:pulse}
 .adu-2s{animation-duration: 2s}
-.atf-linear{animation-timing-function:linear}
-.aici{animation-iteration-count: infinite}
 
 
             
 /* End :-----------ACSS content/docs/introduction.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/keyframes-guide.mdx------------------------*/
 .an-pulseGlow{animation-name:pulseGlow}
-.adu-3s{animation-duration: 3s}
 .an-flash{animation-name:flash}
 .an-orbit{animation-name:orbit}
 .adu-10s{animation-duration: 10s}
-.an-spin{animation-name:spin}
-.adu-1s{animation-duration: 1s}
 .an-progress{animation-name:progress}
-.animation-timeline-scroll-root{animation-timeline:scroll(root)}
-.animation-range-entry-0\%-exit-100\%{animation-range: entry 0% exit 100%}
 .mh-50vh{min-height: 50vh}
 .jc-center{justify-content:center}
 .bgc-0f0c29{background-color:#0f0c29}
 .background\(linear-gradient\(135deg\,\#0f0c29\,\#302b63\,\#24243e\)\)_{background:linear-gradient(135deg, #0f0c29, #302b63, #24243e)}
-.w-200px{width: 200px}
 .h-200px{height: 200px}
 .perspective-600px{perspective: 600px}
 .w-120px{width: 120px}
@@ -637,14 +1203,11 @@
 .bgc-ecf0f1{background-color:#ecf0f1}
 .oh{overflow: hidden}
 .h-100px{height: 100px}
-.t-0{top: 0}
-.l-0{left: 0}
 .acc{align-content: center} 
  
 
 .adl-0\.2s{animation-delay: 0.2s}
 .adl-0\.4s{animation-delay: 0.4s}
-.an-fadeIn{animation-name:fadeIn}
 .adu-300ms{animation-duration: 300ms}
 .an-fadeOut{animation-name:fadeOut}
 .an-blink{animation-name:blink}
@@ -657,7 +1220,6 @@
 .an-scaleIn{animation-name:scaleIn}
 .adu-250ms{animation-duration: 250ms}
 .an-scaleOut{animation-name:scaleOut}
-.an-pop{animation-name:pop}
 .adu-350ms{animation-duration: 350ms}
 .an-heartbeat{animation-name:heartbeat}
 .an-bounce{animation-name:bounce}
@@ -754,7 +1316,6 @@
             
 /* End :-----------ACSS content/docs/keyframes-guide.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/layer.mdx------------------------*/
 @layer base{ .\@base-all-unset{all:unset}}
@@ -786,14 +1347,12 @@
             
 /* End :-----------ACSS content/docs/layer.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/npm-guide.mdx------------------------*/
 
             
 /* End :-----------ACSS content/docs/npm-guide.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/property-value.mdx------------------------*/
 .margin-top-16px{margin-top: 16px}
@@ -808,7 +1367,6 @@
 .background-color-ffffff\/0\.1{background-color:oklch(from #ffffff l c h/0.1 )}
 .background-color-6366f1\/0\.85{background-color:oklch(from #6366f1 l c h/0.85 )}
 .background-color-black\/0\.5{background-color:oklch(from black l c h/0.5 )}
-.border-1px-solid-ffffff\/0\.08{border:1px solid oklch(from #ffffff l c h/0.08 )}
 .padding-12px-24px{padding: 12px 24px}
 .margin-10px-20px-15px-5px{margin: 10px 20px 15px 5px}
 .border-1px-solid-e2e8f0{border:1px solid #e2e8f0}
@@ -822,7 +1380,6 @@
             
 /* End :-----------ACSS content/docs/property-value.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/quick-dev-handbook.mdx------------------------*/
 .container{display: flex} 
@@ -864,6 +1421,7 @@
 .--hover_h3-c-red:hover h3{color:red}
 @layer xs{
 @media (max-width: 575.99px){.xs-fdc{flex-direction: column}}}
+.c-red{color:red}
 .bgc-skyBlue{background-color:skyBlue}
 .bc-blue{border-color:blue}
 .c--fg-color{color:var(--fg-color)}
@@ -1011,33 +1569,23 @@
 .ada{animation-direction: alternate}
 .atf--timing-func{animation-timing-function: var(--timing-func)}
 .afmbo{animation-fill-mode: both}
-.gap-8px{gap: 8px}
 .fs-24px{font-size: 24px}
-.fw-600{font-weight:600}
 .c-gray900{color:var(--gray900,#101828)}
 .h-64px{height: 64px}
 .px-24px{padding-left:24px;padding-right:24px}
 .bb-1px-s-gray200{border-bottom:1px solid var(--gray200,#EAECF0)}
 .zi-100{z-index:100}
-.fs-20px{font-size: 20px}
-.fw-700{font-weight:700}
 .td-none{text-decoration:none}
 .ls-none{list-style:none}
 .m-0{margin: 0}
 .p-0{padding: 0}
-.br-6px{border-radius: 6px}
-.fs-14px{font-size: 14px}
 .fw-500{font-weight:500}
 .--hover-bgc-gray100:hover{background-color:var(--gray100,#F2F4F7)}
 .--hover-c-gray900:hover{color:var(--gray900,#101828)}
 .tdu-0\.15s{transition-duration: 0.15s}
 .cur-pointer{cursor:pointer}
 .--hover-bgc-gray50:hover{background-color:var(--gray50,#F9FAFB)}
-.c-white{color:white}
-.--hover-bgc-primary700:hover{background-color:var(--primary700,#6941C6)}
 .py-96px{padding-top:96px;padding-bottom:96px}
-.ta-center{text-align:center}
-.gap-6px{gap: 6px}
 .p-4px-12px{padding: 4px 12px}
 .br-full{border-radius:var(--radius-full,9999px)}
 .bgc-primary50{background-color:var(--primary50,#F9F5FF)}
@@ -1047,13 +1595,10 @@
 .les--0\.02em{letter-spacing: -0.02em}
 .mw-800px{min-width: 800px}
 .fs-18px{font-size: 18px}
-.lh-1\.6{line-height: 1.6}
 .fw-400{font-weight:400}
 .mw-600px{min-width: 600px}
 .mb-40px{margin-bottom: 40px}
-.gap-12px{gap: 12px}
 .p-12px-24px{padding: 12px 24px}
-.fs-16px{font-size: 16px}
 .--hover-bxs--shadow-md:hover{box-shadow: var(--shadow-md)}
 .tdu-0\.2s{transition-duration: 0.2s}
 .py-64px{padding-top:64px;padding-bottom:64px}
@@ -1065,10 +1610,8 @@
 @media (min-width: 768px){.md-gtc-repeat-2-1fr{grid-template-columns: repeat(2, 1fr)}}}
 @layer lg{
 @media (min-width: 992px){.lg-gtc-repeat-3-1fr{grid-template-columns: repeat(3, 1fr)}}}
-.gap-24px{gap: 24px}
 .mw-1200px{min-width: 1200px}
 .b-1px-s-gray200{border:1px solid var(--gray200,#EAECF0)}
-.gap-16px{gap: 16px}
 .--hover-tf-ty--2px:hover{transform:translateY(-2px)}
 .w-48px{width: 48px}
 .h-48px{height: 48px}
@@ -1157,7 +1700,6 @@
             
 /* End :-----------ACSS content/docs/quick-dev-handbook.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/screens.mdx------------------------*/
 @layer md{
@@ -1172,6 +1714,8 @@
 @layer md{
 @media (min-width: 768px){@container (min-width: 768px){ .\@\[md\,container-md\]\[d-flex\,gap-16px\]{gap: 16px}}}} 
 
+@layer xs{
+@media (max-width: 575.99px){.\@xs-dn{display: none}}}
 @layer md{
 @media (min-width: 768px){.md-d-flex{display:flex}}} 
 
@@ -1185,15 +1729,11 @@
             
 /* End :-----------ACSS content/docs/screens.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/selectors.mdx------------------------*/
-.background-color-6366f1{background-color:#6366f1}
-.color-ffffff{color:#ffffff}
 .--hover-background-color-4f46e5:hover{background-color:#4f46e5}
 .--focus-visible-outline-2px-solid-6366f1:focus-visible{outline:2px solid #6366f1}
 .--active-transform-scale-0\.98:active{transform:scale(0.98)}
-.color-94a3b8{color:#94a3b8}
 .--hover-\[color-ffffff\,text-decoration-underline\,transform-translateX-4px\]:hover{color:#ffffff} 
 .--hover-\[color-ffffff\,text-decoration-underline\,transform-translateX-4px\]:hover{text-decoration:underline} 
 .--hover-\[color-ffffff\,text-decoration-underline\,transform-translateX-4px\]:hover{transform:translateX(4px)} 
@@ -1201,7 +1741,6 @@
 .--is\(_button\,_a\)-cursor-pointer :is( button, a){cursor:pointer}
 .--has\(_input--checked\)-border-color-6366f1:has( input:checked){border-color:#6366f1}
 .--not\(--last-child\)-border-bottom-1px-solid-ffffff\/0\.08:not(:last-child){border-bottom:1px solid oklch(from #ffffff l c h/0.08 )}
-.position-relative{position:relative}
 .--after-content-empty::after{content:"empty"}
 .--after-position-absolute::after{position:absolute}
 .--after-top-100\%::after{top: 100%}
@@ -1220,14 +1759,12 @@
 ._h3\[font-size-20px\,font-weight-700\,color-ffffff\,margin-bottom-12px\] h3{color:#ffffff} 
 ._h3\[font-size-20px\,font-weight-700\,color-ffffff\,margin-bottom-12px\] h3{margin-bottom: 12px} 
 
-.padding-8px-16px{padding: 8px 16px}
 .\[disabled\]-\[background-color-f1f5f9\,color-94a3b8\,cursor-not-allowed\][disabled]{background-color:#f1f5f9} 
 .\[disabled\]-\[background-color-f1f5f9\,color-94a3b8\,cursor-not-allowed\][disabled]{color:#94a3b8} 
 .\[disabled\]-\[background-color-f1f5f9\,color-94a3b8\,cursor-not-allowed\][disabled]{cursor:not-allowed} 
 
 .\[required\]-border-left-3px-solid-6366f1[required]{border-left:3px solid #6366f1}
 .height-0{height: 0}
-.overflow-hidden{overflow:hidden}
 .\[data-state\=open\]-\[height-auto\,opacity-1\,padding-16px\][data-state="open"]{height:auto} 
 .\[data-state\=open\]-\[height-auto\,opacity-1\,padding-16px\][data-state="open"]{opacity: 1} 
 .\[data-state\=open\]-\[height-auto\,opacity-1\,padding-16px\][data-state="open"]{padding: 16px} 
@@ -1245,7 +1782,6 @@
             
 /* End :-----------ACSS content/docs/selectors.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/stateAndSelector.mdx------------------------*/
 .on{outline:none}
@@ -1254,7 +1790,6 @@
             
 /* End :-----------ACSS content/docs/stateAndSelector.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/variables.mdx------------------------*/
 .--header-color\:skyBlue{--header-color:skyBlue}
@@ -1268,14 +1803,35 @@
             
 /* End :-----------ACSS content/docs/variables.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/playground/index.mdx------------------------*/
 
             
 /* End :-----------ACSS content/playground/index.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS content/quick-compiler/index.mdx------------------------*/
+.mt-16px{margin-top: 16px}
+@layer md{
+@media (min-width: 768px){.md-fdr-i{flex-direction: row !important}}}
+.__div\[flex-basis-50\%\] > div{flex-basis: 50%} 
+
+.mw-50p{min-width: 50%}
+@layer md{
+@media (min-width: 768px){.md-mt-80px{margin-top: 80px}}}
+.xw-200px{max-width: 200px}
+.w-100px{width: 100px}
+@layer lg{
+@media (min-width: 992px){.lg-db{display: block}}}
+@layer lg{
+@media (min-width: 992px){.lg-mla{margin-left: auto}}}
+@layer lg{
+@media (min-width: 992px){.lg-mra{margin-right: auto}}}
+.dib{display: inline-block}
+
+            
+/* End :-----------ACSS content/quick-compiler/index.mdx----------------------------*/
+
             
 /* Start :-----------ACSS content/components/Base/button.mdx------------------------*/
 .mh-200px{min-height: 200px}
@@ -1285,14 +1841,12 @@
             
 /* End :-----------ACSS content/components/Base/button.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/Base/input.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/Base/input.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/helper/animation.jsx------------------------*/
 .an-spins{animation-name:spins} 
@@ -1303,12 +1857,9 @@
 .tf-rotateX-90deg__translateZ-60px{transform:rotateX(90deg) translateZ(60px)}
 .min-height-600px{min-height: 600px}
 .perspective-1200px{perspective: 1200px}
-.max-width-440px{max-width: 440px}
 .padding-48px-32px{padding: 48px 32px}
 .border-radius-32px{border-radius: 32px}
 .background-color-111827\/0\.8{background-color:oklch(from #111827 l c h/0.8 )}
-.backdrop-filter-blur-20px{backdrop-filter:blur(20px)}
-.border-1px-solid-ffffff\/0\.1{border:1px solid oklch(from #ffffff l c h/0.1 )}
 .an-hullGlow{animation-name:hullGlow}
 .adu-6s{animation-duration: 6s}
 .tf-rotateX-10deg__rotateY-0deg{transform:rotateX(10deg) rotateY(0deg)}
@@ -1320,10 +1871,8 @@
 .left--100px{left: -100px}
 .width-300px{width: 300px}
 .height-300px{height: 300px}
-.border-radius-50\%{border-radius: 50%}
 .background-color-6366f1\/0\.2{background-color:oklch(from #6366f1 l c h/0.2 )}
 .filter-blur-80px{filter:blur(80px)}
-.pointer-events-none{pointer-events:none}
 .width-260px{width: 260px}
 .height-260px{height: 260px}
 .margin-block-20px{margin-block: 20px}
@@ -1333,12 +1882,10 @@
 .an-orbitAlpha{animation-name:orbitAlpha}
 .adu-14s{animation-duration: 14s}
 .top--6px{top: -6px}
-.left-50\%{left: 50%}
 .width-12px{width: 12px}
 .height-12px{height: 12px}
 .background-color-818cf8{background-color:#818cf8}
 .box-shadow-0px-0px-14px-818cf8{box-shadow:0px 0px 14px #818cf8}
-.transform-translateX--50\%{transform:translateX(-50%)}
 .width-180px{width: 180px}
 .height-180px{height: 180px}
 .border-2px-solid-ec4899\/0\.6{border:2px solid oklch(from #ec4899 l c h/0.6 )}
@@ -1354,24 +1901,17 @@
 .height-120px{height: 120px}
 .border-2px-dotted-06b6d4\/0\.8{border:2px dotted oklch(from #06b6d4 l c h/0.8 )}
 .an-orbitGamma{animation-name:orbitGamma}
-.adu-5s{animation-duration: 5s}
 .width-48px{width: 48px}
 .height-48px{height: 48px}
 .box-shadow-0px-0px-30px-a855f7{box-shadow:0px 0px 30px #a855f7}
 .an-plasmaSingularity{animation-name:plasmaSingularity}
 .adu-2\.4s{animation-duration: 2.4s}
-.atf-ease-in-out{animation-timing-function:ease-in-out}
 .width-24px{width: 24px}
 .height-24px{height: 24px}
 .background-color-4f46e5{background-color:#4f46e5}
 .filter-blur-2px{filter:blur(2px)}
-.text-align-center{text-align:center}
 .margin-top-12px{margin-top: 12px}
-.font-size-22px{font-size: 22px}
-.font-weight-700{font-weight:700}
-.margin-0{margin: 0}
 .letter-spacing--0\.02em{letter-spacing: -0.02em}
-.font-size-13px{font-size: 13px}
 
 @keyframes hullGlow{
  0% {box-shadow:0px 20px 50px oklch(from #000000 l c h/0.6 )} 50% {box-shadow:0px 25px 70px oklch(from #6366f1 l c h/0.3 )} 100% {box-shadow:0px 20px 50px oklch(from #000000 l c h/0.6 )}
@@ -1397,7 +1937,6 @@
             
 /* End :-----------ACSS content/components/helper/animation.jsx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/radix-ui/accordion.mdx------------------------*/
 .p-100px{padding: 100px}
@@ -1405,14 +1944,12 @@
             
 /* End :-----------ACSS content/components/radix-ui/accordion.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/radix-ui/alert-dialog.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/radix-ui/alert-dialog.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/react-aria/react-aria-button.mdx------------------------*/
 .g-24px{gap: 24px}
@@ -1420,67 +1957,57 @@
             
 /* End :-----------ACSS content/components/react-aria/react-aria-button.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/react-aria/react-aria-checkbox.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/react-aria/react-aria-checkbox.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/react-aria/react-aria-number-field.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/react-aria/react-aria-number-field.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/react-aria/react-aria-progress-bar.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/react-aria/react-aria-progress-bar.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/react-aria/react-aria-radio-group.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/react-aria/react-aria-radio-group.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/react-aria/react-aria-search-field.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/react-aria/react-aria-search-field.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/react-aria/react-aria-switch.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/react-aria/react-aria-switch.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/components/react-aria/react-aria-text-field.mdx------------------------*/
 
             
 /* End :-----------ACSS content/components/react-aria/react-aria-text-field.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/guide/border-and-shadow.mdx------------------------*/
 .b-1px-s-e3e3e3{border:1px solid #e3e3e3}
 .mh-64px{min-height: 64px}
 .bxs-1px--1px-2px-2px--black\/0\.7{box-shadow:1px -1px 2px 2px oklch(from var(--black) l c h/0.7 )}
-.display-inline-flex{display:inline-flex}
 
             
 /* End :-----------ACSS content/docs/guide/border-and-shadow.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/guide/color.mdx------------------------*/
 .color-blue{color:blue}
@@ -1501,7 +2028,6 @@
             
 /* End :-----------ACSS content/docs/guide/color.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/guide/font-and-text.mdx------------------------*/
 .txs-1px-1px-2px--black\/7{text-shadow:1px 1px 2px var(--black/7)}
@@ -1510,12 +2036,10 @@
             
 /* End :-----------ACSS content/docs/guide/font-and-text.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/guide/layout-css.mdx------------------------*/
 .mx-4{margin-right:var(--space-4,1rem);margin-left:var(--space-4,1rem)}
 .p-32px-24px{padding: 32px 24px}
-.w-100\%{width: 100%}
 .c--text-color{color:var(--text-color)}
 .gtc-repeat-auto-fit-minmax-280px-1fr{grid-template-columns: repeat(auto-fit,  minmax(280px , 1fr ) )}
 .g-20px{gap: 20px}
@@ -1530,7 +2054,6 @@
 .br-999px{border-radius: 999px}
 .bgc-blue\/1{background-color:oklch(from blue l c h/1 )}
 .les-0\.02em{letter-spacing: 0.02em}
-.fs-13px{font-size: 13px}
 .g-8px{gap: 8px}
 .lh-28px{line-height: 28px}
 .fs-15px{font-size: 15px}
@@ -1562,14 +2085,12 @@
             
 /* End :-----------ACSS content/docs/guide/layout-css.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/guide/property-alias.mdx------------------------*/
 
             
 /* End :-----------ACSS content/docs/guide/property-alias.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
             
 /* Start :-----------ACSS content/docs/guide/transform.mdx------------------------*/
 .cube-faced{position: absolute} 
@@ -1593,377 +2114,20 @@
             
 /* End :-----------ACSS content/docs/guide/transform.mdx----------------------------*/
 
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
-            
-/* Start :-----------ACSS react-aria/Button.tsx------------------------*/
-.--accentColor\:purpleRA{--accentColor:var(--purpleColor,oklch(0.7 .223324 302))}
-.appearance-none{appearance:none}
-.h-2rem{height: 2rem}
-.py-0{padding-top:0;padding-bottom:0}
-.px-3{padding-left:var(--space-3,0.75rem);padding-right:var(--space-3,0.75rem)}
-.inline-flex-center{display:inline-flex;align-items:center;justify-content:center}
-.gap-1{gap:var(--space-1,0.25rem)}
-.-webkit-tap-highlight-color-transparent{-webkit-tap-highlight-color:transparent}
-.--space\:0\.25rem{--space:0.25rem}
-.__svg\[width\(calc\(--space\,\*\,4\.5\)\)\,height\(calc\(--space\,\*\,4\.5\)\)\] > svg{width:calc(var(--space) * 4.5)} 
-.__svg\[width\(calc\(--space\,\*\,4\.5\)\)\,height\(calc\(--space\,\*\,4\.5\)\)\] > svg{height:calc(var(--space) * 4.5)} 
-
-.--has\(__svg--oc\)\[p-0px\,br-9999px\,flex-shrink-0\,w-2rem\]:has( > svg:only-child){padding: 0px} 
-.--has\(__svg--oc\)\[p-0px\,br-9999px\,flex-shrink-0\,w-2rem\]:has( > svg:only-child){border-radius: 9999px} 
-.--has\(__svg--oc\)\[p-0px\,br-9999px\,flex-shrink-0\,w-2rem\]:has( > svg:only-child){flex-shrink: 0} 
-.--has\(__svg--oc\)\[p-0px\,br-9999px\,flex-shrink-0\,w-2rem\]:has( > svg:only-child){width: 2rem} 
-
-.\[data-pressed\]-scale-0\.9[data-pressed]{scale: 0.9}
-.ButtonRA{
-            
-            --border-color: var(--accentColor,oklch(1 .25049 284.23));
-            --button-background: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 98.1187% calc(l * c * 0.5) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 29.6725% calc(l * c * 0.5) h));
-            --button-gradient:light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 35.3616% calc(l * c * 0.6) h));
-            --button-border: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 91.1434% calc(l * c * 0.7) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 41.0821% calc(l * c * 0.7) h));
-            --button-highlight: rgb(255 255 255 / 0.8);
-            --button-shadow: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 85.1751% calc(l * c * 0.8) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 46.9058% calc(l * c * 0.8) h));
-            --button-border-size: 1px;
-            --button-text: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 29.6725% c h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 91.1434% c h));
-            --button-gradient-size: 8px;
-            --text-color: var(--gray-1200,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 79.1773% c h)));
-            --text-color-hover: var(--gray-1300,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 35.3616% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 85.1751% c h)));
-            --text-color-disabled: var(--gray-600,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 72.3297% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 57.9699% c h)));
-    
-    background:var(--button-background);
-    display:inline-flex;align-items:center;justify-content:center;
-    color: var(--button-text);
-    box-shadow: 
-      inset 0 -1px 0 var(--button-shadow), /* bottom shadow */
-      inset 0 0 0 var(--button-border-size) var(--button-border), /* border */
-      inset 0px calc(var(--button-border-size) + 1px) 0px var(--button-highlight), /* top specular highlight */
-      inset 0px calc(-1 * var(--button-gradient-size)) var(--button-gradient-size) -2px var(--button-gradient); /* inner gradient */
-    outline: none;
-    transition-property: background, color, scale, box-shadow;
-    transition-duration: 200ms;
-    will-change: scale;
-    forced-color-adjust: none;
-    -webkit-tap-highlight-color: transparent;
-
-    &:where([data-pressed]) {
-      --button-background: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 35.3616% calc(l * c * 0.6) h));
-    }
-
-    &:where([data-focus-visible]) {
-      outline: 2px solid var(--focus-ring-color,light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 51.9076% c h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 67.0121% c h)));
-      outline-offset: 2px;
-    }
-
-    &:where([data-variant=secondary]) {
-      --button-color: var(--grayColor,oklch(0.5 0 0));
-    }
-
-    &:where([data-variant=quiet]) {
-      --button-background: none;
-      --button-text: var(--text-color);
-      box-shadow: 0 0 0 1px transparent;
-
-      &:where([data-hovered], [data-pressed]) {
-        --button-background: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 35.3616% calc(l * c * 0.6) h));
-        --button-text: var(--tint-1400);
-        box-shadow: 0 0 0 1px light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 35.3616% calc(l * c * 0.6) h));
-      }
-    }
-
-    &:where([data-selected]) {
-      --button-background: oklch(from var(--button-color) 55% c h);
-      --button-border: oklch(from var(--button-color) 50% c h);
-      --button-gradient: var(--button-border);
-      --button-highlight: rgb(255 255 255 / 0.2);
-      --button-shadow: oklch(from var(--button-color) 30% c h);
-      --button-text: var(--highlight-foreground);
-
-      box-shadow:
-        inset 0 -1px 0 var(--button-shadow), /* bottom shadow */
-        inset 0 0 0 1px var(--button-border), /* border */
-        inset 0 2px 0 var(--button-highlight), /* top specular highlight */
-        inset 0 calc(-1 * var(--button-gradient-size)) var(--button-gradient-size) var(--button-gradient); /* inner gradient */
-
-      &:where([data-pressed]) {
-        --button-background: oklch(from var(--button-color) 50% c h);
-      }
-
-      @media (prefers-color-scheme: dark){
-        --button-highlight: rgb(255 255 255 / 0.4);
-        --button-gradient: rgb(255 255 255 / 0.2);
-        --button-shadow: var(--button-border);
-        box-shadow:
-          inset 0 1px 0 var(--button-highlight), /* top specular highlight */
-          inset 0 var(--button-gradient-size) var(--button-gradient-size) var(--button-gradient), /* inner gradient */
-          inset 0 0 0 1px var(--button-border) /* border */}
-    }
-
-    &:where([data-disabled]) {
-      box-shadow: none;
-      --button-background: var(--border-color-disabled);
-      --button-text: var(--text-color-disabled);
-
-      &:where([data-variant=quiet]) {
-        --button-background: none;
-      }
-    }
-
-    @media (forced-colors: active){
-      --button-background: ButtonFace;
-      --button-text: ButtonText;
-      --button-border: ButtonBorder;
-      box-shadow: inset 0 0 0 var(--button-border-size) var(--button-border);
-
-      &:where([data-variant=quiet]) {
-        --button-border: transparent;
-        &:where([data-hovered], [data-pressed]) {
-          --button-border: ButtonBorder;
-        }
-      }
-
-      &:where([data-selected]) {
-        --button-background: Highlight;
-        --button-text: HighlightText;
-        --button-border: Highlight;
-      }
-
-      &:where([data-disabled]) {
-        --button-background: ButtonFace;
-        --button-text: GrayText;
-        --button-border: GrayText;
-
-        &:where([data-variant=quiet]) {
-          --button-border: transparent;
-        }
-      }}
-
-    @media (prefers-color-scheme: dark){
-      --button-shadow: light-dark(oklch(from var(--accentColor,oklch(1 .25049 284.23)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--accentColor,oklch(1 .25049 284.23)) 35.3616% calc(l * c * 0.6) h));;
-      --button-highlight: rgb(255 255 255 / 0.15);
-      box-shadow:
-        inset 0 var(--button-border-size) 0 var(--button-highlight), /* top specular highlight */
-        inset 0 calc(-1 * var(--button-border-size)) 0 var(--button-shadow), /* bottom shadow */
-        inset 0 0 0 var(--button-border-size) var(--button-border), /* border */
-        inset 0 var(--button-gradient-size) var(--button-gradient-size) -2px var(--button-gradient) /* inner gradient */}} 
-
-
-            
-/* End :-----------ACSS react-aria/Button.tsx----------------------------*/
-
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
-            
-/* Start :-----------ACSS react-aria/Checkbox.tsx------------------------*/
-.w-4{width:var(--space-4,1rem)}
-.h-4{height:var(--space-4,1rem)}
-.o-0{opacity: 0}
-.tn-opacity-200ms{transition:opacity 200ms}
-.g-2{gap:var(--space-2,0.5rem)}
-.usn{user-select: none}
-.fs--font-size-lg{font-size: var(--font-size-lg)}
-.c-grayRATheme1200{color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 79.1773% c h))}
-.\[data-disabled\]\[c-grayRATheme600\,cna\][data-disabled]{color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 72.3297% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 57.9699% c h))} 
-.\[data-disabled\]\[c-grayRATheme600\,cna\][data-disabled]{cursor: not-allowed} 
-
-.x-square-20px{width:calc(20px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(20px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(20px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
-.x-square-12px{width:calc(12px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(12px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(12px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
-.lh-1\.4{line-height: 1.4}
-.o-1{opacity: 1}
-
-            
-/* End :-----------ACSS react-aria/Checkbox.tsx----------------------------*/
-
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
-            
-/* Start :-----------ACSS react-aria/NumberField.tsx------------------------*/
-.fs--font-size{font-size: var(--font-size)}
-.h-10{height:var(--space-10,2.5rem)}
-.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{content:""} 
-.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{position: absolute} 
-.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{inset: 1px} 
-.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{z-index:2} 
-.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{pointer-events: none} 
-.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{border-radius:inherit} 
-.\[data-focus-within\]--after\[cont\,pa\,inset-1px\,zi-2\,pen\,br-inherit\,ol-2px-solid--focus-ring-color\][data-focus-within]::after{outline:2px solid var(--focus-ring-color)} 
-
-@layer base{ .\@base-au{all: unset}}
-.fg-1{flex-grow: 1}
-.h-100p{height: 100%}
-.ff-inherit{font-family:inherit}
-.c-grayRATheme1400{color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 29.6725% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 91.1434% c h))}
-.--placeholder\[c-grayRATheme1000\]::placeholder{color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 51.9076% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 67.0121% c h))} 
-
-.\[disabled\]\[c-grayRATheme600\,cna\][disabled]{color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 72.3297% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 57.9699% c h))} 
-.\[disabled\]\[c-grayRATheme600\,cna\][disabled]{cursor: not-allowed} 
-
-.bsbb{box-sizing: border-box}
-.flex-0-0-40px{flex: 0 0 40px}
-.bl-1px-s-grayRATheme300{border-left:1px solid light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 91.1434% calc(l * c * 0.7) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% calc(l * c * 0.7) h))}
-.br-0{border-radius: 0}
-.\[data-pressed\]\[bgc-grayRATheme100\,scale-0\.95\][data-pressed]{background-color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 98.1187% calc(l * c * 0.5) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 29.6725% calc(l * c * 0.5) h))} 
-.\[data-pressed\]\[bgc-grayRATheme100\,scale-0\.95\][data-pressed]{scale: 0.95} 
-
-.\[data-disabled\]\[c-grayRATheme600\,cna\,bgc-grayRATheme100\][data-disabled]{color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 72.3297% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 57.9699% c h))} 
-.\[data-disabled\]\[c-grayRATheme600\,cna\,bgc-grayRATheme100\][data-disabled]{cursor: not-allowed} 
-.\[data-disabled\]\[c-grayRATheme600\,cna\,bgc-grayRATheme100\][data-disabled]{background-color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 98.1187% calc(l * c * 0.5) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 29.6725% calc(l * c * 0.5) h))} 
-
-.x-square-14px{width:calc(14px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(14px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(14px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
-.fs--font-size-sm{font-size: var(--font-size-sm)}
-.c-grayRATheme1000{color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 51.9076% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 67.0121% c h))}
-.c-redRATheme1000{color:light-dark(oklch(from var(--redColor,oklch(0.6 .181447 27.0726)) 51.9076% c h),oklch(from var(--redColor,oklch(0.6 .181447 27.0726)) 67.0121% c h))}
-
-            
-/* End :-----------ACSS react-aria/NumberField.tsx----------------------------*/
-
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
-            
-/* Start :-----------ACSS react-aria/ProgressBar.tsx------------------------*/
-.h-2{height:var(--space-2,0.5rem)}
-.br-9999px{border-radius: 9999px}
-.bgc-indigoRATheme1000{background-color:light-dark(oklch(from var(--indigoColor,oklch(1 .25049 284.23)) 51.9076% c h),oklch(from var(--indigoColor,oklch(1 .25049 284.23)) 67.0121% c h))}
-.tn-width-200ms{transition:width 200ms}
-.w-8{width:var(--space-8,2rem)}
-.an-progress-indeterminate{animation-name:progress-indeterminate}
-.aic-infinite{animation-iteration-count:infinite}
-@keyframes progress-indeterminate{
- 0% {transform:translateX(-100%)} 100% {transform:translateX(250%)}
-}
-
-
-            
-/* End :-----------ACSS react-aria/ProgressBar.tsx----------------------------*/
-
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
-            
-/* Start :-----------ACSS react-aria/ProgressCircle.tsx------------------------*/
-
-            
-/* End :-----------ACSS react-aria/ProgressCircle.tsx----------------------------*/
-
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
-            
-/* Start :-----------ACSS react-aria/RadioGroup.tsx------------------------*/
-.g-3{gap:var(--space-3,0.75rem)}
-.x-square-16px{width:calc(16px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(16px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(16px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
-.x-square-8px{width:calc(8px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(8px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(8px - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
-
-            
-/* End :-----------ACSS react-aria/RadioGroup.tsx----------------------------*/
-
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
-            
-/* Start :-----------ACSS react-aria/SearchField.tsx------------------------*/
-.removeCancelButton{&::-webkit-search-cancel-button,&::-webkit-search-decoration {-webkit-appearance: none;}}
-
-.--hover\[bgc-grayRATheme200\,c-grayRATheme1200\]:hover{background-color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 35.3616% calc(l * c * 0.6) h))} 
-.--hover\[bgc-grayRATheme200\,c-grayRATheme1200\]:hover{color:light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% c h),oklch(from var(--grayColor,oklch(0.5 0 0)) 79.1773% c h))} 
-
-.\[data-empty\]\[dn\][data-empty]{display: none} 
-
-
-            
-/* End :-----------ACSS react-aria/SearchField.tsx----------------------------*/
-
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
-            
-/* Start :-----------ACSS react-aria/Switch.tsx------------------------*/
-.w-2rem{width: 2rem}
-.h-1\.143rem{height: 1.143rem}
-.p-2px{padding: 2px}
-.tn-all-200ms{transition:all 200ms}
-.db{display: block}
-.x-square-0\.857rem{width:calc(0.857rem - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));height:calc(0.857rem - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px));flex: 0 0 calc(0.857rem - var(--x-square-shrink, 0px) + var(--x-square-grow, 0px))}
-.bgc--field-background{background-color:var(--field-background)}
-.tn-transform-200ms{transition:transform 200ms}
-.tf-tx-0\.857rem{transform:translateX(0.857rem)}
-
-            
-/* End :-----------ACSS react-aria/Switch.tsx----------------------------*/
-
-            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
-            
-/* Start :-----------ACSS react-aria/TextField.tsx------------------------*/
-.InsetRA{
-    --lightness-1000: 67.0121%;
-    --border-color-disabled: var(--gray-300,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 91.1434% calc(l * c * 0.7) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% calc(l * c * 0.7) h)));
-    --border-color-hover: var(--gray-500,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 79.1773% calc(l * c * 0.9) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 51.9076% calc(l * c * 0.9) h)));
-    --invalid-color: oklch(from var(--redColor,oklch(0.6 .181447 27.0726)) var(--lightness-1000) c h);
-    --gray-50: #ffffff;
-    --field-background: var(--gray-50);
-    --inset-background: var(--field-background);
-    --inset-border: var(--border-color);
-    --inset-border-size: 1px;
-    --inset-shadow-offset: 2px;
-    --inset-shadow-size: 4px;
-
-
-    background: var(--inset-background);
-    box-shadow:
-      inset 0 0 0 var(--inset-border-size) var(--inset-border),
-      /* border */ inset 0 var(--inset-shadow-offset) var(--inset-shadow-size) rgb(0 0 0 / 0.15),
-      /* inner shadow */ 0 1px 0 var(--gray-50); /* bottom specular highlight */
-    transition: box-shadow 200ms;
-    forced-color-adjust: none;
-
-    &:where([data-hovered], [data-pressed]) {
-      --inset-border: var(--border-color-hover);
-    }
-
-    &:where([data-invalid]) {
-      --inset-border: var(--invalid-color);
-      --inset-highlight: var(--inset-border);
-    }
-
-    &:where([data-disabled]) {
-      box-shadow: inset 0 0 0 1px var(--border-color-disabled);
-    }
-
-    &.track {
-      --inset-shadow-offset: 1px;
-      --inset-shadow-size: 3px;
-      @media (forced-colors: active){
-        --field-background: Field;
-        --border-color-disabled: GrayText;
-        --border-color-hover: ButtonBorder; 
-        --inset-background: Field;
-        --inset-border: ButtonBorder;
-        --inset-border-size: 1px;
-        --invalid-color: LinkText}
-      @media (prefers-color-scheme: light){
-        --inset-background: var(--gray-300,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 91.1434% calc(l * c * 0.7) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% calc(l * c * 0.7) h)));
-        --inset-border: var(--gray-500,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 79.1773% calc(l * c * 0.9) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 51.9076% calc(l * c * 0.9) h)));
-        --inset-border-size: 0.5px}
-    }
-
-    @media (forced-colors: active){
-      --inset-border: ButtonBorder;
-      box-shadow: inset 0 0 0 var(--inset-border-size) var(--inset-border)}
-
-    @media (prefers-color-scheme: dark){
-      --inset-border: var(--gray-200,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 95.2045% calc(l * c * 0.6) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 35.3616% calc(l * c * 0.6) h)));
-      --border-color-hover: var(--gray-300,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 91.1434% calc(l * c * 0.7) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 41.0821% calc(l * c * 0.7) h)));
-      --inset-highlight: var(--gray-400,light-dark(oklch(from var(--grayColor,oklch(0.5 0 0)) 85.1751% calc(l * c * 0.8) h),oklch(from var(--grayColor,oklch(0.5 0 0)) 46.9058% calc(l * c * 0.8) h)));
-      --inset-shadow-size: 6px;
-     --gray-50: oklch(22% 0 0);
-
-      box-shadow:
-        inset 0 calc(-1 * var(--inset-border-size)) 0 var(--inset-highlight),
-        /* bottom specular highlight */ inset 0 0 0 var(--inset-border-size) var(--inset-border),
-        /* border */ inset 0 1px var(--inset-shadow-size) rgb(0 0 0) /* inner shadow */}
-  }
-.ol-none{outline:none}
-
-            
-/* End :-----------ACSS react-aria/TextField.tsx----------------------------*/
 
             
 @media (768px<=width<=1024px){ .\@\[media\(768px\<\=width\<\=1024px\)\]-display-none{display:none}}
 
+
             
 @media (prefers-color-scheme: dark){ .dark-bgc-0e0e0e{background-color:#0e0e0e} .dark-\[bgc-gray900\,c-white\,b-1px-s-gray700\]{background-color:var(--gray900,#101828)} .dark-\[bgc-gray900\,c-white\,b-1px-s-gray700\]{color:white} .dark-\[bgc-gray900\,c-white\,b-1px-s-gray700\]{border:1px solid var(--gray700,#344054)} .dark-\[bgc-gray900\,c-white\]{background-color:var(--gray900,#101828)} .dark-\[bgc-gray900\,c-white\]{color:white} .dark-c-white{color:white} .dark-c-gray400{color:var(--gray400,#98A2B3)} .dark-\[bgc-gray800\,c-white\,b-1px-s-gray700\]{background-color:var(--gray800,#1D2939)} .dark-\[bgc-gray800\,c-white\,b-1px-s-gray700\]{color:white} .dark-\[bgc-gray800\,c-white\,b-1px-s-gray700\]{border:1px solid var(--gray700,#344054)} .\@dark-c-white{color:white} @layer base{ .\@\[dark\,base\]\[c-white\,bgc-black\]{color:white}} @layer base{ .\@\[dark\,base\]\[c-white\,bgc-black\]{background-color:black}} @layer md{
 @media (min-width: 768px){.\@\[dark\,md\]\[c-white\,bgc-black\]{color:white}}} @layer md{
-@media (min-width: 768px){.\@\[dark\,md\]\[c-white\,bgc-black\]{background-color:black}}} .dark\[--highlight-background\:--gray-1600\]{--highlight-background: var(--gray-1600)}}
+@media (min-width: 768px){.\@\[dark\,md\]\[c-white\,bgc-black\]{background-color:black}}}}
+
 
             
 @media (prefers-reduced-motion: reduce){ .\@motion-reduce-an-none{animation-name:none}}
+
 
             
 @media print{ .print-display-none{display:none}}

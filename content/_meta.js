@@ -1,13 +1,24 @@
 export default {
-  index: {
+  'index': {
     type:'page',
-    
-    title:'Home',
+    display:'hidden',
+    title:'Brief Doc',
     theme: {
     layout:'full',
-      navbar: true, 
-      sidebar:false,
-      toc:false
+    sidebar:true
+   
+
+    }
+  },
+  'brief-doc': {
+    type:'page',
+    
+    title:'Brief Doc',
+    theme: {
+    layout:'full',
+    sidebar:true
+   
+
     }
   },
   // You can use JSX elements to change the look of titles in the sidebar, e.g. insert icons
@@ -16,6 +27,20 @@ export default {
     // Alternatively, you can set title with `title` property
     title: 'Documentation',
     type:'page'
+    // ... and provide extra configurations
+  },
+  'quick-compiler': {
+    // Alternatively, you can set title with `title` property
+    title: 'Quick Compiler',
+    type:'page',
+    theme: {
+      
+    layout:'full',
+      navbar: true, 
+      sidebar:false,
+      toc:false
+    }
+
     // ... and provide extra configurations
   },
   components: {
@@ -44,6 +69,7 @@ export default {
     type:'page',
     theme: {
         layout:'full',
+        
       copyPage: false,
       timestamp: false,
       toc:false,

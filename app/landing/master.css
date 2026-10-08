@@ -1,0 +1,622 @@
+@layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS mdx-components.tsx------------------------*/
+.font-size-2\.25rem{font-size: 2.25rem}
+.line-height-1\.25{line-height: 1.25}
+.font-weight-700{font-weight:700}
+.c-slateTheme12{color:light-dark(#1c2024,#edeef0)}
+.margin-top-2rem{margin-top: 2rem}
+.margin-bottom-1rem{margin-bottom: 1rem}
+.letter-spacing--0\.02em{letter-spacing: -0.02em}
+.border-b-1px_solid_slateTheme6{border:1px}
+.padding-bottom-0\.5rem{padding-bottom: 0.5rem}
+.font-size-1\.75rem{font-size: 1.75rem}
+.line-height-1\.3{line-height: 1.3}
+.font-weight-600{font-weight:600}
+.margin-top-1\.75rem{margin-top: 1.75rem}
+.margin-bottom-0\.75rem{margin-bottom: 0.75rem}
+.letter-spacing--0\.015em{letter-spacing: -0.015em}
+.border-b-1px_solid_slateTheme5{border:1px}
+.padding-bottom-0\.375rem{padding-bottom: 0.375rem}
+.font-size-1\.375rem{font-size: 1.375rem}
+.line-height-1\.4{line-height: 1.4}
+.margin-top-1\.5rem{margin-top: 1.5rem}
+.margin-bottom-0\.5rem{margin-bottom: 0.5rem}
+.font-size-1\.125rem{font-size: 1.125rem}
+.margin-top-1\.25rem{margin-top: 1.25rem}
+.font-size-1rem{font-size: 1rem}
+.line-height-1\.5{line-height: 1.5}
+.c-slateTheme11{color:light-dark(#60646c,#b0b4ba)}
+.margin-top-1rem{margin-top: 1rem}
+.margin-bottom-0\.375rem{margin-bottom: 0.375rem}
+.font-size-0\.875rem{font-size: 0.875rem}
+.text-transform-uppercase{text-transform:uppercase}
+.letter-spacing-0\.05em{letter-spacing: 0.05em}
+.margin-bottom-0\.25rem{margin-bottom: 0.25rem}
+.line-height-1\.7{line-height: 1.7}
+.margin-top-0{margin-top: 0}
+.margin-bottom-1\.25rem{margin-bottom: 1.25rem}
+.font-style-italic{font-style:italic}
+.c-slateTheme10{color:light-dark(#80838d,#777b84)}
+.c-indigoTheme11{color:light-dark(#3a5bc7,#9eb1ff)}
+.text-decoration-underline{text-decoration:underline}
+.text-underline-offset-3px{text-underline-offset: 3px}
+.font-weight-500{font-weight:500}
+.border-l-4px_solid_indigoTheme7{border:4px}
+.bgc-indigoTheme2{background-color:light-dark(#f7f9ff,#141726)}
+.padding-1rem-1\.25rem{padding: 1rem 1.25rem}
+.margin-1\.5rem-0{margin: 1.5rem 0}
+.border-radius-0_6px_6px_0{border-radius: 0_6px_6px_0}
+.list-style-type-disc{list-style-type:disc}
+.padding-left-1\.5rem{padding-left: 1.5rem}
+.list-style-type-decimal{list-style-type:decimal}
+.font-family-monospace{font-family:monospace}
+.line-height-1\.6{line-height: 1.6}
+.display-grid{display:grid}
+.font-size-0\.875em{font-size: 0.875em}
+.bgc-slateTheme3{background-color:light-dark(#f0f0f3,#212225)}
+.border-1px_solid_slateTheme5{border:1px}
+.padding-2px-6px{padding: 2px 6px}
+.border-radius-4px{border-radius: 4px}
+.word-break-break-word{word-break:break-word}
+.bgc-slateTheme2{background-color:light-dark(#f9f9fb,#18191b)}
+.border-radius-8px{border-radius: 8px}
+.padding-1rem{padding: 1rem}
+.margin-bottom-1\.5rem{margin-bottom: 1.5rem}
+.overflow-x-auto{overflow-x:auto}
+.width-100\%{width: 100%}
+.font-size-0\.925rem{font-size: 0.925rem}
+.text-align-left{text-align:left}
+.border-1px_solid_slateTheme6{border:1px}
+.border-b-2px_solid_slateTheme6{border:2px}
+.bgc-slateTheme1{background-color:light-dark(#fcfcfd,#111113)}
+.padding-0\.75rem-1rem{padding: 0.75rem 1rem}
+.border-none{border:none}
+.height-1px{height: 1px}
+.bgc-slateTheme6{background-color:light-dark(#d9d9e0,#363a3f)}
+.margin-2rem-0{margin: 2rem 0}
+.max-width-100\%{max-width: 100%}
+.height-auto{height:auto}
+.margin-1rem-0{margin: 1rem 0}
+.display-block{display:block}
+.margin-top-0\.75rem{margin-top: 0.75rem}
+.margin-left-1\.25rem{margin-left: 1.25rem}
+.border-radius-6px{border-radius: 6px}
+.cursor-pointer{cursor:pointer}
+.outline-none{outline:none}
+
+            
+/* End :-----------ACSS mdx-components.tsx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS app/page.tsx------------------------*/
+
+            
+/* End :-----------ACSS app/page.tsx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS app/(default)/layout.tsx------------------------*/
+.color-scheme-light-dark{color-scheme:light dark}
+.flex-col{flex:-col}
+
+            
+/* End :-----------ACSS app/(default)/layout.tsx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS app/(docs)/layout.tsx------------------------*/
+
+            
+/* End :-----------ACSS app/(docs)/layout.tsx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS app/mdx-page/page.tsx------------------------*/
+.hljs-keyword{color:light-dark(#3a5bc7,#9eb1ff)} 
+.hljs-keyword{font-weight:600} 
+ 
+ 
+.hljs-selector-tag{color:light-dark(#3a5bc7,#9eb1ff)} 
+.hljs-selector-tag{font-weight:600} 
+ 
+ 
+
+.hljs-string{color:light-dark(#008573,#0bd8b6)} 
+ 
+ 
+.hljs-title{color:light-dark(#008573,#0bd8b6)} 
+ 
+ 
+.hljs-section{color:light-dark(#008573,#0bd8b6)} 
+ 
+ 
+
+.hljs-comment{color:light-dark(#8b8d98,#696e77)} 
+.hljs-comment{font-style:italic} 
+ 
+ 
+.hljs-quote{color:light-dark(#8b8d98,#696e77)} 
+.hljs-quote{font-style:italic} 
+ 
+ 
+
+.hljs-number{color:light-dark(#ab6400,#ffca16)} 
+ 
+ 
+.hljs-literal{color:light-dark(#ab6400,#ffca16)} 
+ 
+ 
+
+.hljs-function{color:light-dark(#107d98,#4ccce6)} 
+ 
+ 
+.hljs-attr{color:light-dark(#107d98,#4ccce6)} 
+ 
+ 
+.hljs-title_function_{color:light-dark(#107d98,#4ccce6)} 
+ 
+ 
+
+.hljs-variable{color:light-dark(#1c2024,#edeef0)} 
+ 
+ 
+.hljs-template-variable{color:light-dark(#1c2024,#edeef0)} 
+ 
+ 
+.hljs-params{color:light-dark(#1c2024,#edeef0)} 
+ 
+ 
+
+.hljs-built_in{color:light-dark(#cb1d63,#ff92ad)} 
+ 
+ 
+.hljs-type{color:light-dark(#cb1d63,#ff92ad)} 
+ 
+ 
+
+.hljs-regexp{color:light-dark(#ca244d,#ff949d)} 
+ 
+ 
+.hljs-symbol{color:light-dark(#ca244d,#ff949d)} 
+ 
+ 
+
+.hljs-operator{color:light-dark(#80838d,#777b84)} 
+ 
+ 
+.hljs-punctuation{color:light-dark(#80838d,#777b84)} 
+ 
+ 
+
+
+            
+/* End :-----------ACSS app/mdx-page/page.tsx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS app/_olddoc/[slug]/page.tsx------------------------*/
+.max-width-720px{max-width: 720px}
+.margin-0-auto{margin: 0 auto}
+.padding-top-2rem{padding-top: 2rem}
+
+            
+/* End :-----------ACSS app/_olddoc/[slug]/page.tsx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS app/(docs)/docs/[[...mdxPath]]/page.tsx------------------------*/
+
+            
+/* End :-----------ACSS app/(docs)/docs/[[...mdxPath]]/page.tsx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS components/logo.tsx------------------------*/
+.df{display: flex}
+.aic{align-items: center}
+.g8px{gap:8px}
+.pl-32px{padding-left: 32px}
+ :is( html[class~="dark"]) .--is\(_html\[class\~\=dark\]\)\&-filter-invert-20\%{filter:invert(20%)}
+
+            
+/* End :-----------ACSS components/logo.tsx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS components/landing/comp-table.tsx------------------------*/
+.padding-block-80px{padding-block: 80px}
+.padding-inline-24px{padding-inline: 24px}
+.max-width-1100px{max-width: 1100px}
+.margin-inline-auto{margin-inline:auto}
+.text-align-center{text-align:center}
+.margin-bottom-48px{margin-bottom: 48px}
+.font-size-12px{font-size: 12px}
+.color-6366f1{color:#6366f1}
+.letter-spacing-0\.08em{letter-spacing: 0.08em}
+.font-size-36px{font-size: 36px}
+.font-weight-800{font-weight:800}
+.color-ffffff{color:#ffffff}
+.letter-spacing--0\.03em{letter-spacing: -0.03em}
+.margin-top-8px{margin-top: 8px}
+.border-radius-16px{border-radius: 16px}
+.border-1px-solid-ffffff\/0\.1{border:1px solid oklch(from #ffffff l c h/0.1 )}
+.background-color-111827\/0\.5{background-color:oklch(from #111827 l c h/0.5 )}
+.border-collapse-collapse{border-collapse:collapse}
+.font-size-14px{font-size: 14px}
+.background-color-ffffff\/0\.03{background-color:oklch(from #ffffff l c h/0.03 )}
+.border-bottom-1px-solid-ffffff\/0\.1{border-bottom:1px solid oklch(from #ffffff l c h/0.1 )}
+.padding-18px-24px{padding: 18px 24px}
+.color-64748b{color:#64748b}
+.width-35\%{width: 35%}
+.width-40\%{width: 40%}
+.background-color-6366f1\/0\.05{background-color:oklch(from #6366f1 l c h/0.05 )}
+.border-bottom-1px-solid-ffffff\/0\.05{border-bottom:1px solid oklch(from #ffffff l c h/0.05 )}
+.padding-16px-24px{padding: 16px 24px}
+.color-ef4444{color:#ef4444}
+.color-10b981{color:#10b981}
+.color-a5b4fc{color:#a5b4fc}
+
+            
+/* End :-----------ACSS components/landing/comp-table.tsx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS components/landing/features.tsx------------------------*/
+.max-width-1280px{max-width: 1280px}
+.margin-bottom-64px{margin-bottom: 64px}
+@layer base{ .\@base-font-size-36px{font-size: 36px}}
+@layer md{
+@media (min-width: 768px){.\@md-font-size-48px{font-size: 48px}}}
+.margin-bottom-16px{margin-bottom: 16px}
+.font-size-16px{font-size: 16px}
+.color-94a3b8{color:#94a3b8}
+.max-width-600px{max-width: 600px}
+@layer base{ .\@base-grid-template-columns-1fr{grid-template-columns: 1fr}}
+@layer md{
+@media (min-width: 768px){.\@md-grid-template-columns-1fr-1fr{grid-template-columns: 1fr 1fr}}}
+@layer lg{
+@media (min-width: 992px){.\@lg-grid-template-columns-1fr-1fr-1fr{grid-template-columns: 1fr 1fr 1fr}}}
+.gap-24px{gap: 24px}
+.padding-32px{padding: 32px}
+.border-radius-20px{border-radius: 20px}
+.background-color-111827\/0\.7{background-color:oklch(from #111827 l c h/0.7 )}
+.border-1px-solid-ffffff\/0\.08{border:1px solid oklch(from #ffffff l c h/0.08 )}
+.display-flex{display:flex}
+.flex-direction-column{flex-direction:column}
+.width-44px{width: 44px}
+.height-44px{height: 44px}
+.border-radius-10px{border-radius: 10px}
+.background-color-6366f1\/0\.15{background-color:oklch(from #6366f1 l c h/0.15 )}
+.align-items-center{align-items:center}
+.justify-content-center{justify-content:center}
+.color-818cf8{color:#818cf8}
+.margin-bottom-20px{margin-bottom: 20px}
+.font-size-20px{font-size: 20px}
+.margin-0{margin: 0}
+.margin-bottom-12px{margin-bottom: 12px}
+.background-color-ec4899\/0\.15{background-color:oklch(from #ec4899 l c h/0.15 )}
+.color-f472b6{color:#f472b6}
+.background-color-10b981\/0\.15{background-color:oklch(from #10b981 l c h/0.15 )}
+.color-34d399{color:#34d399}
+.background-color-f59e0b\/0\.15{background-color:oklch(from #f59e0b l c h/0.15 )}
+.color-fbbf24{color:#fbbf24}
+.background-color-06b6d4\/0\.15{background-color:oklch(from #06b6d4 l c h/0.15 )}
+.color-22d3ee{color:#22d3ee}
+.background-color-8b5cf6\/0\.15{background-color:oklch(from #8b5cf6 l c h/0.15 )}
+.color-c084fc{color:#c084fc}
+
+            
+/* End :-----------ACSS components/landing/features.tsx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS components/landing/footer.tsx------------------------*/
+.border-top-1px-solid-ffffff\/0\.08{border-top:1px solid oklch(from #ffffff l c h/0.08 )}
+.padding-block-32px{padding-block: 32px}
+.background-color-0b0f19{background-color:#0b0f19}
+
+            
+/* End :-----------ACSS components/landing/footer.tsx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS components/landing/framework-philosophy.tsx------------------------*/
+.bg-rgb\(10\,12\,16\){background:rgb(10,12,16)}
+.c-rgb\(240\,243\,246\){color:rgb(240,243,246)}
+.p-48px_24px{padding: 48px_24px}
+.ff-sans-serif{font-family:sans-serif}
+.m-0_auto{margin: 0_auto}
+.m-b-48px{margin:-b 48px}
+.ta-center{text-align:center}
+.c-rgb\(56\,189\,248\){color:rgb(56,189,248)}
+.fs-14px{font-size: 14px}
+.tt-uppercase{text-transform:uppercase}
+.fw-600{font-weight:600}
+.m-b-8px{margin:-b 8px}
+.fs-36px{font-size: 36px}
+.fw-700{font-weight:700}
+.m-b-16px{margin:-b 16px}
+.fs-16px{font-size: 16px}
+.c-rgb\(148\,163\,184\){color:rgb(148,163,184)}
+.lh-1\.6{line-height: 1.6}
+.d-grid{display:grid}
+.grid-template-columns-repeat\(auto-fit\,minmax\(320px\,1fr\)\){grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.bg-rgb\(17\,21\,28\){background:rgb(17,21,28)}
+.br-12px{border-radius: 12px}
+.p-28px{padding: 28px}
+.d-flex{display:flex}
+.fdc{flex-direction: column}
+.jc-space-between{justify-content:space-between}
+.font-mono{font:mono}
+.m-b-12px{margin:-b 12px}
+.d-block{display:block}
+.fs-20px{font-size: 20px}
+.c-rgb\(248\,250\,252\){color:rgb(248,250,252)}
+.m-b-20px{margin:-b 20px}
+.br-6px{border-radius: 6px}
+.p-8px_12px{padding: 8px_12px}
+.fs-13px{font-size: 13px}
+.c-rgb\(226\,232\,240\){color:rgb(226,232,240)}
+.p-t-16px{padding:-t 16px}
+.gap-12px{gap: 12px}
+.c-rgb\(203\,213\,225\){color:rgb(203,213,225)}
+.m-b-2px{margin:-b 2px}
+.fs-12px{font-size: 12px}
+.c-rgb\(100\,116\,139\){color:rgb(100,116,139)}
+.lh-1\.5{line-height: 1.5}
+
+            
+/* End :-----------ACSS components/landing/framework-philosophy.tsx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS components/landing/header.tsx------------------------*/
+.position-sticky{position:sticky}
+.top-0{top: 0}
+.z-index-50{z-index:50}
+.height-70px{height: 70px}
+.background-color-0b0f19\/0\.8{background-color:oklch(from #0b0f19 l c h/0.8 )}
+.backdrop-filter-blur-16px{backdrop-filter:blur(16px)}
+.border-bottom-1px-solid-ffffff\/0\.08{border-bottom:1px solid oklch(from #ffffff l c h/0.08 )}
+.justify-content-space-between{justify-content:space-between}
+@layer lg{
+@media (min-width: 992px){.\@lg-padding-inline-48px{padding-inline: 48px}}}
+.gap-10px{gap: 10px}
+.text-decoration-none{text-decoration:none}
+.font-size-22px{font-size: 22px}
+.font-size-11px{font-size: 11px}
+.padding-3px-8px{padding: 3px 8px}
+.border-radius-9999px{border-radius: 9999px}
+.border-1px-solid-6366f1\/0\.3{border:1px solid oklch(from #6366f1 l c h/0.3 )}
+@layer base{ .\@base-display-none{display:none}}
+@layer md{
+@media (min-width: 768px){.\@md-display-flex{display:flex}}}
+.gap-28px{gap: 28px}
+.--hover-color-ffffff:hover{color:#ffffff}
+.transition-color-150ms{transition:color 150ms}
+.gap-14px{gap: 14px}
+.display-inline-flex{display:inline-flex}
+.padding-8px-18px{padding: 8px 18px}
+.background-color-6366f1{background-color:#6366f1}
+.tn-background-color-150ms__transform-150ms{transition:background-color 150ms,transform 150ms}
+.--hover-\[background-color-4f46e5\,transform-translateY--1px\]:hover{background-color:#4f46e5} 
+.--hover-\[background-color-4f46e5\,transform-translateY--1px\]:hover{transform:translateY(-1px)} 
+
+
+            
+/* End :-----------ACSS components/landing/header.tsx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS components/landing/hero.tsx------------------------*/
+.padding-top-80px{padding-top: 80px}
+.padding-bottom-60px{padding-bottom: 60px}
+.gap-8px{gap: 8px}
+.padding-6px-16px{padding: 6px 16px}
+.background-color-ffffff\/0\.05{background-color:oklch(from #ffffff l c h/0.05 )}
+.margin-bottom-24px{margin-bottom: 24px}
+.width-8px{width: 8px}
+.height-8px{height: 8px}
+.border-radius-50\%{border-radius: 50%}
+.background-color-10b981{background-color:#10b981}
+.box-shadow-0px-0px-8px-10b981{box-shadow:0px 0px 8px #10b981}
+.font-size-13px{font-size: 13px}
+.color-cbd5e1{color:#cbd5e1}
+@layer base{ .\@base-font-size-44px{font-size: 44px}}
+@layer md{
+@media (min-width: 768px){.\@md-font-size-64px{font-size: 64px}}}
+@layer lg{
+@media (min-width: 992px){.\@lg-font-size-76px{font-size: 76px}}}
+.letter-spacing--0\.04em{letter-spacing: -0.04em}
+.line-height-1\.08{line-height: 1.08}
+.max-width-980px{max-width: 980px}
+.background\(linear-gradient\(to_right\,\#818cf8\,\#c084fc\,\#f472b6\)\)_{background:linear-gradient(to right, #818cf8, #c084fc, #f472b6)}
+.background-clip-text{background-clip:text}
+.color-transparent{color:transparent}
+@layer base{ .\@base-font-size-18px{font-size: 18px}}
+@layer md{
+@media (min-width: 768px){.\@md-font-size-20px{font-size: 20px}}}
+.max-width-680px{max-width: 680px}
+.margin-top-24px{margin-top: 24px}
+.margin-bottom-36px{margin-bottom: 36px}
+.background-color-ffffff\/0\.08{background-color:oklch(from #ffffff l c h/0.08 )}
+@layer base{ .\@base-flex-direction-row{flex-direction:row}}
+.gap-16px{gap: 16px}
+.padding-14px-32px{padding: 14px 32px}
+.border-radius-12px{border-radius: 12px}
+.box-shadow-0px-8px-24px-6366f1\/0\.3{box-shadow:0px 8px 24px oklch(from #6366f1 l c h/0.3 )}
+.tn-all-150ms{transition:all 150ms}
+.--hover-\[background-color-4f46e5\,transform-translateY--2px\,box-shadow-0px-12px-32px-6366f1\/0\.4\]:hover{background-color:#4f46e5} 
+.--hover-\[background-color-4f46e5\,transform-translateY--2px\,box-shadow-0px-12px-32px-6366f1\/0\.4\]:hover{transform:translateY(-2px)} 
+.--hover-\[background-color-4f46e5\,transform-translateY--2px\,box-shadow-0px-12px-32px-6366f1\/0\.4\]:hover{box-shadow:0px 12px 32px oklch(from #6366f1 l c h/0.4 )} 
+
+.padding-12px-20px{padding: 12px 20px}
+.background-color-111827{background-color:#111827}
+.border-1px-solid-ffffff\/0\.12{border:1px solid oklch(from #ffffff l c h/0.12 )}
+.tn-border-color-150ms{transition:border-color 150ms}
+.--hover-border-color-6366f1:hover{border-color:#6366f1}
+.width-16px{width: 16px}
+.height-16px{height: 16px}
+.background-color-111827\/0\.9{background-color:oklch(from #111827 l c h/0.9 )}
+.backdrop-filter-blur-20px{backdrop-filter:blur(20px)}
+.box-shadow-0px-24px-64px-000000\/0\.6{box-shadow:0px 24px 64px oklch(from #000000 l c h/0.6 )}
+.overflow-hidden{overflow:hidden}
+.padding-inline-16px{padding-inline: 16px}
+.width-11px{width: 11px}
+.height-11px{height: 11px}
+.background-color-ef4444\/0\.8{background-color:oklch(from #ef4444 l c h/0.8 )}
+.background-color-f59e0b\/0\.8{background-color:oklch(from #f59e0b l c h/0.8 )}
+.background-color-10b981\/0\.8{background-color:oklch(from #10b981 l c h/0.8 )}
+.margin-left-10px{margin-left: 10px}
+.gap-6px{gap: 6px}
+.width-6px{width: 6px}
+.height-6px{height: 6px}
+@layer base{ .\@base-flex-direction-column{flex-direction:column}}
+@layer lg{
+@media (min-width: 992px){.\@lg-flex-direction-row{flex-direction:row}}}
+.flex-1{flex: 1}
+.padding-24px{padding: 24px}
+@layer lg{
+@media (min-width: 992px){.\@lg-border-bottom-none{border-bottom:none}}}
+@layer lg{
+@media (min-width: 992px){.\@lg-border-right-1px-solid-ffffff\/0\.08{border-right:1px solid oklch(from #ffffff l c h/0.08 )}}}
+.background-color-0e1320{background-color:#0e1320}
+.padding-0{padding: 0}
+.background-color-transparent{background-color:transparent}
+.color-ec4899{color:#ec4899}
+.color-fde68a{color:#fde68a}
+.padding-40px{padding: 40px}
+.perspective-1000px{perspective: 1000px}
+.hero-glass-card{padding: 32px} 
+.hero-glass-card{border-radius: 20px} 
+.hero-glass-card{background-color:oklch(from #ffffff l c h/0.05 )} 
+.hero-glass-card{backdrop-filter:blur(12px)} 
+.hero-glass-card{border:1px solid oklch(from #ffffff l c h/0.1 )} 
+ 
+
+.max-width-320px{max-width: 320px}
+.tf-rotateX-10deg__rotateY--10deg{transform:rotateX(10deg) rotateY(-10deg)}
+.tn-transform-0\.2s-ease__box-shadow-0\.2s-ease{transition:transform 0.2s ease,box-shadow 0.2s ease}
+.--hover-\[tf-rotateX-0deg__rotateY-0deg\,box-shadow-0px-20px-40px-6366f1\/0\.2\]:hover{transform:rotateX(0deg) rotateY(0deg)} 
+.--hover-\[tf-rotateX-0deg__rotateY-0deg\,box-shadow-0px-20px-40px-6366f1\/0\.2\]:hover{box-shadow:0px 20px 40px oklch(from #6366f1 l c h/0.2 )} 
+
+.an-heropulse{animation-name:heropulse}
+.adu-3s{animation-duration: 3s}
+.atf-linear{animation-timing-function:linear}
+.aici{animation-iteration-count: infinite}
+.padding-4px-10px{padding: 4px 10px}
+.background-color-10b981\/0\.1{background-color:oklch(from #10b981 l c h/0.1 )}
+.border-1px-solid-10b981\/0\.3{border:1px solid oklch(from #10b981 l c h/0.3 )}
+.mini-btn{border:none} 
+.mini-btn{outline:none} 
+.mini-btn{padding: 8px 16px} 
+.mini-btn{border-radius: 8px} 
+.mini-btn{background-color:#6366f1} 
+.mini-btn{color:#ffffff} 
+.mini-btn{font-size: 13px} 
+.mini-btn{font-weight:600} 
+ 
+
+@keyframes heropulse{
+ 0% {box-shadow:0px 0px 0px} 50% {box-shadow:0px 0px 30px oklch(from #6366f1 l c h/0.4 )} 100% {box-shadow:0px 0px 0px}
+}
+
+
+            
+/* End :-----------ACSS components/landing/hero.tsx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS components/landing/index.tsx------------------------*/
+.scroll-behavior-smooth{scroll-behavior:smooth}
+.position-fixed{position:fixed}
+.inset-0{inset: 0}
+.width-100vw{width: 100vw}
+.height-100vh{height: 100vh}
+.z-index--10{z-index:-10}
+.pointer-events-none{pointer-events:none}
+.background-color-f8fafc{background-color:#f8fafc}
+ html[class~="dark"] ._html\[class\~\=dark\]\&-background-color-090d16{background-color:#090d16}
+.transition-background-color-500ms{transition:background-color 500ms}
+.position-absolute{position:absolute}
+.top-10\%{top: 10%}
+.left-5\%{left: 5%}
+.width-550px{width: 550px}
+.height-550px{height: 550px}
+.border-radius-40\%{border-radius: 40%}
+ html[class~="dark"] ._html\[class\~\=dark\]\&-border-1px-solid-818cf8\/0\.25{border:1px solid oklch(from #818cf8 l c h/0.25 )}
+.background-color-6366f1\/0\.06{background-color:oklch(from #6366f1 l c h/0.06 )}
+ html[class~="dark"] ._html\[class\~\=dark\]\&-background-color-6366f1\/0\.12{background-color:oklch(from #6366f1 l c h/0.12 )}
+.filter-blur-40px{filter:blur(40px)}
+.tf-perspective-1200px{transform:perspective(1200px)}
+.an-drift3d{animation-name:drift3d}
+.adu-24s{animation-duration: 24s}
+.bottom-5\%{bottom: 5%}
+.right-5\%{right: 5%}
+.width-450px{width: 450px}
+.height-450px{height: 450px}
+.background\(radial-gradient\(circle\,rgba\(236\,72\,153\,0\.18\)\,transparent_70\%\)\)_{background:radial-gradient(circle, rgba(236, 72, 153, 0.18), transparent 70%)}
+ html[class~="dark"] ._html\[class\~\=dark\]\&-background\(radial-gradient\(circle\,rgba\(244\,114\,182\,0\.25\)\,transparent_70\%\)\)_{background:radial-gradient(circle, rgba(244, 114, 182, 0.25), transparent 70%)}
+.filter-blur-60px{filter:blur(60px)}
+.an-orbdrift{animation-name:orbdrift}
+.adu-16s{animation-duration: 16s}
+.atf-ease-in-out{animation-timing-function:ease-in-out}
+.height-100\%{height: 100%}
+.opacity-30{opacity: 30}
+ html[class~="dark"] ._html\[class\~\=dark\]\&-opacity-15{opacity: 15}
+.background-size-40px-40px{background-size: 40px 40px}
+.background\(linear-gradient\(to_right\,rgba\(100\,116\,139\,0\.15\)_1px\,transparent_1px\)\,linear-gradient\(to_bottom\,rgba\(100\,116\,139\,0\.15\)_1px\,transparent_1px\)\)_{background:linear-gradient(to right, rgba(100, 116, 139, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(100, 116, 139, 0.15) 1px, transparent 1px)}
+ html[class~="dark"] ._html\[class\~\=dark\]\&-background\(linear-gradient\(to_right\,rgba\(255\,255\,255\,0\.08\)_1px\,transparent_1px\)\,linear-gradient\(to_bottom\,rgba\(255\,255\,255\,0\.08\)_1px\,transparent_1px\)\)_{background:linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px)}
+.tf-perspective-600px__rotateX-65deg{transform:perspective(600px) rotateX(65deg)}
+.transform-origin-center-top{transform-origin:-center-top}
+.an-floorgrid{animation-name:floorgrid}
+.adu-5s{animation-duration: 5s}
+.position-relative{position:relative}
+.r-0{right: 0}
+.l-0{left: 0}
+.min-height-100vh{min-height: 100vh}
+.overflow-x-hidden{overflow-x:hidden}
+.left-50\%{left: 50%}
+.transform-translateX--50\%{transform:translateX(-50%)}
+.max-width-1200px{max-width: 1200px}
+.height-600px{height: 600px}
+.background\(radial-gradient\(ellipse_at_top\,rgba\(99\,102\,241\,0\.18\)\,transparent_70\%\)\)_{background:radial-gradient(ellipse at top, rgba(99, 102, 241, 0.18), transparent 70%)}
+.z-index-0{z-index:0}
+.top-400px{top: 400px}
+.right--200px{right: -200px}
+.width-500px{width: 500px}
+.height-500px{height: 500px}
+.background-color-ec4899\/0\.08{background-color:oklch(from #ec4899 l c h/0.08 )}
+.filter-blur-120px{filter:blur(120px)}
+.z-index-1{z-index:1}
+.padding-block-100px{padding-block: 100px}
+.max-width-800px{max-width: 800px}
+.font-size-18px{font-size: 18px}
+.--hover-\[background-color-4f46e5\,transform-translateY--2px\]:hover{background-color:#4f46e5} 
+.--hover-\[background-color-4f46e5\,transform-translateY--2px\]:hover{transform:translateY(-2px)} 
+
+@keyframes drift3d{
+ 0% {transform:rotateX(15deg) rotateY(0deg) translateZ(0px)} 50% {transform:rotateX(35deg) rotateY(180deg) translateZ(80px)} 100% {transform:rotateX(15deg) rotateY(360deg) translateZ(0px)}
+}
+
+@keyframes orbdrift{
+ 0% {transform:translate3d(0px,0px,0px)} 50% {transform:translate3d(-100px,-90px,50px)} 100% {transform:translate3d(0px,0px,0px)}
+}
+
+
+            
+/* End :-----------ACSS components/landing/index.tsx----------------------------*/
+
+            @layer reset, base, theme, components, utilities, xs, sm, md, lg, xl, xxl;
+            
+/* Start :-----------ACSS components/landing/test.jsx------------------------*/
+
+            
+/* End :-----------ACSS components/landing/test.jsx----------------------------*/
+
+            
+@media (prefers-color-scheme: dark){ .\@dark-filter-invert-20\%{filter:invert(20%)}}
+
+            

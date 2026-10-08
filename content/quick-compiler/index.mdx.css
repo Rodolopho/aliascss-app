@@ -1,0 +1,28 @@
+.d-f{display:flex}
+.g-32px{gap: 32px}
+.mt-16px{margin-top: 16px}
+.fdc{flex-direction: column}
+.w-100p{width: 100%}
+@layer md{
+@media (min-width: 768px){.md-fdr-i{flex-direction: row !important}}}
+.__div\[flex-basis-50\%\] > div{flex-basis: 50%} 
+
+.mw-50p{min-width: 50%}
+@layer md{
+@media (min-width: 768px){.md-mt-80px{margin-top: 80px}}}
+.xw-200px{max-width: 200px}
+.w-100px{width: 100px}
+@layer xs{
+@media (max-width: 575.99px){.\@xs-dn{display: none}}}
+@layer lg{
+@media (min-width: 992px){.lg-db{display: block}}}
+@layer lg{
+@media (min-width: 992px){.lg-mla{margin-left: auto}}}
+@layer lg{
+@media (min-width: 992px){.lg-mra{margin-right: auto}}}
+.color-red{color:red}
+.font-size-12px{font-size: 12px}
+.display-inline-block{display:inline-block}
+.c-red{color:red}
+.fs-12px{font-size: 12px}
+.dib{display: inline-block}

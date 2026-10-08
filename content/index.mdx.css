@@ -1,28 +1,130 @@
-.d-f{display:flex}
-.g-32px{gap: 32px}
-.mt-16px{margin-top: 16px}
-.fdc{flex-direction: column}
-.w-100p{width: 100%}
-@layer md{
-@media (min-width: 768px){.md-fdr-i{flex-direction: row !important}}}
-.__div\[flex-basis-50\%\] > div{flex-basis: 50%} 
+...
 
-.mw-50p{min-width: 50%}
+.background-color-primary{background-color:primary}
+.color-ffffff{color:#ffffff}
+.padding-8px-16px{padding: 8px 16px}
+.background-color-gray200{background-color:var(--gray200,#EAECF0)}
+.color-gray800{color:var(--gray800,#1D2939)}
+.display-flex{display:flex}
+.padding-24px{padding: 24px}
+.background-color-18181b{background-color:#18181b}
+.flex-direction-column{flex-direction:column}
+.justify-content-space-between{justify-content:space-between}
+.align-items-center{align-items:center}
+.border-radius-12px{border-radius: 12px}
+.background-color-ffffff{background-color:#ffffff}
+.background\(linear-gradient\(135deg\,red_30\%\,blue_60\%\)\)_{background:linear-gradient(135deg, red 30%, blue 60%)}
+.grid-template-columns\(repeat\(3\,minmax\(280px\,1fr\)\)\)_{grid-template-columns:repeat(3, minmax(280px, 1fr))}
+.__h3-font-size-20px > h3{font-size: 20px}
+.__h3-font-weight-700 > h3{font-weight:700}
+.__p-color-64748b > p{color:#64748b}
+._h3\[font-size-18px\,font-weight-700\,color-ffffff\] h3{font-size: 18px} 
+._h3\[font-size-18px\,font-weight-700\,color-ffffff\] h3{font-weight:700} 
+._h3\[font-size-18px\,font-weight-700\,color-ffffff\] h3{color:#ffffff} 
+
+.color-000000{color:#000000}
+.--hover\[background-color-000000\,color-ffffff\,border-color-000000\]:hover{background-color:#000000} 
+.--hover\[background-color-000000\,color-ffffff\,border-color-000000\]:hover{color:#ffffff} 
+.--hover\[background-color-000000\,color-ffffff\,border-color-000000\]:hover{border-color:#000000} 
+
+ .card:hover  > .__\.card--hover\&-opacity-1{opacity: 1}
+.opacity-0{opacity: 0}
+ input:checked  + .___input--checked\&-color-6366f1{color:#6366f1}
+.color-0f172a{color:#0f172a}
+ html[class~="dark"] ._html\[class\~\=dark\]\&-\[background-color-0b0f19\,color-f8fafc\]{background-color:#0b0f19} 
+ html[class~="dark"] ._html\[class\~\=dark\]\&-\[background-color-0b0f19\,color-f8fafc\]{color:#f8fafc} 
+
+.width-100\%{width: 100%}
+@layer sm{
+@media (min-width: 576px){.\@sm-width-50\%{width: 50%}}}
+@layer lg{
+@media (min-width: 992px){.\@lg-width-33\.333\%{width: 33.333%}}}
 @layer md{
-@media (min-width: 768px){.md-mt-80px{margin-top: 80px}}}
-.xw-200px{max-width: 200px}
-.w-100px{width: 100px}
-@layer xs{
-@media (max-width: 575.99px){.\@xs-dn{display: none}}}
-@layer lg{
-@media (min-width: 992px){.lg-db{display: block}}}
-@layer lg{
-@media (min-width: 992px){.lg-mla{margin-left: auto}}}
-@layer lg{
-@media (min-width: 992px){.lg-mra{margin-right: auto}}}
-.color-red{color:red}
-.font-size-12px{font-size: 12px}
-.display-inline-block{display:inline-block}
-.c-red{color:red}
-.fs-12px{font-size: 12px}
-.dib{display: inline-block}
+@media (min-width: 768px){.\@md\[padding-24px\,gap-20px\,display-flex\]{padding: 24px}}} 
+@layer md{
+@media (min-width: 768px){.\@md\[padding-24px\,gap-20px\,display-flex\]{gap: 20px}}} 
+@layer md{
+@media (min-width: 768px){.\@md\[padding-24px\,gap-20px\,display-flex\]{display:flex}}}
+@supports (display:grid) { @layer base{ .\@\[supports\(display\:grid\)\,base\]-display-grid{display:grid}}}
+@container sidebar (min-width:400px) { .\@\[container_sidebar\(min-width\:400px\)\]-display-none{display:none}}
+.container-type-inline-size{container-type:inline-size}
+.\[display-flex\,gap-16px\,padding-20px\]{display:flex} 
+.\[display-flex\,gap-16px\,padding-20px\]{gap: 16px} 
+.\[display-flex\,gap-16px\,padding-20px\]{padding: 20px} 
+
+.--hover-\[color-000000\,background-color-ffffff\]:hover{color:#000000} 
+.--hover-\[color-000000\,background-color-ffffff\]:hover{background-color:#ffffff} 
+
+.\[data-state\=open\]\[display-flex\,position-absolute\,left-0\,top-100\%\][data-state="open"]{display:flex} 
+.\[data-state\=open\]\[display-flex\,position-absolute\,left-0\,top-100\%\][data-state="open"]{position:absolute} 
+.\[data-state\=open\]\[display-flex\,position-absolute\,left-0\,top-100\%\][data-state="open"]{left: 0} 
+.\[data-state\=open\]\[display-flex\,position-absolute\,left-0\,top-100\%\][data-state="open"]{top: 100%} 
+
+._h3\[font-size-20px\,font-weight-700\] h3{font-size: 20px} 
+._h3\[font-size-20px\,font-weight-700\] h3{font-weight:700} 
+
+.__button\[padding-8px-16px\,background-color-6366f1\] > button{padding: 8px 16px} 
+.__button\[padding-8px-16px\,background-color-6366f1\] > button{background-color:#6366f1} 
+
+.btn{padding: 8px 16px} 
+.btn{border-radius: 6px} 
+.btn{font-weight:600} 
+.btn{cursor:pointer} 
+ 
+
+.btn{padding: 16px} 
+.btn{display:flex} 
+.btn{align-items:center} 
+.btn{justify-content:center} 
+ 
+ 
+.badge{padding: 16px} 
+.badge{display:flex} 
+.badge{align-items:center} 
+.badge{justify-content:center} 
+ 
+ 
+
+@layer md{
+@media (min-width: 768px){.card{padding: 24px}}} 
+@layer md{
+@media (min-width: 768px){.card{background-color:#6366f1}}} 
+ 
+
+.card[class]{background-color:#ffffff} 
+.card[class]{border-radius: 12px} 
+.card[class]{padding: 16px} 
+ 
+
+.an-fadeIn{animation-name:fadeIn}
+.adu-1s{animation-duration: 1s}
+.atf-linear{animation-timing-function:linear}
+.an-pop{animation-name:pop}
+.adu-0\.6s{animation-duration: 0.6s}
+.atf-ease-out{animation-timing-function:ease-out}
+.an-spin{animation-name:spin}
+.aici{animation-iteration-count: infinite}
+.opacity-1{opacity: 1}
+.transform-scale-1{transform:scale(1)}
+.transition-all-200ms{transition:all 200ms}
+@starting-style{ .\@starting-style\[opacity-0\,tf-scale-0\.9\]{opacity: 0}} 
+@starting-style{ .\@starting-style\[opacity-0\,tf-scale-0\.9\]{transform:scale(0.9)}} 
+
+.anchor-name-popover-anchor{anchor-name:--popover-anchor}
+.position-anchor-popover-anchor{position-anchor:--popover-anchor}
+.position-fixed{position:fixed}
+.top-anchor-bottom{top:-anchor-bottom}
+.animation-timeline-scroll-root{animation-timeline:scroll(root)}
+.animation-range-entry-0\%-exit-100\%{animation-range: entry 0% exit 100%}
+@keyframes fadeIn{
+ 0% {opacity: 0} 100% {opacity: 1}
+}
+
+@keyframes pop{
+ 0% {transform:scale(0.8);opacity: 0} 100% {transform:scale(1);opacity: 1}
+}
+
+@media (768px<=width<=1024px){ .\@\[media\(768px\<\=width\<\=1024px\)\]-display-none{display:none}}
+
+@media (prefers-reduced-motion: reduce){ .\@motion-reduce-an-none{animation-name:none}}
+
